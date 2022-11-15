@@ -31,11 +31,10 @@ Partial Class waitform
         '
         Me.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.progressPanel1.Appearance.Options.UseBackColor = True
-        Me.progressPanel1.AppearanceCaption.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.progressPanel1.AppearanceCaption.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.progressPanel1.AppearanceCaption.Options.UseFont = True
-        Me.progressPanel1.AppearanceDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.progressPanel1.AppearanceDescription.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.progressPanel1.AppearanceDescription.Options.UseFont = True
-        Me.progressPanel1.BarAnimationElementThickness = 2
         Me.progressPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.progressPanel1.ImageHorzOffset = 20
         Me.progressPanel1.Location = New System.Drawing.Point(0, 17)
@@ -43,7 +42,6 @@ Partial Class waitform
         Me.progressPanel1.Name = "progressPanel1"
         Me.progressPanel1.Size = New System.Drawing.Size(246, 39)
         Me.progressPanel1.TabIndex = 0
-        Me.progressPanel1.Text = "progressPanel1"
         '
         'tableLayoutPanel1
         '

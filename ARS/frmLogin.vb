@@ -1,5 +1,5 @@
 ﻿Public Class frmLogin
-    Function checkLogIn()
+    Function checkLogIn() As Boolean
 
         If GcLogin.Text = "Login to Your Account" Then
             Call konneksyon()
@@ -12,16 +12,17 @@
                 frmMain.lbluser.Caption = dset.Tables(sql).Rows(0).Item("name")
                 frmMain.lblacctType.Caption = dset.Tables(sql).Rows(0).Item("AccountType")
                 frmMain.lblid.Caption = dset.Tables(sql).Rows(0).Item("EmpID")
-                'SplashScreenManager1.ShowWaitForm()
-                ' Threading.Thread.Sleep(1500)
-                'SplashScreenManager1.CloseWaitForm()
-                lblcount.text = 1
+                SplashScreenManager2.ShowWaitForm()
+                Threading.Thread.Sleep(1500)
+                SplashScreenManager2.CloseWaitForm()
+                lblcount.Text = 1
                 frmMain.Show()
                 frmMain.RibbonControl.Visible = True
-                'frmMain.RibbonStatusBar.Visible = True
+                frmMain.RibbonStatusBar1.Visible = True
                 Me.Close()
             End If
         End If
+        Return True
     End Function
     Private Sub cmdlogin_Click(sender As Object, e As EventArgs) Handles cmdlogin.Click
         Call checkLogIn()

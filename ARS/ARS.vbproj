@@ -100,6 +100,12 @@
     <Compile Include="frmAddEditProducts.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAddEditSuppliers.Designer.vb">
+      <DependentUpon>frmAddEditSuppliers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEditSuppliers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -116,6 +122,12 @@
       <DependentUpon>frmProducts.vb</DependentUpon>
     </Compile>
     <Compile Include="frmProducts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuppliers.Designer.vb">
+      <DependentUpon>frmSuppliers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSuppliers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\connection.vb" />
@@ -157,6 +169,9 @@
     <EmbeddedResource Include="frmAddEditProducts.resx">
       <DependentUpon>frmAddEditProducts.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEditSuppliers.resx">
+      <DependentUpon>frmAddEditSuppliers.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProducts.resx">
       <DependentUpon>frmProducts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuppliers.resx">
+      <DependentUpon>frmSuppliers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\frmconnection.resx">
       <DependentUpon>frmconnection.vb</DependentUpon>
@@ -194,6 +212,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icons8_product_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_supplier_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

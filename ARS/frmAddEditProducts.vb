@@ -110,6 +110,7 @@ Public Class frmAddEditProducts
                 Call save(sql)
                 Call xclear()
                 MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                frmMain.product.populateProducts()
                 Me.Close()
             End If
         End If
@@ -134,6 +135,7 @@ Public Class frmAddEditProducts
                 Call save(sql)
                 Call xclear()
                 MsgBox("Edit successfully!", MsgBoxStyle.Information, Me.Text)
+                frmMain.product.populateProducts()
                 Me.Close()
             End If
         End If
@@ -141,6 +143,8 @@ Public Class frmAddEditProducts
     End Function
 
     Private Sub btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
-
+        If MsgBox("Are you sure you want to cancel?", MsgBoxStyle.OkCancel + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Ok Then
+            Me.Close()
+        End If
     End Sub
 End Class

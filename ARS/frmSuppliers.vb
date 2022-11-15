@@ -11,56 +11,50 @@ Imports DevExpress.Utils.Menu
 Imports DevExpress.Utils
 Imports DevExpress.Utils.Paint
 Imports DevExpress.XtraGrid.Columns
-Public Class frmProducts
+Public Class frmSuppliers
     Private Sub btnadd_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnadd.ItemClick
-        frmAddEditProducts.txtDescription.Select()
-        frmAddEditProducts.Text = "Add Product"
-        frmAddEditProducts.xclear()
-        frmAddEditProducts.ShowDialog()
+        frmAddEditSuppliers.txtsupplierName.Select()
+        frmAddEditSuppliers.Text = "Add Supplier"
+        frmAddEditSuppliers.xclear()
+        frmAddEditSuppliers.ShowDialog()
     End Sub
 
-    Private Sub frmProducts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call populateProducts()
+    Private Sub frmSuppliers_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Call populateSupplier()
     End Sub
-    Function populateProducts() As Boolean
+
+    Function populateSupplier() As Boolean
         Call konneksyon()
-        sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price,a.Added_at, c.Name from tblProducts as a " _
-            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID " _
-            & "inner join tblEmpusers as c on a.Added_by=c.EmpID order by a.ProductID desc"
-        Call populate(sql, dgProducts)
-        lblcount.Caption = gvproducts.RowCount & " Record(s) Found"
-        gvproducts.BestFitColumns()
-        gvproducts.RowHeight = 20
+        sql = "select SupplierID, SupplierName, Address, ContactPerson, ContactNo,Added_at,Added_by from tblSupplier order by SupplierID desc"
+        Call populate(sql, dgsupplier)
+        lblcount.Caption = gvsupplier.RowCount & " Record(s) Found"
+        gvsupplier.BestFitColumns()
+        gvsupplier.RowHeight = 20
         Return True
     End Function
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price,d.UomCode,a.Added_at, c.Name from tblProducts as a " _
-            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID " _
-            & "inner join tblEmpusers as c on a.Added_by=c.EmpID " _
-            & "inner join tblUomCode as d on a.UomID=d.ID where ProductID='" & keyID & "'"
+        sql = "select SupplierID, SupplierName, Address, ContactPerson, ContactNo,Added_at,Added_by from tblSupplier where SupplierID='" & keyID & "'"
         Call fill(sql)
-        frmAddEditProducts.txtProductID.Text = dset.Tables(sql).Rows(0).Item("ProductID")
-        frmAddEditProducts.txtDescription.Text = dset.Tables(sql).Rows(0).Item("ItemDescription")
-        frmAddEditProducts.cbSupplier.Text = dset.Tables(sql).Rows(0).Item("SupplierName")
-        frmAddEditProducts.txtPrice.Text = dset.Tables(sql).Rows(0).Item("Price")
-        frmAddEditProducts.cbUom.Text = dset.Tables(sql).Rows(0).Item("UomCode")
-        Call frmAddEditProducts.Supplier()
-        Call frmAddEditProducts.Uom()
+        frmAddEditSuppliers.txtsupplierID.Text = dset.Tables(sql).Rows(0).Item("SupplierID")
+        frmAddEditSuppliers.txtsupplierName.Text = dset.Tables(sql).Rows(0).Item("SupplierName")
+        frmAddEditSuppliers.txtSupplierAddress.Text = dset.Tables(sql).Rows(0).Item("Address")
+        frmAddEditSuppliers.txtContactPerson.Text = dset.Tables(sql).Rows(0).Item("ContactPerson")
+        frmAddEditSuppliers.txtCpNo.Text = dset.Tables(sql).Rows(0).Item("ContactNo")
+
         Return True
     End Function
     Function Search() As Boolean
         Try
             If txtsearch.Text = "" Then
                 Call konneksyon()
-                sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price,a.Added_at, c.Name from tblProducts as a " _
-                    & "inner join tblsupplier as b on a.SupplierID=b.SupplierID " _
-                    & "inner join tblEmpusers as c on a.Added_by=c.EmpID where ItemDescription like '%" & txtsearch.Text & "%' order by a.ProductID desc"
-                Call populate(sql, dgProducts)
+                sql = "select SupplierID, SupplierName, Address, ContactPerson, " _
+                    & "ContactNo,Added_at,Added_by from tblSupplier where SupplierName like '%" & txtsearch.Text & "%' order by SupplierID desc"
+                Call populate(sql, dgsupplier)
                 If dset.Tables(sql).Rows.Count > 0 Then
-                    lblcount.Caption = gvproducts.RowCount & " Record(s) Found"
-                    gvproducts.BestFitColumns()
-                    gvproducts.RowHeight = 20
+                    lblcount.Caption = gvsupplier.RowCount & " Record(s) Found"
+                    gvsupplier.BestFitColumns()
+                    gvsupplier.RowHeight = 20
                 Else
                     MsgBox("No record found!", MsgBoxStyle.Information, Me.Text)
                 End If
@@ -71,7 +65,7 @@ Public Class frmProducts
 
         Return True
     End Function
-    Private Sub gvproducts_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles gvproducts.CustomDrawCell
+    Private Sub gvsupplier_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles gvsupplier.CustomDrawCell
         If Not Me.txtsearch.Text <> "" Then Return
         Dim view As GridView = CType(sender, GridView)
         If Not view.IsDataRow(e.RowHandle) Then Return
@@ -86,6 +80,7 @@ Public Class frmProducts
             End If
         Next
     End Sub
+
     Private Sub txtsearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtsearch.KeyPress
         If Not (Asc(e.KeyChar)) = 8 Then
             Dim allowchar As String = "QWERTYUIOPLKJHGFDSAZXCVÑñBNMqwertyuioplkjhgfdsazxcvbnm1234567890-@., "
@@ -109,20 +104,20 @@ Public Class frmProducts
     Private Sub btnedit_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles btnedit.ItemClick
         If txtselectedcode.Text <> "" Then
             Call filltext()
-            frmAddEditProducts.Text = "Edit Product"
-            frmAddEditProducts.ShowDialog()
+            frmAddEditSuppliers.Text = "Edit Supplier"
+            frmAddEditSuppliers.ShowDialog()
         Else
             MsgBox("Select record to edit!", MsgBoxStyle.Information, Me.Text)
         End If
     End Sub
-    Private Sub gvproducts_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvproducts.FocusedRowChanged
+    Private Sub gvsupplier_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvsupplier.FocusedRowChanged
         Try
-            keyID = gvproducts.GetRowCellValue(gvproducts.FocusedRowHandle, "ProductID")
-            Dim da = New SqlDataAdapter("select * from tblProducts where ProductID='" & keyID & "'", kon)
+            keyID = gvsupplier.GetRowCellValue(gvsupplier.FocusedRowHandle, "SupplierID")
+            Dim da = New SqlDataAdapter("select * from tblsupplier where SupplierID='" & keyID & "'", kon)
             Dim dset = New DataSet
-            da.Fill(dset, "tblProducts")
-            If dset.Tables("tblProducts").Rows.Count > 0 Then
-                txtselectedcode.Text = dset.Tables("tblProducts").Rows(0).Item("ProductID")
+            da.Fill(dset, "tblsupplier")
+            If dset.Tables("tblsupplier").Rows.Count > 0 Then
+                txtselectedcode.Text = dset.Tables("tblsupplier").Rows(0).Item("SupplierID")
             Else
             End If
         Catch ex As Exception

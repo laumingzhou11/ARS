@@ -21,7 +21,7 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim SkinPaddingEdges3 As DevExpress.Skins.SkinPaddingEdges = New DevExpress.Skins.SkinPaddingEdges()
+        Dim SkinPaddingEdges1 As DevExpress.Skins.SkinPaddingEdges = New DevExpress.Skins.SkinPaddingEdges()
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.btnProducts = New DevExpress.XtraBars.BarButtonItem()
         Me.btnpositions = New DevExpress.XtraBars.BarButtonItem()
@@ -65,6 +65,7 @@ Partial Class frmMain
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
         Me.RibbonControl.Size = New System.Drawing.Size(1215, 158)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar1
+        Me.RibbonControl.Visible = False
         '
         'btnProducts
         '
@@ -85,6 +86,9 @@ Partial Class frmMain
         '
         Me.btnSuppliers.Caption = "Suppliers"
         Me.btnSuppliers.Id = 3
+        Me.btnSuppliers.ImageOptions.Image = Global.ARS.My.Resources.Resources.icons8_supplier_16
+        Me.btnSuppliers.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSuppliers.ItemAppearance.Normal.Options.UseFont = True
         Me.btnSuppliers.Name = "btnSuppliers"
         '
         'btnTanks
@@ -179,6 +183,7 @@ Partial Class frmMain
         Me.RibbonStatusBar1.Name = "RibbonStatusBar1"
         Me.RibbonStatusBar1.Ribbon = Me.RibbonControl
         Me.RibbonStatusBar1.Size = New System.Drawing.Size(1215, 24)
+        Me.RibbonStatusBar1.Visible = False
         '
         'BarStaticItem2
         '
@@ -258,9 +263,9 @@ Partial Class frmMain
         Me.SkinRibbonGalleryBarItem3.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio
         Me.SkinRibbonGalleryBarItem3.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze
         Me.SkinRibbonGalleryBarItem3.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Top
-        SkinPaddingEdges3.Left = 8
-        SkinPaddingEdges3.Right = 8
-        Me.SkinRibbonGalleryBarItem3.Gallery.ItemImagePadding = SkinPaddingEdges3
+        SkinPaddingEdges1.Left = 8
+        SkinPaddingEdges1.Right = 8
+        Me.SkinRibbonGalleryBarItem3.Gallery.ItemImagePadding = SkinPaddingEdges1
         Me.SkinRibbonGalleryBarItem3.Id = 68
         Me.SkinRibbonGalleryBarItem3.ImageOptions.Image = CType(resources.GetObject("SkinRibbonGalleryBarItem3.ImageOptions.Image"), System.Drawing.Image)
         Me.SkinRibbonGalleryBarItem3.ImageOptions.SvgImage = CType(resources.GetObject("SkinRibbonGalleryBarItem3.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)

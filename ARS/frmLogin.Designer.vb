@@ -24,14 +24,17 @@ Partial Class frmLogin
         Me.HyperlinkLabelControl3 = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdlogin = New DevExpress.XtraEditors.SimpleButton()
-        Me.txtpw = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtuser = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.lblcount = New DevExpress.XtraEditors.LabelControl()
+        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
+        Me.txtpw = New DevExpress.XtraEditors.TextEdit()
+        Me.txtuser = New DevExpress.XtraEditors.TextEdit()
+        Me.SplashScreenManager2 = New DevExpress.XtraSplashScreen.SplashScreenManager(Me, GetType(Global.ARS.waitform), True, True)
         CType(Me.GcLogin, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GcLogin.SuspendLayout()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtpw.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtuser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -51,9 +54,9 @@ Partial Class frmLogin
         Me.GcLogin.Controls.Add(Me.LabelControl6)
         Me.GcLogin.Controls.Add(Me.LabelControl4)
         Me.GcLogin.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GcLogin.Location = New System.Drawing.Point(0, 196)
+        Me.GcLogin.Location = New System.Drawing.Point(0, 216)
         Me.GcLogin.Name = "GcLogin"
-        Me.GcLogin.Size = New System.Drawing.Size(292, 235)
+        Me.GcLogin.Size = New System.Drawing.Size(366, 235)
         Me.GcLogin.TabIndex = 5
         Me.GcLogin.Text = "Login to Your Account"
         '
@@ -61,7 +64,7 @@ Partial Class frmLogin
         '
         Me.HyperlinkLabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HyperlinkLabelControl3.Appearance.Options.UseFont = True
-        Me.HyperlinkLabelControl3.Location = New System.Drawing.Point(185, 207)
+        Me.HyperlinkLabelControl3.Location = New System.Drawing.Point(222, 207)
         Me.HyperlinkLabelControl3.Name = "HyperlinkLabelControl3"
         Me.HyperlinkLabelControl3.Size = New System.Drawing.Size(41, 14)
         Me.HyperlinkLabelControl3.TabIndex = 28
@@ -71,7 +74,7 @@ Partial Class frmLogin
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(66, 208)
+        Me.LabelControl5.Location = New System.Drawing.Point(103, 208)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(115, 13)
         Me.LabelControl5.TabIndex = 27
@@ -86,24 +89,9 @@ Partial Class frmLogin
         Me.cmdlogin.ImageOptions.SvgImage = CType(resources.GetObject("cmdlogin.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.cmdlogin.Location = New System.Drawing.Point(10, 164)
         Me.cmdlogin.Name = "cmdlogin"
-        Me.cmdlogin.Size = New System.Drawing.Size(270, 34)
+        Me.cmdlogin.Size = New System.Drawing.Size(347, 34)
         Me.cmdlogin.TabIndex = 25
         Me.cmdlogin.Text = "LOGIN"
-        '
-        'txtpw
-        '
-        Me.txtpw.Location = New System.Drawing.Point(10, 118)
-        Me.txtpw.Name = "txtpw"
-        Me.txtpw.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtpw.Properties.Appearance.Options.UseFont = True
-        Me.txtpw.Properties.AutoHeight = False
-        Me.txtpw.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtpw.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtpw.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far
-        Me.txtpw.Properties.ContextImageOptions.Image = CType(resources.GetObject("txtpw.Properties.ContextImageOptions.Image"), System.Drawing.Image)
-        Me.txtpw.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtpw.Size = New System.Drawing.Size(270, 28)
-        Me.txtpw.TabIndex = 21
         '
         'LabelControl3
         '
@@ -114,20 +102,6 @@ Partial Class frmLogin
         Me.LabelControl3.Size = New System.Drawing.Size(60, 13)
         Me.LabelControl3.TabIndex = 22
         Me.LabelControl3.Text = "USERNAME"
-        '
-        'txtuser
-        '
-        Me.txtuser.Location = New System.Drawing.Point(10, 56)
-        Me.txtuser.Name = "txtuser"
-        Me.txtuser.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtuser.Properties.Appearance.Options.UseFont = True
-        Me.txtuser.Properties.AutoHeight = False
-        Me.txtuser.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtuser.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtuser.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far
-        Me.txtuser.Properties.ContextImageOptions.Image = CType(resources.GetObject("txtuser.Properties.ContextImageOptions.Image"), System.Drawing.Image)
-        Me.txtuser.Size = New System.Drawing.Size(270, 28)
-        Me.txtuser.TabIndex = 19
         '
         'LabelControl6
         '
@@ -151,20 +125,65 @@ Partial Class frmLogin
         '
         'lblcount
         '
-        Me.lblcount.Location = New System.Drawing.Point(315, 84)
+        Me.lblcount.Location = New System.Drawing.Point(387, 84)
         Me.lblcount.Name = "lblcount"
         Me.lblcount.Size = New System.Drawing.Size(66, 13)
         Me.lblcount.TabIndex = 6
         Me.lblcount.Text = "LabelControl1"
         '
+        'PictureEdit1
+        '
+        Me.PictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureEdit1.EditValue = Global.ARS.My.Resources.Resources.Untitled_1
+        Me.PictureEdit1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureEdit1.Name = "PictureEdit1"
+        Me.PictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
+        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit1.Size = New System.Drawing.Size(366, 216)
+        Me.PictureEdit1.TabIndex = 7
+        '
+        'txtpw
+        '
+        Me.txtpw.Location = New System.Drawing.Point(10, 118)
+        Me.txtpw.Name = "txtpw"
+        Me.txtpw.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpw.Properties.Appearance.Options.UseFont = True
+        Me.txtpw.Properties.AutoHeight = False
+        Me.txtpw.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtpw.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtpw.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far
+        Me.txtpw.Properties.ContextImageOptions.Image = CType(resources.GetObject("txtpw.Properties.ContextImageOptions.Image"), System.Drawing.Image)
+        Me.txtpw.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtpw.Size = New System.Drawing.Size(347, 28)
+        Me.txtpw.TabIndex = 21
+        '
+        'txtuser
+        '
+        Me.txtuser.Location = New System.Drawing.Point(10, 56)
+        Me.txtuser.Name = "txtuser"
+        Me.txtuser.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtuser.Properties.Appearance.Options.UseFont = True
+        Me.txtuser.Properties.AutoHeight = False
+        Me.txtuser.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtuser.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtuser.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far
+        Me.txtuser.Properties.ContextImageOptions.Image = CType(resources.GetObject("txtuser.Properties.ContextImageOptions.Image"), System.Drawing.Image)
+        Me.txtuser.Size = New System.Drawing.Size(347, 28)
+        Me.txtuser.TabIndex = 19
+        '
+        'SplashScreenManager2
+        '
+        Me.SplashScreenManager2.ClosingDelay = 500
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(292, 431)
+        Me.ClientSize = New System.Drawing.Size(366, 451)
+        Me.Controls.Add(Me.PictureEdit1)
         Me.Controls.Add(Me.lblcount)
         Me.Controls.Add(Me.GcLogin)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmLogin"
@@ -173,6 +192,7 @@ Partial Class frmLogin
         CType(Me.GcLogin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GcLogin.ResumeLayout(False)
         Me.GcLogin.PerformLayout()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtpw.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtuser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -191,4 +211,6 @@ Partial Class frmLogin
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents SplashScreenManager1 As DevExpress.XtraSplashScreen.SplashScreenManager
     Friend WithEvents lblcount As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents SplashScreenManager2 As DevExpress.XtraSplashScreen.SplashScreenManager
 End Class
