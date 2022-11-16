@@ -21,8 +21,8 @@ Partial Class frmVehicles
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehicles))
-        Me.gvTank = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.dgTank = New DevExpress.XtraGrid.GridControl()
+        Me.gvVehicle = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.dgVehicle = New DevExpress.XtraGrid.GridControl()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
@@ -48,8 +48,8 @@ Partial Class frmVehicles
         Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
         Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
-        CType(Me.gvTank, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgTank, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,44 +57,44 @@ Partial Class frmVehicles
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'gvTank
+        'gvVehicle
         '
-        Me.gvTank.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.gvTank.Appearance.Empty.Options.UseBackColor = True
-        Me.gvTank.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvTank.Appearance.FocusedRow.Options.UseBackColor = True
-        Me.gvTank.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTank.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvTank.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTank.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvTank.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvTank.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvTank.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvTank.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTank.Appearance.Row.Options.UseFont = True
-        Me.gvTank.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.gvTank.AppearancePrint.HeaderPanel.Options.UseFont = True
-        Me.gvTank.DetailHeight = 327
-        Me.gvTank.GridControl = Me.dgTank
-        Me.gvTank.Name = "gvTank"
-        Me.gvTank.OptionsBehavior.Editable = False
-        Me.gvTank.OptionsSelection.MultiSelect = True
-        Me.gvTank.OptionsView.ColumnAutoWidth = False
-        Me.gvTank.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
-        Me.gvTank.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvTank.OptionsView.EnableAppearanceOddRow = True
-        Me.gvTank.OptionsView.ShowFooter = True
+        Me.gvVehicle.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.gvVehicle.Appearance.Empty.Options.UseBackColor = True
+        Me.gvVehicle.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvVehicle.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvVehicle.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicle.Appearance.GroupPanel.Options.UseFont = True
+        Me.gvVehicle.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicle.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvVehicle.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.gvVehicle.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.gvVehicle.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvVehicle.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicle.Appearance.Row.Options.UseFont = True
+        Me.gvVehicle.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.gvVehicle.AppearancePrint.HeaderPanel.Options.UseFont = True
+        Me.gvVehicle.DetailHeight = 327
+        Me.gvVehicle.GridControl = Me.dgVehicle
+        Me.gvVehicle.Name = "gvVehicle"
+        Me.gvVehicle.OptionsBehavior.Editable = False
+        Me.gvVehicle.OptionsSelection.MultiSelect = True
+        Me.gvVehicle.OptionsView.ColumnAutoWidth = False
+        Me.gvVehicle.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
+        Me.gvVehicle.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvVehicle.OptionsView.EnableAppearanceOddRow = True
+        Me.gvVehicle.OptionsView.ShowFooter = True
         '
-        'dgTank
+        'dgVehicle
         '
-        Me.dgTank.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgTank.Location = New System.Drawing.Point(0, 44)
-        Me.dgTank.MainView = Me.gvTank
-        Me.dgTank.MenuManager = Me.BarManager1
-        Me.dgTank.Name = "dgTank"
-        Me.dgTank.Size = New System.Drawing.Size(812, 428)
-        Me.dgTank.TabIndex = 17
-        Me.dgTank.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTank})
+        Me.dgVehicle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgVehicle.Location = New System.Drawing.Point(0, 86)
+        Me.dgVehicle.MainView = Me.gvVehicle
+        Me.dgVehicle.MenuManager = Me.BarManager1
+        Me.dgVehicle.Name = "dgVehicle"
+        Me.dgVehicle.Size = New System.Drawing.Size(812, 386)
+        Me.dgVehicle.TabIndex = 17
+        Me.dgVehicle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvVehicle})
         '
         'BarManager1
         '
@@ -336,8 +336,8 @@ Partial Class frmVehicles
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(812, 497)
+        Me.Controls.Add(Me.dgVehicle)
         Me.Controls.Add(Me.PanelControl1)
-        Me.Controls.Add(Me.dgTank)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
@@ -345,8 +345,8 @@ Partial Class frmVehicles
         Me.Controls.Add(Me.BarDockControl1)
         Me.Name = "frmVehicles"
         Me.Text = "Vehicles"
-        CType(Me.gvTank, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgTank, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvVehicle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgVehicle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -358,8 +358,8 @@ Partial Class frmVehicles
 
     End Sub
 
-    Friend WithEvents gvTank As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents dgTank As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvVehicle As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents dgVehicle As DevExpress.XtraGrid.GridControl
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents btnadd As DevExpress.XtraBars.BarButtonItem

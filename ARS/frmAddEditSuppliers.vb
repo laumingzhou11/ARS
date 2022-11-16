@@ -81,8 +81,9 @@
                     & "'" & txtsupplierName.Text & "','" & txtSupplierAddress.Text & "', " _
                     & "'" & txtContactPerson.Text & "','" & txtCpNo.Text & "',Getdate(),'" & frmMain.lblid.Caption & "')"
                     Call save(sql)
-                    Call xclear()
+
                     MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
                     frmMain.supplier.populateSupplier()
                     Me.Close()
                 End If
@@ -107,8 +108,9 @@
                     & "ContactPerson='" & txtContactPerson.Text & "', ContactNo='" & txtCpNo.Text & "', " _
                     & "Updated_by='" & frmMain.lblid.Caption & "', updated_at=Getdate() where SupplierID='" & txtsupplierID.Text & "'"
                 Call save(sql)
-                Call xclear()
+
                 MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
+                Call xclear()
                 frmMain.supplier.populateSupplier()
                 Me.Close()
 

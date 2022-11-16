@@ -93,8 +93,9 @@ Public Class frmAddEditTank
                         & "'" & txtTankName.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                         & "'" & txtLocation.Text & "',Getdate(),'" & frmMain.lblid.Caption & "')"
                     Call save(sql)
-                    Call xclear()
+
                     MsgBox("Added Successfully!", MsgBoxStyle.Information, "Add Tank")
+                    Call xclear()
                     frmMain.tank.populateTank()
                     Me.Close()
                 End If
@@ -119,8 +120,9 @@ Public Class frmAddEditTank
                     & "TankName='" & txtTankName.Text & "', TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                     & "Location='" & txtLocation.Text & "', Updated_at=Getdate(), Updated_by='" & frmMain.lblid.Caption & "' where TankID='" & txtTankID.Text & "'"
                 Call save(sql)
-                Call xclear()
+
                 MsgBox("Edit Successfully!", MsgBoxStyle.Information, "Edit Tank")
+                Call xclear()
                 frmMain.tank.populateTank()
                 Me.Close()
             End If

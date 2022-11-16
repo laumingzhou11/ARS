@@ -1,4 +1,5 @@
-﻿Public Class frmAddEditVehicles
+﻿Imports System.Data.SqlClient
+Public Class frmAddEditVehicles
     Private Sub txtcarmodel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcarmodel.KeyPress
 
         If Asc(e.KeyChar) = 13 Then
@@ -110,7 +111,7 @@
             If txtCapacity.Text = "" Then
                 txtCapacity.Focus()
             Else
-                With txtCapacity
+                With cbUomCode
                     .SelectionStart = 0
                     .SelectionLength = Len(.Text)
                     .Focus()
@@ -146,6 +147,18 @@
             Call updaterec()
         End If
     End Sub
+    Function xclear() As Boolean
+        txtcarmodel.Text = ""
+        txtcarmake.Text = ""
+        txtplateNo.Text = ""
+        txtCrNo.Text = ""
+        txtOwner.Text = ""
+        txtDriver.Text = ""
+        cbstatus.Text = ""
+        txtCapacity.Text = ""
+        cbUomCode.Text = ""
+        Return True
+    End Function
     Function saverec() As Boolean
         Call konneksyon()
         If txtcarmodel.Text = "" Then
@@ -172,9 +185,69 @@
             If dset.Tables(sql).Rows.Count > 0 Then
                 MsgBox("Model Already Exist!", MsgBoxStyle.Exclamation, Me.Text)
             Else
-
+                sql = "insert into tblvehicles (" _
+                    & "Model, Make, PlateNo, CrNo, " _
+                    & "RegisteredOwner, Driver, Status, " _
+                    & "TankCapacity, UomID, Added_at, Added_by) values (" _
+                    & "'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
+                    & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtDriver.Text & "'," _
+                    & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
+                    & "Getdate(),'" & frmMain.lblid.Caption & "')"
+                Call save(sql)
+                MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
+                Call xclear()
+                frmMain.vehicle.populateVehicle()
+                Me.Close()
             End If
         End If
         Return True
     End Function
+    Function updaterec() As Boolean
+        Call konneksyon()
+        If txtcarmodel.Text = "" Then
+            txtcarmodel.Focus()
+        ElseIf txtcarmodel.Text = "" Then
+            txtcarmodel.Focus()
+        ElseIf txtplateNo.Text = "" Then
+            txtplateNo.Focus()
+        ElseIf txtCrNo.Text = "" Then
+            txtCrNo.Focus()
+        ElseIf txtOwner.Text = "" Then
+            txtOwner.Focus()
+        ElseIf txtDriver.Text = "" Then
+            txtDriver.Focus()
+        ElseIf cbstatus.Text = "" Then
+            cbstatus.Focus()
+        ElseIf txtCapacity.Text = "" Then
+            txtCapacity.Focus()
+        ElseIf cbUomCode.Text = "" Then
+            cbUomCode.Focus()
+        Else
+            sql = "update tblvehicles set " _
+                    & "Model='" & txtcarmodel.Text & "', Make='" & txtcarmake.Text & "', PlateNo='" & txtplateNo.Text & "', " _
+                    & "CrNo='" & txtCrNo.Text & "', " _
+                    & "RegisteredOwner='" & txtOwner.Text & "', Driver='" & txtDriver.Text & "', Status='" & cbstatus.Text & "', " _
+                    & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
+                    & "Added_at=Getdate(), Added_by'" & frmMain.lblid.Caption & "' where VehicleID='" & txtvehicleID.Text & "'"
+            Call save(sql)
+            MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
+            Call xclear()
+            frmMain.vehicle.populateVehicle()
+            Me.Close()
+        End If
+        Return True
+    End Function
+    Function Uom() As Boolean
+        cbUomCode.Properties.Items.Clear()
+        Dim comm = New SqlCommand("select * from tblUomCode", kon)
+        Dim dset = New DataSet
+        dset.Load(comm.ExecuteReader, LoadOption.OverwriteChanges, "uom")
+        For x As Integer = 0 To dset.Tables("uom").Rows.Count - 1
+            cbUomCode.Properties.Items.Add(dset.Tables("uom").Rows(x).ItemArray(1).ToString)
+        Next
+        Return True
+    End Function
+    Private Sub frmAddEditVehicles_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Call Uom()
+    End Sub
 End Class

@@ -32,7 +32,7 @@ Partial Class frmAddEditVehicles
         Me.txtcarmodel = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtTankID = New DevExpress.XtraEditors.TextEdit()
+        Me.txtvehicleID = New DevExpress.XtraEditors.TextEdit()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.txtOwner = New DevExpress.XtraEditors.TextEdit()
         Me.GroupControl3 = New DevExpress.XtraEditors.GroupControl()
@@ -54,7 +54,7 @@ Partial Class frmAddEditVehicles
         CType(Me.txtplateNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcarmake.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcarmodel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtTankID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtvehicleID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         CType(Me.txtOwner.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,7 +83,7 @@ Partial Class frmAddEditVehicles
         Me.GroupControl1.Controls.Add(Me.txtcarmodel)
         Me.GroupControl1.Controls.Add(Me.LabelControl2)
         Me.GroupControl1.Controls.Add(Me.LabelControl4)
-        Me.GroupControl1.Controls.Add(Me.txtTankID)
+        Me.GroupControl1.Controls.Add(Me.txtvehicleID)
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
@@ -207,17 +207,17 @@ Partial Class frmAddEditVehicles
         Me.LabelControl4.TabIndex = 17
         Me.LabelControl4.Text = "ID:"
         '
-        'txtTankID
+        'txtvehicleID
         '
-        Me.txtTankID.Enabled = False
-        Me.txtTankID.Location = New System.Drawing.Point(62, 37)
-        Me.txtTankID.Name = "txtTankID"
-        Me.txtTankID.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTankID.Properties.Appearance.Options.UseFont = True
-        Me.txtTankID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtTankID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtTankID.Size = New System.Drawing.Size(315, 22)
-        Me.txtTankID.TabIndex = 18
+        Me.txtvehicleID.Enabled = False
+        Me.txtvehicleID.Location = New System.Drawing.Point(62, 37)
+        Me.txtvehicleID.Name = "txtvehicleID"
+        Me.txtvehicleID.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtvehicleID.Properties.Appearance.Options.UseFont = True
+        Me.txtvehicleID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtvehicleID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtvehicleID.Size = New System.Drawing.Size(315, 22)
+        Me.txtvehicleID.TabIndex = 18
         '
         'GroupControl2
         '
@@ -232,7 +232,6 @@ Partial Class frmAddEditVehicles
         'txtOwner
         '
         Me.txtOwner.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtOwner.Enabled = False
         Me.txtOwner.Location = New System.Drawing.Point(2, 27)
         Me.txtOwner.Name = "txtOwner"
         Me.txtOwner.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -256,7 +255,6 @@ Partial Class frmAddEditVehicles
         'txtDriver
         '
         Me.txtDriver.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtDriver.Enabled = False
         Me.txtDriver.Location = New System.Drawing.Point(2, 27)
         Me.txtDriver.Name = "txtDriver"
         Me.txtDriver.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -388,7 +386,10 @@ Partial Class frmAddEditVehicles
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
         Me.IconOptions.Image = CType(resources.GetObject("frmAddEditVehicles.IconOptions.Image"), System.Drawing.Image)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmAddEditVehicles"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Vehicle"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
@@ -398,7 +399,7 @@ Partial Class frmAddEditVehicles
         CType(Me.txtplateNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtcarmake.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtcarmodel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtTankID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtvehicleID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
         CType(Me.txtOwner.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -427,7 +428,7 @@ Partial Class frmAddEditVehicles
     Friend WithEvents txtcarmodel As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents txtTankID As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtvehicleID As DevExpress.XtraEditors.TextEdit
     Friend WithEvents GroupControl2 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents txtOwner As DevExpress.XtraEditors.TextEdit
     Friend WithEvents GroupControl3 As DevExpress.XtraEditors.GroupControl

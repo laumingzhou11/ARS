@@ -113,8 +113,9 @@ Public Class frmAddEditProducts
                 & "(select SupplierID from tblSupplier where SupplierName='" & cbSupplier.Text & "'),'" & txtPrice.Text & "',GetDate(),'" & frmMain.lblid.Caption & "'," _
                 & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'))"
                     Call save(sql)
-                    Call xclear()
+
                     MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
                     frmMain.product.populateProducts()
                     Me.Close()
                 End If
@@ -139,8 +140,9 @@ Public Class frmAddEditProducts
             & "Price='" & txtPrice.Text & "', Updated_at=GetDate(), Updated_by='" & frmMain.lblid.Caption & "', " _
             & "UomID=(select ID from tblUomCode where UomCode='" & cbUom.Text & "') where ProductID='" & txtProductID.Text & "'"
                 Call save(sql)
-                Call xclear()
+
                 MsgBox("Edit successfully!", MsgBoxStyle.Information, Me.Text)
+                Call xclear()
                 frmMain.product.populateProducts()
                 Me.Close()
             End If
