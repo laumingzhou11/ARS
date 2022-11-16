@@ -3,26 +3,26 @@ Public Class frmaccount
 
     Function populateacct() As Boolean
         If frmmain.lblacctType.Caption = "ADMIN" Then
-            Dim da = New SqlDataAdapter("select * from tblusers where AccountType in ('ADMIN','USER') order by UserID asc", kon)
+            Dim da = New SqlDataAdapter("select * from tblEmpUsers where AccountType in ('ADMIN','USER') order by EmpID asc", kon)
             Dim dset = New DataSet
-            da.Fill(dset, "tblusers")
-            dgaccount.DataSource = dset.Tables("tblusers").DefaultView
-            count.Caption = dset.Tables("tblusers").Rows.Count & " Record(s) found"
+            da.Fill(dset, "tblEmpUsers")
+            dgaccount.DataSource = dset.Tables("tblEmpUsers").DefaultView
+            count.Caption = dset.Tables("tblEmpUsers").Rows.Count & " Record(s) found"
             btnedit.Caption = "Change Name or Password"
             Call formatgridacct()
-        ElseIf frmmain.lblacctType.Caption = "USER" Then
-            Dim da = New SqlDataAdapter("select UserID,UserName,Fullname,Department,AccountType,Status from tblusers where Fullname ='" & frmmain.lbluser.Caption & "' and AccountType='" & frmmain.lblacctType.Caption & "'", kon)
+        ElseIf frmMain.lblacctType.Caption = "USER" Then
+            Dim da = New SqlDataAdapter("select UserID,UserName,Fullname,Department,AccountType,Status from tblEmpUsers where Fullname ='" & frmMain.lbluser.Caption & "' and AccountType='" & frmMain.lblacctType.Caption & "'", kon)
             Dim dset = New DataSet
-            da.Fill(dset, "tblusers")
-            dgaccount.DataSource = dset.Tables("tblusers").DefaultView
-            count.Caption = dset.Tables("tblusers").Rows.Count & " Record(s) found"
+            da.Fill(dset, "tblEmpUsers")
+            dgaccount.DataSource = dset.Tables("tblEmpUsers").DefaultView
+            count.Caption = dset.Tables("tblEmpUsers").Rows.Count & " Record(s) found"
             btnedit.Caption = "Change Name or Password"
-        ElseIf frmmain.lblacctType.Caption = "SUPER ADMIN" Then
-            Dim da = New SqlDataAdapter("select * from tblusers order by UserID asc", kon)
+        ElseIf frmMain.lblacctType.Caption = "SUPER ADMIN" Then
+            Dim da = New SqlDataAdapter("select * from tblEmpUsers order by UserID asc", kon)
             Dim dset = New DataSet
-            da.Fill(dset, "tblusers")
-            dgaccount.DataSource = dset.Tables("tblusers").DefaultView
-            count.Caption = dset.Tables("tblusers").Rows.Count & " Record(s) found"
+            da.Fill(dset, "tblEmpUsers")
+            dgaccount.DataSource = dset.Tables("tblEmpUsers").DefaultView
+            count.Caption = dset.Tables("tblEmpUsers").Rows.Count & " Record(s) found"
             btnedit.Caption = "&EDIT (F2)"
             Call formatgridacct()
         End If

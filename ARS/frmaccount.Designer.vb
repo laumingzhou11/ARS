@@ -124,7 +124,7 @@ Partial Class frmaccount
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(579, 24)
+        Me.barDockControlTop.Size = New System.Drawing.Size(579, 28)
         '
         'barDockControlBottom
         '
@@ -138,17 +138,17 @@ Partial Class frmaccount
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 28)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 337)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 333)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(579, 24)
+        Me.barDockControlRight.Location = New System.Drawing.Point(579, 28)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 337)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 333)
         '
         'btnclear
         '
@@ -212,9 +212,9 @@ Partial Class frmaccount
         Me.PanelControl1.Controls.Add(Me.dgaccount)
         Me.PanelControl1.Controls.Add(Me.txtselectedcode)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 24)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 28)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(579, 337)
+        Me.PanelControl1.Size = New System.Drawing.Size(579, 333)
         Me.PanelControl1.TabIndex = 4
         '
         'dgaccount
@@ -224,7 +224,7 @@ Partial Class frmaccount
         Me.dgaccount.MainView = Me.account
         Me.dgaccount.MenuManager = Me.BarManager1
         Me.dgaccount.Name = "dgaccount"
-        Me.dgaccount.Size = New System.Drawing.Size(575, 333)
+        Me.dgaccount.Size = New System.Drawing.Size(575, 329)
         Me.dgaccount.TabIndex = 2
         Me.dgaccount.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.account})
         '
@@ -390,9 +390,9 @@ Partial Class frmaccount
         '
         Me.BarDockControl4.CausesValidation = False
         Me.BarDockControl4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl4.Location = New System.Drawing.Point(579, 24)
+        Me.BarDockControl4.Location = New System.Drawing.Point(579, 28)
         Me.BarDockControl4.Manager = Me.BarManager2
-        Me.BarDockControl4.Size = New System.Drawing.Size(0, 337)
+        Me.BarDockControl4.Size = New System.Drawing.Size(0, 333)
         '
         'frmaccount
         '

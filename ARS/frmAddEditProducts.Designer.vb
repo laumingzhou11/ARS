@@ -94,6 +94,7 @@ Partial Class frmAddEditProducts
         Me.cbUom.Properties.Appearance.Options.UseFont = True
         Me.cbUom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbUom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbUom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.cbUom.Size = New System.Drawing.Size(275, 22)
         Me.cbUom.TabIndex = 29
         '
@@ -136,6 +137,7 @@ Partial Class frmAddEditProducts
         Me.cbSupplier.Properties.Appearance.Options.UseFont = True
         Me.cbSupplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbSupplier.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbSupplier.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.cbSupplier.Size = New System.Drawing.Size(275, 22)
         Me.cbSupplier.TabIndex = 24
         '
@@ -156,6 +158,7 @@ Partial Class frmAddEditProducts
         Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.Properties.Appearance.Options.UseFont = True
         Me.txtDescription.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtDescription.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDescription.Size = New System.Drawing.Size(275, 64)
         Me.txtDescription.TabIndex = 22
         '

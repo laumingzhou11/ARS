@@ -9,6 +9,7 @@ Public Class frmAddEditAccount
         cbacctype.Text = ""
         txtname.Text = ""
         cbstatus.Text = ""
+        cbPosition.Text = ""
         Return True
     End Function
     Private Sub ckpasschar_CheckedChanged(sender As Object, e As EventArgs) Handles ckpasschar.CheckedChanged

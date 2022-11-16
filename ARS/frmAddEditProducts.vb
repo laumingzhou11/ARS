@@ -59,6 +59,13 @@ Public Class frmAddEditProducts
         End If
     End Sub
     Private Sub txtPrice_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrice.KeyPress
+        If Not (Asc(e.KeyChar)) = 8 Then
+            Dim allowchar As String = "1234567890."
+            If allowchar.IndexOf(e.KeyChar) = -1 Then
+                MsgBox("Number only!", MsgBoxStyle.Critical, "Price Input..")
+                e.Handled = True
+            End If
+        End If
         If Asc(e.KeyChar) = 13 Then
             If txtPrice.Text = "" Then
                 txtPrice.Focus()
@@ -155,4 +162,5 @@ Public Class frmAddEditProducts
             Me.Close()
         End If
     End Sub
+
 End Class
