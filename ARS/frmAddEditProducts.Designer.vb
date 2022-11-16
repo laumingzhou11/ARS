@@ -24,27 +24,27 @@ Partial Class frmAddEditProducts
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.cbUom = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtPrice = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
+        Me.cbSupplier = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtDescription = New DevExpress.XtraEditors.MemoEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.txtProductID = New DevExpress.XtraEditors.TextEdit()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
         Me.btncancel = New DevExpress.XtraEditors.SimpleButton()
-        Me.cbUom = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.txtPrice = New DevExpress.XtraEditors.TextEdit()
-        Me.cbSupplier = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.txtDescription = New DevExpress.XtraEditors.MemoEdit()
-        Me.txtProductID = New DevExpress.XtraEditors.TextEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbUom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPrice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbSupplier.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtProductID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl4
@@ -82,9 +82,20 @@ Partial Class frmAddEditProducts
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(374, 231)
+        Me.GroupControl1.Size = New System.Drawing.Size(376, 231)
         Me.GroupControl1.TabIndex = 21
         Me.GroupControl1.Text = "PRODUCT"
+        '
+        'cbUom
+        '
+        Me.cbUom.Location = New System.Drawing.Point(88, 196)
+        Me.cbUom.Name = "cbUom"
+        Me.cbUom.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbUom.Properties.Appearance.Options.UseFont = True
+        Me.cbUom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.cbUom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbUom.Size = New System.Drawing.Size(275, 22)
+        Me.cbUom.TabIndex = 29
         '
         'LabelControl6
         '
@@ -96,6 +107,17 @@ Partial Class frmAddEditProducts
         Me.LabelControl6.TabIndex = 28
         Me.LabelControl6.Text = "Uom Code:"
         '
+        'txtPrice
+        '
+        Me.txtPrice.Location = New System.Drawing.Point(88, 168)
+        Me.txtPrice.Name = "txtPrice"
+        Me.txtPrice.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrice.Properties.Appearance.Options.UseFont = True
+        Me.txtPrice.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtPrice.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtPrice.Size = New System.Drawing.Size(275, 22)
+        Me.txtPrice.TabIndex = 27
+        '
         'LabelControl5
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -105,6 +127,17 @@ Partial Class frmAddEditProducts
         Me.LabelControl5.Size = New System.Drawing.Size(33, 14)
         Me.LabelControl5.TabIndex = 26
         Me.LabelControl5.Text = "Price:"
+        '
+        'cbSupplier
+        '
+        Me.cbSupplier.Location = New System.Drawing.Point(88, 140)
+        Me.cbSupplier.Name = "cbSupplier"
+        Me.cbSupplier.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSupplier.Properties.Appearance.Options.UseFont = True
+        Me.cbSupplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.cbSupplier.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbSupplier.Size = New System.Drawing.Size(275, 22)
+        Me.cbSupplier.TabIndex = 24
         '
         'LabelControl3
         '
@@ -116,6 +149,16 @@ Partial Class frmAddEditProducts
         Me.LabelControl3.TabIndex = 23
         Me.LabelControl3.Text = "Supplier:"
         '
+        'txtDescription
+        '
+        Me.txtDescription.Location = New System.Drawing.Point(88, 62)
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescription.Properties.Appearance.Options.UseFont = True
+        Me.txtDescription.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtDescription.Size = New System.Drawing.Size(275, 64)
+        Me.txtDescription.TabIndex = 22
+        '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -126,18 +169,30 @@ Partial Class frmAddEditProducts
         Me.LabelControl2.TabIndex = 21
         Me.LabelControl2.Text = "Description:"
         '
-        'ContextMenuStrip1
+        'txtProductID
         '
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        Me.txtProductID.Enabled = False
+        Me.txtProductID.Location = New System.Drawing.Point(88, 34)
+        Me.txtProductID.Name = "txtProductID"
+        Me.txtProductID.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProductID.Properties.Appearance.Options.UseFont = True
+        Me.txtProductID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtProductID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtProductID.Size = New System.Drawing.Size(275, 22)
+        Me.txtProductID.TabIndex = 18
         '
         'PanelControl1
         '
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelControl1.Location = New System.Drawing.Point(2, 132)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(370, 97)
+        Me.PanelControl1.Size = New System.Drawing.Size(372, 97)
         Me.PanelControl1.TabIndex = 30
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'btnsave
         '
@@ -161,66 +216,11 @@ Partial Class frmAddEditProducts
         Me.btncancel.TabIndex = 24
         Me.btncancel.Text = "&Cancel"
         '
-        'cbUom
-        '
-        Me.cbUom.Location = New System.Drawing.Point(88, 196)
-        Me.cbUom.Name = "cbUom"
-        Me.cbUom.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbUom.Properties.Appearance.Options.UseFont = True
-        Me.cbUom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cbUom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbUom.Size = New System.Drawing.Size(275, 22)
-        Me.cbUom.TabIndex = 29
-        '
-        'txtPrice
-        '
-        Me.txtPrice.Location = New System.Drawing.Point(88, 168)
-        Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrice.Properties.Appearance.Options.UseFont = True
-        Me.txtPrice.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtPrice.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtPrice.Size = New System.Drawing.Size(275, 22)
-        Me.txtPrice.TabIndex = 27
-        '
-        'cbSupplier
-        '
-        Me.cbSupplier.Location = New System.Drawing.Point(88, 140)
-        Me.cbSupplier.Name = "cbSupplier"
-        Me.cbSupplier.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbSupplier.Properties.Appearance.Options.UseFont = True
-        Me.cbSupplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cbSupplier.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbSupplier.Size = New System.Drawing.Size(275, 22)
-        Me.cbSupplier.TabIndex = 24
-        '
-        'txtDescription
-        '
-        Me.txtDescription.Location = New System.Drawing.Point(88, 62)
-        Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescription.Properties.Appearance.Options.UseFont = True
-        Me.txtDescription.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtDescription.Size = New System.Drawing.Size(275, 64)
-        Me.txtDescription.TabIndex = 22
-        '
-        'txtProductID
-        '
-        Me.txtProductID.Enabled = False
-        Me.txtProductID.Location = New System.Drawing.Point(88, 34)
-        Me.txtProductID.Name = "txtProductID"
-        Me.txtProductID.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProductID.Properties.Appearance.Options.UseFont = True
-        Me.txtProductID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtProductID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtProductID.Size = New System.Drawing.Size(275, 22)
-        Me.txtProductID.TabIndex = 18
-        '
         'frmAddEditProducts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(374, 282)
+        Me.ClientSize = New System.Drawing.Size(376, 284)
         Me.Controls.Add(Me.btnsave)
         Me.Controls.Add(Me.btncancel)
         Me.Controls.Add(Me.LabelControl1)
@@ -234,12 +234,12 @@ Partial Class frmAddEditProducts
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbUom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPrice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbSupplier.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtProductID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

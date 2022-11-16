@@ -70,17 +70,22 @@
         ElseIf txtSupplierAddress.Text = "" Then
             txtSupplierAddress.Focus()
         Else
-            If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
-                sql = "insert into tblSuppliers (" _
-                    & "SupplierName, Address, ContactPerson, CpNo, Added_at, Added_by) values (" _
+            sql = "select * from tblSupplier where SupplierName='" & txtsupplierName.Text & "'"
+            Call fill(sql)
+            If dset.Tables(sql).Rows.Count > 0 Then
+                MsgBox("Supplier Already Exist!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    sql = "insert into tblSupplier (" _
+                    & "SupplierName, Address, ContactPerson, ContactNo, Added_at, Added_by) values (" _
                     & "'" & txtsupplierName.Text & "','" & txtSupplierAddress.Text & "', " _
                     & "'" & txtContactPerson.Text & "','" & txtCpNo.Text & "',Getdate(),'" & frmMain.lblid.Caption & "')"
-                Call save(sql)
-                Call xclear()
-                MsgBox("Added Successfuly", Me.Text)
-                frmMain.supplier.populateSupplier()
-                Me.Close()
-
+                    Call save(sql)
+                    Call xclear()
+                    MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
+                    frmMain.supplier.populateSupplier()
+                    Me.Close()
+                End If
             End If
         End If
         Return True
@@ -95,14 +100,15 @@
         ElseIf txtSupplierAddress.Text = "" Then
             txtSupplierAddress.Focus()
         Else
+
             If MsgBox("Are you sure you want to edit?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
-                sql = "update tblSuppliers set " _
+                sql = "update tblSupplier set " _
                     & "SupplierName='" & txtsupplierName.Text & "', Address='" & txtSupplierAddress.Text & "', " _
-                    & "ContactPerson='" & txtContactPerson.Text & "', CpNo='" & txtCpNo.Text & "', " _
+                    & "ContactPerson='" & txtContactPerson.Text & "', ContactNo='" & txtCpNo.Text & "', " _
                     & "Updated_by='" & frmMain.lblid.Caption & "', updated_at=Getdate() where SupplierID='" & txtsupplierID.Text & "'"
                 Call save(sql)
                 Call xclear()
-                MsgBox("Edit Successfuly", Me.Text)
+                MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
                 frmMain.supplier.populateSupplier()
                 Me.Close()
 

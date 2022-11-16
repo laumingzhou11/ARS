@@ -48,6 +48,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -82,6 +83,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddEditVehicles.Designer.vb">
+      <DependentUpon>frmAddEditVehicles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEditVehicles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVehicles.Designer.vb">
+      <DependentUpon>frmVehicles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVehicles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmaccount.Designer.vb">
       <DependentUpon>frmaccount.vb</DependentUpon>
     </Compile>
@@ -106,6 +119,12 @@
     <Compile Include="frmAddEditSuppliers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAddEditTank.Designer.vb">
+      <DependentUpon>frmAddEditTank.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEditTank.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -128,6 +147,12 @@
       <DependentUpon>frmSuppliers.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSuppliers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTanks.Designer.vb">
+      <DependentUpon>frmTanks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTanks.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\connection.vb" />
@@ -160,6 +185,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddEditVehicles.resx">
+      <DependentUpon>frmAddEditVehicles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVehicles.resx">
+      <DependentUpon>frmVehicles.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmaccount.resx">
       <DependentUpon>frmaccount.vb</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditSuppliers.resx">
       <DependentUpon>frmAddEditSuppliers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEditTank.resx">
+      <DependentUpon>frmAddEditTank.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
@@ -184,15 +218,18 @@
     <EmbeddedResource Include="frmSuppliers.resx">
       <DependentUpon>frmSuppliers.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTanks.resx">
+      <DependentUpon>frmTanks.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\frmconnection.resx">
       <DependentUpon>frmconnection.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="waitform.resx">
       <DependentUpon>waitform.vb</DependentUpon>
@@ -211,13 +248,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="icons8_product_16.png" />
+    <None Include="Resources\icons8_product_16.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Untitled-1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_supplier_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_oil_tanker_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_oil_tanker_161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_oil_tanker.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

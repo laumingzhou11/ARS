@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmSuppliers
+Partial Class frmVehicles
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,9 +20,9 @@ Partial Class frmSuppliers
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSuppliers))
-        Me.gvsupplier = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.dgsupplier = New DevExpress.XtraGrid.GridControl()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehicles))
+        Me.gvTank = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.dgTank = New DevExpress.XtraGrid.GridControl()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
@@ -42,59 +42,59 @@ Partial Class frmSuppliers
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.btnprBarcode = New DevExpress.XtraBars.BarButtonItem()
         Me.RepositoryItemPageNumberEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit()
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.txtHheadID = New System.Windows.Forms.TextBox()
         Me.txtselectedcode = New System.Windows.Forms.TextBox()
         Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
         Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
-        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
-        CType(Me.gvsupplier, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgsupplier, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvTank, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgTank, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'gvsupplier
+        'gvTank
         '
-        Me.gvsupplier.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.gvsupplier.Appearance.Empty.Options.UseBackColor = True
-        Me.gvsupplier.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvsupplier.Appearance.FocusedRow.Options.UseBackColor = True
-        Me.gvsupplier.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvsupplier.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvsupplier.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvsupplier.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvsupplier.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvsupplier.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvsupplier.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvsupplier.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvsupplier.Appearance.Row.Options.UseFont = True
-        Me.gvsupplier.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.gvsupplier.AppearancePrint.HeaderPanel.Options.UseFont = True
-        Me.gvsupplier.DetailHeight = 327
-        Me.gvsupplier.GridControl = Me.dgsupplier
-        Me.gvsupplier.Name = "gvsupplier"
-        Me.gvsupplier.OptionsBehavior.Editable = False
-        Me.gvsupplier.OptionsSelection.MultiSelect = True
-        Me.gvsupplier.OptionsView.ColumnAutoWidth = False
-        Me.gvsupplier.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
-        Me.gvsupplier.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvsupplier.OptionsView.EnableAppearanceOddRow = True
-        Me.gvsupplier.OptionsView.ShowFooter = True
+        Me.gvTank.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.gvTank.Appearance.Empty.Options.UseBackColor = True
+        Me.gvTank.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvTank.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvTank.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTank.Appearance.GroupPanel.Options.UseFont = True
+        Me.gvTank.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTank.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvTank.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.gvTank.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.gvTank.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvTank.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTank.Appearance.Row.Options.UseFont = True
+        Me.gvTank.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.gvTank.AppearancePrint.HeaderPanel.Options.UseFont = True
+        Me.gvTank.DetailHeight = 327
+        Me.gvTank.GridControl = Me.dgTank
+        Me.gvTank.Name = "gvTank"
+        Me.gvTank.OptionsBehavior.Editable = False
+        Me.gvTank.OptionsSelection.MultiSelect = True
+        Me.gvTank.OptionsView.ColumnAutoWidth = False
+        Me.gvTank.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
+        Me.gvTank.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvTank.OptionsView.EnableAppearanceOddRow = True
+        Me.gvTank.OptionsView.ShowFooter = True
         '
-        'dgsupplier
+        'dgTank
         '
-        Me.dgsupplier.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgsupplier.Location = New System.Drawing.Point(0, 82)
-        Me.dgsupplier.MainView = Me.gvsupplier
-        Me.dgsupplier.MenuManager = Me.BarManager1
-        Me.dgsupplier.Name = "dgsupplier"
-        Me.dgsupplier.Size = New System.Drawing.Size(692, 356)
-        Me.dgsupplier.TabIndex = 11
-        Me.dgsupplier.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvsupplier})
+        Me.dgTank.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgTank.Location = New System.Drawing.Point(0, 44)
+        Me.dgTank.MainView = Me.gvTank
+        Me.dgTank.MenuManager = Me.BarManager1
+        Me.dgTank.Name = "dgTank"
+        Me.dgTank.Size = New System.Drawing.Size(812, 428)
+        Me.dgTank.TabIndex = 17
+        Me.dgTank.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTank})
         '
         'BarManager1
         '
@@ -177,31 +177,31 @@ Partial Class frmSuppliers
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(692, 40)
+        Me.BarDockControl1.Size = New System.Drawing.Size(812, 44)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 438)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 472)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(692, 25)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(812, 25)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 40)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 398)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 428)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(692, 40)
+        Me.barDockControlRight.Location = New System.Drawing.Point(812, 44)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 398)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 428)
         '
         'BarCheckItem1
         '
@@ -273,6 +273,18 @@ Partial Class frmSuppliers
         Me.RepositoryItemPageNumberEdit1.Name = "RepositoryItemPageNumberEdit1"
         Me.RepositoryItemPageNumberEdit1.Orientation = DevExpress.XtraEditors.PagerOrientation.Horizontal
         '
+        'PanelControl1
+        '
+        Me.PanelControl1.Controls.Add(Me.txtHheadID)
+        Me.PanelControl1.Controls.Add(Me.txtselectedcode)
+        Me.PanelControl1.Controls.Add(Me.btnsearch)
+        Me.PanelControl1.Controls.Add(Me.txtsearch)
+        Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(812, 42)
+        Me.PanelControl1.TabIndex = 16
+        '
         'txtHheadID
         '
         Me.txtHheadID.Location = New System.Drawing.Point(695, 51)
@@ -311,56 +323,43 @@ Partial Class frmSuppliers
         Me.txtsearch.Size = New System.Drawing.Size(359, 22)
         Me.txtsearch.TabIndex = 0
         '
-        'PanelControl1
-        '
-        Me.PanelControl1.Controls.Add(Me.txtHheadID)
-        Me.PanelControl1.Controls.Add(Me.txtselectedcode)
-        Me.PanelControl1.Controls.Add(Me.btnsearch)
-        Me.PanelControl1.Controls.Add(Me.txtsearch)
-        Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 40)
-        Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(692, 42)
-        Me.PanelControl1.TabIndex = 10
-        '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.barDockControlTop.Location = New System.Drawing.Point(0, 40)
+        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlTop.Manager = Nothing
-        Me.barDockControlTop.Size = New System.Drawing.Size(692, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(812, 0)
         '
-        'frmSuppliers
+        'frmVehicles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(692, 463)
-        Me.Controls.Add(Me.dgsupplier)
+        Me.ClientSize = New System.Drawing.Size(812, 497)
         Me.Controls.Add(Me.PanelControl1)
+        Me.Controls.Add(Me.dgTank)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.BarDockControl1)
-        Me.IconOptions.Image = CType(resources.GetObject("frmSuppliers.IconOptions.Image"), System.Drawing.Image)
-        Me.Name = "frmSuppliers"
-        Me.Text = "Suppliers"
-        CType(Me.gvsupplier, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgsupplier, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "frmVehicles"
+        Me.Text = "Vehicles"
+        CType(Me.gvTank, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgTank, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents gvsupplier As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents dgsupplier As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvTank As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents dgTank As DevExpress.XtraGrid.GridControl
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents btnadd As DevExpress.XtraBars.BarButtonItem

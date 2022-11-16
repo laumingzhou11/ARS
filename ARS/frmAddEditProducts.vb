@@ -50,7 +50,7 @@ Public Class frmAddEditProducts
             If cbSupplier.Text = "" Then
                 cbSupplier.Focus()
             Else
-                With cbSupplier
+                With txtPrice
                     .SelectionStart = 0
                     .SelectionLength = Len(.Text)
                     .Focus()
@@ -101,17 +101,23 @@ Public Class frmAddEditProducts
         ElseIf cbUom.Text = "" Then
             cbUom.Focus()
         Else
-            If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
-                sql = "insert into tblProducts (" _
-            & "ItemDescription, SupplierID,Price, Added_at, Added_by, UomID) values ( " _
-            & "'" & txtDescription.Text & "', " _
-            & "(select ID from tblSupplier where SupplierName='" & cbSupplier.Text & "'),'" & txtPrice.Text & "',GetDate(),'" & frmMain.lblid.Caption & "'," _
-            & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'))"
-                Call save(sql)
-                Call xclear()
-                MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
-                frmMain.product.populateProducts()
-                Me.Close()
+            sql = "select * from tblProducts where ItemDescription='" & txtDescription.Text & "'"
+            Call fill(sql)
+            If dset.Tables(sql).Rows.Count > 0 Then
+                MsgBox("Product Already Exist!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    sql = "insert into tblProducts (" _
+                & "ItemDescription, SupplierID,Price, Added_at, Added_by, UomID) values ( " _
+                & "'" & txtDescription.Text & "', " _
+                & "(select SupplierID from tblSupplier where SupplierName='" & cbSupplier.Text & "'),'" & txtPrice.Text & "',GetDate(),'" & frmMain.lblid.Caption & "'," _
+                & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'))"
+                    Call save(sql)
+                    Call xclear()
+                    MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                    frmMain.product.populateProducts()
+                    Me.Close()
+                End If
             End If
         End If
         Return True

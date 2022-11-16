@@ -308,7 +308,9 @@ Partial Class frmProducts
         Me.gvproducts.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.gvproducts.Appearance.Empty.Options.UseBackColor = True
         Me.gvproducts.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvproducts.Appearance.FocusedRow.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvproducts.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvproducts.Appearance.FocusedRow.Options.UseFont = True
         Me.gvproducts.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvproducts.Appearance.GroupPanel.Options.UseFont = True
         Me.gvproducts.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -316,6 +318,8 @@ Partial Class frmProducts
         Me.gvproducts.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.gvproducts.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.gvproducts.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvproducts.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvproducts.Appearance.Row.Options.UseFont = True
         Me.gvproducts.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.gvproducts.AppearancePrint.HeaderPanel.Options.UseFont = True
         Me.gvproducts.DetailHeight = 327
@@ -341,6 +345,7 @@ Partial Class frmProducts
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.BarDockControl1)
+        Me.IconOptions.Image = CType(resources.GetObject("frmProducts.IconOptions.Image"), System.Drawing.Image)
         Me.Name = "frmProducts"
         Me.Text = "Products"
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -2,6 +2,7 @@
 Public Class frmMain
     Public product As New frmProducts
     Public supplier As New frmSuppliers
+    Public tank As New frmTanks
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'If My.Settings.Server = Nothing Or My.Settings.User = Nothing Or My.Settings.Password = Nothing _
         '  Or My.Settings.Dbase1 = Nothing Then
@@ -49,6 +50,24 @@ Public Class frmMain
                 supplier.WindowState = FormWindowState.Maximized
                 supplier.Show()
                 supplier.txtsearch.Focus()
+            End If
+        Catch eX As Exception
+            MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Sub btnTanks_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnTanks.ItemClick
+        tank = New frmTanks
+        Try
+
+            If Application.OpenForms.OfType(Of frmTanks).Any Then
+                Application.OpenForms.Item("frmTanks").Activate()
+            Else
+                tank.MdiParent = Me
+                tank.TopMost = True
+                tank.WindowState = FormWindowState.Maximized
+                tank.Show()
+                tank.txtsearch.Focus()
             End If
         Catch eX As Exception
             MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
