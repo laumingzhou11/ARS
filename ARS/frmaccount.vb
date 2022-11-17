@@ -78,7 +78,7 @@ Public Class frmaccount
         End Try
     End Sub
     Function filltext() As Boolean
-        sql = "select a.UserID,a.UserName,convert(varchar(100),DecryptByPassPhrase('LAUMINGZHOU', password)) as xpassword,a.Fullname
+        sql = "select a.EmpID,a.UserName,convert(varchar(100),DecryptByPassPhrase('LAUMINGZHOU', password)) as xpassword,a.Fullname
                                     ,a.AccountType,a.Department,a.status
                                     from tblusers as a  where a.UserID = '" & keyID & "'"
         Call fill(sql)
