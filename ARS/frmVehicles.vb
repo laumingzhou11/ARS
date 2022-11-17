@@ -20,11 +20,11 @@ Public Class frmVehicles
     End Sub
     Function populateVehicle() As Boolean
         Call konneksyon()
-        sql = "select a.vehicleID,a.Model,a.make,a.PlateNo, " _
+        sql = "select a.vehicleID,a.Code,a.Model,a.make,a.PlateNo, " _
                 & "a.CrNo, a.RegisteredOwner, a.Driver, a.Status, a.TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.UomID=c.EmpID order by VehicleID desc"
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID order by VehicleID desc"
         Call populate(sql, dgVehicle)
         lblcount.Caption = gvVehicle.RowCount & " Record(s) Found"
         gvVehicle.BestFitColumns()

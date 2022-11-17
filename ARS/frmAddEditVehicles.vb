@@ -185,19 +185,22 @@ Public Class frmAddEditVehicles
             If dset.Tables(sql).Rows.Count > 0 Then
                 MsgBox("Model Already Exist!", MsgBoxStyle.Exclamation, Me.Text)
             Else
-                sql = "insert into tblvehicles (" _
-                    & "Model, Make, PlateNo, CrNo, " _
+                If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    sql = "insert into tblvehicles (" _
+                    & "code, Model, Make, PlateNo, CrNo, " _
                     & "RegisteredOwner, Driver, Status, " _
                     & "TankCapacity, UomID, Added_at, Added_by) values (" _
-                    & "'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
+                    & "(select RIGHT('000' + " _
+                    & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                     & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtDriver.Text & "'," _
                     & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                     & "Getdate(),'" & frmMain.lblid.Caption & "')"
-                Call save(sql)
-                MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
-                Call xclear()
-                frmMain.vehicle.populateVehicle()
-                Me.Close()
+                    Call save(sql)
+                    MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
+                    frmMain.vehicle.populateVehicle()
+                    Me.Close()
+                End If
             End If
         End If
         Return True
@@ -223,19 +226,21 @@ Public Class frmAddEditVehicles
         ElseIf cbUomCode.Text = "" Then
             cbUomCode.Focus()
         Else
-            sql = "update tblvehicles set " _
+            If MsgBox("Are you sure you want to edit?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                sql = "update tblvehicles set " _
                     & "Model='" & txtcarmodel.Text & "', Make='" & txtcarmake.Text & "', PlateNo='" & txtplateNo.Text & "', " _
                     & "CrNo='" & txtCrNo.Text & "', " _
                     & "RegisteredOwner='" & txtOwner.Text & "', Driver='" & txtDriver.Text & "', Status='" & cbstatus.Text & "', " _
                     & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                     & "Added_at=Getdate(), Added_by'" & frmMain.lblid.Caption & "' where VehicleID='" & txtvehicleID.Text & "'"
-            Call save(sql)
-            MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
-            Call xclear()
-            frmMain.vehicle.populateVehicle()
-            Me.Close()
+                Call save(sql)
+                MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
+                Call xclear()
+                frmMain.vehicle.populateVehicle()
+                Me.Close()
+            End If
         End If
-        Return True
+            Return True
     End Function
     Function Uom() As Boolean
         cbUomCode.Properties.Items.Clear()

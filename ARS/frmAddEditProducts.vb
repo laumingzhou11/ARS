@@ -59,6 +59,7 @@ Public Class frmAddEditProducts
         End If
     End Sub
     Private Sub txtPrice_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPrice.KeyPress
+
         If Asc(e.KeyChar) = 13 Then
             If txtPrice.Text = "" Then
                 txtPrice.Focus()
