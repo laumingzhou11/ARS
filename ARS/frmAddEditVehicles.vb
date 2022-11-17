@@ -198,6 +198,8 @@ Public Class frmAddEditVehicles
         txtcode.Text = ""
         picImage.Image = Nothing
         DriverPic.Image = Nothing
+        txtDriverAddress.Text = ""
+        txtOwnerAddress.Text = ""
         Return True
     End Function
     Function saverec() As Boolean
@@ -221,16 +223,19 @@ Public Class frmAddEditVehicles
                 txtCapacity.Focus()
             ElseIf cbUomCode.Text = "" Then
                 cbUomCode.Focus()
+            ElseIf txtDriverAddress.Text = "" Then
+                txtDriverAddress.Focus()
+            ElseIf txtOwnerAddress.Text = "" Then
+                txtOwnerAddress.Focus()
             Else
                 If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                     sql = "insert into tblvehicles (" _
                         & "code, Model, Make, PlateNo, CrNo, " _
-                        & "RegisteredOwner, Driver, Status, " _
+                        & "RegisteredOwner, OwnerAddress, Driver, DriverAddress,Status, " _
                         & "TankCapacity, UomID, Added_at, Added_by) values (" _
-                        & "'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                         & "(select RIGHT('000' + " _
                         & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
-                        & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtDriver.Text & "'," _
+                        & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtOwnerAddress.Text & "','" & txtDriver.Text & "','" & txtDriverAddress.Text & "'," _
                         & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                         & "Getdate(),'" & frmMain.lblid.Caption & "')"
                     Call save(sql)
@@ -264,18 +269,21 @@ Public Class frmAddEditVehicles
                 txtCapacity.Focus()
             ElseIf cbUomCode.Text = "" Then
                 cbUomCode.Focus()
+            ElseIf txtDriverAddress.Text = "" Then
+                txtDriverAddress.Focus()
+            ElseIf txtOwnerAddress.Text = "" Then
+                txtOwnerAddress.Focus()
             Else
                 If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                     Dim kom = New SqlCommand
                     kom.Connection = kon
                     kom.CommandText = "insert into tblvehicles (" _
                         & "code, Model, Make, PlateNo, CrNo, " _
-                        & "RegisteredOwner, Driver, Status, " _
+                       & "RegisteredOwner, OwnerAddress, Driver, DriverAddress,Status, " _
                         & "TankCapacity, UomID, Added_at, Added_by,VehiclePic) values (" _
-                        & "'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                         & "(select RIGHT('000' + " _
                         & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
-                        & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtDriver.Text & "'," _
+                        & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtOwnerAddress.Text & "','" & txtDriver.Text & "','" & txtDriverAddress.Text & "'," _
                         & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                         & "Getdate(),'" & frmMain.lblid.Caption & "',@photo)"
                     kom.Parameters.AddWithValue("@photo", arrImage)
@@ -310,18 +318,21 @@ Public Class frmAddEditVehicles
                 txtCapacity.Focus()
             ElseIf cbUomCode.Text = "" Then
                 cbUomCode.Focus()
+            ElseIf txtDriverAddress.Text = "" Then
+                txtDriverAddress.Focus()
+            ElseIf txtOwnerAddress.Text = "" Then
+                txtOwnerAddress.Focus()
             Else
                 If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                     Dim kom = New SqlCommand
                     kom.Connection = kon
                     kom.CommandText = "insert into tblvehicles (" _
                         & "code, Model, Make, PlateNo, CrNo, " _
-                        & "RegisteredOwner, Driver, Status, " _
+                        & "RegisteredOwner, OwnerAddress, Driver, DriverAddress,Status, " _
                         & "TankCapacity, UomID, Added_at, Added_by,DriverPic) values (" _
-                        & "'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                         & "(select RIGHT('000' + " _
                         & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
-                        & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtDriver.Text & "'," _
+                        & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtOwnerAddress.Text & "','" & txtDriver.Text & "','" & txtDriverAddress.Text & "'," _
                         & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                         & "Getdate(),'" & frmMain.lblid.Caption & "',@photo)"
                     kom.Parameters.AddWithValue("@photo", arrImage)
@@ -357,14 +368,19 @@ Public Class frmAddEditVehicles
                 txtCapacity.Focus()
             ElseIf cbUomCode.Text = "" Then
                 cbUomCode.Focus()
+            ElseIf txtDriverAddress.Text = "" Then
+                txtDriverAddress.Focus()
+            ElseIf txtOwnerAddress.Text = "" Then
+                txtOwnerAddress.Focus()
             Else
                 If MsgBox("Are you sure you want to edit?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                     sql = "update tblvehicles set " _
                     & "Model='" & txtcarmodel.Text & "', Make='" & txtcarmake.Text & "', PlateNo='" & txtplateNo.Text & "', " _
                     & "CrNo='" & txtCrNo.Text & "', " _
-                    & "RegisteredOwner='" & txtOwner.Text & "', Driver='" & txtDriver.Text & "', Status='" & cbstatus.Text & "', " _
+                    & "RegisteredOwner='" & txtOwner.Text & "', OwnerAddress='" & txtOwnerAddress.Text & "', " _
+                    & "Driver='" & txtDriver.Text & "', DriverAddress='" & txtDriverAddress.Text & "',Status='" & cbstatus.Text & "', " _
                     & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                    & "Added_at=Getdate(), Added_by'" & frmMain.lblid.Caption & "' where VehicleID='" & txtvehicleID.Text & "'"
+                    & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "' where VehicleID='" & txtvehicleID.Text & "'"
                     Call save(sql)
                     MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
                     Call xclear()
@@ -372,45 +388,99 @@ Public Class frmAddEditVehicles
                     Me.Close()
                 End If
             End If
-        ElseIf picImage.Image IsNot Nothing And DriverPic Is Nothing Then
+        ElseIf picImage.Image IsNot Nothing And DriverPic.Image Is Nothing Then
             Dim mstream As New System.IO.MemoryStream
             picImage.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim arrImage() As Byte = mstream.GetBuffer()
             mstream.Close()
-            Dim kom = New SqlCommand
-            kom.Connection = kon
-            kom.CommandText = "update tblvehicles set " _
-                    & "Model='" & txtcarmodel.Text & "', Make='" & txtcarmake.Text & "', PlateNo='" & txtplateNo.Text & "', " _
-                    & "CrNo='" & txtCrNo.Text & "', " _
-                    & "RegisteredOwner='" & txtOwner.Text & "', Driver='" & txtDriver.Text & "', Status='" & cbstatus.Text & "', " _
-                    & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                    & "Added_at=Getdate(), Added_by'" & frmMain.lblid.Caption & "',VehiclePic=@photo where VehicleID='" & txtvehicleID.Text & "'"
-            kom.Parameters.AddWithValue("@photo", arrImage)
-            kom.ExecuteNonQuery()
-            MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
-            Call xclear()
-            frmMain.vehicle.populateVehicle()
-            Me.Close()
-        ElseIf picImage.Image Is Nothing And DriverPic IsNot Nothing Then
+            If txtcarmodel.Text = "" Then
+                txtcarmodel.Focus()
+            ElseIf txtcarmodel.Text = "" Then
+                txtcarmodel.Focus()
+            ElseIf txtplateNo.Text = "" Then
+                txtplateNo.Focus()
+            ElseIf txtCrNo.Text = "" Then
+                txtCrNo.Focus()
+            ElseIf txtOwner.Text = "" Then
+                txtOwner.Focus()
+            ElseIf txtDriver.Text = "" Then
+                txtDriver.Focus()
+            ElseIf cbstatus.Text = "" Then
+                cbstatus.Focus()
+            ElseIf txtCapacity.Text = "" Then
+                txtCapacity.Focus()
+            ElseIf cbUomCode.Text = "" Then
+                cbUomCode.Focus()
+            ElseIf txtDriverAddress.Text = "" Then
+                txtDriverAddress.Focus()
+            ElseIf txtOwnerAddress.Text = "" Then
+                txtOwnerAddress.Focus()
+            Else
+                If MsgBox("Are you sure you want to edit?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    Dim kom = New SqlCommand
+                    kom.Connection = kon
+                    kom.CommandText = "update tblvehicles set " _
+                        & "Model='" & txtcarmodel.Text & "', Make='" & txtcarmake.Text & "', PlateNo='" & txtplateNo.Text & "', " _
+                        & "CrNo='" & txtCrNo.Text & "', " _
+                       & "RegisteredOwner='" & txtOwner.Text & "', OwnerAddress='" & txtOwnerAddress.Text & "', " _
+                    & "Driver='" & txtDriver.Text & "', DriverAddress='" & txtDriverAddress.Text & "',Status='" & cbstatus.Text & "', " _
+                        & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
+                        & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "',VehiclePic=@photo where VehicleID='" & txtvehicleID.Text & "'"
+                    kom.Parameters.AddWithValue("@photo", arrImage)
+                    kom.ExecuteNonQuery()
+                    MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
+                    frmMain.vehicle.populateVehicle()
+                    Me.Close()
+                End If
+            End If
+        ElseIf picImage.Image Is Nothing And DriverPic.Image IsNot Nothing Then
             Dim mstream As New System.IO.MemoryStream
             DriverPic.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim arrImage() As Byte = mstream.GetBuffer()
             mstream.Close()
-            Dim kom = New SqlCommand
-            kom.Connection = kon
-            kom.CommandText = "update tblvehicles set " _
+            If txtcarmodel.Text = "" Then
+                txtcarmodel.Focus()
+            ElseIf txtcarmodel.Text = "" Then
+                txtcarmodel.Focus()
+            ElseIf txtplateNo.Text = "" Then
+                txtplateNo.Focus()
+            ElseIf txtCrNo.Text = "" Then
+                txtCrNo.Focus()
+            ElseIf txtOwner.Text = "" Then
+                txtOwner.Focus()
+            ElseIf txtDriver.Text = "" Then
+                txtDriver.Focus()
+            ElseIf cbstatus.Text = "" Then
+                cbstatus.Focus()
+            ElseIf txtCapacity.Text = "" Then
+                txtCapacity.Focus()
+            ElseIf cbUomCode.Text = "" Then
+                cbUomCode.Focus()
+            ElseIf txtDriverAddress.Text = "" Then
+                txtDriverAddress.Focus()
+            ElseIf txtOwnerAddress.Text = "" Then
+                txtOwnerAddress.Focus()
+            Else
+                If MsgBox("Are you sure you want to edit?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    Dim kom = New SqlCommand
+                    kom.Connection = kon
+                    kom.CommandText = "update tblvehicles set " _
                     & "Model='" & txtcarmodel.Text & "', Make='" & txtcarmake.Text & "', PlateNo='" & txtplateNo.Text & "', " _
                     & "CrNo='" & txtCrNo.Text & "', " _
-                    & "RegisteredOwner='" & txtOwner.Text & "', Driver='" & txtDriver.Text & "', Status='" & cbstatus.Text & "', " _
+                   & "RegisteredOwner='" & txtOwner.Text & "', OwnerAddress='" & txtOwnerAddress.Text & "', " _
+                    & "Driver='" & txtDriver.Text & "', DriverAddress='" & txtDriverAddress.Text & "',Status='" & cbstatus.Text & "', " _
                     & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                    & "Added_at=Getdate(), Added_by'" & frmMain.lblid.Caption & "',DriverPic=@photo where VehicleID='" & txtvehicleID.Text & "'"
-            kom.Parameters.AddWithValue("@photo", arrImage)
-            kom.ExecuteNonQuery()
-            MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
-            Call xclear()
-            frmMain.vehicle.populateVehicle()
-            Me.Close()
-        End If
+                    & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "',DriverPic=@photo where VehicleID='" & txtvehicleID.Text & "'"
+                    kom.Parameters.AddWithValue("@photo", arrImage)
+                    kom.ExecuteNonQuery()
+                    MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
+                    frmMain.vehicle.populateVehicle()
+                    Me.Close()
+                End If
+            End If
+            End If
         Return True
     End Function
     Function Uom() As Boolean

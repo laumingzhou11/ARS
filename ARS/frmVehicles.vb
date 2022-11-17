@@ -6,7 +6,6 @@ Imports DevExpress.XtraGrid
 Imports DevExpress.XtraGrid.Drawing
 Imports DevExpress.XtraGrid.Views.Base
 Imports DevExpress.XtraGrid.Views.Grid
-Imports DevExpress.XtraGrid.Views.Grid.ViewInfo
 Imports DevExpress.Utils.Menu
 Imports DevExpress.Utils
 Imports DevExpress.Utils.Paint
@@ -20,9 +19,11 @@ Public Class frmVehicles
     End Sub
     Function populateVehicle() As Boolean
         Call konneksyon()
-        sql = "select * from tblVehicles As a " _
+        sql = "select a.VehicleID,a.Model,a.make,a.PlateNo, " _
+                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
+                & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID order by VehicleID desc"
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID order by a.VehicleID desc"
         Call populate(sql, dgVehicles)
         lblcount.Caption = gvVehicles.RowCount & " Record(s) Found"
         gvVehicles.BestFitColumns()
@@ -35,11 +36,12 @@ Public Class frmVehicles
     End Sub
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select a.vehicleID,a.Model,a.make,a.PlateNo, " _
-                & "a.CrNo, a.RegisteredOwner, a.Driver, a.Status, a.TankCapacity, b.UomCode," _
-                & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.Added_by from tblVehicles As a " _
+        sql = "select a.VehicleID,a.Model,a.make,a.PlateNo, " _
+                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
+                & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by,a.VehiclePic,a.DriverPic from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "where VehicleID='" & keyID & "'"
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID " _
+                & "where a.VehicleID='" & keyID & "'"
         Call fill(sql)
         frmAddEditVehicles.txtvehicleID.Text = dset.Tables(sql).Rows(0).Item("VehicleID")
         frmAddEditVehicles.txtcarmodel.Text = dset.Tables(sql).Rows(0).Item("Model")
@@ -47,10 +49,32 @@ Public Class frmVehicles
         frmAddEditVehicles.txtplateNo.Text = dset.Tables(sql).Rows(0).Item("PlateNo")
         frmAddEditVehicles.txtCrNo.Text = dset.Tables(sql).Rows(0).Item("CrNo")
         frmAddEditVehicles.txtOwner.Text = dset.Tables(sql).Rows(0).Item("RegisteredOwner")
+        frmAddEditVehicles.txtOwnerAddress.Text = dset.Tables(sql).Rows(0).Item("OwnerAddress")
         frmAddEditVehicles.txtDriver.Text = dset.Tables(sql).Rows(0).Item("Driver")
+        frmAddEditVehicles.txtDriverAddress.Text = dset.Tables(sql).Rows(0).Item("DriverAddress")
         frmAddEditVehicles.cbstatus.Text = dset.Tables(sql).Rows(0).Item("Status")
         frmAddEditVehicles.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
         frmAddEditVehicles.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
+        If IsDBNull(dset.Tables(sql).Rows(0).Item("VehiclePic")) Then
+            frmAddEditVehicles.picImage.Image = Nothing
+        Else
+            Dim mstream As New System.IO.MemoryStream
+            Dim photo As Byte() = dset.Tables(sql).Rows(0).Item("VehiclePic")
+            Dim lstr As New System.IO.MemoryStream(photo)
+            On Error Resume Next
+            frmAddEditVehicles.picImage.Image = Image.FromStream(lstr)
+            mstream.Close()
+        End If
+        If IsDBNull(dset.Tables(sql).Rows(0).Item("DriverPic")) Then
+            frmAddEditVehicles.DriverPic.Image = Nothing
+        Else
+            Dim mstream As New System.IO.MemoryStream
+            Dim photo As Byte() = dset.Tables(sql).Rows(0).Item("DriverPic")
+            Dim lstr As New System.IO.MemoryStream(photo)
+        On Error Resume Next
+            frmAddEditVehicles.picImage.Image = Image.FromStream(lstr)
+            mstream.Close()
+        End If
         Call frmAddEditVehicles.Uom()
         Return True
     End Function
@@ -58,11 +82,11 @@ Public Class frmVehicles
         Try
             If txtsearch.Text = "" Then
                 Call konneksyon()
-                sql = "select a.vehicleID,a.Model,a.make,a.PlateNo, " _
-                & "a.CrNo, a.RegisteredOwner, a.Driver, a.Status, a.TankCapacity, b.UomCode," _
+                sql = "select a.VehicleID,a.Model,a.make,a.PlateNo, " _
+                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID where Model like '%" & txtsearch.Text & "%' order by a.vehicleID desc"
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID  where Model like '%" & txtsearch.Text & "%' order by a.vehicleID desc"
                 Call populate(sql, dgVehicles)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvVehicles.RowCount & " Record(s) Found"
@@ -78,7 +102,7 @@ Public Class frmVehicles
 
         Return True
     End Function
-    Private Sub gvVehicles_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs)
+    Private Sub gvVehicles_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles gvVehicles.CustomDrawCell
         If Not Me.txtsearch.Text <> "" Then Return
         Dim view As GridView = CType(sender, GridView)
         If Not view.IsDataRow(e.RowHandle) Then Return
@@ -115,7 +139,7 @@ Public Class frmVehicles
     End Sub
 
     Private Sub btnedit_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles btnedit.ItemClick
-        If TextEdit1.Text <> "" Then
+        If txtselectedcode.Text <> "" Then
             Call filltext()
             frmAddEditVehicles.Text = "Edit Vehicle"
             frmAddEditVehicles.ShowDialog()
@@ -130,7 +154,7 @@ Public Class frmVehicles
             Dim dset = New DataSet
             da.Fill(dset, "tblVehicles")
             If dset.Tables("tblVehicles").Rows.Count > 0 Then
-                TextEdit1.Text = dset.Tables("tblVehicles").Rows(0).Item("VehicleID")
+                txtselectedcode.Text = dset.Tables("tblVehicles").Rows(0).Item("VehicleID")
             Else
             End If
 

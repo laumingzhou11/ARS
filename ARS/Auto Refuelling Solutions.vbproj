@@ -89,12 +89,6 @@
     <Compile Include="frmAddEditVehicles.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVehicles.Designer.vb">
-      <DependentUpon>frmVehicles.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmVehicles.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmaccount.Designer.vb">
       <DependentUpon>frmaccount.vb</DependentUpon>
     </Compile>
@@ -155,6 +149,12 @@
     <Compile Include="frmTanks.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmVehicles.Designer.vb">
+      <DependentUpon>frmVehicles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVehicles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module\connection.vb" />
     <Compile Include="Module\frmconnection.Designer.vb">
       <DependentUpon>frmconnection.vb</DependentUpon>
@@ -188,9 +188,6 @@
     <EmbeddedResource Include="frmAddEditVehicles.resx">
       <DependentUpon>frmAddEditVehicles.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVehicles.resx">
-      <DependentUpon>frmVehicles.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmaccount.resx">
       <DependentUpon>frmaccount.vb</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTanks.resx">
       <DependentUpon>frmTanks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVehicles.resx">
+      <DependentUpon>frmVehicles.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\frmconnection.resx">
       <DependentUpon>frmconnection.vb</DependentUpon>

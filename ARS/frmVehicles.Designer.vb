@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmVehicles
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,10 +17,14 @@ Partial Class frmVehicles
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehicles))
+        Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
+        Me.txtselectedcode = New System.Windows.Forms.TextBox()
+        Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
+        Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
@@ -41,21 +45,55 @@ Partial Class frmVehicles
         Me.btnprBarcode = New DevExpress.XtraBars.BarButtonItem()
         Me.RepositoryItemPageNumberEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
-        Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
-        Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
-        Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.dgVehicles = New DevExpress.XtraGrid.GridControl()
         Me.gvVehicles = New DevExpress.XtraGrid.Views.Grid.GridView()
+        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgVehicles, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gvVehicles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'barDockControlTop
+        '
+        Me.barDockControlTop.CausesValidation = False
+        Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
+        Me.barDockControlTop.Manager = Nothing
+        Me.barDockControlTop.Size = New System.Drawing.Size(859, 0)
+        '
+        'txtselectedcode
+        '
+        Me.txtselectedcode.Location = New System.Drawing.Point(532, 51)
+        Me.txtselectedcode.Name = "txtselectedcode"
+        Me.txtselectedcode.Size = New System.Drawing.Size(108, 21)
+        Me.txtselectedcode.TabIndex = 3
+        '
+        'btnsearch
+        '
+        Me.btnsearch.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsearch.Appearance.Options.UseFont = True
+        Me.btnsearch.ImageOptions.Image = CType(resources.GetObject("btnsearch.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnsearch.Location = New System.Drawing.Point(368, 10)
+        Me.btnsearch.Name = "btnsearch"
+        Me.btnsearch.Size = New System.Drawing.Size(87, 23)
+        Me.btnsearch.TabIndex = 1
+        Me.btnsearch.Text = "Search"
+        '
+        'txtsearch
+        '
+        Me.txtsearch.Location = New System.Drawing.Point(6, 10)
+        Me.txtsearch.MenuManager = Me.BarManager1
+        Me.txtsearch.Name = "txtsearch"
+        Me.txtsearch.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsearch.Properties.Appearance.Options.UseFont = True
+        Me.txtsearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtsearch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Repository.ClearButton(), New DevExpress.XtraEditors.Repository.SearchButton()})
+        Me.txtsearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtsearch.Size = New System.Drawing.Size(359, 22)
+        Me.txtsearch.TabIndex = 0
         '
         'BarManager1
         '
@@ -138,15 +176,15 @@ Partial Class frmVehicles
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(812, 44)
+        Me.BarDockControl1.Size = New System.Drawing.Size(859, 44)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 472)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 449)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(812, 25)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(859, 25)
         '
         'barDockControlLeft
         '
@@ -154,15 +192,15 @@ Partial Class frmVehicles
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 428)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 405)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(812, 44)
+        Me.barDockControlRight.Location = New System.Drawing.Point(859, 44)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 428)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 405)
         '
         'BarCheckItem1
         '
@@ -236,64 +274,24 @@ Partial Class frmVehicles
         '
         'PanelControl1
         '
-        Me.PanelControl1.Controls.Add(Me.TextEdit1)
+        Me.PanelControl1.Controls.Add(Me.txtselectedcode)
         Me.PanelControl1.Controls.Add(Me.btnsearch)
         Me.PanelControl1.Controls.Add(Me.txtsearch)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(812, 87)
-        Me.PanelControl1.TabIndex = 16
-        '
-        'TextEdit1
-        '
-        Me.TextEdit1.Location = New System.Drawing.Point(552, 48)
-        Me.TextEdit1.MenuManager = Me.BarManager1
-        Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(100, 20)
-        Me.TextEdit1.TabIndex = 2
-        '
-        'btnsearch
-        '
-        Me.btnsearch.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsearch.Appearance.Options.UseFont = True
-        Me.btnsearch.ImageOptions.Image = CType(resources.GetObject("btnsearch.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnsearch.Location = New System.Drawing.Point(368, 10)
-        Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(87, 23)
-        Me.btnsearch.TabIndex = 1
-        Me.btnsearch.Text = "Search"
-        '
-        'txtsearch
-        '
-        Me.txtsearch.Location = New System.Drawing.Point(6, 10)
-        Me.txtsearch.MenuManager = Me.BarManager1
-        Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsearch.Properties.Appearance.Options.UseFont = True
-        Me.txtsearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtsearch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Repository.ClearButton(), New DevExpress.XtraEditors.Repository.SearchButton()})
-        Me.txtsearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtsearch.Size = New System.Drawing.Size(359, 22)
-        Me.txtsearch.TabIndex = 0
-        '
-        'barDockControlTop
-        '
-        Me.barDockControlTop.CausesValidation = False
-        Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
-        Me.barDockControlTop.Manager = Nothing
-        Me.barDockControlTop.Size = New System.Drawing.Size(812, 0)
+        Me.PanelControl1.Size = New System.Drawing.Size(859, 43)
+        Me.PanelControl1.TabIndex = 13
         '
         'dgVehicles
         '
         Me.dgVehicles.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgVehicles.Location = New System.Drawing.Point(0, 131)
+        Me.dgVehicles.Location = New System.Drawing.Point(0, 87)
         Me.dgVehicles.MainView = Me.gvVehicles
         Me.dgVehicles.MenuManager = Me.BarManager1
         Me.dgVehicles.Name = "dgVehicles"
-        Me.dgVehicles.Size = New System.Drawing.Size(812, 341)
-        Me.dgVehicles.TabIndex = 22
+        Me.dgVehicles.Size = New System.Drawing.Size(859, 362)
+        Me.dgVehicles.TabIndex = 14
         Me.dgVehicles.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvVehicles})
         '
         'gvVehicles
@@ -328,7 +326,7 @@ Partial Class frmVehicles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(812, 497)
+        Me.ClientSize = New System.Drawing.Size(859, 474)
         Me.Controls.Add(Me.dgVehicles)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.barDockControlTop)
@@ -337,19 +335,24 @@ Partial Class frmVehicles
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.BarDockControl1)
         Me.Name = "frmVehicles"
-        Me.Text = "Vehicles"
+        Me.Text = "frmVehicles"
+        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl1.PerformLayout()
         CType(Me.dgVehicles, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gvVehicles, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents txtselectedcode As TextBox
+    Friend WithEvents btnsearch As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents txtsearch As DevExpress.XtraEditors.SearchControl
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents btnadd As DevExpress.XtraBars.BarButtonItem
@@ -362,9 +365,8 @@ Partial Class frmVehicles
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents btnsearch As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents txtsearch As DevExpress.XtraEditors.SearchControl
-    Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents dgVehicles As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvVehicles As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BarCheckItem1 As DevExpress.XtraBars.BarCheckItem
     Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnreload As DevExpress.XtraBars.BarButtonItem
@@ -373,7 +375,4 @@ Partial Class frmVehicles
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnprBarcode As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RepositoryItemPageNumberEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit
-    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents dgVehicles As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gvVehicles As DevExpress.XtraGrid.Views.Grid.GridView
 End Class
