@@ -9,22 +9,24 @@ Public Class frmaccount
             dgaccount.DataSource = dset.Tables("tblEmpUsers").DefaultView
             count.Caption = dset.Tables("tblEmpUsers").Rows.Count & " Record(s) found"
             btnedit.Caption = "Change Name or Password"
-            Call formatgridacct()
+            account.BestFitColumns()
+            account.RowHeight = 20
         ElseIf frmMain.lblacctType.Caption = "USER" Then
-            Dim da = New SqlDataAdapter("select UserID,UserName,Fullname,Department,AccountType,Status from tblEmpUsers where Fullname ='" & frmMain.lbluser.Caption & "' and AccountType='" & frmMain.lblacctType.Caption & "'", kon)
+            Dim da = New SqlDataAdapter("select EmpID,UserName,Fullname,PositionID,AccountType,Status from tblEmpUsers where Fullname ='" & frmMain.lbluser.Caption & "' and AccountType='" & frmMain.lblacctType.Caption & "'", kon)
             Dim dset = New DataSet
             da.Fill(dset, "tblEmpUsers")
             dgaccount.DataSource = dset.Tables("tblEmpUsers").DefaultView
             count.Caption = dset.Tables("tblEmpUsers").Rows.Count & " Record(s) found"
             btnedit.Caption = "Change Name or Password"
         ElseIf frmMain.lblacctType.Caption = "SUPER ADMIN" Then
-            Dim da = New SqlDataAdapter("select * from tblEmpUsers order by UserID asc", kon)
+            Dim da = New SqlDataAdapter("select * from tblEmpUsers order by EmpID asc", kon)
             Dim dset = New DataSet
             da.Fill(dset, "tblEmpUsers")
             dgaccount.DataSource = dset.Tables("tblEmpUsers").DefaultView
             count.Caption = dset.Tables("tblEmpUsers").Rows.Count & " Record(s) found"
             btnedit.Caption = "&EDIT (F2)"
-            Call formatgridacct()
+            account.BestFitColumns()
+            account.RowHeight = 20
         End If
         Return True
     End Function
@@ -44,8 +46,9 @@ Public Class frmaccount
 
         ElseIf frmmain.lblacctType.Caption = "SUPER ADMIN" Then
             frmaddeditaccount.lblaccount.Text = "account"
-            frmaddeditaccount.Text = "Add Account"
-            frmaddeditaccount.cbacctype.Enabled = True
+            frmAddEditAccount.Text = "Add Account"
+            frmAddEditAccount.txtname.Select()
+            frmAddEditAccount.cbacctype.Enabled = True
             frmaddeditaccount.cbstatus.Enabled = True
             frmaddeditaccount.xclear()
             frmaddeditaccount.ShowDialog()
@@ -65,11 +68,11 @@ Public Class frmaccount
 
     Private Sub account_RowCellClick(sender As Object, e As DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs) Handles account.RowCellClick
         Try
-            keyID = account.GetRowCellValue(account.FocusedRowHandle, "UserID").ToString
-            Dim da = New SqlDataAdapter("select * from tblusers where UserID = '" & keyID & "'", kon)
+            keyID = account.GetRowCellValue(account.FocusedRowHandle, "EmpID").ToString
+            Dim da = New SqlDataAdapter("select * from tblEmpusers where EmpID = '" & keyID & "'", kon)
             Dim dset = New DataSet
-            da.Fill(dset, "tblusers")
-            txtselectedcode.Text = dset.Tables("tblusers").Rows(0).Item("UserID")
+            da.Fill(dset, "tblEmpusers")
+            txtselectedcode.Text = dset.Tables("tblEmpusers").Rows(0).Item("EmpID")
         Catch eX As Exception
             MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
@@ -149,32 +152,8 @@ Public Class frmaccount
             End If
         End If
     End Sub
-    
-    Function formatgridacct() As Boolean
-        account.Columns(0).Caption = "ID"
-        account.Columns(0).Width = 35
-        account.Columns(0).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        account.Columns(1).Caption = "User Name"
-        account.Columns(1).Width = 80
-        account.Columns(1).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        account.Columns(2).Visible = False
-        'account.Columns(2).Width = 80
-        'account.Columns(2).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        account.Columns(3).Caption = "Name"
-        account.Columns(3).Width = 150
-        account.Columns(3).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        account.Columns(4).Caption = "Department"
-        account.Columns(4).Width = 150
-        account.Columns(4).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        account.Columns(5).Caption = "Type"
-        account.Columns(5).Width = 50
-        account.Columns(5).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        account.Columns(6).Visible = False
-        account.Columns(7).Caption = "Status"
-        account.Columns(7).Width = 50
-        account.Columns(7).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Return True
-    End Function
+
+
 
 
     Private Sub cmdadd_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdadd.ItemClick

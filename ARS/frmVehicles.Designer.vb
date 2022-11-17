@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmVehicles
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,12 +17,10 @@ Partial Class frmVehicles
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehicles))
-        Me.gvVehicle = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.dgVehicle = New DevExpress.XtraGrid.GridControl()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
@@ -43,58 +41,21 @@ Partial Class frmVehicles
         Me.btnprBarcode = New DevExpress.XtraBars.BarButtonItem()
         Me.RepositoryItemPageNumberEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.txtHheadID = New System.Windows.Forms.TextBox()
-        Me.txtselectedcode = New System.Windows.Forms.TextBox()
+        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
         Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
-        CType(Me.gvVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgVehicles = New DevExpress.XtraGrid.GridControl()
+        Me.gvVehicles = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgVehicles, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvVehicles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'gvVehicle
-        '
-        Me.gvVehicle.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.gvVehicle.Appearance.Empty.Options.UseBackColor = True
-        Me.gvVehicle.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvVehicle.Appearance.FocusedRow.Options.UseBackColor = True
-        Me.gvVehicle.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvVehicle.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvVehicle.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvVehicle.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvVehicle.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvVehicle.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvVehicle.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvVehicle.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvVehicle.Appearance.Row.Options.UseFont = True
-        Me.gvVehicle.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.gvVehicle.AppearancePrint.HeaderPanel.Options.UseFont = True
-        Me.gvVehicle.DetailHeight = 327
-        Me.gvVehicle.GridControl = Me.dgVehicle
-        Me.gvVehicle.Name = "gvVehicle"
-        Me.gvVehicle.OptionsBehavior.Editable = False
-        Me.gvVehicle.OptionsSelection.MultiSelect = True
-        Me.gvVehicle.OptionsView.ColumnAutoWidth = False
-        Me.gvVehicle.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
-        Me.gvVehicle.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvVehicle.OptionsView.EnableAppearanceOddRow = True
-        Me.gvVehicle.OptionsView.ShowFooter = True
-        '
-        'dgVehicle
-        '
-        Me.dgVehicle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgVehicle.Location = New System.Drawing.Point(0, 86)
-        Me.dgVehicle.MainView = Me.gvVehicle
-        Me.dgVehicle.MenuManager = Me.BarManager1
-        Me.dgVehicle.Name = "dgVehicle"
-        Me.dgVehicle.Size = New System.Drawing.Size(812, 386)
-        Me.dgVehicle.TabIndex = 17
-        Me.dgVehicle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvVehicle})
         '
         'BarManager1
         '
@@ -275,29 +236,22 @@ Partial Class frmVehicles
         '
         'PanelControl1
         '
-        Me.PanelControl1.Controls.Add(Me.txtHheadID)
-        Me.PanelControl1.Controls.Add(Me.txtselectedcode)
+        Me.PanelControl1.Controls.Add(Me.TextEdit1)
         Me.PanelControl1.Controls.Add(Me.btnsearch)
         Me.PanelControl1.Controls.Add(Me.txtsearch)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(812, 42)
+        Me.PanelControl1.Size = New System.Drawing.Size(812, 87)
         Me.PanelControl1.TabIndex = 16
         '
-        'txtHheadID
+        'TextEdit1
         '
-        Me.txtHheadID.Location = New System.Drawing.Point(695, 51)
-        Me.txtHheadID.Name = "txtHheadID"
-        Me.txtHheadID.Size = New System.Drawing.Size(108, 21)
-        Me.txtHheadID.TabIndex = 4
-        '
-        'txtselectedcode
-        '
-        Me.txtselectedcode.Location = New System.Drawing.Point(581, 51)
-        Me.txtselectedcode.Name = "txtselectedcode"
-        Me.txtselectedcode.Size = New System.Drawing.Size(108, 21)
-        Me.txtselectedcode.TabIndex = 3
+        Me.TextEdit1.Location = New System.Drawing.Point(552, 48)
+        Me.TextEdit1.MenuManager = Me.BarManager1
+        Me.TextEdit1.Name = "TextEdit1"
+        Me.TextEdit1.Size = New System.Drawing.Size(100, 20)
+        Me.TextEdit1.TabIndex = 2
         '
         'btnsearch
         '
@@ -331,12 +285,51 @@ Partial Class frmVehicles
         Me.barDockControlTop.Manager = Nothing
         Me.barDockControlTop.Size = New System.Drawing.Size(812, 0)
         '
+        'dgVehicles
+        '
+        Me.dgVehicles.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgVehicles.Location = New System.Drawing.Point(0, 131)
+        Me.dgVehicles.MainView = Me.gvVehicles
+        Me.dgVehicles.MenuManager = Me.BarManager1
+        Me.dgVehicles.Name = "dgVehicles"
+        Me.dgVehicles.Size = New System.Drawing.Size(812, 341)
+        Me.dgVehicles.TabIndex = 22
+        Me.dgVehicles.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvVehicles})
+        '
+        'gvVehicles
+        '
+        Me.gvVehicles.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.gvVehicles.Appearance.Empty.Options.UseBackColor = True
+        Me.gvVehicles.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvVehicles.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvVehicles.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicles.Appearance.GroupPanel.Options.UseFont = True
+        Me.gvVehicles.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicles.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvVehicles.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.gvVehicles.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.gvVehicles.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvVehicles.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicles.Appearance.Row.Options.UseFont = True
+        Me.gvVehicles.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.gvVehicles.AppearancePrint.HeaderPanel.Options.UseFont = True
+        Me.gvVehicles.DetailHeight = 327
+        Me.gvVehicles.GridControl = Me.dgVehicles
+        Me.gvVehicles.Name = "gvVehicles"
+        Me.gvVehicles.OptionsBehavior.Editable = False
+        Me.gvVehicles.OptionsSelection.MultiSelect = True
+        Me.gvVehicles.OptionsView.ColumnAutoWidth = False
+        Me.gvVehicles.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
+        Me.gvVehicles.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvVehicles.OptionsView.EnableAppearanceOddRow = True
+        Me.gvVehicles.OptionsView.ShowFooter = True
+        '
         'frmVehicles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(812, 497)
-        Me.Controls.Add(Me.dgVehicle)
+        Me.Controls.Add(Me.dgVehicles)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -345,21 +338,18 @@ Partial Class frmVehicles
         Me.Controls.Add(Me.BarDockControl1)
         Me.Name = "frmVehicles"
         Me.Text = "Vehicles"
-        CType(Me.gvVehicle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgVehicle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
-        Me.PanelControl1.PerformLayout()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgVehicles, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvVehicles, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents gvVehicle As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents dgVehicle As DevExpress.XtraGrid.GridControl
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents btnadd As DevExpress.XtraBars.BarButtonItem
@@ -372,8 +362,6 @@ Partial Class frmVehicles
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents txtHheadID As TextBox
-    Friend WithEvents txtselectedcode As TextBox
     Friend WithEvents btnsearch As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtsearch As DevExpress.XtraEditors.SearchControl
     Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
@@ -385,4 +373,7 @@ Partial Class frmVehicles
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnprBarcode As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RepositoryItemPageNumberEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit
+    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents dgVehicles As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvVehicles As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

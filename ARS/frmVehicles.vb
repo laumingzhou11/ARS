@@ -20,15 +20,13 @@ Public Class frmVehicles
     End Sub
     Function populateVehicle() As Boolean
         Call konneksyon()
-        sql = "select a.vehicleID,a.Model,a.make,a.PlateNo, " _
-                & "a.CrNo, a.RegisteredOwner, a.Driver, a.Status, a.TankCapacity, b.UomCode," _
-                & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.Added_by from tblVehicles As a " _
+        sql = "select * from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.UomID=c.EmpID order by VehicleID desc"
-        Call populate(sql, dgVehicle)
-        lblcount.Caption = gvVehicle.RowCount & " Record(s) Found"
-        gvVehicle.BestFitColumns()
-        gvVehicle.RowHeight = 20
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID order by VehicleID desc"
+        Call populate(sql, dgVehicles)
+        lblcount.Caption = gvVehicles.RowCount & " Record(s) Found"
+        gvVehicles.BestFitColumns()
+        gvVehicles.RowHeight = 20
         Return True
     End Function
 
@@ -41,7 +39,7 @@ Public Class frmVehicles
                 & "a.CrNo, a.RegisteredOwner, a.Driver, a.Status, a.TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.UomID=c.EmpID where VehicleID='" & keyID & "'"
+                & "where VehicleID='" & keyID & "'"
         Call fill(sql)
         frmAddEditVehicles.txtvehicleID.Text = dset.Tables(sql).Rows(0).Item("VehicleID")
         frmAddEditVehicles.txtcarmodel.Text = dset.Tables(sql).Rows(0).Item("Model")
@@ -53,7 +51,7 @@ Public Class frmVehicles
         frmAddEditVehicles.cbstatus.Text = dset.Tables(sql).Rows(0).Item("Status")
         frmAddEditVehicles.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
         frmAddEditVehicles.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
-        Call frmAddEditVehicles.uom
+        Call frmAddEditVehicles.Uom()
         Return True
     End Function
     Function Search() As Boolean
@@ -62,14 +60,14 @@ Public Class frmVehicles
                 Call konneksyon()
                 sql = "select a.vehicleID,a.Model,a.make,a.PlateNo, " _
                 & "a.CrNo, a.RegisteredOwner, a.Driver, a.Status, a.TankCapacity, b.UomCode," _
-                & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.Added_by from tblVehicles As a " _
+                & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.UomID=c.EmpID where Model like '%" & txtsearch.Text & "%' order by a.vehicleID desc"
-                Call populate(sql, dgVehicle)
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID where Model like '%" & txtsearch.Text & "%' order by a.vehicleID desc"
+                Call populate(sql, dgVehicles)
                 If dset.Tables(sql).Rows.Count > 0 Then
-                    lblcount.Caption = gvVehicle.RowCount & " Record(s) Found"
-                    gvVehicle.BestFitColumns()
-                    gvVehicle.RowHeight = 20
+                    lblcount.Caption = gvVehicles.RowCount & " Record(s) Found"
+                    gvVehicles.BestFitColumns()
+                    gvVehicles.RowHeight = 20
                 Else
                     MsgBox("No record found!", MsgBoxStyle.Information, Me.Text)
                 End If
@@ -80,7 +78,7 @@ Public Class frmVehicles
 
         Return True
     End Function
-    Private Sub gvVehicle_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles gvVehicle.CustomDrawCell
+    Private Sub gvVehicles_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs)
         If Not Me.txtsearch.Text <> "" Then Return
         Dim view As GridView = CType(sender, GridView)
         If Not view.IsDataRow(e.RowHandle) Then Return
@@ -117,24 +115,25 @@ Public Class frmVehicles
     End Sub
 
     Private Sub btnedit_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles btnedit.ItemClick
-        If txtselectedcode.Text <> "" Then
+        If TextEdit1.Text <> "" Then
             Call filltext()
-            frmAddEditSuppliers.Text = "Edit Supplier"
-            frmAddEditSuppliers.ShowDialog()
+            frmAddEditVehicles.Text = "Edit Vehicle"
+            frmAddEditVehicles.ShowDialog()
         Else
             MsgBox("Select record to edit!", MsgBoxStyle.Information, Me.Text)
         End If
     End Sub
-    Private Sub gvVehicle_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvVehicle.FocusedRowChanged
+    Private Sub gvVehicles_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvVehicles.FocusedRowChanged
         Try
-            keyID = gvVehicle.GetRowCellValue(gvVehicle.FocusedRowHandle, "VehicleID")
+            keyID = gvVehicles.GetRowCellValue(gvVehicles.FocusedRowHandle, "VehicleID")
             Dim da = New SqlDataAdapter("select * from tblVehicles where VehicleID='" & keyID & "'", kon)
             Dim dset = New DataSet
             da.Fill(dset, "tblVehicles")
             If dset.Tables("tblVehicles").Rows.Count > 0 Then
-                txtselectedcode.Text = dset.Tables("tblVehicles").Rows(0).Item("VehicleID")
+                TextEdit1.Text = dset.Tables("tblVehicles").Rows(0).Item("VehicleID")
             Else
             End If
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try

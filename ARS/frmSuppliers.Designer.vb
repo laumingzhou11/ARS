@@ -88,11 +88,11 @@ Partial Class frmSuppliers
         'dgsupplier
         '
         Me.dgsupplier.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgsupplier.Location = New System.Drawing.Point(0, 82)
+        Me.dgsupplier.Location = New System.Drawing.Point(0, 88)
         Me.dgsupplier.MainView = Me.gvsupplier
         Me.dgsupplier.MenuManager = Me.BarManager1
         Me.dgsupplier.Name = "dgsupplier"
-        Me.dgsupplier.Size = New System.Drawing.Size(692, 356)
+        Me.dgsupplier.Size = New System.Drawing.Size(692, 350)
         Me.dgsupplier.TabIndex = 11
         Me.dgsupplier.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvsupplier})
         '
@@ -177,7 +177,7 @@ Partial Class frmSuppliers
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(692, 40)
+        Me.BarDockControl1.Size = New System.Drawing.Size(692, 44)
         '
         'barDockControlBottom
         '
@@ -191,17 +191,17 @@ Partial Class frmSuppliers
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 40)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 398)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 394)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(692, 40)
+        Me.barDockControlRight.Location = New System.Drawing.Point(692, 44)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 398)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 394)
         '
         'BarCheckItem1
         '
@@ -318,16 +318,16 @@ Partial Class frmSuppliers
         Me.PanelControl1.Controls.Add(Me.btnsearch)
         Me.PanelControl1.Controls.Add(Me.txtsearch)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 40)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(692, 42)
+        Me.PanelControl1.Size = New System.Drawing.Size(692, 44)
         Me.PanelControl1.TabIndex = 10
         '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.barDockControlTop.Location = New System.Drawing.Point(0, 40)
+        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlTop.Manager = Nothing
         Me.barDockControlTop.Size = New System.Drawing.Size(692, 0)
         '

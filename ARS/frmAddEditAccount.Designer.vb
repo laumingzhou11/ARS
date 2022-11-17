@@ -30,6 +30,8 @@ Partial Class frmAddEditAccount
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.cbPosition = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.cbstatus = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.cbacctype = New DevExpress.XtraEditors.ComboBoxEdit()
@@ -37,8 +39,6 @@ Partial Class frmAddEditAccount
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
         Me.btncancel = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
-        Me.cbPosition = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         CType(Me.ckpasschar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,11 +47,11 @@ Partial Class frmAddEditAccount
         CType(Me.txtuser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.cbPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbstatus.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbacctype.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
-        CType(Me.cbPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl2
@@ -69,7 +69,7 @@ Partial Class frmAddEditAccount
         Me.GroupControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupControl2.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(371, 242)
+        Me.GroupControl2.Size = New System.Drawing.Size(371, 249)
         Me.GroupControl2.TabIndex = 19
         Me.GroupControl2.Text = "Account"
         '
@@ -85,7 +85,7 @@ Partial Class frmAddEditAccount
         '
         'ckpasschar
         '
-        Me.ckpasschar.Location = New System.Drawing.Point(85, 113)
+        Me.ckpasschar.Location = New System.Drawing.Point(85, 118)
         Me.ckpasschar.Name = "ckpasschar"
         Me.ckpasschar.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckpasschar.Properties.Appearance.Options.UseFont = True
@@ -95,7 +95,7 @@ Partial Class frmAddEditAccount
         '
         'txtname
         '
-        Me.txtname.Location = New System.Drawing.Point(82, 27)
+        Me.txtname.Location = New System.Drawing.Point(82, 32)
         Me.txtname.Name = "txtname"
         Me.txtname.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtname.Properties.Appearance.Options.UseFont = True
@@ -106,7 +106,7 @@ Partial Class frmAddEditAccount
         '
         'txtpass
         '
-        Me.txtpass.Location = New System.Drawing.Point(82, 87)
+        Me.txtpass.Location = New System.Drawing.Point(82, 92)
         Me.txtpass.Name = "txtpass"
         Me.txtpass.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpass.Properties.Appearance.Options.UseFont = True
@@ -120,7 +120,7 @@ Partial Class frmAddEditAccount
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(13, 91)
+        Me.LabelControl2.Location = New System.Drawing.Point(13, 96)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(63, 14)
         Me.LabelControl2.TabIndex = 1
@@ -128,7 +128,7 @@ Partial Class frmAddEditAccount
         '
         'txtuser
         '
-        Me.txtuser.Location = New System.Drawing.Point(82, 57)
+        Me.txtuser.Location = New System.Drawing.Point(82, 62)
         Me.txtuser.Name = "txtuser"
         Me.txtuser.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtuser.Properties.Appearance.Options.UseFont = True
@@ -142,7 +142,7 @@ Partial Class frmAddEditAccount
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(15, 31)
+        Me.LabelControl4.Location = New System.Drawing.Point(15, 36)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(61, 14)
         Me.LabelControl4.TabIndex = 15
@@ -152,7 +152,7 @@ Partial Class frmAddEditAccount
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(13, 62)
+        Me.LabelControl1.Location = New System.Drawing.Point(13, 67)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(63, 14)
         Me.LabelControl1.TabIndex = 0
@@ -167,10 +167,32 @@ Partial Class frmAddEditAccount
         Me.PanelControl1.Controls.Add(Me.cbacctype)
         Me.PanelControl1.Controls.Add(Me.LabelControl3)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 137)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 140)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(371, 105)
+        Me.PanelControl1.Size = New System.Drawing.Size(371, 109)
         Me.PanelControl1.TabIndex = 20
+        '
+        'cbPosition
+        '
+        Me.cbPosition.Location = New System.Drawing.Point(85, 10)
+        Me.cbPosition.Name = "cbPosition"
+        Me.cbPosition.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPosition.Properties.Appearance.Options.UseFont = True
+        Me.cbPosition.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.cbPosition.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbPosition.Properties.Items.AddRange(New Object() {"", "ACTIVE", "BLOCK", "FOR ACTIVATION"})
+        Me.cbPosition.Size = New System.Drawing.Size(275, 24)
+        Me.cbPosition.TabIndex = 22
+        '
+        'LabelControl5
+        '
+        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl5.Appearance.Options.UseFont = True
+        Me.LabelControl5.Location = New System.Drawing.Point(25, 14)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(54, 14)
+        Me.LabelControl5.TabIndex = 21
+        Me.LabelControl5.Text = "Position:"
         '
         'cbstatus
         '
@@ -221,7 +243,7 @@ Partial Class frmAddEditAccount
         Me.btnsave.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsave.Appearance.Options.UseFont = True
         Me.btnsave.ImageOptions.Image = CType(resources.GetObject("btnsave.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnsave.Location = New System.Drawing.Point(153, 5)
+        Me.btnsave.Location = New System.Drawing.Point(153, 9)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(103, 35)
         Me.btnsave.TabIndex = 21
@@ -232,7 +254,7 @@ Partial Class frmAddEditAccount
         Me.btncancel.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncancel.Appearance.Options.UseFont = True
         Me.btncancel.ImageOptions.Image = CType(resources.GetObject("btncancel.ImageOptions.Image"), System.Drawing.Image)
-        Me.btncancel.Location = New System.Drawing.Point(260, 5)
+        Me.btncancel.Location = New System.Drawing.Point(260, 9)
         Me.btncancel.Name = "btncancel"
         Me.btncancel.Size = New System.Drawing.Size(103, 35)
         Me.btncancel.TabIndex = 22
@@ -243,38 +265,16 @@ Partial Class frmAddEditAccount
         Me.PanelControl2.Controls.Add(Me.btnsave)
         Me.PanelControl2.Controls.Add(Me.btncancel)
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl2.Location = New System.Drawing.Point(0, 242)
+        Me.PanelControl2.Location = New System.Drawing.Point(0, 249)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(371, 44)
+        Me.PanelControl2.Size = New System.Drawing.Size(371, 52)
         Me.PanelControl2.TabIndex = 21
-        '
-        'cbPosition
-        '
-        Me.cbPosition.Location = New System.Drawing.Point(85, 10)
-        Me.cbPosition.Name = "cbPosition"
-        Me.cbPosition.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbPosition.Properties.Appearance.Options.UseFont = True
-        Me.cbPosition.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cbPosition.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbPosition.Properties.Items.AddRange(New Object() {"", "ACTIVE", "BLOCK", "FOR ACTIVATION"})
-        Me.cbPosition.Size = New System.Drawing.Size(275, 24)
-        Me.cbPosition.TabIndex = 22
-        '
-        'LabelControl5
-        '
-        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(25, 14)
-        Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(54, 14)
-        Me.LabelControl5.TabIndex = 21
-        Me.LabelControl5.Text = "Position:"
         '
         'frmAddEditAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(371, 286)
+        Me.ClientSize = New System.Drawing.Size(371, 301)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.PanelControl2)
@@ -282,6 +282,7 @@ Partial Class frmAddEditAccount
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmAddEditAccount"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Account"
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
@@ -293,11 +294,11 @@ Partial Class frmAddEditAccount
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.cbPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbstatus.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbacctype.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
-        CType(Me.cbPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
