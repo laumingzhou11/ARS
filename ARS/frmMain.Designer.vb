@@ -120,13 +120,16 @@ Partial Class frmMain
         '
         'btnTankTransactions
         '
-        Me.btnTankTransactions.Caption = "Tank Transactions"
+        Me.btnTankTransactions.Caption = "Tank Refuelling"
         Me.btnTankTransactions.Id = 6
+        Me.btnTankTransactions.ImageOptions.Image = CType(resources.GetObject("btnTankTransactions.ImageOptions.Image"), System.Drawing.Image)
         Me.btnTankTransactions.Name = "btnTankTransactions"
+        Me.btnTankTransactions.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
+            Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
         '
         'btnAutoTransactions
         '
-        Me.btnAutoTransactions.Caption = "Auto Transactions"
+        Me.btnAutoTransactions.Caption = "Vehicles Refuelling"
         Me.btnAutoTransactions.Id = 7
         Me.btnAutoTransactions.Name = "btnAutoTransactions"
         '
@@ -140,10 +143,12 @@ Partial Class frmMain
         '
         Me.BarButtonItem2.Caption = "Users"
         Me.BarButtonItem2.Id = 9
-        Me.BarButtonItem2.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.BarButtonItem2.ImageOptions.Image = CType(resources.GetObject("BarButtonItem2.ImageOptions.Image"), System.Drawing.Image)
         Me.BarButtonItem2.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarButtonItem2.ItemAppearance.Normal.Options.UseFont = True
         Me.BarButtonItem2.Name = "BarButtonItem2"
+        Me.BarButtonItem2.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
+            Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
         '
         'SkinDropDownButtonItem1
         '

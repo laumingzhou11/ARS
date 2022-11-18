@@ -1,5 +1,20 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmAddEditVehicles
+    Private Sub txtName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtName.KeyPress
+
+        If Asc(e.KeyChar) = 13 Then
+            If txtName.Text = "" Then
+                txtName.Focus()
+            Else
+                With txtcarmodel
+                    .SelectionStart = 0
+                    .SelectionLength = Len(.Text)
+                    .Focus()
+                End With
+            End If
+        End If
+
+    End Sub
     Private Sub txtcarmodel_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcarmodel.KeyPress
 
         If Asc(e.KeyChar) = 13 Then
@@ -18,8 +33,8 @@ Public Class frmAddEditVehicles
     Private Sub txtcarmake_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtcarmake.KeyPress
 
         If Asc(e.KeyChar) = 13 Then
-            If txtcarmodel.Text = "" Then
-                txtcarmodel.Focus()
+            If txtcarmake.Text = "" Then
+                txtcarmake.Focus()
             Else
                 With txtplateNo
                     .SelectionStart = 0
@@ -141,19 +156,21 @@ Public Class frmAddEditVehicles
             If allowchar.IndexOf(e.KeyChar) = -1 Then
                 MsgBox("Number only!", MsgBoxStyle.Critical, "Capacity Input..")
                 e.Handled = True
-            End If
-        End If
-        If Asc(e.KeyChar) = 13 Then
-            If txtCapacity.Text = "" Then
-                txtCapacity.Focus()
             Else
-                With cbUomCode
-                    .SelectionStart = 0
-                    .SelectionLength = Len(.Text)
-                    .Focus()
-                End With
+                If Asc(e.KeyChar) = 13 Then
+                    If txtCapacity.Text = "" Then
+                        txtCapacity.Focus()
+                    Else
+                        With cbUomCode
+                            .SelectionStart = 0
+                            .SelectionLength = Len(.Text)
+                            .Focus()
+                        End With
+                    End If
+                End If
             End If
         End If
+
 
     End Sub
     Private Sub cbUomCode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbUomCode.KeyPress
@@ -200,12 +217,15 @@ Public Class frmAddEditVehicles
         DriverPic.Image = Nothing
         txtDriverAddress.Text = ""
         txtOwnerAddress.Text = ""
+        txtName.Text = ""
         Return True
     End Function
     Function saverec() As Boolean
         Call konneksyon()
         If picImage.Image Is Nothing And DriverPic.Image Is Nothing Then
-            If txtcarmodel.Text = "" Then
+            If txtName.Text = "" Then
+                txtName.Focus()
+            ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
             ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
@@ -232,12 +252,12 @@ Public Class frmAddEditVehicles
                     sql = "insert into tblvehicles (" _
                         & "code, Model, Make, PlateNo, CrNo, " _
                         & "RegisteredOwner, OwnerAddress, Driver, DriverAddress,Status, " _
-                        & "TankCapacity, UomID, Added_at, Added_by) values (" _
+                        & "TankCapacity, UomID, Added_at, Added_by,Name) values (" _
                         & "(select RIGHT('000' + " _
                         & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                         & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtOwnerAddress.Text & "','" & txtDriver.Text & "','" & txtDriverAddress.Text & "'," _
                         & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                        & "Getdate(),'" & frmMain.lblid.Caption & "')"
+                        & "Getdate(),'" & frmMain.lblid.Caption & "','" & txtName.Text & "')"
                     Call save(sql)
                     MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
                     Call xclear()
@@ -251,7 +271,9 @@ Public Class frmAddEditVehicles
             picImage.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim arrImage() As Byte = mstream.GetBuffer()
             mstream.Close()
-            If txtcarmodel.Text = "" Then
+            If txtName.Text = "" Then
+                txtName.Focus()
+            ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
             ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
@@ -280,12 +302,12 @@ Public Class frmAddEditVehicles
                     kom.CommandText = "insert into tblvehicles (" _
                         & "code, Model, Make, PlateNo, CrNo, " _
                        & "RegisteredOwner, OwnerAddress, Driver, DriverAddress,Status, " _
-                        & "TankCapacity, UomID, Added_at, Added_by,VehiclePic) values (" _
+                        & "TankCapacity, UomID, Added_at, Added_by,VehiclePic,Name) values (" _
                         & "(select RIGHT('000' + " _
                         & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                         & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtOwnerAddress.Text & "','" & txtDriver.Text & "','" & txtDriverAddress.Text & "'," _
                         & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                        & "Getdate(),'" & frmMain.lblid.Caption & "',@photo)"
+                        & "Getdate(),'" & frmMain.lblid.Caption & "',@photo,'" & txtName.Text & "')"
                     kom.Parameters.AddWithValue("@photo", arrImage)
                     kom.ExecuteNonQuery()
                     MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
@@ -300,7 +322,9 @@ Public Class frmAddEditVehicles
             DriverPic.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim arrImage() As Byte = mstream.GetBuffer()
             mstream.Close()
-            If txtcarmodel.Text = "" Then
+            If txtName.Text = "" Then
+                txtName.Focus()
+            ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
             ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
@@ -329,12 +353,12 @@ Public Class frmAddEditVehicles
                     kom.CommandText = "insert into tblvehicles (" _
                         & "code, Model, Make, PlateNo, CrNo, " _
                         & "RegisteredOwner, OwnerAddress, Driver, DriverAddress,Status, " _
-                        & "TankCapacity, UomID, Added_at, Added_by,DriverPic) values (" _
+                        & "TankCapacity, UomID, Added_at, Added_by,DriverPic,Name) values (" _
                         & "(select RIGHT('000' + " _
                         & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                         & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtOwnerAddress.Text & "','" & txtDriver.Text & "','" & txtDriverAddress.Text & "'," _
                         & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                        & "Getdate(),'" & frmMain.lblid.Caption & "',@photo)"
+                        & "Getdate(),'" & frmMain.lblid.Caption & "',@photo,'" & txtName.Text & "')"
                     kom.Parameters.AddWithValue("@photo", arrImage)
                     kom.ExecuteNonQuery()
                     MsgBox("Added Successfully!", MsgBoxStyle.Information, Me.Text)
@@ -350,7 +374,9 @@ Public Class frmAddEditVehicles
     Function updaterec() As Boolean
         Call konneksyon()
         If picImage.Image Is Nothing And DriverPic.Image Is Nothing Then
-            If txtcarmodel.Text = "" Then
+            If txtName.Text = "" Then
+                txtName.Focus()
+            ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
             ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
@@ -380,7 +406,7 @@ Public Class frmAddEditVehicles
                     & "RegisteredOwner='" & txtOwner.Text & "', OwnerAddress='" & txtOwnerAddress.Text & "', " _
                     & "Driver='" & txtDriver.Text & "', DriverAddress='" & txtDriverAddress.Text & "',Status='" & cbstatus.Text & "', " _
                     & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                    & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "' where VehicleID='" & txtvehicleID.Text & "'"
+                    & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "', Name='" & txtName.Text & "' where VehicleID='" & txtvehicleID.Text & "'"
                     Call save(sql)
                     MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
                     Call xclear()
@@ -393,7 +419,9 @@ Public Class frmAddEditVehicles
             picImage.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim arrImage() As Byte = mstream.GetBuffer()
             mstream.Close()
-            If txtcarmodel.Text = "" Then
+            If txtName.Text = "" Then
+                txtName.Focus()
+            ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
             ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
@@ -425,7 +453,7 @@ Public Class frmAddEditVehicles
                        & "RegisteredOwner='" & txtOwner.Text & "', OwnerAddress='" & txtOwnerAddress.Text & "', " _
                     & "Driver='" & txtDriver.Text & "', DriverAddress='" & txtDriverAddress.Text & "',Status='" & cbstatus.Text & "', " _
                         & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                        & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "',VehiclePic=@photo where VehicleID='" & txtvehicleID.Text & "'"
+                        & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "',VehiclePic=@photo ,Name='" & txtName.Text & "' where VehicleID='" & txtvehicleID.Text & "'"
                     kom.Parameters.AddWithValue("@photo", arrImage)
                     kom.ExecuteNonQuery()
                     MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)
@@ -439,7 +467,9 @@ Public Class frmAddEditVehicles
             DriverPic.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
             Dim arrImage() As Byte = mstream.GetBuffer()
             mstream.Close()
-            If txtcarmodel.Text = "" Then
+            If txtName.Text = "" Then
+                txtName.Focus()
+            ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
             ElseIf txtcarmodel.Text = "" Then
                 txtcarmodel.Focus()
@@ -471,7 +501,7 @@ Public Class frmAddEditVehicles
                    & "RegisteredOwner='" & txtOwner.Text & "', OwnerAddress='" & txtOwnerAddress.Text & "', " _
                     & "Driver='" & txtDriver.Text & "', DriverAddress='" & txtDriverAddress.Text & "',Status='" & cbstatus.Text & "', " _
                     & "TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                    & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "',DriverPic=@photo where VehicleID='" & txtvehicleID.Text & "'"
+                    & "Added_at=Getdate(), Added_by='" & frmMain.lblid.Caption & "',DriverPic=@photo,Name='" & txtName.Text & "' where VehicleID='" & txtvehicleID.Text & "'"
                     kom.Parameters.AddWithValue("@photo", arrImage)
                     kom.ExecuteNonQuery()
                     MsgBox("Edit Successfully!", MsgBoxStyle.Information, Me.Text)

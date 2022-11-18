@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmVehicles
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class frmTankRefuelling
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,14 +17,12 @@ Partial Class frmVehicles
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVehicles))
-        Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
-        Me.txtselectedcode = New System.Windows.Forms.TextBox()
-        Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
-        Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTankRefuelling))
+        Me.gvTankRefuelling = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.dgTankRefuelling = New DevExpress.XtraGrid.GridControl()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
@@ -45,55 +43,57 @@ Partial Class frmVehicles
         Me.btnprBarcode = New DevExpress.XtraBars.BarButtonItem()
         Me.RepositoryItemPageNumberEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.dgVehicles = New DevExpress.XtraGrid.GridControl()
-        Me.gvVehicles = New DevExpress.XtraGrid.Views.Grid.GridView()
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtselectedcode = New System.Windows.Forms.TextBox()
+        Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
+        Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
+        Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
+        CType(Me.gvTankRefuelling, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgTankRefuelling, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
-        CType(Me.dgVehicles, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gvVehicles, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'barDockControlTop
+        'gvTankRefuelling
         '
-        Me.barDockControlTop.CausesValidation = False
-        Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
-        Me.barDockControlTop.Manager = Nothing
-        Me.barDockControlTop.Size = New System.Drawing.Size(859, 0)
+        Me.gvTankRefuelling.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.gvTankRefuelling.Appearance.Empty.Options.UseBackColor = True
+        Me.gvTankRefuelling.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvTankRefuelling.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvTankRefuelling.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTankRefuelling.Appearance.GroupPanel.Options.UseFont = True
+        Me.gvTankRefuelling.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTankRefuelling.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvTankRefuelling.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.gvTankRefuelling.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.gvTankRefuelling.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvTankRefuelling.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTankRefuelling.Appearance.Row.Options.UseFont = True
+        Me.gvTankRefuelling.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.gvTankRefuelling.AppearancePrint.HeaderPanel.Options.UseFont = True
+        Me.gvTankRefuelling.DetailHeight = 327
+        Me.gvTankRefuelling.GridControl = Me.dgTankRefuelling
+        Me.gvTankRefuelling.Name = "gvTankRefuelling"
+        Me.gvTankRefuelling.OptionsBehavior.Editable = False
+        Me.gvTankRefuelling.OptionsSelection.MultiSelect = True
+        Me.gvTankRefuelling.OptionsView.ColumnAutoWidth = False
+        Me.gvTankRefuelling.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
+        Me.gvTankRefuelling.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvTankRefuelling.OptionsView.EnableAppearanceOddRow = True
+        Me.gvTankRefuelling.OptionsView.ShowFooter = True
         '
-        'txtselectedcode
+        'dgTankRefuelling
         '
-        Me.txtselectedcode.Location = New System.Drawing.Point(532, 51)
-        Me.txtselectedcode.Name = "txtselectedcode"
-        Me.txtselectedcode.Size = New System.Drawing.Size(108, 21)
-        Me.txtselectedcode.TabIndex = 3
-        '
-        'btnsearch
-        '
-        Me.btnsearch.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsearch.Appearance.Options.UseFont = True
-        Me.btnsearch.ImageOptions.Image = CType(resources.GetObject("btnsearch.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnsearch.Location = New System.Drawing.Point(368, 10)
-        Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(87, 23)
-        Me.btnsearch.TabIndex = 1
-        Me.btnsearch.Text = "Search"
-        '
-        'txtsearch
-        '
-        Me.txtsearch.Location = New System.Drawing.Point(6, 10)
-        Me.txtsearch.MenuManager = Me.BarManager1
-        Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsearch.Properties.Appearance.Options.UseFont = True
-        Me.txtsearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtsearch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Repository.ClearButton(), New DevExpress.XtraEditors.Repository.SearchButton()})
-        Me.txtsearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtsearch.Size = New System.Drawing.Size(359, 22)
-        Me.txtsearch.TabIndex = 0
+        Me.dgTankRefuelling.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgTankRefuelling.Location = New System.Drawing.Point(0, 44)
+        Me.dgTankRefuelling.MainView = Me.gvTankRefuelling
+        Me.dgTankRefuelling.MenuManager = Me.BarManager1
+        Me.dgTankRefuelling.Name = "dgTankRefuelling"
+        Me.dgTankRefuelling.Size = New System.Drawing.Size(746, 397)
+        Me.dgTankRefuelling.TabIndex = 17
+        Me.dgTankRefuelling.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTankRefuelling})
         '
         'BarManager1
         '
@@ -176,15 +176,15 @@ Partial Class frmVehicles
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(859, 44)
+        Me.BarDockControl1.Size = New System.Drawing.Size(746, 44)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 449)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 441)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(859, 25)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(746, 25)
         '
         'barDockControlLeft
         '
@@ -192,15 +192,15 @@ Partial Class frmVehicles
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 405)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 397)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(859, 44)
+        Me.barDockControlRight.Location = New System.Drawing.Point(746, 44)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 405)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 397)
         '
         'BarCheckItem1
         '
@@ -280,80 +280,78 @@ Partial Class frmVehicles
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(859, 43)
-        Me.PanelControl1.TabIndex = 13
+        Me.PanelControl1.Size = New System.Drawing.Size(746, 43)
+        Me.PanelControl1.TabIndex = 15
         '
-        'dgVehicles
+        'txtselectedcode
         '
-        Me.dgVehicles.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgVehicles.Location = New System.Drawing.Point(0, 87)
-        Me.dgVehicles.MainView = Me.gvVehicles
-        Me.dgVehicles.MenuManager = Me.BarManager1
-        Me.dgVehicles.Name = "dgVehicles"
-        Me.dgVehicles.Size = New System.Drawing.Size(859, 362)
-        Me.dgVehicles.TabIndex = 14
-        Me.dgVehicles.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvVehicles})
+        Me.txtselectedcode.Location = New System.Drawing.Point(532, 51)
+        Me.txtselectedcode.Name = "txtselectedcode"
+        Me.txtselectedcode.Size = New System.Drawing.Size(108, 21)
+        Me.txtselectedcode.TabIndex = 3
         '
-        'gvVehicles
+        'btnsearch
         '
-        Me.gvVehicles.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.gvVehicles.Appearance.Empty.Options.UseBackColor = True
-        Me.gvVehicles.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvVehicles.Appearance.FocusedRow.Options.UseBackColor = True
-        Me.gvVehicles.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvVehicles.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvVehicles.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvVehicles.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvVehicles.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvVehicles.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvVehicles.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvVehicles.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvVehicles.Appearance.Row.Options.UseFont = True
-        Me.gvVehicles.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.gvVehicles.AppearancePrint.HeaderPanel.Options.UseFont = True
-        Me.gvVehicles.DetailHeight = 327
-        Me.gvVehicles.GridControl = Me.dgVehicles
-        Me.gvVehicles.Name = "gvVehicles"
-        Me.gvVehicles.OptionsBehavior.Editable = False
-        Me.gvVehicles.OptionsSelection.MultiSelect = True
-        Me.gvVehicles.OptionsView.ColumnAutoWidth = False
-        Me.gvVehicles.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
-        Me.gvVehicles.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvVehicles.OptionsView.EnableAppearanceOddRow = True
-        Me.gvVehicles.OptionsView.ShowFooter = True
+        Me.btnsearch.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsearch.Appearance.Options.UseFont = True
+        Me.btnsearch.ImageOptions.Image = CType(resources.GetObject("btnsearch.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnsearch.Location = New System.Drawing.Point(368, 10)
+        Me.btnsearch.Name = "btnsearch"
+        Me.btnsearch.Size = New System.Drawing.Size(87, 23)
+        Me.btnsearch.TabIndex = 1
+        Me.btnsearch.Text = "Search"
         '
-        'frmVehicles
+        'txtsearch
+        '
+        Me.txtsearch.Location = New System.Drawing.Point(6, 10)
+        Me.txtsearch.MenuManager = Me.BarManager1
+        Me.txtsearch.Name = "txtsearch"
+        Me.txtsearch.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsearch.Properties.Appearance.Options.UseFont = True
+        Me.txtsearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtsearch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Repository.ClearButton(), New DevExpress.XtraEditors.Repository.SearchButton()})
+        Me.txtsearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtsearch.Size = New System.Drawing.Size(359, 22)
+        Me.txtsearch.TabIndex = 0
+        '
+        'barDockControlTop
+        '
+        Me.barDockControlTop.CausesValidation = False
+        Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
+        Me.barDockControlTop.Manager = Nothing
+        Me.barDockControlTop.Size = New System.Drawing.Size(746, 0)
+        '
+        'frmTankRefuelling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(859, 474)
-        Me.Controls.Add(Me.dgVehicles)
+        Me.ClientSize = New System.Drawing.Size(746, 466)
         Me.Controls.Add(Me.PanelControl1)
+        Me.Controls.Add(Me.dgTankRefuelling)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.BarDockControl1)
-        Me.IconOptions.Image = CType(resources.GetObject("frmVehicles.IconOptions.Image"), System.Drawing.Image)
-        Me.Name = "frmVehicles"
-        Me.Text = "Vehicles"
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.IconOptions.Image = CType(resources.GetObject("frmTankRefuelling.IconOptions.Image"), System.Drawing.Image)
+        Me.Name = "frmTankRefuelling"
+        Me.Text = "Tank Refuelling Transaction"
+        CType(Me.gvTankRefuelling, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgTankRefuelling, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
-        CType(Me.dgVehicles, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gvVehicles, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents txtselectedcode As TextBox
-    Friend WithEvents btnsearch As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents txtsearch As DevExpress.XtraEditors.SearchControl
+    Friend WithEvents gvTankRefuelling As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents dgTankRefuelling As DevExpress.XtraGrid.GridControl
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents btnadd As DevExpress.XtraBars.BarButtonItem
@@ -366,8 +364,10 @@ Partial Class frmVehicles
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents dgVehicles As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gvVehicles As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents txtselectedcode As TextBox
+    Friend WithEvents btnsearch As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents txtsearch As DevExpress.XtraEditors.SearchControl
+    Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
     Friend WithEvents BarCheckItem1 As DevExpress.XtraBars.BarCheckItem
     Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnreload As DevExpress.XtraBars.BarButtonItem

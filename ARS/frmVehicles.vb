@@ -19,7 +19,7 @@ Public Class frmVehicles
     End Sub
     Function populateVehicle() As Boolean
         Call konneksyon()
-        sql = "select a.VehicleID,a.Model,a.make,a.PlateNo, " _
+        sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
                 & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
@@ -36,7 +36,7 @@ Public Class frmVehicles
     End Sub
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select a.VehicleID,a.Model,a.make,a.PlateNo, " _
+        sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
                 & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by,a.VehiclePic,a.DriverPic from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
@@ -44,6 +44,7 @@ Public Class frmVehicles
                 & "where a.VehicleID='" & keyID & "'"
         Call fill(sql)
         frmAddEditVehicles.txtvehicleID.Text = dset.Tables(sql).Rows(0).Item("VehicleID")
+        frmAddEditVehicles.txtcode.Text = dset.Tables(sql).Rows(0).Item("Code")
         frmAddEditVehicles.txtcarmodel.Text = dset.Tables(sql).Rows(0).Item("Model")
         frmAddEditVehicles.txtcarmake.Text = dset.Tables(sql).Rows(0).Item("Make")
         frmAddEditVehicles.txtplateNo.Text = dset.Tables(sql).Rows(0).Item("PlateNo")
@@ -55,6 +56,7 @@ Public Class frmVehicles
         frmAddEditVehicles.cbstatus.Text = dset.Tables(sql).Rows(0).Item("Status")
         frmAddEditVehicles.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
         frmAddEditVehicles.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
+        frmAddEditVehicles.txtName.Text = dset.Tables(sql).Rows(0).Item("Name")
         If IsDBNull(dset.Tables(sql).Rows(0).Item("VehiclePic")) Then
             frmAddEditVehicles.picImage.Image = Nothing
         Else
@@ -82,7 +84,7 @@ Public Class frmVehicles
         Try
             If txtsearch.Text = "" Then
                 Call konneksyon()
-                sql = "select a.VehicleID,a.Model,a.make,a.PlateNo, " _
+                sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
                 & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _

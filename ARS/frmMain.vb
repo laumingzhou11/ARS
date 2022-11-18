@@ -4,6 +4,7 @@ Public Class frmMain
     Public supplier As New frmSuppliers
     Public tank As New frmTanks
     Public vehicle As New frmVehicles
+    Public TankTransaction As New frmTankRefuelling
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'If My.Settings.Server = Nothing Or My.Settings.User = Nothing Or My.Settings.Password = Nothing _
         '  Or My.Settings.Dbase1 = Nothing Then
@@ -87,6 +88,24 @@ Public Class frmMain
                 vehicle.WindowState = FormWindowState.Maximized
                 vehicle.Show()
                 vehicle.txtsearch.Focus()
+            End If
+        Catch eX As Exception
+            MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Sub btnTankTransactions_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnTankTransactions.ItemClick
+        TankTransaction = New frmTankRefuelling
+        Try
+
+            If Application.OpenForms.OfType(Of frmTankRefuelling).Any Then
+                Application.OpenForms.Item("frmTankRefuelling").Activate()
+            Else
+                TankTransaction.MdiParent = Me
+                TankTransaction.TopMost = True
+                TankTransaction.WindowState = FormWindowState.Maximized
+                TankTransaction.Show()
+                TankTransaction.txtsearch.Focus()
             End If
         Catch eX As Exception
             MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)

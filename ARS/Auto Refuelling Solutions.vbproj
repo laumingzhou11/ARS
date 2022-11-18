@@ -58,7 +58,9 @@
     <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -83,6 +85,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddEditTankRefuelling.Designer.vb">
+      <DependentUpon>frmAddEditTankRefuelling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEditTankRefuelling.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAddEditVehicles.Designer.vb">
       <DependentUpon>frmAddEditVehicles.vb</DependentUpon>
     </Compile>
@@ -137,10 +145,28 @@
     <Compile Include="frmProducts.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSelectProduct.Designer.vb">
+      <DependentUpon>frmSelectProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectTank.Designer.vb">
+      <DependentUpon>frmSelectTank.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectTank.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSuppliers.Designer.vb">
       <DependentUpon>frmSuppliers.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSuppliers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTankRefuelling.Designer.vb">
+      <DependentUpon>frmTankRefuelling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTankRefuelling.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTanks.Designer.vb">
@@ -185,6 +211,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddEditTankRefuelling.resx">
+      <DependentUpon>frmAddEditTankRefuelling.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditVehicles.resx">
       <DependentUpon>frmAddEditVehicles.vb</DependentUpon>
     </EmbeddedResource>
@@ -212,8 +241,17 @@
     <EmbeddedResource Include="frmProducts.resx">
       <DependentUpon>frmProducts.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectProduct.resx">
+      <DependentUpon>frmSelectProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectTank.resx">
+      <DependentUpon>frmSelectTank.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSuppliers.resx">
       <DependentUpon>frmSuppliers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTankRefuelling.resx">
+      <DependentUpon>frmTankRefuelling.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTanks.resx">
       <DependentUpon>frmTanks.vb</DependentUpon>
@@ -254,16 +292,46 @@
     <None Include="Resources\Untitled-1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_supplier_16.png" />
+    <None Include="Resources\icons8_oil_tanker_161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_oil_tanker.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_box_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_car_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_car_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_fuel_tank_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_fuel_tank_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_oil_tanker_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_supplier_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_team_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_team_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_box_16.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_oil_tanker_16.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_oil_tanker_161.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_oil_tanker.ico" />
+    <None Include="Resources\icons8_supplier_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

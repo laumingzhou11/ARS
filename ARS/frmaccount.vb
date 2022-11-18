@@ -1,8 +1,9 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmaccount
 
+
     Function populateacct() As Boolean
-        If frmmain.lblacctType.Caption = "ADMIN" Then
+        If frmMain.lblacctType.Caption = "ADMIN" Then
             Dim da = New SqlDataAdapter("select * from tblEmpUsers where AccountType in ('ADMIN','USER') order by EmpID asc", kon)
             Dim dset = New DataSet
             da.Fill(dset, "tblEmpUsers")
@@ -30,8 +31,8 @@ Public Class frmaccount
         End If
         Return True
     End Function
-   
-   
+
+
     Private Sub frmaccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call konneksyon()
         Call populateacct()
@@ -78,20 +79,19 @@ Public Class frmaccount
         End Try
     End Sub
     Function filltext() As Boolean
-        sql = "select a.EmpID,a.UserName,convert(varchar(100),DecryptByPassPhrase('LAUMINGZHOU', password)) as xpassword,a.Fullname
-                                    ,a.AccountType,a.Department,a.status
-                                    from tblusers as a  where a.UserID = '" & keyID & "'"
+        sql = "select a.EmpID,a.Name,b.Position,a.AccountType, a.Username, " _
+                & "CONVERT(varchar,a.Password) As xpassword,a.Status from tblempUsers As a " _
+                & "inner join tblPosition as b on a.PositionID=b.ID where a.EmpID = '" & keyID & "'"
         Call fill(sql)
-        txtselectedcode.Text = dset.Tables(sql).Rows(0).Item("UserID")
+        txtselectedcode.Text = dset.Tables(sql).Rows(0).Item("EmpID")
         ' frmnameorpassword.txtid.Text = dset.Tables(sql).Rows(0).Item("UserID")
         frmAddEditAccount.txtuser.Text = dset.Tables(sql).Rows(0).Item("UserName")
         frmaddeditaccount.txtpass.Text = dset.Tables(sql).Rows(0).Item("xpassword")
 
         frmaddeditaccount.txtname.Text = dset.Tables(sql).Rows(0).Item("FullName")
-        frmaddeditaccount.cbacctype.Text = dset.Tables(sql).Rows(0).Item("AccountType")
-        'frmaddeditaccount.cbdepartment.Text = dset.Tables(sql).Rows(0).Item("Department")
+        frmAddEditAccount.cbacctype.Text = dset.Tables(sql).Rows(0).Item("AccountType")
         frmAddEditAccount.cbstatus.Text = dset.Tables(sql).Rows(0).Item("Status")
-
+        frmAddEditAccount.Position()
         Return True
     End Function
 
