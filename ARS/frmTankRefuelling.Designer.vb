@@ -87,11 +87,11 @@ Partial Class frmTankRefuelling
         'dgTankRefuelling
         '
         Me.dgTankRefuelling.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgTankRefuelling.Location = New System.Drawing.Point(0, 44)
+        Me.dgTankRefuelling.Location = New System.Drawing.Point(0, 87)
         Me.dgTankRefuelling.MainView = Me.gvTankRefuelling
         Me.dgTankRefuelling.MenuManager = Me.BarManager1
         Me.dgTankRefuelling.Name = "dgTankRefuelling"
-        Me.dgTankRefuelling.Size = New System.Drawing.Size(746, 397)
+        Me.dgTankRefuelling.Size = New System.Drawing.Size(746, 354)
         Me.dgTankRefuelling.TabIndex = 17
         Me.dgTankRefuelling.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTankRefuelling})
         '
@@ -327,8 +327,8 @@ Partial Class frmTankRefuelling
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(746, 466)
-        Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.dgTankRefuelling)
+        Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)

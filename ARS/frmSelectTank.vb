@@ -20,22 +20,27 @@ Public Class frmSelectTank
         sql = "select A.TankID,a.TankName,A.TankCapacity,b.UomCode,a.Location " _
                 & "from tbltank as a inner join tbluomCode as b on a.UomID=b.ID order by TankID desc"
         Call populate(sql, dgTank)
-        gvTank.Columns(gvTank.RowCount).SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
-        gvTank.Columns(gvTank.RowCount).SummaryItem.DisplayFormat = "{0:n0}"
+        gvTank.Columns("TankID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+        gvTank.Columns("TankID").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) found"
         gvTank.BestFitColumns()
         gvTank.RowHeight = 20
         Return True
     End Function
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select A.TankID,a.TankName,A.TankCapacity,b.UomCode,a.Location " _
-                & "from tbltank as a inner join tbluomCode as b on a.UomID=b.ID where TankID='" & keyID & "'"
+        sql = "select A.TankID,a.TankName,A.TankCapacity,b.UomCode,a.Location,isnull((select TOp 1(select sum(Stockin-Stockout) " _
+                & "from tblTankInventory where ID<=a.ID And TankID='" & keyID & "') " _
+                & "from tblTankInventory As a where a.TankID='" & keyID & "' order By ID desc),0) as Balance " _
+                & "from tbltank As a inner join tbluomCode As b On a.UomID=b.ID where TankID='" & keyID & "'"
         Call fill(sql)
         frmAddEditTankRefuelling.lbltankID.Text = dset.Tables(sql).Rows(0).Item("TankID")
         frmAddEditTankRefuelling.txtTankName.Text = dset.Tables(sql).Rows(0).Item("TankName")
         frmAddEditTankRefuelling.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
         frmAddEditTankRefuelling.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
         frmAddEditTankRefuelling.txtlocation.Text = dset.Tables(sql).Rows(0).Item("Location")
+        frmAddEditTankRefuelling.txtstocks.Text = dset.Tables(sql).Rows(0).Item("Balance")
+
+        Call frmAddEditTankRefuelling.PopulateHistory()
         Return True
     End Function
     Private Sub gvTank_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles gvTank.CustomDrawCell
@@ -60,8 +65,8 @@ Public Class frmSelectTank
                 sql = "select A.TankID,a.TankName,A.TankCapacity,b.UomCode,a.Location,a.Added_at,a.Added_by " _
                 & "from tbltank as a inner join tbluomCode as b on a.UomID=b.ID where a.TankName like '%" & txtsearch.Text & "%'order by TankID desc"
                 Call populate(sql, dgTank)
-                gvTank.Columns(gvTank.RowCount).SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
-                gvTank.Columns(gvTank.RowCount).SummaryItem.DisplayFormat = "{0:n0}"
+                gvTank.Columns("TankID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+                gvTank.Columns("TankID").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) found"
                 gvTank.BestFitColumns()
                 gvTank.RowHeight = 20
             Else
@@ -112,11 +117,10 @@ Public Class frmSelectTank
     Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
         If txtselectedcode.Text <> "" Then
             Call filltext()
-            frmAddEditTankRefuelling.ShowDialog()
             txtselectedcode.Text = ""
             txtsearch.Text = ""
             Me.Close()
-            frmAddEditTankRefuelling.txtqty.Select()
+  
         Else
             MsgBox("Please select record!", MsgBoxStyle.Information, Me.Text)
         End If

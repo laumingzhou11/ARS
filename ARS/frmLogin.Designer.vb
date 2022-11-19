@@ -95,16 +95,18 @@ Partial Class frmLogin
         '
         'txtpw
         '
+        Me.txtpw.EditValue = "PASSWORD"
         Me.txtpw.Location = New System.Drawing.Point(10, 118)
         Me.txtpw.Name = "txtpw"
         Me.txtpw.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpw.Properties.Appearance.ForeColor = System.Drawing.Color.Gray
         Me.txtpw.Properties.Appearance.Options.UseFont = True
+        Me.txtpw.Properties.Appearance.Options.UseForeColor = True
         Me.txtpw.Properties.AutoHeight = False
         Me.txtpw.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtpw.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtpw.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far
         Me.txtpw.Properties.ContextImageOptions.Image = CType(resources.GetObject("txtpw.Properties.ContextImageOptions.Image"), System.Drawing.Image)
-        Me.txtpw.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpw.Size = New System.Drawing.Size(347, 28)
         Me.txtpw.TabIndex = 21
         '
@@ -120,15 +122,21 @@ Partial Class frmLogin
         '
         'txtuser
         '
+        Me.txtuser.EditValue = "USER NAME"
         Me.txtuser.Location = New System.Drawing.Point(10, 56)
         Me.txtuser.Name = "txtuser"
+        Me.txtuser.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[True]
         Me.txtuser.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtuser.Properties.Appearance.ForeColor = System.Drawing.Color.Gray
         Me.txtuser.Properties.Appearance.Options.UseFont = True
+        Me.txtuser.Properties.Appearance.Options.UseForeColor = True
         Me.txtuser.Properties.AutoHeight = False
         Me.txtuser.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtuser.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtuser.Properties.ContextImageOptions.Alignment = DevExpress.XtraEditors.ContextImageAlignment.Far
         Me.txtuser.Properties.ContextImageOptions.Image = CType(resources.GetObject("txtuser.Properties.ContextImageOptions.Image"), System.Drawing.Image)
+        Me.txtuser.Properties.NullText = "USER NAME"
+        Me.txtuser.Properties.UseMaskAsDisplayFormat = False
         Me.txtuser.Size = New System.Drawing.Size(347, 28)
         Me.txtuser.TabIndex = 19
         '

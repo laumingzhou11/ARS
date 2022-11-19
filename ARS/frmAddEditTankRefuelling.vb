@@ -1,4 +1,5 @@
-﻿Public Class frmAddEditTankRefuelling
+﻿Imports System.Data.SqlClient
+Public Class frmAddEditTankRefuelling
 
 
     Private Sub txtPoNo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPoNo.KeyPress
@@ -13,6 +14,13 @@
         End If
     End Sub
     Private Sub txtqty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtqty.KeyPress
+        If Not (Asc(e.KeyChar)) = 8 Then
+            Dim allowchar As String = "1234567890."
+            If allowchar.IndexOf(e.KeyChar) = -1 Then
+                MsgBox("Number only!", MsgBoxStyle.Critical, "Capacity Input..")
+                e.Handled = True
+            End If
+        End If
         If Asc(e.KeyChar) = 13 Then
             If txtqty.Text = "" Then
                 txtqty.Focus()
@@ -30,6 +38,19 @@
             If cbUom.Text = "" Then
                 cbUom.Focus()
             Else
+                With txtprice
+                    .SelectionStart = 0
+                    .SelectionLength = Len(.Text)
+                    .Focus()
+                End With
+            End If
+        End If
+    End Sub
+    Private Sub txtprice_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprice.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            If txtprice.Text = "" Then
+                txtprice.Focus()
+            Else
                 With txtreceived
                     .SelectionStart = 0
                     .SelectionLength = Len(.Text)
@@ -43,6 +64,19 @@
             If txtreceived.Text = "" Then
                 txtreceived.Focus()
             Else
+                With cbDeliveredby
+                    .SelectionStart = 0
+                    .SelectionLength = Len(.Text)
+                    .Focus()
+                End With
+            End If
+        End If
+    End Sub
+    Private Sub cbDeliveredby_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbDeliveredby.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            If cbDeliveredby.Text = "" Then
+                cbDeliveredby.Focus()
+            Else
                 With btnsave
                     .Focus()
                 End With
@@ -53,6 +87,8 @@
         txtTankName.Text = ""
         lbltankID.Text = ""
         lblTransID.Text = ""
+        lblSupplierID.Text = ""
+        lblProductID.Text = ""
         lblSupplierID.Text = ""
         txtCapacity.Text = ""
         cbUomCode.Text = ""
@@ -68,18 +104,83 @@
         txtTotalAmount.Text = ""
         txtreceived.Text = ""
         dgTankTransaction.DataSource = Nothing
+        cbDeliveredby.Text = ""
         Return True
     End Function
     Private Sub frmAddEditTankRefuelling_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Call Uom()
+        Call vehicle()
     End Sub
 
     Private Sub btnSelectProduct_Click(sender As Object, e As EventArgs) Handles btnSelectProduct.Click
-
+        frmSelectProduct.txtsearch.Select()
+        frmSelectProduct.ShowDialog()
     End Sub
 
     Private Sub btnSelectTank_Click(sender As Object, e As EventArgs) Handles btnSelectTank.Click
         frmSelectTank.txtsearch.Select()
         frmSelectTank.ShowDialog()
     End Sub
+
+    Private Sub btncancel_Click(sender As Object, e As EventArgs) Handles btncancel.Click
+        If MsgBox("Are you sure you want to cancel?", MsgBoxStyle.OkCancel + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Ok Then
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub txtqty_EditValueChanged(sender As Object, e As EventArgs) Handles txtqty.EditValueChanged
+        Dim price As Double = Val(txtprice.Text)
+        Dim qty As Double = Val(txtqty.Text)
+        Dim totalAmount = qty * price
+        txtTotalAmount.Text = FormatNumber(totalAmount, 2)
+    End Sub
+    Function Uom() As Boolean
+        cbUom.Properties.Items.Clear()
+        Dim comm = New SqlCommand("select * from tblUomCode", kon)
+        Dim dset = New DataSet
+        dset.Load(comm.ExecuteReader, LoadOption.OverwriteChanges, "uom")
+        For x As Integer = 0 To dset.Tables("uom").Rows.Count - 1
+            cbUom.Properties.Items.Add(dset.Tables("uom").Rows(x).ItemArray(1).ToString)
+        Next
+        Return True
+    End Function
+    Function vehicle() As Boolean
+        cbDeliveredby.Properties.Items.Clear()
+        Dim comm = New SqlCommand("select * from tblVehicles", kon)
+        Dim dset = New DataSet
+        dset.Load(comm.ExecuteReader, LoadOption.OverwriteChanges, "uom")
+        For x As Integer = 0 To dset.Tables("uom").Rows.Count - 1
+            cbDeliveredby.Properties.Items.Add(dset.Tables("uom").Rows(x).ItemArray(1).ToString)
+        Next
+        Return True
+    End Function
+
+    Private Sub txtprice_EditValueChanged(sender As Object, e As EventArgs) Handles txtprice.EditValueChanged
+        Dim price As Double = Val(txtprice.Text)
+        Dim qty As Double = Val(txtqty.Text)
+        Dim totalAmount = qty * price
+        txtTotalAmount.Text = FormatNumber(totalAmount, 2)
+    End Sub
+    Function PopulateHistory() As Boolean
+        Call konneksyon()
+        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,a.StockIn, e.UomCode, a.Price," _
+              & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.Received_by,d.Name as Deliveredby, " _
+              & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at from tblTankTransaction as a " _
+              & "inner join tblProducts as b on a.ProductID=b.ProductID " _
+              & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
+              & "inner join tbltank as c on a.TankID=c.TankID " _
+              & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
+                & "inner join tblUomcode as e on a.UomID=e.UomCode where a.TankTransactionID='" & lblTransID.Text & "' order by a.TankTransactionID desc"
+        Call populate(sql, dgTankTransaction)
+        If dset.Tables(sql).Rows.Count > 0 Then
+            gvTankTransaction.BestFitColumns()
+            gvTankTransaction.RowHeight = 20
+            gvTankTransaction.Columns("TankTransactionID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+            gvTankTransaction.Columns("TankTransactionID").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) Found"
+        Else
+
+        End If
+
+        Return True
+    End Function
 End Class

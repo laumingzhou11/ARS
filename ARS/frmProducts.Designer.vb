@@ -61,7 +61,7 @@ Partial Class frmProducts
         '
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.barDockControlTop.Location = New System.Drawing.Point(0, 40)
+        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlTop.Manager = Nothing
         Me.barDockControlTop.Size = New System.Drawing.Size(718, 0)
         '
@@ -146,7 +146,7 @@ Partial Class frmProducts
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(718, 40)
+        Me.BarDockControl1.Size = New System.Drawing.Size(718, 44)
         '
         'barDockControlBottom
         '
@@ -160,17 +160,17 @@ Partial Class frmProducts
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 40)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 433)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 429)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(718, 40)
+        Me.barDockControlRight.Location = New System.Drawing.Point(718, 44)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 433)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 429)
         '
         'BarCheckItem1
         '
@@ -249,7 +249,7 @@ Partial Class frmProducts
         Me.PanelControl1.Controls.Add(Me.btnsearch)
         Me.PanelControl1.Controls.Add(Me.txtsearch)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 40)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(718, 42)
         Me.PanelControl1.TabIndex = 7
@@ -287,19 +287,20 @@ Partial Class frmProducts
         Me.txtsearch.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.Properties.Appearance.Options.UseFont = True
         Me.txtsearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtsearch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Repository.ClearButton(), New DevExpress.XtraEditors.Repository.SearchButton()})
+        Me.txtsearch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Repository.ClearButton(), New DevExpress.XtraEditors.Repository.SearchButton(), New DevExpress.XtraEditors.Repository.MRUButton()})
         Me.txtsearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtsearch.Properties.ShowMRUButton = True
         Me.txtsearch.Size = New System.Drawing.Size(359, 22)
         Me.txtsearch.TabIndex = 0
         '
         'dgProducts
         '
         Me.dgProducts.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgProducts.Location = New System.Drawing.Point(0, 82)
+        Me.dgProducts.Location = New System.Drawing.Point(0, 86)
         Me.dgProducts.MainView = Me.gvproducts
         Me.dgProducts.MenuManager = Me.BarManager1
         Me.dgProducts.Name = "dgProducts"
-        Me.dgProducts.Size = New System.Drawing.Size(718, 391)
+        Me.dgProducts.Size = New System.Drawing.Size(718, 387)
         Me.dgProducts.TabIndex = 8
         Me.dgProducts.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvproducts})
         '

@@ -120,6 +120,7 @@ Partial Class frmAddEditVehicles
         Me.txtName.Properties.Appearance.Options.UseFont = True
         Me.txtName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtName.Properties.UseMaskAsDisplayFormat = False
         Me.txtName.Size = New System.Drawing.Size(238, 22)
         Me.txtName.TabIndex = 42
         '
@@ -488,7 +489,7 @@ Partial Class frmAddEditVehicles
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl2.Location = New System.Drawing.Point(0, 515)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(450, 18)
+        Me.PanelControl2.Size = New System.Drawing.Size(450, 53)
         Me.PanelControl2.TabIndex = 41
         '
         'btnsave
@@ -517,7 +518,7 @@ Partial Class frmAddEditVehicles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(450, 533)
+        Me.ClientSize = New System.Drawing.Size(450, 568)
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.GroupControl3)

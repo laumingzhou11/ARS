@@ -129,7 +129,7 @@ Partial Class frmSelectTank
         Me.gvTank.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.gvTank.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.gvTank.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvTank.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTank.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvTank.Appearance.Row.Options.UseFont = True
         Me.gvTank.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.gvTank.AppearancePrint.HeaderPanel.Options.UseFont = True

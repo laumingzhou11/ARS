@@ -74,17 +74,35 @@
 
     End Sub
     Private Sub txtuser_Enter(sender As Object, e As EventArgs) Handles txtuser.Enter
+        If txtuser.Text = "USER NAME" Then
+            txtuser.Text = ""
+            txtuser.ForeColor = Color.Black
+        End If
         txtuser.BackColor = Color.LightBlue
     End Sub
 
     Private Sub txtuser_Leave(sender As Object, e As EventArgs) Handles txtuser.Leave
+        If txtuser.Text = "" Then
+            txtuser.Text = "USER NAME"
+            txtuser.ForeColor = Color.Gray
+        End If
         txtuser.BackColor = Color.White
     End Sub
     Private Sub txtpw_Enter(sender As Object, e As EventArgs) Handles txtpw.Enter
+        If txtpw.Text = "PASSWORD" Then
+            txtpw.Text = ""
+            txtpw.ForeColor = Color.Black
+            txtpw.Properties.PasswordChar = "*"
+        End If
         txtpw.BackColor = Color.LightBlue
     End Sub
 
     Private Sub txtpw_Leave(sender As Object, e As EventArgs) Handles txtpw.Leave
+        If txtpw.Text = "" Then
+            txtpw.Text = "PASSWORD"
+            txtpw.ForeColor = Color.Gray
+            txtpw.Properties.PasswordChar = ""
+        End If
         txtpw.BackColor = Color.White
     End Sub
     Private Sub txtuser_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtuser.KeyPress
