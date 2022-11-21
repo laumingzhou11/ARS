@@ -1,7 +1,7 @@
 ﻿Public Class frmLogin
     Function checkLogIn() As Boolean
 
-        If GcLogin.Text = "Login to Your Account" Then
+        If gcLogin.Text = "Login to your Account" Then
             Call konneksyon()
             sql = "select * from tblEmpusers where UserName ='" & txtuser.Text & "' and convert(Varchar,Password)='" & txtpw.Text & "'"
             Call fill(sql)
@@ -39,7 +39,7 @@
     'End Sub
     Private Sub frmlogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
-            If GcLogin.Text = "Login to Your Account" Then
+            If gcLogin.Text = "Login to your Account" Then
                 If Val(lblcount.Text) = 1 Then
                 ElseIf Val(lblcount.Text) = 2 Then
                 Else
@@ -74,7 +74,7 @@
 
     End Sub
     Private Sub txtuser_Enter(sender As Object, e As EventArgs) Handles txtuser.Enter
-        If txtuser.Text = "USER NAME" Then
+        If txtuser.Text = "TYPE YOUR USERNAME" Then
             txtuser.Text = ""
             txtuser.ForeColor = Color.Black
         End If
@@ -83,13 +83,13 @@
 
     Private Sub txtuser_Leave(sender As Object, e As EventArgs) Handles txtuser.Leave
         If txtuser.Text = "" Then
-            txtuser.Text = "USER NAME"
+            txtuser.Text = "TYPE YOUR USERNAME"
             txtuser.ForeColor = Color.Gray
         End If
         txtuser.BackColor = Color.White
     End Sub
     Private Sub txtpw_Enter(sender As Object, e As EventArgs) Handles txtpw.Enter
-        If txtpw.Text = "PASSWORD" Then
+        If txtpw.Text = "TYPE YOUR PASSWORD" Then
             txtpw.Text = ""
             txtpw.ForeColor = Color.Black
             txtpw.Properties.PasswordChar = "*"
@@ -99,7 +99,7 @@
 
     Private Sub txtpw_Leave(sender As Object, e As EventArgs) Handles txtpw.Leave
         If txtpw.Text = "" Then
-            txtpw.Text = "PASSWORD"
+            txtpw.Text = "TYPE YOUR PASSWORD"
             txtpw.ForeColor = Color.Gray
             txtpw.Properties.PasswordChar = ""
         End If
@@ -128,5 +128,13 @@
         If e.KeyChar = Chr(13) Then
             Call checkLogIn()
         End If
+    End Sub
+
+    Private Sub PictureEdit1_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit1.EditValueChanged
+
+    End Sub
+
+    Private Sub PictureEdit2_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit2.EditValueChanged
+
     End Sub
 End Class

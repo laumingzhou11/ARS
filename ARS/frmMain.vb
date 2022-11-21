@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Threading
+
 Public Class frmMain
     Public product As New frmProducts
     Public supplier As New frmSuppliers

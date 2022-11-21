@@ -56,6 +56,8 @@ Partial Class frmAddEditTankRefuelling
         Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
         Me.txtprice = New DevExpress.XtraEditors.TextEdit()
         Me.GroupControl6 = New DevExpress.XtraEditors.GroupControl()
+        Me.dgTankTransaction = New DevExpress.XtraGrid.GridControl()
+        Me.gvTankTransaction = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.cbDeliveredby = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
@@ -64,8 +66,6 @@ Partial Class frmAddEditTankRefuelling
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
         Me.btncancel = New DevExpress.XtraEditors.SimpleButton()
-        Me.dgTankTransaction = New DevExpress.XtraGrid.GridControl()
-        Me.gvTankTransaction = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,14 +92,14 @@ Partial Class frmAddEditTankRefuelling
         CType(Me.txtprice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl6.SuspendLayout()
+        CType(Me.dgTankTransaction, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvTankTransaction, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.cbDeliveredby.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtreceived.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
-        CType(Me.dgTankTransaction, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gvTankTransaction, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -364,20 +364,20 @@ Partial Class frmAddEditTankRefuelling
         '
         'txtPoNo
         '
-        Me.txtPoNo.Location = New System.Drawing.Point(260, 34)
+        Me.txtPoNo.Location = New System.Drawing.Point(310, 34)
         Me.txtPoNo.Name = "txtPoNo"
         Me.txtPoNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPoNo.Properties.Appearance.Options.UseFont = True
         Me.txtPoNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtPoNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtPoNo.Size = New System.Drawing.Size(204, 22)
+        Me.txtPoNo.Size = New System.Drawing.Size(154, 22)
         Me.txtPoNo.TabIndex = 51
         '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(219, 38)
+        Me.LabelControl6.Location = New System.Drawing.Point(269, 38)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(35, 13)
         Me.LabelControl6.TabIndex = 50
@@ -394,7 +394,7 @@ Partial Class frmAddEditTankRefuelling
         Me.dtpDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.dtpDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dtpDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.dtpDate.Size = New System.Drawing.Size(148, 22)
+        Me.dtpDate.Size = New System.Drawing.Size(198, 22)
         Me.dtpDate.TabIndex = 49
         '
         'LabelControl5
@@ -524,6 +524,45 @@ Partial Class frmAddEditTankRefuelling
         Me.GroupControl6.TabIndex = 46
         Me.GroupControl6.Text = "History"
         '
+        'dgTankTransaction
+        '
+        Me.dgTankTransaction.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgTankTransaction.Location = New System.Drawing.Point(2, 27)
+        Me.dgTankTransaction.MainView = Me.gvTankTransaction
+        Me.dgTankTransaction.Name = "dgTankTransaction"
+        Me.dgTankTransaction.Size = New System.Drawing.Size(468, 186)
+        Me.dgTankTransaction.TabIndex = 15
+        Me.dgTankTransaction.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTankTransaction})
+        '
+        'gvTankTransaction
+        '
+        Me.gvTankTransaction.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.gvTankTransaction.Appearance.Empty.Options.UseBackColor = True
+        Me.gvTankTransaction.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvTankTransaction.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvTankTransaction.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTankTransaction.Appearance.GroupPanel.Options.UseFont = True
+        Me.gvTankTransaction.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTankTransaction.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvTankTransaction.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.gvTankTransaction.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.gvTankTransaction.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvTankTransaction.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTankTransaction.Appearance.Row.Options.UseFont = True
+        Me.gvTankTransaction.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.gvTankTransaction.AppearancePrint.HeaderPanel.Options.UseFont = True
+        Me.gvTankTransaction.DetailHeight = 327
+        Me.gvTankTransaction.GridControl = Me.dgTankTransaction
+        Me.gvTankTransaction.Name = "gvTankTransaction"
+        Me.gvTankTransaction.OptionsBehavior.Editable = False
+        Me.gvTankTransaction.OptionsSelection.MultiSelect = True
+        Me.gvTankTransaction.OptionsView.ColumnAutoWidth = False
+        Me.gvTankTransaction.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
+        Me.gvTankTransaction.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvTankTransaction.OptionsView.EnableAppearanceOddRow = True
+        Me.gvTankTransaction.OptionsView.ShowFooter = True
+        Me.gvTankTransaction.OptionsView.ShowGroupPanel = False
+        '
         'PanelControl1
         '
         Me.PanelControl1.Controls.Add(Me.cbDeliveredby)
@@ -611,45 +650,6 @@ Partial Class frmAddEditTankRefuelling
         Me.btncancel.TabIndex = 28
         Me.btncancel.Text = "&Cancel"
         '
-        'dgTankTransaction
-        '
-        Me.dgTankTransaction.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgTankTransaction.Location = New System.Drawing.Point(2, 27)
-        Me.dgTankTransaction.MainView = Me.gvTankTransaction
-        Me.dgTankTransaction.Name = "dgTankTransaction"
-        Me.dgTankTransaction.Size = New System.Drawing.Size(468, 186)
-        Me.dgTankTransaction.TabIndex = 15
-        Me.dgTankTransaction.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTankTransaction})
-        '
-        'gvTankTransaction
-        '
-        Me.gvTankTransaction.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.gvTankTransaction.Appearance.Empty.Options.UseBackColor = True
-        Me.gvTankTransaction.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvTankTransaction.Appearance.FocusedRow.Options.UseBackColor = True
-        Me.gvTankTransaction.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTankTransaction.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvTankTransaction.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTankTransaction.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvTankTransaction.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvTankTransaction.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvTankTransaction.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvTankTransaction.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTankTransaction.Appearance.Row.Options.UseFont = True
-        Me.gvTankTransaction.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.gvTankTransaction.AppearancePrint.HeaderPanel.Options.UseFont = True
-        Me.gvTankTransaction.DetailHeight = 327
-        Me.gvTankTransaction.GridControl = Me.dgTankTransaction
-        Me.gvTankTransaction.Name = "gvTankTransaction"
-        Me.gvTankTransaction.OptionsBehavior.Editable = False
-        Me.gvTankTransaction.OptionsSelection.MultiSelect = True
-        Me.gvTankTransaction.OptionsView.ColumnAutoWidth = False
-        Me.gvTankTransaction.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
-        Me.gvTankTransaction.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvTankTransaction.OptionsView.EnableAppearanceOddRow = True
-        Me.gvTankTransaction.OptionsView.ShowFooter = True
-        Me.gvTankTransaction.OptionsView.ShowGroupPanel = False
-        '
         'frmAddEditTankRefuelling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -695,6 +695,8 @@ Partial Class frmAddEditTankRefuelling
         CType(Me.txtprice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl6.ResumeLayout(False)
+        CType(Me.dgTankTransaction, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvTankTransaction, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
@@ -702,8 +704,6 @@ Partial Class frmAddEditTankRefuelling
         CType(Me.txtreceived.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
-        CType(Me.dgTankTransaction, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gvTankTransaction, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
