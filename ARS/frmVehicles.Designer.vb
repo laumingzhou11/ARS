@@ -62,7 +62,7 @@ Partial Class frmVehicles
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlTop.Manager = Nothing
-        Me.barDockControlTop.Size = New System.Drawing.Size(859, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(861, 0)
         '
         'txtselectedcode
         '
@@ -176,15 +176,15 @@ Partial Class frmVehicles
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(859, 44)
+        Me.BarDockControl1.Size = New System.Drawing.Size(861, 44)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 449)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 451)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(859, 25)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(861, 25)
         '
         'barDockControlLeft
         '
@@ -192,15 +192,15 @@ Partial Class frmVehicles
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 405)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 407)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(859, 44)
+        Me.barDockControlRight.Location = New System.Drawing.Point(861, 44)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 405)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 407)
         '
         'BarCheckItem1
         '
@@ -280,7 +280,7 @@ Partial Class frmVehicles
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(859, 43)
+        Me.PanelControl1.Size = New System.Drawing.Size(861, 43)
         Me.PanelControl1.TabIndex = 13
         '
         'dgVehicles
@@ -290,7 +290,7 @@ Partial Class frmVehicles
         Me.dgVehicles.MainView = Me.gvVehicles
         Me.dgVehicles.MenuManager = Me.BarManager1
         Me.dgVehicles.Name = "dgVehicles"
-        Me.dgVehicles.Size = New System.Drawing.Size(859, 362)
+        Me.dgVehicles.Size = New System.Drawing.Size(861, 364)
         Me.dgVehicles.TabIndex = 14
         Me.dgVehicles.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvVehicles})
         '
@@ -326,7 +326,7 @@ Partial Class frmVehicles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(859, 474)
+        Me.ClientSize = New System.Drawing.Size(861, 476)
         Me.Controls.Add(Me.dgVehicles)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.barDockControlTop)

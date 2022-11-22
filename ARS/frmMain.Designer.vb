@@ -21,7 +21,7 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Dim SkinPaddingEdges1 As DevExpress.Skins.SkinPaddingEdges = New DevExpress.Skins.SkinPaddingEdges()
+        Dim SkinPaddingEdges4 As DevExpress.Skins.SkinPaddingEdges = New DevExpress.Skins.SkinPaddingEdges()
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.btnProducts = New DevExpress.XtraBars.BarButtonItem()
         Me.btnpositions = New DevExpress.XtraBars.BarButtonItem()
@@ -327,9 +327,9 @@ Partial Class frmMain
         Me.SkinRibbonGalleryBarItem3.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio
         Me.SkinRibbonGalleryBarItem3.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze
         Me.SkinRibbonGalleryBarItem3.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Top
-        SkinPaddingEdges1.Left = 8
-        SkinPaddingEdges1.Right = 8
-        Me.SkinRibbonGalleryBarItem3.Gallery.ItemImagePadding = SkinPaddingEdges1
+        SkinPaddingEdges4.Left = 8
+        SkinPaddingEdges4.Right = 8
+        Me.SkinRibbonGalleryBarItem3.Gallery.ItemImagePadding = SkinPaddingEdges4
         Me.SkinRibbonGalleryBarItem3.Id = 68
         Me.SkinRibbonGalleryBarItem3.ImageOptions.Image = CType(resources.GetObject("SkinRibbonGalleryBarItem3.ImageOptions.Image"), System.Drawing.Image)
         Me.SkinRibbonGalleryBarItem3.ImageOptions.SvgImage = CType(resources.GetObject("SkinRibbonGalleryBarItem3.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)

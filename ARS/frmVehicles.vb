@@ -74,7 +74,7 @@ Public Class frmVehicles
             Dim photo As Byte() = dset.Tables(sql).Rows(0).Item("DriverPic")
             Dim lstr As New System.IO.MemoryStream(photo)
         On Error Resume Next
-            frmAddEditVehicles.picImage.Image = Image.FromStream(lstr)
+            frmAddEditVehicles.DriverPic.Image = Image.FromStream(lstr)
             mstream.Close()
         End If
         Call frmAddEditVehicles.Uom()
@@ -144,6 +144,7 @@ Public Class frmVehicles
         If txtselectedcode.Text <> "" Then
             Call filltext()
             frmAddEditVehicles.Text = "Edit Vehicle"
+            frmAddEditVehicles.txtName.Select()
             frmAddEditVehicles.ShowDialog()
         Else
             MsgBox("Select record to edit!", MsgBoxStyle.Information, Me.Text)
