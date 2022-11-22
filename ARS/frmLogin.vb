@@ -130,11 +130,15 @@
         End If
     End Sub
 
-    Private Sub PictureEdit1_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit1.EditValueChanged
+    Private Sub PictureEdit1_EditValueChanged(sender As Object, e As EventArgs)
 
     End Sub
 
     Private Sub PictureEdit2_EditValueChanged(sender As Object, e As EventArgs) Handles PictureEdit2.EditValueChanged
+
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
 
     End Sub
 End Class

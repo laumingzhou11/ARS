@@ -33,9 +33,8 @@ Partial Class frmLogin
         Me.lblcount = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.SplashScreenManager2 = New DevExpress.XtraSplashScreen.SplashScreenManager(Me, GetType(Global.ARS.waitform), True, True)
-        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit()
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(Me.GcLogin2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GcLogin2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -44,7 +43,7 @@ Partial Class frmLogin
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GcLogin2
@@ -199,46 +198,37 @@ Partial Class frmLogin
         '
         Me.SplashScreenManager2.ClosingDelay = 500
         '
-        'LabelControl3
-        '
-        Me.LabelControl3.Location = New System.Drawing.Point(48, 84)
-        Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(50, 13)
-        Me.LabelControl3.TabIndex = 10
-        Me.LabelControl3.Text = "WELCOME"
-        '
         'PictureEdit2
         '
-        Me.PictureEdit2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureEdit2.EditValue = CType(resources.GetObject("PictureEdit2.EditValue"), Object)
-        Me.PictureEdit2.Location = New System.Drawing.Point(0, 103)
+        Me.PictureEdit2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureEdit2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureEdit2.EditValue = Global.ARS.My.Resources.Resources._3
+        Me.PictureEdit2.Location = New System.Drawing.Point(0, 222)
         Me.PictureEdit2.Name = "PictureEdit2"
         Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
         Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit2.Size = New System.Drawing.Size(466, 331)
+        Me.PictureEdit2.Size = New System.Drawing.Size(466, 212)
         Me.PictureEdit2.TabIndex = 11
         '
-        'PictureEdit1
+        'PictureBox2
         '
-        Me.PictureEdit1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureEdit1.EditValue = CType(resources.GetObject("PictureEdit1.EditValue"), Object)
-        Me.PictureEdit1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
-        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit1.Size = New System.Drawing.Size(466, 255)
-        Me.PictureEdit1.TabIndex = 12
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PictureBox2.Image = Global.ARS.My.Resources.Resources.Monster_Email_1_v1
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(466, 222)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 12
+        Me.PictureBox2.TabStop = False
         '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(834, 434)
-        Me.Controls.Add(Me.PictureEdit1)
         Me.Controls.Add(Me.PictureEdit2)
-        Me.Controls.Add(Me.LabelControl3)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.lblcount)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -256,7 +246,7 @@ Partial Class frmLogin
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -276,7 +266,6 @@ Partial Class frmLogin
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents gcLogin As DevExpress.XtraEditors.LabelControl
     Friend WithEvents SplashScreenManager2 As DevExpress.XtraSplashScreen.SplashScreenManager
-    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

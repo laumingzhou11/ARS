@@ -164,22 +164,22 @@ Public Class frmAddEditTankRefuelling
     End Sub
     Function PopulateHistory() As Boolean
         Call konneksyon()
-        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,a.StockIn, e.UomCode, a.Price," _
-              & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.Received_by,d.Name as Deliveredby, " _
-              & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at from tblTankTransaction as a " _
+        sql = "select a.TankTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.PurchaseOrder as Po#,a.StockIn, e.UomCode, a.Price," _
+              & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.Receivedby,d.Name as Deliveredby " _
+              & " from tblTankTransaction as a " _
               & "inner join tblProducts as b on a.ProductID=b.ProductID " _
               & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
               & "inner join tbltank as c on a.TankID=c.TankID " _
               & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
-                & "inner join tblUomcode as e on a.UomID=e.UomCode where a.TankTransactionID='" & lblTransID.Text & "' order by a.TankTransactionID desc"
+                & "inner join tblUomcode as e on a.UomID=e.ID where a.TankTransactionID='" & lblTransID.Text & "' order by a.TankTransactionID desc"
         Call populate(sql, dgTankTransaction)
         If dset.Tables(sql).Rows.Count > 0 Then
             gvTankTransaction.BestFitColumns()
             gvTankTransaction.RowHeight = 20
-            gvTankTransaction.Columns("TankTransactionID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
-            gvTankTransaction.Columns("TankTransactionID").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) Found"
-        Else
 
+        Else
+            gvTankTransaction.Columns("TransNo").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+            gvTankTransaction.Columns("TransNo").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) Found"
         End If
 
         Return True
@@ -189,7 +189,7 @@ Public Class frmAddEditTankRefuelling
         If Me.Text = "Tank Refuelling - Stock IN" Then
             Call saverec()
         ElseIf Me.Text = "Tank Refuelling - Edit Stock IN" Then
-
+            Call Updaterec
         End If
     End Sub
     Function saverec() As Boolean
@@ -226,6 +226,42 @@ Public Class frmAddEditTankRefuelling
                 Me.Close()
             End If
         End If
-            Return True
+        Return True
+    End Function
+    Function Updaterec() As Boolean
+        Call konneksyon()
+        If txtPoNo.Text = "" Then
+            txtPoNo.Focus()
+        ElseIf cbUom.Text = "" Then
+            cbUom.Focus()
+        ElseIf txtprice.Text = "" Then
+            txtprice.Focus()
+        ElseIf txtreceived.Text = "" Then
+            txtreceived.Focus()
+        ElseIf cbDeliveredby.Text = "" Then
+            cbDeliveredby.Focus()
+        Else
+            If MsgBox("Are you sure you want to edit Fuel Stock-in?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                sql = "update tblTankTransaction set " _
+            & "TankID='" & lbltankID.Text & "', StockIn='" & txtqty.Text & "', ProductID='" & lblProductID.Text & "', " _
+            & "PurchaseOrder='" & txtPoNo.Text & "', Updated_at=getDate(), " _
+            & "Updated_by='" & frmMain.lblid.Caption & "',Receivedby='" & txtreceived.Text & "', " _
+            & "VehicleID= (select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'),UomID=(select ID from tblUomCode where UomCode='" & cbUom.Text & "' " _
+            & ", Price='" & txtprice.Text & "') where TankTransactionID='" & lblTransID.Text & "'"
+                Call save(sql)
+
+                sql = "update tblTankInventory set " _
+                    & "TankID='" & lbltankID.Text & "', ProductID='" & lblProductID.Text & "', " _
+                    & "VehicleID=(select VehicleID from tblVehicles, Name='" & cbDeliveredby.Text & "'), " _
+                    & "StockIn='" & txtqty.Text & "' where TankTransactionID='" & lblTransID.Text & "'"
+                Call save(sql)
+
+                MsgBox("Edit successfully!", MsgBoxStyle.Information, Me.Text)
+                Call xclear()
+                frmMain.TankTransaction.populateTransaction()
+                Me.Close()
+            End If
+        End If
+        Return True
     End Function
 End Class

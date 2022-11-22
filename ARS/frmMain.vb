@@ -113,4 +113,8 @@ Public Class frmMain
             MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
+
+    Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+
+    End Sub
 End Class

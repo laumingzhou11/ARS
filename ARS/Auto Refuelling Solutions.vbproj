@@ -335,5 +335,38 @@
   <ItemGroup>
     <None Include="Resources\icons8_supplier_16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_transaction_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_user_folder_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_report_file_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\654492a566f6aa502042b9f83ff566b1-%281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\654492a566f6aa502042b9f83ff566b1-%281%291.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monster_Email_1_v1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

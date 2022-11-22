@@ -25,8 +25,8 @@ Public Class frmTankRefuelling
     Function populateTransaction() As Boolean
         Call konneksyon()
         sql = "select a.TankTransactionID,a.PurchaseOrder as Po#,c.TankName as Tank,c.TankCapacity,a.StockIn, e.UomCode, a.Price," _
-                & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.Received_by, " _
-                & "d.Name as Deliveredby, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
+                & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
+                & "d.Name as DeliveredBy, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
                 & "from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
                 & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
                 & "inner join tbltank as c on a.TankID=c.TankID " _
@@ -43,8 +43,8 @@ Public Class frmTankRefuelling
         sql = "select a.TankTransactionID,a.PurchaseOrder as Po#,c.TankID,c.TankName as Tank, isnull((select TOp 1(select sum(Stockin-Stockout) " _
                 & "from tblTankInventory where ID<=a.ID And TankID=c.TankID) " _
                 & "from tblTankInventory As a where a.TankID=c.TankID order By ID desc),0) as Balance,c.TankCapacity,c.Location,a.StockIn, e.UomCode,a.Price," _
-                & "b.ProductID,b.ItemDescription As Product,b.SupplierID,b1.SupplierName As Supplier,a.Received_by, " _
-                & "d.Name As Deliveredby,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
+                & "b.ProductID,b.ItemDescription As Product,b.SupplierID,b1.SupplierName As Supplier,a.ReceivedBy, " _
+                & "d.Name As DeliveredBy,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
                 & "from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
                 & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
                 & "inner join tbltank as c on a.TankID=c.TankID " _
@@ -62,14 +62,14 @@ Public Class frmTankRefuelling
         frmAddEditTankRefuelling.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
         frmAddEditTankRefuelling.dtpDate.Text = dset.Tables(sql).Rows(0).Item("Added_at")
         frmAddEditTankRefuelling.txtprice.Text = dset.Tables(sql).Rows(0).Item("Price")
-        frmAddEditTankRefuelling.lblSupplierID.Text = dset.Tables(sql).Rows(0).Item("SupplierID")
-        frmAddEditTankRefuelling.lblProductID.Text = dset.Tables(sql).Rows(0).Item("ProductID")
-        frmAddEditTankRefuelling.txtreceived.Text = dset.Tables(sql).Rows(0).Item("Received_by")
+        frmAddEditTankRefuelling.txtsupplier.Text = dset.Tables(sql).Rows(0).Item("Supplier")
+        frmAddEditTankRefuelling.txtproduct.Text = dset.Tables(sql).Rows(0).Item("Product")
+        frmAddEditTankRefuelling.txtreceived.Text = dset.Tables(sql).Rows(0).Item("Receivedby")
         frmAddEditTankRefuelling.cbDeliveredby.Text = dset.Tables(sql).Rows(0).Item("Deliveredby")
         frmAddEditTankRefuelling.lbltankID.Text = dset.Tables(sql).Rows(0).Item("TankID")
-        frmAddEditTankRefuelling.txtstocks.Text = dset.Tables(sql).Rows(0).Item("Balance")
-        Call frmAddEditProducts.Supplier()
-        Call frmAddEditProducts.Uom()
+        frmAddEditTankRefuelling.txtstocks.Text = FormatNumber(dset.Tables(sql).Rows(0).Item("Balance"), 2)
+        Call frmAddEditTankRefuelling.Uom()
+        Call frmAddEditTankRefuelling.PopulateHistory()
         Return True
     End Function
     Function Search() As Boolean
@@ -77,8 +77,8 @@ Public Class frmTankRefuelling
             If txtsearch.Text = "" Then
                 Call konneksyon()
                 sql = "select a.TankTransactionID,a.PurchaseOrder as Po#,c.TankName as Tank,a.StockIn, e.UomCode,a.Price" _
-                & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.Received_by, " _
-                & "d.Name as Deliveredby, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
+                & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
+                & "d.Name as DeliveredBy, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
                 & "from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
                 & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
                 & "inner join tbltank as c on a.TankID=c.TankID " _

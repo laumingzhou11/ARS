@@ -20,7 +20,6 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        'Dim SplashScreenManager1 As DevExpress.XtraSplashScreen.SplashScreenManager = New DevExpress.XtraSplashScreen.SplashScreenManager(Me, GetType(Global.ARS.SplashScreen1), True, True)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Dim SkinPaddingEdges1 As DevExpress.Skins.SkinPaddingEdges = New DevExpress.Skins.SkinPaddingEdges()
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
@@ -34,6 +33,8 @@ Partial Class frmMain
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.SkinDropDownButtonItem1 = New DevExpress.XtraBars.SkinDropDownButtonItem()
+        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -57,13 +58,12 @@ Partial Class frmMain
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.btnProducts, Me.btnpositions, Me.btnSuppliers, Me.btnTanks, Me.btnVehicles, Me.btnTankTransactions, Me.btnAutoTransactions, Me.BarButtonItem1, Me.BarButtonItem2, Me.SkinDropDownButtonItem1})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.btnProducts, Me.btnpositions, Me.btnSuppliers, Me.btnTanks, Me.btnVehicles, Me.btnTankTransactions, Me.btnAutoTransactions, Me.BarButtonItem1, Me.BarButtonItem2, Me.SkinDropDownButtonItem1, Me.BarButtonItem3, Me.BarButtonItem4})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 11
+        Me.RibbonControl.MaxItemId = 13
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
         Me.RibbonControl.Size = New System.Drawing.Size(1217, 165)
@@ -85,7 +85,10 @@ Partial Class frmMain
         '
         Me.btnpositions.Caption = "Positions"
         Me.btnpositions.Id = 2
+        Me.btnpositions.ImageOptions.Image = Global.ARS.My.Resources.Resources.icons8_user_folder_32
         Me.btnpositions.Name = "btnpositions"
+        Me.btnpositions.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
+            Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
         '
         'btnSuppliers
         '
@@ -125,6 +128,8 @@ Partial Class frmMain
         Me.btnTankTransactions.Caption = "Tank Refuelling"
         Me.btnTankTransactions.Id = 6
         Me.btnTankTransactions.ImageOptions.Image = CType(resources.GetObject("btnTankTransactions.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnTankTransactions.ItemInMenuAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTankTransactions.ItemInMenuAppearance.Normal.Options.UseFont = True
         Me.btnTankTransactions.Name = "btnTankTransactions"
         Me.btnTankTransactions.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
             Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
@@ -133,7 +138,12 @@ Partial Class frmMain
         '
         Me.btnAutoTransactions.Caption = "Vehicles Refuelling"
         Me.btnAutoTransactions.Id = 7
+        Me.btnAutoTransactions.ImageOptions.Image = Global.ARS.My.Resources.Resources.icons8_transaction_32
+        Me.btnAutoTransactions.ItemInMenuAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAutoTransactions.ItemInMenuAppearance.Normal.Options.UseFont = True
         Me.btnAutoTransactions.Name = "btnAutoTransactions"
+        Me.btnAutoTransactions.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
+            Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
         '
         'BarButtonItem1
         '
@@ -160,6 +170,24 @@ Partial Class frmMain
         Me.SkinDropDownButtonItem1.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
             Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
         '
+        'BarButtonItem3
+        '
+        Me.BarButtonItem3.Caption = "Tank Transaction Report"
+        Me.BarButtonItem3.Id = 11
+        Me.BarButtonItem3.ImageOptions.Image = Global.ARS.My.Resources.Resources.icons8_report_file_32
+        Me.BarButtonItem3.ItemInMenuAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BarButtonItem3.ItemInMenuAppearance.Normal.Options.UseFont = True
+        Me.BarButtonItem3.Name = "BarButtonItem3"
+        '
+        'BarButtonItem4
+        '
+        Me.BarButtonItem4.Caption = "Vehicle Transaction Report"
+        Me.BarButtonItem4.Id = 12
+        Me.BarButtonItem4.ImageOptions.Image = Global.ARS.My.Resources.Resources.icons8_report_file_32
+        Me.BarButtonItem4.ItemInMenuAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BarButtonItem4.ItemInMenuAppearance.Normal.Options.UseFont = True
+        Me.BarButtonItem4.Name = "BarButtonItem4"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -173,6 +201,7 @@ Partial Class frmMain
         '
         Me.RibbonPageGroup4.AllowTextClipping = False
         Me.RibbonPageGroup4.ItemLinks.Add(Me.BarButtonItem2)
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.btnpositions)
         Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
         Me.RibbonPageGroup4.Text = "USER ACCOUNTS"
         '
@@ -182,7 +211,6 @@ Partial Class frmMain
         Me.RibbonPageGroup1.ItemLinks.Add(Me.btnTanks)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.btnSuppliers)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.btnVehicles)
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.btnpositions)
         Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
         Me.RibbonPageGroup1.Text = "DIRECTORIES"
         '
@@ -195,6 +223,8 @@ Partial Class frmMain
         '
         'RibbonPageGroup3
         '
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem3)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem4)
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
         Me.RibbonPageGroup3.Text = "REPORTS"
         '
@@ -375,4 +405,6 @@ Partial Class frmMain
     Friend WithEvents RibbonPageGroup4 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents SkinDropDownButtonItem1 As DevExpress.XtraBars.SkinDropDownButtonItem
     Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
+    Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
 End Class
