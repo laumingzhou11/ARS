@@ -85,6 +85,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddEditAutoRefuelling.Designer.vb">
+      <DependentUpon>frmAddEditAutoRefuelling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEditAutoRefuelling.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAddEditTankRefuelling.Designer.vb">
       <DependentUpon>frmAddEditTankRefuelling.vb</DependentUpon>
     </Compile>
@@ -125,6 +131,12 @@
       <DependentUpon>frmAddEditTank.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAddEditTank.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAutoRefuelling.Designer.vb">
+      <DependentUpon>frmAutoRefuelling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAutoRefuelling.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.vb">
@@ -211,6 +223,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddEditAutoRefuelling.resx">
+      <DependentUpon>frmAddEditAutoRefuelling.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditTankRefuelling.resx">
       <DependentUpon>frmAddEditTankRefuelling.vb</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditTank.resx">
       <DependentUpon>frmAddEditTank.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAutoRefuelling.resx">
+      <DependentUpon>frmAutoRefuelling.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
@@ -367,6 +385,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_transaction_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infadel171100057.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_qr_code_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
