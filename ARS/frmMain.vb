@@ -7,6 +7,7 @@ Public Class frmMain
     Public tank As New frmTanks
     Public vehicle As New frmVehicles
     Public TankTransaction As New frmTankRefuelling
+    Public AutoTransaction As New frmAutoRefuelling
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'If My.Settings.Server = Nothing Or My.Settings.User = Nothing Or My.Settings.Password = Nothing _
         '  Or My.Settings.Dbase1 = Nothing Then
@@ -114,7 +115,23 @@ Public Class frmMain
         End Try
     End Sub
 
-    Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
 
+
+    Private Sub btnAutoTransactions_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnAutoTransactions.ItemClick
+        AutoTransaction = New frmAutoRefuelling
+        Try
+
+            If Application.OpenForms.OfType(Of frmAutoRefuelling).Any Then
+                Application.OpenForms.Item("frmAutoRefuelling").Activate()
+            Else
+                AutoTransaction.MdiParent = Me
+                AutoTransaction.TopMost = True
+                AutoTransaction.WindowState = FormWindowState.Maximized
+                AutoTransaction.Show()
+                AutoTransaction.txtsearch.Focus()
+            End If
+        Catch eX As Exception
+            MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
     End Sub
 End Class
