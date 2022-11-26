@@ -46,15 +46,15 @@ Partial Class frmAutoRefuelling
         Me.btnprBarcode = New DevExpress.XtraBars.BarButtonItem()
         Me.RepositoryItemPageNumberEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.dgsupplier = New DevExpress.XtraGrid.GridControl()
-        Me.gvsupplier = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.dgAutoRefuelling = New DevExpress.XtraGrid.GridControl()
+        Me.gvAutoRefuelling = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
-        CType(Me.dgsupplier, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gvsupplier, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgAutoRefuelling, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvAutoRefuelling, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'barDockControlTop
@@ -292,52 +292,52 @@ Partial Class frmAutoRefuelling
         Me.PanelControl1.Size = New System.Drawing.Size(558, 44)
         Me.PanelControl1.TabIndex = 13
         '
-        'dgsupplier
+        'dgAutoRefuelling
         '
-        Me.dgsupplier.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgsupplier.Location = New System.Drawing.Point(0, 44)
-        Me.dgsupplier.MainView = Me.gvsupplier
-        Me.dgsupplier.MenuManager = Me.BarManager1
-        Me.dgsupplier.Name = "dgsupplier"
-        Me.dgsupplier.Size = New System.Drawing.Size(558, 359)
-        Me.dgsupplier.TabIndex = 14
-        Me.dgsupplier.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvsupplier})
+        Me.dgAutoRefuelling.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgAutoRefuelling.Location = New System.Drawing.Point(0, 88)
+        Me.dgAutoRefuelling.MainView = Me.gvAutoRefuelling
+        Me.dgAutoRefuelling.MenuManager = Me.BarManager1
+        Me.dgAutoRefuelling.Name = "dgAutoRefuelling"
+        Me.dgAutoRefuelling.Size = New System.Drawing.Size(558, 315)
+        Me.dgAutoRefuelling.TabIndex = 14
+        Me.dgAutoRefuelling.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvAutoRefuelling})
         '
-        'gvsupplier
+        'gvAutoRefuelling
         '
-        Me.gvsupplier.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.gvsupplier.Appearance.Empty.Options.UseBackColor = True
-        Me.gvsupplier.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvsupplier.Appearance.FocusedRow.Options.UseBackColor = True
-        Me.gvsupplier.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvsupplier.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvsupplier.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvsupplier.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvsupplier.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvsupplier.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvsupplier.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvsupplier.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvsupplier.Appearance.Row.Options.UseFont = True
-        Me.gvsupplier.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.gvsupplier.AppearancePrint.HeaderPanel.Options.UseFont = True
-        Me.gvsupplier.DetailHeight = 327
-        Me.gvsupplier.GridControl = Me.dgsupplier
-        Me.gvsupplier.Name = "gvsupplier"
-        Me.gvsupplier.OptionsBehavior.Editable = False
-        Me.gvsupplier.OptionsSelection.MultiSelect = True
-        Me.gvsupplier.OptionsView.ColumnAutoWidth = False
-        Me.gvsupplier.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
-        Me.gvsupplier.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvsupplier.OptionsView.EnableAppearanceOddRow = True
-        Me.gvsupplier.OptionsView.ShowFooter = True
+        Me.gvAutoRefuelling.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.gvAutoRefuelling.Appearance.Empty.Options.UseBackColor = True
+        Me.gvAutoRefuelling.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvAutoRefuelling.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvAutoRefuelling.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvAutoRefuelling.Appearance.GroupPanel.Options.UseFont = True
+        Me.gvAutoRefuelling.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvAutoRefuelling.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvAutoRefuelling.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.gvAutoRefuelling.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.gvAutoRefuelling.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvAutoRefuelling.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvAutoRefuelling.Appearance.Row.Options.UseFont = True
+        Me.gvAutoRefuelling.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.gvAutoRefuelling.AppearancePrint.HeaderPanel.Options.UseFont = True
+        Me.gvAutoRefuelling.DetailHeight = 327
+        Me.gvAutoRefuelling.GridControl = Me.dgAutoRefuelling
+        Me.gvAutoRefuelling.Name = "gvAutoRefuelling"
+        Me.gvAutoRefuelling.OptionsBehavior.Editable = False
+        Me.gvAutoRefuelling.OptionsSelection.MultiSelect = True
+        Me.gvAutoRefuelling.OptionsView.ColumnAutoWidth = False
+        Me.gvAutoRefuelling.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
+        Me.gvAutoRefuelling.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvAutoRefuelling.OptionsView.EnableAppearanceOddRow = True
+        Me.gvAutoRefuelling.OptionsView.ShowFooter = True
         '
         'frmAutoRefuelling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(558, 428)
+        Me.Controls.Add(Me.dgAutoRefuelling)
         Me.Controls.Add(Me.PanelControl1)
-        Me.Controls.Add(Me.dgsupplier)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
@@ -352,8 +352,8 @@ Partial Class frmAutoRefuelling
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
-        CType(Me.dgsupplier, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gvsupplier, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgAutoRefuelling, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvAutoRefuelling, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -376,8 +376,8 @@ Partial Class frmAutoRefuelling
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents dgsupplier As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gvsupplier As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents dgAutoRefuelling As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvAutoRefuelling As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BarCheckItem1 As DevExpress.XtraBars.BarCheckItem
     Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnreload As DevExpress.XtraBars.BarButtonItem

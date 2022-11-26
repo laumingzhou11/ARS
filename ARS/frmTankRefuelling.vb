@@ -24,7 +24,9 @@ Public Class frmTankRefuelling
     End Sub
     Function populateTransaction() As Boolean
         Call konneksyon()
-        sql = "select a.TankTransactionID,a.PurchaseOrder as Po#,c.TankName as Tank,c.TankCapacity,a.StockIn, e.UomCode, a.Price," _
+        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#') as TankCapacity, " _
+                & "format(a.StockIn,'#,#') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
+                & "format((select Sum(StockIn*Price) from tblTankTransaction where TankTransactionID=a.TankTransactionID),'c', 'fil-PH') as TotalAmount," _
                 & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
                 & "d.Name as DeliveredBy, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
                 & "from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
@@ -40,7 +42,7 @@ Public Class frmTankRefuelling
     End Function
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select a.TankTransactionID,a.PurchaseOrder as Po#,c.TankID,c.TankName as Tank, isnull((select TOp 1(select sum(Stockin-Stockout) " _
+        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankID,c.TankName as Tank, isnull((select TOp 1(select sum(Stockin-Stockout) " _
                 & "from tblTankInventory where ID<=a.ID And TankID=c.TankID) " _
                 & "from tblTankInventory As a where a.TankID=c.TankID order By ID desc),0) as Balance,c.TankCapacity,c.Location,a.StockIn, e.UomCode,a.Price," _
                 & "b.ProductID,b.ItemDescription As Product,b.SupplierID,b1.SupplierName As Supplier,a.ReceivedBy, " _
@@ -51,7 +53,7 @@ Public Class frmTankRefuelling
                 & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
                 & "inner join tblUomcode as e on a.UomID=e.ID where TankTransactionID='" & keyID & "'"
         Call fill(sql)
-        frmAddEditTankRefuelling.lblTransID.Text = dset.Tables(sql).Rows(0).Item("TankTransactionID")
+        frmAddEditTankRefuelling.lblTransID.Text = dset.Tables(sql).Rows(0).Item("TransNo")
         frmAddEditTankRefuelling.txtPoNo.Text = dset.Tables(sql).Rows(0).Item("Po#")
         frmAddEditTankRefuelling.txtTankName.Text = dset.Tables(sql).Rows(0).Item("Tank")
         frmAddEditTankRefuelling.txtqty.Text = dset.Tables(sql).Rows(0).Item("StockIn")
@@ -76,7 +78,9 @@ Public Class frmTankRefuelling
         Try
             If txtsearch.Text = "" Then
                 Call konneksyon()
-                sql = "select a.TankTransactionID,a.PurchaseOrder as Po#,c.TankName as Tank,a.StockIn, e.UomCode,a.Price" _
+                sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#') as TankCapacity, " _
+                & "format(a.StockIn,'#,#') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
+                & "format((select Sum(StockIn*Price) from tblTankTransaction where TankTransactionID=a.TankTransactionID),'c', 'fil-PH') as TotalAmount," _
                 & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
                 & "d.Name as DeliveredBy, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
                 & "from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
@@ -84,9 +88,9 @@ Public Class frmTankRefuelling
                 & "inner join tbltank as c on a.TankID=c.TankID " _
                 & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
                 & "inner join tblUomcode as e on a.UomID=e.ID where c.TankName like '%" & txtsearch.Text & "%' or " _
-                & "Po# like '%" & txtsearch.Text & "%' or b.ItemDescription like '%" & txtsearch.Text & "%' or " _
+                & "a.PurchaseOrder like '%" & txtsearch.Text & "%' or b.ItemDescription like '%" & txtsearch.Text & "%' or " _
                 & "b1.SupplierName like '%" & txtsearch.Text & "%' or a.Received_by like '%" & txtsearch.Text & "%' or " _
-                & "d.Name like '%" & txtsearch.Text & "%' order by a.ProductID desc"
+                & "d.Name like '%" & txtsearch.Text & "%' order by a.TankTransactionID desc"
                 Call populate(sql, dgTankRefuelling)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvTankRefuelling.RowCount & " Record(s) Found"
@@ -148,7 +152,7 @@ Public Class frmTankRefuelling
     End Sub
     Private Sub gvTankRefuelling_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvTankRefuelling.FocusedRowChanged
         Try
-            keyID = gvTankRefuelling.GetRowCellValue(gvTankRefuelling.FocusedRowHandle, "TankTransactionID")
+            keyID = gvTankRefuelling.GetRowCellValue(gvTankRefuelling.FocusedRowHandle, "TransNo")
             Dim da = New SqlDataAdapter("select * from tblTankTransaction where TankTransactionID='" & keyID & "'", kon)
             Dim dset = New DataSet
             da.Fill(dset, "tblTankTransaction")

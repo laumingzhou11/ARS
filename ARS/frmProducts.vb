@@ -24,7 +24,7 @@ Public Class frmProducts
     End Sub
     Function populateProducts() As Boolean
         Call konneksyon()
-        sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at, c.Name as Added_by from tblProducts as a " _
+        sql = "select a.ProductID, a.ItemDescription,b.SupplierName,format(a.Price,'c', 'fil-PH') as Price,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at, c.Name as Added_by from tblProducts as a " _
             & "inner join tblsupplier as b on a.SupplierID=b.SupplierID " _
             & "inner join tblEmpusers as c on a.Added_by=c.EmpID order by a.ProductID desc"
         Call populate(sql, dgProducts)

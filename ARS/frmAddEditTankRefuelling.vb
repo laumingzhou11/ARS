@@ -119,6 +119,7 @@ Public Class frmAddEditTankRefuelling
     End Sub
 
     Private Sub btnSelectTank_Click(sender As Object, e As EventArgs) Handles btnSelectTank.Click
+        frmSelectTank.lblSelectTank.Text = "Tank"
         frmSelectTank.txtsearch.Select()
         frmSelectTank.ShowDialog()
     End Sub
@@ -164,7 +165,7 @@ Public Class frmAddEditTankRefuelling
     End Sub
     Function PopulateHistory() As Boolean
         Call konneksyon()
-        sql = "select a.TankTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.PurchaseOrder as Po#,a.StockIn, e.UomCode, a.Price," _
+        sql = "select a.TankTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.PurchaseOrder as Po#,format(a.StockIn,'#,#') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH')" _
               & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.Receivedby,d.Name as Deliveredby " _
               & " from tblTankTransaction as a " _
               & "inner join tblProducts as b on a.ProductID=b.ProductID " _

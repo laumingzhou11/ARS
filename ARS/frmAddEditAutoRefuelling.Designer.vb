@@ -24,7 +24,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.txtcode = New DevExpress.XtraEditors.TextEdit()
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
         Me.GCVehicle = New DevExpress.XtraEditors.GroupControl()
-        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.PanelVehicle = New DevExpress.XtraEditors.PanelControl()
         Me.lblStatus = New DevExpress.XtraEditors.LabelControl()
         Me.lblCapacity = New DevExpress.XtraEditors.LabelControl()
         Me.lblPlateNo = New DevExpress.XtraEditors.LabelControl()
@@ -51,6 +51,23 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblVehicleID = New DevExpress.XtraEditors.LabelControl()
         Me.GCTransaction = New DevExpress.XtraEditors.GroupControl()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
+        Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl()
+        Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
+        Me.gcSelectTank = New DevExpress.XtraEditors.GroupControl()
+        Me.txtstocks = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtTankName = New DevExpress.XtraEditors.TextEdit()
+        Me.txtlocation = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl()
+        Me.btnSelectTank = New DevExpress.XtraEditors.SimpleButton()
+        Me.txtCapacity = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl()
+        Me.cbUomCode = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.GroupControl8 = New DevExpress.XtraEditors.GroupControl()
+        Me.RadioGroup1 = New DevExpress.XtraEditors.RadioGroup()
+        Me.lblTankID = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl6 = New DevExpress.XtraEditors.GroupControl()
         Me.cbSupplier = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.cbProduct = New DevExpress.XtraEditors.ComboBoxEdit()
@@ -70,21 +87,9 @@ Partial Class frmAddEditAutoRefuelling
         Me.LabelControl20 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl21 = New DevExpress.XtraEditors.LabelControl()
         Me.txtprice = New DevExpress.XtraEditors.TextEdit()
-        Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl()
-        Me.gcSelectTank = New DevExpress.XtraEditors.GroupControl()
-        Me.txtstocks = New DevExpress.XtraEditors.TextEdit()
-        Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtTankName = New DevExpress.XtraEditors.TextEdit()
-        Me.txtlocation = New DevExpress.XtraEditors.TextEdit()
-        Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl()
-        Me.btnSelectTank = New DevExpress.XtraEditors.SimpleButton()
-        Me.txtCapacity = New DevExpress.XtraEditors.TextEdit()
-        Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl()
-        Me.cbUomCode = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.GroupControl8 = New DevExpress.XtraEditors.GroupControl()
-        Me.RadioGroup1 = New DevExpress.XtraEditors.RadioGroup()
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.txtRefilledby = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl17 = New DevExpress.XtraEditors.LabelControl()
         Me.gcHistory = New DevExpress.XtraEditors.GroupControl()
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
         Me.dgAutoTransaction = New DevExpress.XtraGrid.GridControl()
@@ -96,8 +101,8 @@ Partial Class frmAddEditAutoRefuelling
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GCVehicle.SuspendLayout()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl1.SuspendLayout()
+        CType(Me.PanelVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelVehicle.SuspendLayout()
         CType(Me.VehiclePic.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl3.SuspendLayout()
@@ -106,6 +111,20 @@ Partial Class frmAddEditAutoRefuelling
         Me.GCTransaction.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
+        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl5.SuspendLayout()
+        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl4.SuspendLayout()
+        CType(Me.gcSelectTank, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gcSelectTank.SuspendLayout()
+        CType(Me.txtstocks.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtTankName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtlocation.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCapacity.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbUomCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl8.SuspendLayout()
+        CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl6.SuspendLayout()
         CType(Me.cbSupplier.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,18 +138,9 @@ Partial Class frmAddEditAutoRefuelling
         CType(Me.txtqty.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbUom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtprice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl4.SuspendLayout()
-        CType(Me.gcSelectTank, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gcSelectTank.SuspendLayout()
-        CType(Me.txtstocks.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtTankName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtlocation.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtCapacity.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbUomCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupControl8.SuspendLayout()
-        CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl1.SuspendLayout()
+        CType(Me.txtRefilledby.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gcHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gcHistory.SuspendLayout()
         CType(Me.dgAutoTransaction, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,7 +154,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(832, 66)
+        Me.GroupControl1.Size = New System.Drawing.Size(831, 66)
         Me.GroupControl1.TabIndex = 0
         Me.GroupControl1.Text = "QR Code Scanning"
         '
@@ -158,7 +168,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.txtcode.Properties.AutoHeight = False
         Me.txtcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtcode.Size = New System.Drawing.Size(788, 37)
+        Me.txtcode.Size = New System.Drawing.Size(787, 37)
         Me.txtcode.TabIndex = 37
         '
         'PictureEdit1
@@ -176,40 +186,40 @@ Partial Class frmAddEditAutoRefuelling
         '
         'GCVehicle
         '
-        Me.GCVehicle.Controls.Add(Me.PanelControl1)
+        Me.GCVehicle.Controls.Add(Me.PanelVehicle)
         Me.GCVehicle.Dock = System.Windows.Forms.DockStyle.Top
         Me.GCVehicle.Location = New System.Drawing.Point(0, 66)
         Me.GCVehicle.Name = "GCVehicle"
-        Me.GCVehicle.Size = New System.Drawing.Size(832, 165)
+        Me.GCVehicle.Size = New System.Drawing.Size(831, 165)
         Me.GCVehicle.TabIndex = 1
         Me.GCVehicle.Text = "Vehicle Information"
         '
-        'PanelControl1
+        'PanelVehicle
         '
-        Me.PanelControl1.Controls.Add(Me.lblStatus)
-        Me.PanelControl1.Controls.Add(Me.lblCapacity)
-        Me.PanelControl1.Controls.Add(Me.lblPlateNo)
-        Me.PanelControl1.Controls.Add(Me.lblCrNo)
-        Me.PanelControl1.Controls.Add(Me.lblMake)
-        Me.PanelControl1.Controls.Add(Me.lblModel)
-        Me.PanelControl1.Controls.Add(Me.lblCOde)
-        Me.PanelControl1.Controls.Add(Me.lblVehicleName)
-        Me.PanelControl1.Controls.Add(Me.LabelControl8)
-        Me.PanelControl1.Controls.Add(Me.LabelControl7)
-        Me.PanelControl1.Controls.Add(Me.LabelControl6)
-        Me.PanelControl1.Controls.Add(Me.LabelControl5)
-        Me.PanelControl1.Controls.Add(Me.LabelControl4)
-        Me.PanelControl1.Controls.Add(Me.LabelControl3)
-        Me.PanelControl1.Controls.Add(Me.LabelControl1)
-        Me.PanelControl1.Controls.Add(Me.LabelControl2)
-        Me.PanelControl1.Controls.Add(Me.VehiclePic)
-        Me.PanelControl1.Controls.Add(Me.GroupControl3)
-        Me.PanelControl1.Controls.Add(Me.lblVehicleID)
-        Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelControl1.Location = New System.Drawing.Point(2, 27)
-        Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(828, 136)
-        Me.PanelControl1.TabIndex = 0
+        Me.PanelVehicle.Controls.Add(Me.lblStatus)
+        Me.PanelVehicle.Controls.Add(Me.lblCapacity)
+        Me.PanelVehicle.Controls.Add(Me.lblPlateNo)
+        Me.PanelVehicle.Controls.Add(Me.lblCrNo)
+        Me.PanelVehicle.Controls.Add(Me.lblMake)
+        Me.PanelVehicle.Controls.Add(Me.lblModel)
+        Me.PanelVehicle.Controls.Add(Me.lblCOde)
+        Me.PanelVehicle.Controls.Add(Me.lblVehicleName)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl8)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl7)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl6)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl5)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl4)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl3)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl1)
+        Me.PanelVehicle.Controls.Add(Me.LabelControl2)
+        Me.PanelVehicle.Controls.Add(Me.VehiclePic)
+        Me.PanelVehicle.Controls.Add(Me.GroupControl3)
+        Me.PanelVehicle.Controls.Add(Me.lblVehicleID)
+        Me.PanelVehicle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelVehicle.Location = New System.Drawing.Point(2, 27)
+        Me.PanelVehicle.Name = "PanelVehicle"
+        Me.PanelVehicle.Size = New System.Drawing.Size(827, 136)
+        Me.PanelVehicle.TabIndex = 0
         '
         'lblStatus
         '
@@ -390,7 +400,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.GroupControl3.Controls.Add(Me.DriverPic)
         Me.GroupControl3.Controls.Add(Me.LabelControl9)
         Me.GroupControl3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupControl3.Location = New System.Drawing.Point(488, 2)
+        Me.GroupControl3.Location = New System.Drawing.Point(487, 2)
         Me.GroupControl3.Name = "GroupControl3"
         Me.GroupControl3.Size = New System.Drawing.Size(338, 132)
         Me.GroupControl3.TabIndex = 50
@@ -467,239 +477,29 @@ Partial Class frmAddEditAutoRefuelling
         Me.GCTransaction.Dock = System.Windows.Forms.DockStyle.Top
         Me.GCTransaction.Location = New System.Drawing.Point(0, 231)
         Me.GCTransaction.Name = "GCTransaction"
-        Me.GCTransaction.Size = New System.Drawing.Size(832, 246)
+        Me.GCTransaction.Size = New System.Drawing.Size(831, 291)
         Me.GCTransaction.TabIndex = 2
         Me.GCTransaction.Text = "Transaction"
         '
         'PanelControl2
         '
-        Me.PanelControl2.Controls.Add(Me.GroupControl6)
-        Me.PanelControl2.Controls.Add(Me.PanelControl4)
+        Me.PanelControl2.Controls.Add(Me.PanelControl5)
+        Me.PanelControl2.Controls.Add(Me.PanelControl1)
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl2.Location = New System.Drawing.Point(2, 27)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(828, 217)
+        Me.PanelControl2.Size = New System.Drawing.Size(827, 262)
         Me.PanelControl2.TabIndex = 0
         '
-        'GroupControl6
+        'PanelControl5
         '
-        Me.GroupControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.GroupControl6.Controls.Add(Me.cbSupplier)
-        Me.GroupControl6.Controls.Add(Me.cbProduct)
-        Me.GroupControl6.Controls.Add(Me.lblProductID)
-        Me.GroupControl6.Controls.Add(Me.lblSupplierID)
-        Me.GroupControl6.Controls.Add(Me.LabelControl15)
-        Me.GroupControl6.Controls.Add(Me.LabelControl16)
-        Me.GroupControl6.Controls.Add(Me.lblTransID)
-        Me.GroupControl6.Controls.Add(Me.txtPoNo)
-        Me.GroupControl6.Controls.Add(Me.lblPoNo)
-        Me.GroupControl6.Controls.Add(Me.PanelControl3)
-        Me.GroupControl6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupControl6.Location = New System.Drawing.Point(356, 2)
-        Me.GroupControl6.Name = "GroupControl6"
-        Me.GroupControl6.Size = New System.Drawing.Size(470, 213)
-        Me.GroupControl6.TabIndex = 55
-        Me.GroupControl6.Text = "Stock-Out"
-        '
-        'cbSupplier
-        '
-        Me.cbSupplier.Location = New System.Drawing.Point(65, 90)
-        Me.cbSupplier.Name = "cbSupplier"
-        Me.cbSupplier.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbSupplier.Properties.Appearance.Options.UseFont = True
-        Me.cbSupplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cbSupplier.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbSupplier.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.cbSupplier.Size = New System.Drawing.Size(398, 22)
-        Me.cbSupplier.TabIndex = 71
-        '
-        'cbProduct
-        '
-        Me.cbProduct.Location = New System.Drawing.Point(65, 62)
-        Me.cbProduct.Name = "cbProduct"
-        Me.cbProduct.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProduct.Properties.Appearance.Options.UseFont = True
-        Me.cbProduct.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cbProduct.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbProduct.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.cbProduct.Size = New System.Drawing.Size(398, 22)
-        Me.cbProduct.TabIndex = 70
-        '
-        'lblProductID
-        '
-        Me.lblProductID.AutoSize = True
-        Me.lblProductID.Location = New System.Drawing.Point(523, 40)
-        Me.lblProductID.Name = "lblProductID"
-        Me.lblProductID.Size = New System.Drawing.Size(44, 13)
-        Me.lblProductID.TabIndex = 69
-        Me.lblProductID.Text = "Product"
-        '
-        'lblSupplierID
-        '
-        Me.lblSupplierID.AutoSize = True
-        Me.lblSupplierID.Location = New System.Drawing.Point(523, 66)
-        Me.lblSupplierID.Name = "lblSupplierID"
-        Me.lblSupplierID.Size = New System.Drawing.Size(45, 13)
-        Me.lblSupplierID.TabIndex = 67
-        Me.lblSupplierID.Text = "Supplier"
-        '
-        'LabelControl15
-        '
-        Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl15.Appearance.Options.UseFont = True
-        Me.LabelControl15.Location = New System.Drawing.Point(11, 94)
-        Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(49, 13)
-        Me.LabelControl15.TabIndex = 64
-        Me.LabelControl15.Text = "Supplier:"
-        '
-        'LabelControl16
-        '
-        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl16.Appearance.Options.UseFont = True
-        Me.LabelControl16.Location = New System.Drawing.Point(11, 66)
-        Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(47, 13)
-        Me.LabelControl16.TabIndex = 61
-        Me.LabelControl16.Text = "Product:"
-        '
-        'lblTransID
-        '
-        Me.lblTransID.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTransID.Appearance.Options.UseFont = True
-        Me.lblTransID.Location = New System.Drawing.Point(501, 98)
-        Me.lblTransID.Name = "lblTransID"
-        Me.lblTransID.Size = New System.Drawing.Size(52, 13)
-        Me.lblTransID.TabIndex = 58
-        Me.lblTransID.Text = "Trans No:"
-        '
-        'txtPoNo
-        '
-        Me.txtPoNo.Location = New System.Drawing.Point(65, 34)
-        Me.txtPoNo.Name = "txtPoNo"
-        Me.txtPoNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPoNo.Properties.Appearance.Options.UseFont = True
-        Me.txtPoNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtPoNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtPoNo.Size = New System.Drawing.Size(398, 22)
-        Me.txtPoNo.TabIndex = 51
-        '
-        'lblPoNo
-        '
-        Me.lblPoNo.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPoNo.Appearance.Options.UseFont = True
-        Me.lblPoNo.Location = New System.Drawing.Point(24, 38)
-        Me.lblPoNo.Name = "lblPoNo"
-        Me.lblPoNo.Size = New System.Drawing.Size(35, 13)
-        Me.lblPoNo.TabIndex = 50
-        Me.lblPoNo.Text = "PO No:"
-        '
-        'PanelControl3
-        '
-        Me.PanelControl3.Controls.Add(Me.GroupControl7)
-        Me.PanelControl3.Controls.Add(Me.txtqty)
-        Me.PanelControl3.Controls.Add(Me.LabelControl19)
-        Me.PanelControl3.Controls.Add(Me.cbUom)
-        Me.PanelControl3.Controls.Add(Me.LabelControl20)
-        Me.PanelControl3.Controls.Add(Me.LabelControl21)
-        Me.PanelControl3.Controls.Add(Me.txtprice)
-        Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelControl3.Location = New System.Drawing.Point(2, 119)
-        Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(466, 92)
-        Me.PanelControl3.TabIndex = 68
-        '
-        'GroupControl7
-        '
-        Me.GroupControl7.Controls.Add(Me.txtTotalAmount)
-        Me.GroupControl7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupControl7.Location = New System.Drawing.Point(294, 2)
-        Me.GroupControl7.Name = "GroupControl7"
-        Me.GroupControl7.Size = New System.Drawing.Size(170, 88)
-        Me.GroupControl7.TabIndex = 60
-        Me.GroupControl7.Text = "Total Amount (₱)"
-        '
-        'txtTotalAmount
-        '
-        Me.txtTotalAmount.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtTotalAmount.Location = New System.Drawing.Point(2, 27)
-        Me.txtTotalAmount.Name = "txtTotalAmount"
-        Me.txtTotalAmount.Properties.Appearance.BackColor = System.Drawing.Color.White
-        Me.txtTotalAmount.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTotalAmount.Properties.Appearance.Options.UseBackColor = True
-        Me.txtTotalAmount.Properties.Appearance.Options.UseFont = True
-        Me.txtTotalAmount.Properties.Appearance.Options.UseTextOptions = True
-        Me.txtTotalAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtTotalAmount.Properties.AutoHeight = False
-        Me.txtTotalAmount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtTotalAmount.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtTotalAmount.Properties.ReadOnly = True
-        Me.txtTotalAmount.Size = New System.Drawing.Size(166, 59)
-        Me.txtTotalAmount.TabIndex = 43
-        '
-        'txtqty
-        '
-        Me.txtqty.Location = New System.Drawing.Point(76, 7)
-        Me.txtqty.Name = "txtqty"
-        Me.txtqty.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtqty.Properties.Appearance.Options.UseFont = True
-        Me.txtqty.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtqty.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtqty.Size = New System.Drawing.Size(214, 22)
-        Me.txtqty.TabIndex = 53
-        '
-        'LabelControl19
-        '
-        Me.LabelControl19.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl19.Appearance.Options.UseFont = True
-        Me.LabelControl19.Location = New System.Drawing.Point(18, 12)
-        Me.LabelControl19.Name = "LabelControl19"
-        Me.LabelControl19.Size = New System.Drawing.Size(52, 13)
-        Me.LabelControl19.TabIndex = 52
-        Me.LabelControl19.Text = "Quantity:"
-        '
-        'cbUom
-        '
-        Me.cbUom.Location = New System.Drawing.Point(76, 35)
-        Me.cbUom.Name = "cbUom"
-        Me.cbUom.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbUom.Properties.Appearance.Options.UseFont = True
-        Me.cbUom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cbUom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbUom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.cbUom.Size = New System.Drawing.Size(214, 22)
-        Me.cbUom.TabIndex = 54
-        '
-        'LabelControl20
-        '
-        Me.LabelControl20.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl20.Appearance.Options.UseFont = True
-        Me.LabelControl20.Location = New System.Drawing.Point(10, 40)
-        Me.LabelControl20.Name = "LabelControl20"
-        Me.LabelControl20.Size = New System.Drawing.Size(60, 13)
-        Me.LabelControl20.TabIndex = 55
-        Me.LabelControl20.Text = "Uom Code:"
-        '
-        'LabelControl21
-        '
-        Me.LabelControl21.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl21.Appearance.Options.UseFont = True
-        Me.LabelControl21.Location = New System.Drawing.Point(20, 68)
-        Me.LabelControl21.Name = "LabelControl21"
-        Me.LabelControl21.Size = New System.Drawing.Size(51, 13)
-        Me.LabelControl21.TabIndex = 56
-        Me.LabelControl21.Text = "Price (₱):"
-        '
-        'txtprice
-        '
-        Me.txtprice.Location = New System.Drawing.Point(76, 63)
-        Me.txtprice.Name = "txtprice"
-        Me.txtprice.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprice.Properties.Appearance.Options.UseFont = True
-        Me.txtprice.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtprice.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtprice.Size = New System.Drawing.Size(214, 22)
-        Me.txtprice.TabIndex = 57
+        Me.PanelControl5.Controls.Add(Me.PanelControl4)
+        Me.PanelControl5.Controls.Add(Me.GroupControl6)
+        Me.PanelControl5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelControl5.Location = New System.Drawing.Point(2, 2)
+        Me.PanelControl5.Name = "PanelControl5"
+        Me.PanelControl5.Size = New System.Drawing.Size(823, 217)
+        Me.PanelControl5.TabIndex = 59
         '
         'PanelControl4
         '
@@ -809,6 +609,7 @@ Partial Class frmAddEditAutoRefuelling
         '
         'btnSelectTank
         '
+        Me.btnSelectTank.Enabled = False
         Me.btnSelectTank.ImageOptions.Image = CType(resources.GetObject("btnSelectTank.ImageOptions.Image"), System.Drawing.Image)
         Me.btnSelectTank.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter
         Me.btnSelectTank.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter
@@ -855,6 +656,7 @@ Partial Class frmAddEditAutoRefuelling
         '
         Me.GroupControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.GroupControl8.Controls.Add(Me.RadioGroup1)
+        Me.GroupControl8.Controls.Add(Me.lblTankID)
         Me.GroupControl8.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl8.Location = New System.Drawing.Point(2, 2)
         Me.GroupControl8.Name = "GroupControl8"
@@ -876,15 +678,277 @@ Partial Class frmAddEditAutoRefuelling
         Me.RadioGroup1.Size = New System.Drawing.Size(346, 33)
         Me.RadioGroup1.TabIndex = 55
         '
+        'lblTankID
+        '
+        Me.lblTankID.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTankID.Appearance.Options.UseFont = True
+        Me.lblTankID.Location = New System.Drawing.Point(126, 38)
+        Me.lblTankID.Name = "lblTankID"
+        Me.lblTankID.Size = New System.Drawing.Size(35, 13)
+        Me.lblTankID.TabIndex = 56
+        Me.lblTankID.Text = "Name:"
+        '
+        'GroupControl6
+        '
+        Me.GroupControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.GroupControl6.Controls.Add(Me.cbSupplier)
+        Me.GroupControl6.Controls.Add(Me.cbProduct)
+        Me.GroupControl6.Controls.Add(Me.lblProductID)
+        Me.GroupControl6.Controls.Add(Me.lblSupplierID)
+        Me.GroupControl6.Controls.Add(Me.LabelControl15)
+        Me.GroupControl6.Controls.Add(Me.LabelControl16)
+        Me.GroupControl6.Controls.Add(Me.lblTransID)
+        Me.GroupControl6.Controls.Add(Me.txtPoNo)
+        Me.GroupControl6.Controls.Add(Me.lblPoNo)
+        Me.GroupControl6.Controls.Add(Me.PanelControl3)
+        Me.GroupControl6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GroupControl6.Location = New System.Drawing.Point(353, 2)
+        Me.GroupControl6.Name = "GroupControl6"
+        Me.GroupControl6.Size = New System.Drawing.Size(468, 213)
+        Me.GroupControl6.TabIndex = 55
+        Me.GroupControl6.Text = "Stock-Out"
+        '
+        'cbSupplier
+        '
+        Me.cbSupplier.Enabled = False
+        Me.cbSupplier.Location = New System.Drawing.Point(65, 90)
+        Me.cbSupplier.Name = "cbSupplier"
+        Me.cbSupplier.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSupplier.Properties.Appearance.Options.UseFont = True
+        Me.cbSupplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.cbSupplier.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbSupplier.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbSupplier.Size = New System.Drawing.Size(398, 22)
+        Me.cbSupplier.TabIndex = 71
+        '
+        'cbProduct
+        '
+        Me.cbProduct.Location = New System.Drawing.Point(65, 62)
+        Me.cbProduct.Name = "cbProduct"
+        Me.cbProduct.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProduct.Properties.Appearance.Options.UseFont = True
+        Me.cbProduct.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.cbProduct.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbProduct.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbProduct.Size = New System.Drawing.Size(398, 22)
+        Me.cbProduct.TabIndex = 70
+        '
+        'lblProductID
+        '
+        Me.lblProductID.AutoSize = True
+        Me.lblProductID.Location = New System.Drawing.Point(523, 40)
+        Me.lblProductID.Name = "lblProductID"
+        Me.lblProductID.Size = New System.Drawing.Size(44, 13)
+        Me.lblProductID.TabIndex = 69
+        Me.lblProductID.Text = "Product"
+        '
+        'lblSupplierID
+        '
+        Me.lblSupplierID.AutoSize = True
+        Me.lblSupplierID.Location = New System.Drawing.Point(523, 66)
+        Me.lblSupplierID.Name = "lblSupplierID"
+        Me.lblSupplierID.Size = New System.Drawing.Size(45, 13)
+        Me.lblSupplierID.TabIndex = 67
+        Me.lblSupplierID.Text = "Supplier"
+        '
+        'LabelControl15
+        '
+        Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl15.Appearance.Options.UseFont = True
+        Me.LabelControl15.Location = New System.Drawing.Point(11, 94)
+        Me.LabelControl15.Name = "LabelControl15"
+        Me.LabelControl15.Size = New System.Drawing.Size(49, 13)
+        Me.LabelControl15.TabIndex = 64
+        Me.LabelControl15.Text = "Supplier:"
+        '
+        'LabelControl16
+        '
+        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl16.Appearance.Options.UseFont = True
+        Me.LabelControl16.Location = New System.Drawing.Point(11, 66)
+        Me.LabelControl16.Name = "LabelControl16"
+        Me.LabelControl16.Size = New System.Drawing.Size(47, 13)
+        Me.LabelControl16.TabIndex = 61
+        Me.LabelControl16.Text = "Product:"
+        '
+        'lblTransID
+        '
+        Me.lblTransID.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTransID.Appearance.Options.UseFont = True
+        Me.lblTransID.Location = New System.Drawing.Point(501, 98)
+        Me.lblTransID.Name = "lblTransID"
+        Me.lblTransID.Size = New System.Drawing.Size(52, 13)
+        Me.lblTransID.TabIndex = 58
+        Me.lblTransID.Text = "Trans No:"
+        '
+        'txtPoNo
+        '
+        Me.txtPoNo.Location = New System.Drawing.Point(65, 34)
+        Me.txtPoNo.Name = "txtPoNo"
+        Me.txtPoNo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPoNo.Properties.Appearance.Options.UseFont = True
+        Me.txtPoNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtPoNo.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtPoNo.Size = New System.Drawing.Size(398, 22)
+        Me.txtPoNo.TabIndex = 51
+        '
+        'lblPoNo
+        '
+        Me.lblPoNo.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPoNo.Appearance.Options.UseFont = True
+        Me.lblPoNo.Location = New System.Drawing.Point(24, 38)
+        Me.lblPoNo.Name = "lblPoNo"
+        Me.lblPoNo.Size = New System.Drawing.Size(35, 13)
+        Me.lblPoNo.TabIndex = 50
+        Me.lblPoNo.Text = "PO No:"
+        '
+        'PanelControl3
+        '
+        Me.PanelControl3.Controls.Add(Me.GroupControl7)
+        Me.PanelControl3.Controls.Add(Me.txtqty)
+        Me.PanelControl3.Controls.Add(Me.LabelControl19)
+        Me.PanelControl3.Controls.Add(Me.cbUom)
+        Me.PanelControl3.Controls.Add(Me.LabelControl20)
+        Me.PanelControl3.Controls.Add(Me.LabelControl21)
+        Me.PanelControl3.Controls.Add(Me.txtprice)
+        Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelControl3.Location = New System.Drawing.Point(2, 119)
+        Me.PanelControl3.Name = "PanelControl3"
+        Me.PanelControl3.Size = New System.Drawing.Size(464, 92)
+        Me.PanelControl3.TabIndex = 68
+        '
+        'GroupControl7
+        '
+        Me.GroupControl7.Controls.Add(Me.txtTotalAmount)
+        Me.GroupControl7.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GroupControl7.Location = New System.Drawing.Point(292, 2)
+        Me.GroupControl7.Name = "GroupControl7"
+        Me.GroupControl7.Size = New System.Drawing.Size(170, 88)
+        Me.GroupControl7.TabIndex = 60
+        Me.GroupControl7.Text = "Total Amount (₱)"
+        '
+        'txtTotalAmount
+        '
+        Me.txtTotalAmount.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtTotalAmount.Location = New System.Drawing.Point(2, 27)
+        Me.txtTotalAmount.Name = "txtTotalAmount"
+        Me.txtTotalAmount.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.txtTotalAmount.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalAmount.Properties.Appearance.Options.UseBackColor = True
+        Me.txtTotalAmount.Properties.Appearance.Options.UseFont = True
+        Me.txtTotalAmount.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtTotalAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtTotalAmount.Properties.AutoHeight = False
+        Me.txtTotalAmount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtTotalAmount.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtTotalAmount.Properties.ReadOnly = True
+        Me.txtTotalAmount.Size = New System.Drawing.Size(166, 59)
+        Me.txtTotalAmount.TabIndex = 43
+        '
+        'txtqty
+        '
+        Me.txtqty.Location = New System.Drawing.Point(76, 7)
+        Me.txtqty.Name = "txtqty"
+        Me.txtqty.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtqty.Properties.Appearance.Options.UseFont = True
+        Me.txtqty.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtqty.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtqty.Size = New System.Drawing.Size(214, 22)
+        Me.txtqty.TabIndex = 53
+        '
+        'LabelControl19
+        '
+        Me.LabelControl19.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl19.Appearance.Options.UseFont = True
+        Me.LabelControl19.Location = New System.Drawing.Point(18, 12)
+        Me.LabelControl19.Name = "LabelControl19"
+        Me.LabelControl19.Size = New System.Drawing.Size(52, 13)
+        Me.LabelControl19.TabIndex = 52
+        Me.LabelControl19.Text = "Quantity:"
+        '
+        'cbUom
+        '
+        Me.cbUom.Location = New System.Drawing.Point(76, 35)
+        Me.cbUom.Name = "cbUom"
+        Me.cbUom.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbUom.Properties.Appearance.Options.UseFont = True
+        Me.cbUom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.cbUom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbUom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbUom.Size = New System.Drawing.Size(214, 22)
+        Me.cbUom.TabIndex = 54
+        '
+        'LabelControl20
+        '
+        Me.LabelControl20.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl20.Appearance.Options.UseFont = True
+        Me.LabelControl20.Location = New System.Drawing.Point(10, 40)
+        Me.LabelControl20.Name = "LabelControl20"
+        Me.LabelControl20.Size = New System.Drawing.Size(60, 13)
+        Me.LabelControl20.TabIndex = 55
+        Me.LabelControl20.Text = "Uom Code:"
+        '
+        'LabelControl21
+        '
+        Me.LabelControl21.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl21.Appearance.Options.UseFont = True
+        Me.LabelControl21.Location = New System.Drawing.Point(20, 68)
+        Me.LabelControl21.Name = "LabelControl21"
+        Me.LabelControl21.Size = New System.Drawing.Size(51, 13)
+        Me.LabelControl21.TabIndex = 56
+        Me.LabelControl21.Text = "Price (₱):"
+        '
+        'txtprice
+        '
+        Me.txtprice.Location = New System.Drawing.Point(76, 63)
+        Me.txtprice.Name = "txtprice"
+        Me.txtprice.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtprice.Properties.Appearance.Options.UseFont = True
+        Me.txtprice.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtprice.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtprice.Size = New System.Drawing.Size(214, 22)
+        Me.txtprice.TabIndex = 57
+        '
+        'PanelControl1
+        '
+        Me.PanelControl1.Controls.Add(Me.txtRefilledby)
+        Me.PanelControl1.Controls.Add(Me.LabelControl17)
+        Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelControl1.Location = New System.Drawing.Point(2, 219)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(823, 41)
+        Me.PanelControl1.TabIndex = 58
+        '
+        'txtRefilledby
+        '
+        Me.txtRefilledby.Location = New System.Drawing.Point(84, 9)
+        Me.txtRefilledby.Name = "txtRefilledby"
+        Me.txtRefilledby.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRefilledby.Properties.Appearance.Options.UseFont = True
+        Me.txtRefilledby.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtRefilledby.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtRefilledby.Size = New System.Drawing.Size(732, 22)
+        Me.txtRefilledby.TabIndex = 57
+        '
+        'LabelControl17
+        '
+        Me.LabelControl17.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl17.Appearance.Options.UseFont = True
+        Me.LabelControl17.Location = New System.Drawing.Point(12, 14)
+        Me.LabelControl17.Name = "LabelControl17"
+        Me.LabelControl17.Size = New System.Drawing.Size(66, 13)
+        Me.LabelControl17.TabIndex = 56
+        Me.LabelControl17.Text = "Refilled_by:"
+        '
         'gcHistory
         '
         Me.gcHistory.Controls.Add(Me.btnsave)
         Me.gcHistory.Controls.Add(Me.dgAutoTransaction)
         Me.gcHistory.Controls.Add(Me.btncancel)
         Me.gcHistory.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gcHistory.Location = New System.Drawing.Point(0, 477)
+        Me.gcHistory.Location = New System.Drawing.Point(0, 522)
         Me.gcHistory.Name = "gcHistory"
-        Me.gcHistory.Size = New System.Drawing.Size(832, 285)
+        Me.gcHistory.Size = New System.Drawing.Size(831, 236)
         Me.gcHistory.TabIndex = 3
         Me.gcHistory.Text = "History"
         '
@@ -893,7 +957,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.btnsave.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsave.Appearance.Options.UseFont = True
         Me.btnsave.ImageOptions.Image = CType(resources.GetObject("btnsave.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnsave.Location = New System.Drawing.Point(614, 243)
+        Me.btnsave.Location = New System.Drawing.Point(611, 188)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(103, 35)
         Me.btnsave.TabIndex = 29
@@ -905,7 +969,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.dgAutoTransaction.Location = New System.Drawing.Point(2, 27)
         Me.dgAutoTransaction.MainView = Me.gvAutoTransaction
         Me.dgAutoTransaction.Name = "dgAutoTransaction"
-        Me.dgAutoTransaction.Size = New System.Drawing.Size(828, 210)
+        Me.dgAutoTransaction.Size = New System.Drawing.Size(827, 153)
         Me.dgAutoTransaction.TabIndex = 16
         Me.dgAutoTransaction.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvAutoTransaction})
         '
@@ -943,7 +1007,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.btncancel.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncancel.Appearance.Options.UseFont = True
         Me.btncancel.ImageOptions.Image = CType(resources.GetObject("btncancel.ImageOptions.Image"), System.Drawing.Image)
-        Me.btncancel.Location = New System.Drawing.Point(721, 243)
+        Me.btncancel.Location = New System.Drawing.Point(718, 188)
         Me.btncancel.Name = "btncancel"
         Me.btncancel.Size = New System.Drawing.Size(103, 35)
         Me.btncancel.TabIndex = 30
@@ -953,7 +1017,7 @@ Partial Class frmAddEditAutoRefuelling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(832, 762)
+        Me.ClientSize = New System.Drawing.Size(831, 758)
         Me.Controls.Add(Me.gcHistory)
         Me.Controls.Add(Me.GCTransaction)
         Me.Controls.Add(Me.GCVehicle)
@@ -970,9 +1034,9 @@ Partial Class frmAddEditAutoRefuelling
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCVehicle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GCVehicle.ResumeLayout(False)
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl1.ResumeLayout(False)
-        Me.PanelControl1.PerformLayout()
+        CType(Me.PanelVehicle, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelVehicle.ResumeLayout(False)
+        Me.PanelVehicle.PerformLayout()
         CType(Me.VehiclePic.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl3.ResumeLayout(False)
@@ -982,6 +1046,22 @@ Partial Class frmAddEditAutoRefuelling
         Me.GCTransaction.ResumeLayout(False)
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
+        CType(Me.PanelControl5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl5.ResumeLayout(False)
+        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl4.ResumeLayout(False)
+        CType(Me.gcSelectTank, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gcSelectTank.ResumeLayout(False)
+        Me.gcSelectTank.PerformLayout()
+        CType(Me.txtstocks.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtTankName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtlocation.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCapacity.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbUomCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl8.ResumeLayout(False)
+        Me.GroupControl8.PerformLayout()
+        CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl6.ResumeLayout(False)
         Me.GroupControl6.PerformLayout()
@@ -997,19 +1077,10 @@ Partial Class frmAddEditAutoRefuelling
         CType(Me.txtqty.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbUom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtprice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl4.ResumeLayout(False)
-        CType(Me.gcSelectTank, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gcSelectTank.ResumeLayout(False)
-        Me.gcSelectTank.PerformLayout()
-        CType(Me.txtstocks.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtTankName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtlocation.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtCapacity.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbUomCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupControl8.ResumeLayout(False)
-        CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl1.ResumeLayout(False)
+        Me.PanelControl1.PerformLayout()
+        CType(Me.txtRefilledby.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gcHistory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gcHistory.ResumeLayout(False)
         CType(Me.dgAutoTransaction, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1021,7 +1092,7 @@ Partial Class frmAddEditAutoRefuelling
     Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents GCVehicle As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents PanelVehicle As DevExpress.XtraEditors.PanelControl
     Friend WithEvents VehiclePic As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
@@ -1088,4 +1159,9 @@ Partial Class frmAddEditAutoRefuelling
     Friend WithEvents cbSupplier As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents cbProduct As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents lblVehicleID As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblTankID As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents txtRefilledby As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl17 As DevExpress.XtraEditors.LabelControl
 End Class

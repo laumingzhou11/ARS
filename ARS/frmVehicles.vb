@@ -20,7 +20,7 @@ Public Class frmVehicles
     Function populateVehicle() As Boolean
         Call konneksyon()
         sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
-                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
+                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#') as TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
                 & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID order by a.VehicleID desc"
@@ -85,7 +85,7 @@ Public Class frmVehicles
             If txtsearch.Text = "" Then
                 Call konneksyon()
                 sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
-                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, a.TankCapacity, b.UomCode," _
+                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#') as TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
                 & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID  where Model like '%" & txtsearch.Text & "%' order by a.vehicleID desc"

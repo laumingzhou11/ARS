@@ -30,6 +30,7 @@ Partial Class frmSelectTank
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
         Me.gvTank = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.dgTank = New DevExpress.XtraGrid.GridControl()
+        Me.lblSelectTank = New DevExpress.XtraEditors.LabelControl()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -86,6 +87,7 @@ Partial Class frmSelectTank
         '
         'PanelControl1
         '
+        Me.PanelControl1.Controls.Add(Me.lblSelectTank)
         Me.PanelControl1.Controls.Add(Me.txtHheadID)
         Me.PanelControl1.Controls.Add(Me.txtselectedcode)
         Me.PanelControl1.Controls.Add(Me.btnsearch)
@@ -155,6 +157,14 @@ Partial Class frmSelectTank
         Me.dgTank.TabIndex = 14
         Me.dgTank.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTank})
         '
+        'lblSelectTank
+        '
+        Me.lblSelectTank.Location = New System.Drawing.Point(520, 50)
+        Me.lblSelectTank.Name = "lblSelectTank"
+        Me.lblSelectTank.Size = New System.Drawing.Size(66, 13)
+        Me.lblSelectTank.TabIndex = 5
+        Me.lblSelectTank.Text = "LabelControl1"
+        '
         'frmSelectTank
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -193,4 +203,5 @@ Partial Class frmSelectTank
     Friend WithEvents btnsave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents gvTank As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents dgTank As DevExpress.XtraGrid.GridControl
+    Friend WithEvents lblSelectTank As DevExpress.XtraEditors.LabelControl
 End Class
