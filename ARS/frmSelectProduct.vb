@@ -18,7 +18,7 @@ Public Class frmSelectProduct
     Function populateProduct() As Boolean
         Call konneksyon()
         sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a " _
-            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID order by a.ProductID desc"
+            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.Deleted_at<>null order by a.ProductID desc"
         Call populate(sql, dgProduct)
         gvProduct.Columns("ProductID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
         gvProduct.Columns("ProductID").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) Found"
@@ -58,7 +58,7 @@ Public Class frmSelectProduct
             If txtsearch.Text = "" Then
                 Call konneksyon()
                 sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a  " _
-            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.ItemDescription like '%" & txtsearch.Text & "%'order by TankID desc"
+            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.ItemDescription like '%" & txtsearch.Text & "%' and a.Deleted_at<>null order by TankID desc"
                 Call populate(sql, dgProduct)
                 gvProduct.Columns(gvProduct.RowCount).SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
                 gvProduct.Columns(gvProduct.RowCount).SummaryItem.DisplayFormat = "{0:n0}"

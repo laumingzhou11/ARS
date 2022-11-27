@@ -33,7 +33,7 @@ Public Class frmTankRefuelling
                 & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
                 & "inner join tbltank as c on a.TankID=c.TankID " _
                 & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
-                & "inner join tblUomcode as e on a.UomID=e.ID order by a.TankTransactionID desc"
+                & "inner join tblUomcode as e on a.UomID=e.ID where a.Deleted_at<>null order by a.TankTransactionID desc"
         Call populate(sql, dgTankRefuelling)
         lblcount.Caption = gvTankRefuelling.RowCount & " Record(s) Found"
         gvTankRefuelling.BestFitColumns()
@@ -90,7 +90,7 @@ Public Class frmTankRefuelling
                 & "inner join tblUomcode as e on a.UomID=e.ID where c.TankName like '%" & txtsearch.Text & "%' or " _
                 & "a.PurchaseOrder like '%" & txtsearch.Text & "%' or b.ItemDescription like '%" & txtsearch.Text & "%' or " _
                 & "b1.SupplierName like '%" & txtsearch.Text & "%' or a.Received_by like '%" & txtsearch.Text & "%' or " _
-                & "d.Name like '%" & txtsearch.Text & "%' order by a.TankTransactionID desc"
+                & "d.Name like '%" & txtsearch.Text & "%' and a.Deleted_at<>null order by a.TankTransactionID desc"
                 Call populate(sql, dgTankRefuelling)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvTankRefuelling.RowCount & " Record(s) Found"

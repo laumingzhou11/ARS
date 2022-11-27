@@ -26,7 +26,7 @@ Public Class frmProducts
         Call konneksyon()
         sql = "select a.ProductID, a.ItemDescription,b.SupplierName,format(a.Price,'c', 'fil-PH') as Price,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at, c.Name as Added_by from tblProducts as a " _
             & "inner join tblsupplier as b on a.SupplierID=b.SupplierID " _
-            & "inner join tblEmpusers as c on a.Added_by=c.EmpID order by a.ProductID desc"
+            & "inner join tblEmpusers as c on a.Added_by=c.EmpID where a.Deleted_at<>null order by a.ProductID desc"
         Call populate(sql, dgProducts)
         lblcount.Caption = gvproducts.RowCount & " Record(s) Found"
         gvproducts.BestFitColumns()
@@ -55,7 +55,7 @@ Public Class frmProducts
                 Call konneksyon()
                 sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at, c.Name from tblProducts as a " _
                     & "inner join tblsupplier as b on a.SupplierID=b.SupplierID " _
-                    & "inner join tblEmpusers as c on a.Added_by=c.EmpID where ItemDescription like '%" & txtsearch.Text & "%' order by a.ProductID desc"
+                    & "inner join tblEmpusers as c on a.Added_by=c.EmpID where ItemDescription like '%" & txtsearch.Text & "%' and a.Deleted_at<>null order by a.ProductID desc"
                 Call populate(sql, dgProducts)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvproducts.RowCount & " Record(s) Found"

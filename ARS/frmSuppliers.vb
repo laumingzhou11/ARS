@@ -27,7 +27,7 @@ Public Class frmSuppliers
         Call konneksyon()
         sql = "select SupplierID, SupplierName, Address, ContactPerson, " _
             & "ContactNo,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,b.Name as Added_by " _
-            & "from tblSupplier as a inner join tblEmpUsers as b on a.Added_by=b.EmpID order by SupplierID desc"
+            & "from tblSupplier as a inner join tblEmpUsers as b on a.Added_by=b.EmpID where a.Deleted_at<>null order by SupplierID desc"
         Call populate(sql, dgsupplier)
         lblcount.Caption = gvsupplier.RowCount & " Record(s) Found"
         gvsupplier.BestFitColumns()
@@ -51,7 +51,8 @@ Public Class frmSuppliers
             If txtsearch.Text = "" Then
                 Call konneksyon()
                 sql = "select SupplierID, SupplierName, Address, ContactPerson, " _
-            & "ContactNo,Added_at,b.Name as Added_by from tblSupplier as a inner join tblEmpUsers as b on a.Added_by=b.EmpID from tblSupplier where SupplierName like '%" & txtsearch.Text & "%' order by SupplierID desc"
+            & "ContactNo,Added_at,b.Name as Added_by from tblSupplier as a inner join tblEmpUsers as b on a.Added_by=b.EmpID " _
+            & "from tblSupplier where a.Deleted_at<>null And SupplierName Like '%" & txtsearch.Text & "%' order by SupplierID desc"
                 Call populate(sql, dgsupplier)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvsupplier.RowCount & " Record(s) Found"

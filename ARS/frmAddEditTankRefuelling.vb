@@ -217,7 +217,7 @@ Public Class frmAddEditTankRefuelling
 
                 sql = "insert into tblTankInventory (" _
                     & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
-                    & "GetDate(), 'INCOMING','" & lbltankID.Text & "','" & lblProductID.Text & "','" & lblProductID.Text & "'," _
+                    & "GetDate(), 'INCOMING','" & lbltankID.Text & "','" & lblProductID.Text & "'," _
                     & "(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'),'" & txtqty.Text & "',0)"
                 Call save(sql)
 

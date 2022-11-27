@@ -227,10 +227,24 @@ Public Class frmAddEditAutoRefuelling
             End If
         End If
     End Sub
+    Private Sub txtcode_Enter(sender As Object, e As EventArgs) Handles txtcode.Enter
+        If txtcode.Text = "SCAN YOUR QR CODE HERE" Then
+            txtcode.Text = ""
+            txtcode.ForeColor = Color.Black
+        End If
+        txtcode.BackColor = Color.LightBlue
+    End Sub
+    Private Sub txtcode_Leave(sender As Object, e As EventArgs) Handles txtcode.Leave
+        If txtcode.Text = "" Then
+            txtcode.Text = "SCAN YOUR QR CODE HERE"
+            txtcode.ForeColor = Color.Gray
+        End If
+        txtcode.BackColor = Color.White
+    End Sub
     Private Sub cbUom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbUom.KeyPress
         If Asc(e.KeyChar) = 13 Then
-            If txtqty.Text = "" Then
-                txtqty.Focus()
+            If cbUom.Text = "" Then
+                cbUom.Focus()
             Else
                 With txtprice
                     .SelectionStart = 0
@@ -316,12 +330,47 @@ Public Class frmAddEditAutoRefuelling
         frmSelectTank.txtsearch.Select()
         frmSelectTank.ShowDialog()
     End Sub
+    Function saverec() As Boolean
+        Call konneksyon()
+        If txtRefilledby.Text = "" Then
+            txtRefilledby.Focus()
+        ElseIf txtprice.Text = "" Then
+            txtprice.Focus()
+        ElseIf txtqty.Text = "" Then
+            txtqty.Focus()
+        ElseIf cbProduct.Text = "" Then
+            cbProduct.Focus()
+        ElseIf txtPoNo.Text = "" Then
+            txtPoNo.Focus()
+        Else
+            If MsgBox("Are you sure you want to continue?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                sql = "insert into tblAutoTransaction (" _
+                    & "[Transaction], VehicleID, TankID, ProductID, " _
+                    & "Added_at, Added_by, PoNo, Refilled_by, Price, StockOut) values (" _
+                    & "'OUTGOING', '" & lblVehicleID.Text & "','" & lblTankID.Text & "'," _
+                    & "'" & lblProductID.Text & "',GetDate(), '" & frmMain.lblid.Caption & "'," _
+                    & "'" & txtPoNo.Text & "','" & txtRefilledby.Text & "', '" & txtprice.Text & "','" & txtqty.Text & "')"
+                Call save(sql)
+                sql = "insert into tblTankInventory (" _
+                 & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
+                 & "GetDate(), 'INCOMING','" & lblTankID.Text & "','" & lblProductID.Text & "'," _
+                 & "'" & lblVehicleID.Text & "',0,'" & txtqty.Text & "')"
+                Call save(sql)
 
-    Private Sub GroupControl8_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl8.Paint
+                MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                Call xclear()
+                frmMain.AutoTransaction.populateAuto()
+                Me.Close()
+            End If
+        End If
+            Return True
+    End Function
 
-    End Sub
+    Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
+        If Me.Text = "Auto Refuelling - Stock Out" Then
+            Call saverec()
+        ElseIf Me.Text = "Auto Refuelling - Edit Stock Out" Then
 
-    Private Sub cbProduct_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbProduct.SelectedIndexChanged
-
+        End If
     End Sub
 End Class

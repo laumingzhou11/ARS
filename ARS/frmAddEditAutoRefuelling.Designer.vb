@@ -161,10 +161,13 @@ Partial Class frmAddEditAutoRefuelling
         'txtcode
         '
         Me.txtcode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtcode.EditValue = "Scan your QR Code here"
         Me.txtcode.Location = New System.Drawing.Point(42, 27)
         Me.txtcode.Name = "txtcode"
         Me.txtcode.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcode.Properties.Appearance.ForeColor = System.Drawing.Color.Black
         Me.txtcode.Properties.Appearance.Options.UseFont = True
+        Me.txtcode.Properties.Appearance.Options.UseForeColor = True
         Me.txtcode.Properties.AutoHeight = False
         Me.txtcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
