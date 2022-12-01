@@ -342,11 +342,13 @@ Public Class frmAddEditAutoRefuelling
             cbProduct.Focus()
         ElseIf txtPoNo.Text = "" Then
             txtPoNo.Focus()
+        ElseIf cbUom.Text = "" Then
+            cbUom.Focus()
         Else
             If MsgBox("Are you sure you want to continue?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                 sql = "insert into tblAutoTransaction (" _
                     & "[Transaction], VehicleID, TankID, ProductID, " _
-                    & "Added_at, Added_by, PoNo, Refilled_by, Price, StockOut) values (" _
+                    & "Added_at, Added_by, PoNo, Refilled_by, Price, StockOut, UomID, SelectStock) values (" _
                     & "'OUTGOING', '" & lblVehicleID.Text & "','" & lblTankID.Text & "'," _
                     & "'" & lblProductID.Text & "',GetDate(), '" & frmMain.lblid.Caption & "'," _
                     & "'" & txtPoNo.Text & "','" & txtRefilledby.Text & "', '" & txtprice.Text & "','" & txtqty.Text & "')"
@@ -372,5 +374,9 @@ Public Class frmAddEditAutoRefuelling
         ElseIf Me.Text = "Auto Refuelling - Edit Stock Out" Then
 
         End If
+    End Sub
+
+    Private Sub lblMake_Click(sender As Object, e As EventArgs) Handles lblMake.Click
+
     End Sub
 End Class

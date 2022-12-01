@@ -25,7 +25,7 @@ Public Class frmTanks
         Call konneksyon()
         sql = "select A.TankID,a.TankName,format(A.TankCapacity,'#,#') as TankCapacity,b.UomCode,a.Location,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.name as Added_by " _
                 & "from tbltank as a inner join tbluomCode as b on a.UomID=b.ID " _
-                & "inner join tblEmpUsers as c on a.Added_by=c.EmpID where a.Deleted_at<>null order by TankID desc"
+                & "inner join tblEmpUsers as c on a.Added_by=c.EmpID where a.Deleted_at is null order by TankID desc"
         Call populate(sql, dgTank)
         lblcount.Caption = gvTank.RowCount & " Record(s) Found"
         gvTank.BestFitColumns()

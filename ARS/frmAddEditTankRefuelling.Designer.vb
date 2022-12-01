@@ -458,6 +458,7 @@ Partial Class frmAddEditTankRefuelling
         Me.txtqty.Properties.Appearance.Options.UseFont = True
         Me.txtqty.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtqty.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtqty.Properties.UseMaskAsDisplayFormat = True
         Me.txtqty.Size = New System.Drawing.Size(214, 22)
         Me.txtqty.TabIndex = 53
         '

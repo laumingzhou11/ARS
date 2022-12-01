@@ -17,8 +17,8 @@ Module connection
     ''Public konnstr2 As String = "Data Source='" & DecryptData(My.Settings.Server) & "';User='" & DecryptData(My.Settings.User) & "'; " _
     ''                           & "password='" & DecryptData(My.Settings.Password) & "';Initial Catalog='" & DecryptData(My.Settings.dbase1) _
     ''                           & "';Initial Catalog='" & DecryptData(My.Settings.dbase2) & "';Initial Catalog='" & DecryptData(My.Settings.dbase3) & "';"
-    Public konnstr As String = "Data Source='124.107.36.218';User='PulsarServer'; " _
-                               & "password='@lara19';Initial Catalog='dbfuelling';"
+    Public konnstr As String = "Data Source='.';User='sa'; " _
+                               & "password='1234';Initial Catalog='dbfuelling';"
     'Public konnstr2 As String = "Data Source='" & server & "';User='" & UserName & "'; " _
     '                           & "password='" & password & "';Initial Catalog='" & db1 _
     '                           & "';Initial Catalog='" & db2 & "';Initial Catalog='" & db3 & "';"

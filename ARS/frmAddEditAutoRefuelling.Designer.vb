@@ -20,7 +20,7 @@ Partial Class frmAddEditAutoRefuelling
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddEditAutoRefuelling))
-        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.GCQrCode = New DevExpress.XtraEditors.GroupControl()
         Me.txtcode = New DevExpress.XtraEditors.TextEdit()
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
         Me.GCVehicle = New DevExpress.XtraEditors.GroupControl()
@@ -95,8 +95,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.dgAutoTransaction = New DevExpress.XtraGrid.GridControl()
         Me.gvAutoTransaction = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.btncancel = New DevExpress.XtraEditors.SimpleButton()
-        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupControl1.SuspendLayout()
+        CType(Me.GCQrCode, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GCQrCode.SuspendLayout()
         CType(Me.txtcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,16 +147,16 @@ Partial Class frmAddEditAutoRefuelling
         CType(Me.gvAutoTransaction, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'GroupControl1
+        'GCQrCode
         '
-        Me.GroupControl1.Controls.Add(Me.txtcode)
-        Me.GroupControl1.Controls.Add(Me.PictureEdit1)
-        Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(831, 66)
-        Me.GroupControl1.TabIndex = 0
-        Me.GroupControl1.Text = "QR Code Scanning"
+        Me.GCQrCode.Controls.Add(Me.txtcode)
+        Me.GCQrCode.Controls.Add(Me.PictureEdit1)
+        Me.GCQrCode.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GCQrCode.Location = New System.Drawing.Point(0, 0)
+        Me.GCQrCode.Name = "GCQrCode"
+        Me.GCQrCode.Size = New System.Drawing.Size(831, 69)
+        Me.GCQrCode.TabIndex = 0
+        Me.GCQrCode.Text = "QR Code Scanning"
         '
         'txtcode
         '
@@ -171,7 +171,7 @@ Partial Class frmAddEditAutoRefuelling
         Me.txtcode.Properties.AutoHeight = False
         Me.txtcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtcode.Size = New System.Drawing.Size(787, 37)
+        Me.txtcode.Size = New System.Drawing.Size(787, 40)
         Me.txtcode.TabIndex = 37
         '
         'PictureEdit1
@@ -184,14 +184,14 @@ Partial Class frmAddEditAutoRefuelling
         Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
         Me.PictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
         Me.PictureEdit1.Properties.ShowMenu = False
-        Me.PictureEdit1.Size = New System.Drawing.Size(40, 37)
+        Me.PictureEdit1.Size = New System.Drawing.Size(40, 40)
         Me.PictureEdit1.TabIndex = 36
         '
         'GCVehicle
         '
         Me.GCVehicle.Controls.Add(Me.PanelVehicle)
         Me.GCVehicle.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GCVehicle.Location = New System.Drawing.Point(0, 66)
+        Me.GCVehicle.Location = New System.Drawing.Point(0, 69)
         Me.GCVehicle.Name = "GCVehicle"
         Me.GCVehicle.Size = New System.Drawing.Size(831, 165)
         Me.GCVehicle.TabIndex = 1
@@ -230,9 +230,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblStatus.Appearance.Options.UseFont = True
         Me.lblStatus.Location = New System.Drawing.Point(391, 103)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(42, 13)
+        Me.lblStatus.Size = New System.Drawing.Size(0, 13)
         Me.lblStatus.TabIndex = 58
-        Me.lblStatus.Text = "RENTED"
         '
         'lblCapacity
         '
@@ -240,9 +239,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblCapacity.Appearance.Options.UseFont = True
         Me.lblCapacity.Location = New System.Drawing.Point(391, 75)
         Me.lblCapacity.Name = "lblCapacity"
-        Me.lblCapacity.Size = New System.Drawing.Size(42, 13)
+        Me.lblCapacity.Size = New System.Drawing.Size(0, 13)
         Me.lblCapacity.TabIndex = 57
-        Me.lblCapacity.Text = "100000"
         '
         'lblPlateNo
         '
@@ -250,9 +248,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblPlateNo.Appearance.Options.UseFont = True
         Me.lblPlateNo.Location = New System.Drawing.Point(391, 46)
         Me.lblPlateNo.Name = "lblPlateNo"
-        Me.lblPlateNo.Size = New System.Drawing.Size(42, 13)
+        Me.lblPlateNo.Size = New System.Drawing.Size(0, 13)
         Me.lblPlateNo.TabIndex = 56
-        Me.lblPlateNo.Text = "123456"
         '
         'lblCrNo
         '
@@ -260,9 +257,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblCrNo.Appearance.Options.UseFont = True
         Me.lblCrNo.Location = New System.Drawing.Point(391, 19)
         Me.lblCrNo.Name = "lblCrNo"
-        Me.lblCrNo.Size = New System.Drawing.Size(84, 13)
+        Me.lblCrNo.Size = New System.Drawing.Size(0, 13)
         Me.lblCrNo.TabIndex = 55
-        Me.lblCrNo.Text = "000000000000"
         '
         'lblMake
         '
@@ -270,9 +266,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblMake.Appearance.Options.UseFont = True
         Me.lblMake.Location = New System.Drawing.Point(171, 103)
         Me.lblMake.Name = "lblMake"
-        Me.lblMake.Size = New System.Drawing.Size(26, 13)
+        Me.lblMake.Size = New System.Drawing.Size(0, 13)
         Me.lblMake.TabIndex = 54
-        Me.lblMake.Text = "SV-1"
         '
         'lblModel
         '
@@ -280,9 +275,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblModel.Appearance.Options.UseFont = True
         Me.lblModel.Location = New System.Drawing.Point(171, 75)
         Me.lblModel.Name = "lblModel"
-        Me.lblModel.Size = New System.Drawing.Size(46, 13)
+        Me.lblModel.Size = New System.Drawing.Size(0, 13)
         Me.lblModel.TabIndex = 53
-        Me.lblModel.Text = "TOYOTA"
         '
         'lblCOde
         '
@@ -290,9 +284,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblCOde.Appearance.Options.UseFont = True
         Me.lblCOde.Location = New System.Drawing.Point(171, 47)
         Me.lblCOde.Name = "lblCOde"
-        Me.lblCOde.Size = New System.Drawing.Size(77, 13)
+        Me.lblCOde.Size = New System.Drawing.Size(0, 13)
         Me.lblCOde.TabIndex = 52
-        Me.lblCOde.Text = "00000000000"
         '
         'lblVehicleName
         '
@@ -302,9 +295,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblVehicleName.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.lblVehicleName.Location = New System.Drawing.Point(171, 19)
         Me.lblVehicleName.Name = "lblVehicleName"
-        Me.lblVehicleName.Size = New System.Drawing.Size(159, 13)
+        Me.lblVehicleName.Size = New System.Drawing.Size(0, 0)
         Me.lblVehicleName.TabIndex = 51
-        Me.lblVehicleName.Text = "MARK LAURENCE A. CORELLA"
         '
         'LabelControl8
         '
@@ -421,7 +413,6 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblAddress.Name = "lblAddress"
         Me.lblAddress.Size = New System.Drawing.Size(165, 30)
         Me.lblAddress.TabIndex = 55
-        Me.lblAddress.Text = "CENTRO 12, TUGUEGARAO CITY, CAGAYAN"
         '
         'lblDriverName
         '
@@ -431,9 +422,8 @@ Partial Class frmAddEditAutoRefuelling
         Me.lblDriverName.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.lblDriverName.Location = New System.Drawing.Point(153, 48)
         Me.lblDriverName.Name = "lblDriverName"
-        Me.lblDriverName.Size = New System.Drawing.Size(159, 13)
+        Me.lblDriverName.Size = New System.Drawing.Size(0, 0)
         Me.lblDriverName.TabIndex = 54
-        Me.lblDriverName.Text = "MARK LAURENCE A. CORELLA"
         '
         'LabelControl10
         '
@@ -478,7 +468,7 @@ Partial Class frmAddEditAutoRefuelling
         '
         Me.GCTransaction.Controls.Add(Me.PanelControl2)
         Me.GCTransaction.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GCTransaction.Location = New System.Drawing.Point(0, 231)
+        Me.GCTransaction.Location = New System.Drawing.Point(0, 234)
         Me.GCTransaction.Name = "GCTransaction"
         Me.GCTransaction.Size = New System.Drawing.Size(831, 291)
         Me.GCTransaction.TabIndex = 2
@@ -949,9 +939,9 @@ Partial Class frmAddEditAutoRefuelling
         Me.gcHistory.Controls.Add(Me.dgAutoTransaction)
         Me.gcHistory.Controls.Add(Me.btncancel)
         Me.gcHistory.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gcHistory.Location = New System.Drawing.Point(0, 522)
+        Me.gcHistory.Location = New System.Drawing.Point(0, 525)
         Me.gcHistory.Name = "gcHistory"
-        Me.gcHistory.Size = New System.Drawing.Size(831, 236)
+        Me.gcHistory.Size = New System.Drawing.Size(831, 233)
         Me.gcHistory.TabIndex = 3
         Me.gcHistory.Text = "History"
         '
@@ -1024,15 +1014,16 @@ Partial Class frmAddEditAutoRefuelling
         Me.Controls.Add(Me.gcHistory)
         Me.Controls.Add(Me.GCTransaction)
         Me.Controls.Add(Me.GCVehicle)
-        Me.Controls.Add(Me.GroupControl1)
+        Me.Controls.Add(Me.GCQrCode)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.IconOptions.Image = Global.ARS.My.Resources.Resources.icons8_transaction_32
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmAddEditAutoRefuelling"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Auto Refuelling - Stock Out"
-        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupControl1.ResumeLayout(False)
+        CType(Me.GCQrCode, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GCQrCode.ResumeLayout(False)
         CType(Me.txtcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCVehicle, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1092,7 +1083,7 @@ Partial Class frmAddEditAutoRefuelling
 
     End Sub
 
-    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents GCQrCode As DevExpress.XtraEditors.GroupControl
     Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents GCVehicle As DevExpress.XtraEditors.GroupControl
     Friend WithEvents PanelVehicle As DevExpress.XtraEditors.PanelControl

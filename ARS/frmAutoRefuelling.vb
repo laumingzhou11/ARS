@@ -24,6 +24,7 @@ Public Class frmAutoRefuelling
         frmAddEditAutoRefuelling.rg()
         frmAddEditAutoRefuelling.xclear()
         frmAddEditAutoRefuelling.ShowDialog()
+        frmAddEditAutoRefuelling.GCQrCode.Enabled = True
     End Sub
     Function populateAuto() As Boolean
         Call konneksyon()
@@ -113,13 +114,86 @@ Public Class frmAutoRefuelling
 
     Private Sub btnedit_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles btnedit.ItemClick
         If txtselectedcode.Text <> "" Then
-            ' Call filltext()
-            frmAddEditTankRefuelling.Text = "Tank Refuelling - Edit Stock IN"
-            frmAddEditTankRefuelling.ShowDialog()
+            Call filltext()
+            frmAddEditAutoRefuelling.Text = "Auto Refuelling - Edit Stock Out"
+            frmAddEditAutoRefuelling.ShowDialog()
         Else
             MsgBox("Select record to edit!", MsgBoxStyle.Information, Me.Text)
         End If
     End Sub
+    Function filltext() As Boolean
+        Call konneksyon()
+        sql = "select a.AutoTransactionID as TransNo,b.VehicleID,b.code, b.Name,b.Model,b.Make, " _
+                    & "b.CrNo,b.PlateNo,b.TankCapacity as CapacityA,b.Status,b.VehiclePic,b.Driver,b.DriverAddress,b.DriverPic, " _
+                    & "c.TankName,c.TankID,c.TankCapacity as CapacityB,c.Location,c1.UomCode,a.PoNo,d.ProductID,d.ItemDescription, " _
+                    & "d1.SupplierName,a.StockOut,a.Price,isnull((select TOp 1(select sum(Stockin-Stockout) " _
+                    & "from tblTankInventory where ID<=a.ID And TankID=a.TankID) " _
+                    & "from tblTankInventory As a order By ID desc),0) as AvailableStocks,a.Refilled_by,e.UomCode,a.SelectStock " _
+                    & "from tblAutoTransaction as a " _
+                    & "inner join tblVehicles as b on a.VehicleID=b.VehicleID " _
+                    & "inner join tbltank as c on a.TankID=c.TankID " _
+                    & "inner join tblUomCode as c1 on c.UomID=c1.ID " _
+                    & "inner join tblProducts as d on a.ProductID=d.ProductID " _
+                    & "inner join tblSupplier as d1 on d.SupplierID=d1.SupplierID " _
+                    & "inner join tblUomCode as e on a.UomID=e.ID where a.AutoTransactionID='" & keyID & "'"
+        Call fill(sql)
+        frmAddEditAutoRefuelling.lblTransID.Text = dset.Tables(sql).Rows(0).Item("TransNo")
+        frmAddEditAutoRefuelling.txtPoNo.Text = dset.Tables(sql).Rows(0).Item("PoNo")
+        frmAddEditAutoRefuelling.lblVehicleID.Text = dset.Tables(sql).Rows(0).Item("VehicleID")
+        frmAddEditAutoRefuelling.lblCOde.Text = dset.Tables(sql).Rows(0).Item("code")
+        frmAddEditAutoRefuelling.lblVehicleName.Text = dset.Tables(sql).Rows(0).Item("Name")
+        frmAddEditAutoRefuelling.lblModel.Text = dset.Tables(sql).Rows(0).Item("Model")
+        frmAddEditAutoRefuelling.lblMake.Text = dset.Tables(sql).Rows(0).Item("Make")
+        frmAddEditAutoRefuelling.lblCrNo.Text = dset.Tables(sql).Rows(0).Item("CrNo")
+        frmAddEditAutoRefuelling.lblPlateNo.Text = dset.Tables(sql).Rows(0).Item("PlateNo")
+        frmAddEditAutoRefuelling.lblCapacity.Text = dset.Tables(sql).Rows(0).Item("CapacityA")
+        frmAddEditAutoRefuelling.lblStatus.Text = dset.Tables(sql).Rows(0).Item("Status")
+        If IsDBNull(dset.Tables(sql).Rows(0).Item("VehiclePic")) Then
+            frmAddEditAutoRefuelling.VehiclePic.Image = Nothing
+        Else
+            Dim mstream As New System.IO.MemoryStream
+            Dim photo As Byte() = dset.Tables(sql).Rows(0).Item("VehiclePic")
+            Dim lstr As New System.IO.MemoryStream(photo)
+            On Error Resume Next
+            frmAddEditAutoRefuelling.VehiclePic.Image = Image.FromStream(lstr)
+            mstream.Close()
+        End If
+        frmAddEditAutoRefuelling.lblDriverName.Text = dset.Tables(sql).Rows(0).Item("Driver")
+        frmAddEditAutoRefuelling.lblAddress.Text = dset.Tables(sql).Rows(0).Item("DriverAddress")
+        If IsDBNull(dset.Tables(sql).Rows(0).Item("DriverPic")) Then
+            frmAddEditAutoRefuelling.DriverPic.Image = Nothing
+        Else
+            Dim mstream As New System.IO.MemoryStream
+            Dim photo As Byte() = dset.Tables(sql).Rows(0).Item("DriverPic")
+            Dim lstr As New System.IO.MemoryStream(photo)
+            On Error Resume Next
+            frmAddEditAutoRefuelling.DriverPic.Image = Image.FromStream(lstr)
+            mstream.Close()
+        End If
+        frmAddEditAutoRefuelling.lblAddress.Text = dset.Tables(sql).Rows(0).Item("DriverAddress")
+        frmAddEditAutoRefuelling.lblTankID.Text = dset.Tables(sql).Rows(0).Item("TankID")
+        frmAddEditAutoRefuelling.lblAddress.Text = dset.Tables(sql).Rows(0).Item("DriverAddress")
+        frmAddEditAutoRefuelling.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("CapacityB")
+        frmAddEditAutoRefuelling.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
+        frmAddEditAutoRefuelling.txtPoNo.Text = dset.Tables(sql).Rows(0).Item("PoNo")
+        frmAddEditAutoRefuelling.lblProductID.Text = dset.Tables(sql).Rows(0).Item("ProductID")
+        frmAddEditAutoRefuelling.cbProduct.Text = dset.Tables(sql).Rows(0).Item("ItemDescription")
+        frmAddEditAutoRefuelling.cbSupplier.Text = dset.Tables(sql).Rows(0).Item("SupplierName")
+        frmAddEditAutoRefuelling.txtqty.Text = dset.Tables(sql).Rows(0).Item("StockOut")
+        frmAddEditAutoRefuelling.txtprice.Text = dset.Tables(sql).Rows(0).Item("Price")
+        frmAddEditAutoRefuelling.txtstocks.Text = dset.Tables(sql).Rows(0).Item("AvailableStocks")
+        frmAddEditAutoRefuelling.txtRefilledby.Text = dset.Tables(sql).Rows(0).Item("Refilled_by")
+        frmAddEditAutoRefuelling.txtlocation.Text = dset.Tables(sql).Rows(0).Item("Location")
+        frmAddEditAutoRefuelling.cbUom.Text = dset.Tables(sql).Rows(0).Item("UomCode")
+        frmAddEditAutoRefuelling.GCQrCode.Enabled = False
+        If dset.Tables(sql).Rows(0).Item("SelectStock") = True Then
+            frmAddEditAutoRefuelling.RadioGroup1.SelectedIndex = 1
+        Else
+            frmAddEditAutoRefuelling.RadioGroup1.SelectedIndex = 0
+        End If
+        frmAddEditAutoRefuelling.txtTankName.Text = dset.Tables(sql).Rows(0).Item("TankName")
+        Return True
+    End Function
     Private Sub gvAutoRefuelling_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvAutoRefuelling.FocusedRowChanged
         Try
             keyID = gvAutoRefuelling.GetRowCellValue(gvAutoRefuelling.FocusedRowHandle, "TransNo")

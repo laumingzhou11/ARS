@@ -14,14 +14,6 @@ Public Class frmAddEditTankRefuelling
         End If
     End Sub
     Private Sub txtqty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtqty.KeyPress
-        If Not (Asc(e.KeyChar)) = 8 Then
-            Dim allowchar As String = "1234567890."
-            If allowchar.IndexOf(e.KeyChar) = -1 Then
-                MsgBox("Number only!", MsgBoxStyle.Critical, "Capacity Input..")
-                e.Handled = True
-            End If
-        End If
-
         If Asc(e.KeyChar) = 13 Then
             If txtqty.Text = "" Then
                 txtqty.Focus()
@@ -165,7 +157,7 @@ Public Class frmAddEditTankRefuelling
     End Sub
     Function PopulateHistory() As Boolean
         Call konneksyon()
-        sql = "select a.TankTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.PurchaseOrder as Po#,format(a.StockIn,'#,#') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH')" _
+        sql = "select a.TankTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,a.PurchaseOrder as Po#,format(a.StockIn,'#,#') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH')," _
               & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.Receivedby,d.Name as Deliveredby " _
               & " from tblTankTransaction as a " _
               & "inner join tblProducts as b on a.ProductID=b.ProductID " _
@@ -206,25 +198,30 @@ Public Class frmAddEditTankRefuelling
         ElseIf cbDeliveredby.Text = "" Then
             cbDeliveredby.Focus()
         Else
-            If MsgBox("Are you sure you want to add Fuel Stocks?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
-                sql = "insert into tblTankTransaction (" _
+            If Val(txtCapacity.Text) < Val(txtqty.Text) Then
+                MsgBox("Quantity is higher than limit of Tank Capacity!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+
+                If MsgBox("Are you sure you want to add Fuel Stocks?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    sql = "insert into tblTankTransaction (" _
             & "TankID, StockIn, ProductID, PurchaseOrder, Added_at, " _
             & "Added_by,Receivedby,VehicleID, UomID, Price) values (" _
             & "'" & lbltankID.Text & "','" & txtqty.Text & "', '" & lblProductID.Text & "', " _
-            & "'" & txtPoNo.Text & "',getDate(),'" & frmMain.lblid.Caption & "',(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'), " _
+            & "'" & txtPoNo.Text & "',getDate(),'" & frmMain.lblid.Caption & "','" & txtreceived.Text & "',(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'), " _
             & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & txtprice.Text & "')"
-                Call save(sql)
+                    Call save(sql)
 
-                sql = "insert into tblTankInventory (" _
+                    sql = "insert into tblTankInventory (" _
                     & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
                     & "GetDate(), 'INCOMING','" & lbltankID.Text & "','" & lblProductID.Text & "'," _
                     & "(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'),'" & txtqty.Text & "',0)"
-                Call save(sql)
+                    Call save(sql)
 
-                MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
-                Call xclear()
-                frmMain.TankTransaction.populateTransaction()
-                Me.Close()
+                    MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
+                    frmMain.TankTransaction.populateTransaction()
+                    Me.Close()
+                End If
             End If
         End If
         Return True
@@ -242,25 +239,29 @@ Public Class frmAddEditTankRefuelling
         ElseIf cbDeliveredby.Text = "" Then
             cbDeliveredby.Focus()
         Else
-            If MsgBox("Are you sure you want to edit Fuel Stock-in?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
-                sql = "update tblTankTransaction set " _
+            If Val(txtCapacity.Text) < Val(txtqty.Text) Then
+                MsgBox("Quantity is higher than limit of Tank Capacity!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                If MsgBox("Are you sure you want to edit Fuel Stock-in?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    sql = "update tblTankTransaction set " _
             & "TankID='" & lbltankID.Text & "', StockIn='" & txtqty.Text & "', ProductID='" & lblProductID.Text & "', " _
             & "PurchaseOrder='" & txtPoNo.Text & "', Updated_at=getDate(), " _
             & "Updated_by='" & frmMain.lblid.Caption & "',Receivedby='" & txtreceived.Text & "', " _
             & "VehicleID= (select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'),UomID=(select ID from tblUomCode where UomCode='" & cbUom.Text & "' " _
             & ", Price='" & txtprice.Text & "') where TankTransactionID='" & lblTransID.Text & "'"
-                Call save(sql)
+                    Call save(sql)
 
-                sql = "update tblTankInventory set " _
+                    sql = "update tblTankInventory set " _
                     & "TankID='" & lbltankID.Text & "', ProductID='" & lblProductID.Text & "', " _
                     & "VehicleID=(select VehicleID from tblVehicles, Name='" & cbDeliveredby.Text & "'), " _
                     & "StockIn='" & txtqty.Text & "' where TankTransactionID='" & lblTransID.Text & "'"
-                Call save(sql)
+                    Call save(sql)
 
-                MsgBox("Edit successfully!", MsgBoxStyle.Information, Me.Text)
-                Call xclear()
-                frmMain.TankTransaction.populateTransaction()
-                Me.Close()
+                    MsgBox("Edit successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
+                    frmMain.TankTransaction.populateTransaction()
+                    Me.Close()
+                End If
             End If
         End If
         Return True

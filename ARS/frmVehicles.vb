@@ -23,7 +23,7 @@ Public Class frmVehicles
                 & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#') as TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID where a.Deleted_at<>null order by a.VehicleID desc"
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID where a.Deleted_at is null order by a.VehicleID desc"
         Call populate(sql, dgVehicles)
         lblcount.Caption = gvVehicles.RowCount & " Record(s) Found"
         gvVehicles.BestFitColumns()
@@ -88,7 +88,7 @@ Public Class frmVehicles
                 & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#') as TankCapacity, b.UomCode," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID  where Model like '%" & txtsearch.Text & "%' and a.Deleted_at<>null order by a.vehicleID desc"
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID  where Model like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by a.vehicleID desc"
                 Call populate(sql, dgVehicles)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvVehicles.RowCount & " Record(s) Found"

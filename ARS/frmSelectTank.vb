@@ -21,7 +21,7 @@ Public Class frmSelectTank
         sql = "select A.TankID,a.TankName,format(A.TankCapacity,'#,#') as TankCapacity,b.UomCode,a.Location,format(isnull((select TOp 1(select sum(Stockin-Stockout) " _
                 & "from tblTankInventory where ID<=a1.ID And TankID=a.TankID) " _
                 & "from tblTankInventory As a1 where a1.TankID=a.TankID order By a1.ID desc),0),'#,#') as AvailableStocks " _
-                & "from tbltank As a inner join tbluomCode As b On a.UomID=b.ID where A.TankID<>1 and a.Deleted_at<>null order by A.TankID desc"
+                & "from tbltank As a inner join tbluomCode As b On a.UomID=b.ID where A.TankID<>1 and a.Deleted_at is null order by A.TankID desc"
         Call populate(sql, dgTank)
         gvTank.Columns("TankID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
         gvTank.Columns("TankID").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) found"
@@ -94,7 +94,7 @@ Public Class frmSelectTank
             If txtsearch.Text = "" Then
                 Call konneksyon()
                 sql = "select A.TankID,a.TankName,A.format(TankCapacity,'#,#,) as TankCapacity,b.UomCode,a.Location,a.Added_at,a.Added_by " _
-                & "from tbltank as a inner join tbluomCode as b on a.UomID=b.ID where a.TankName like '%" & txtsearch.Text & "%' and a.Deleted_at<>null order by A.TankID desc"
+                & "from tbltank as a inner join tbluomCode as b on a.UomID=b.ID where a.TankName like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by A.TankID desc"
                 Call populate(sql, dgTank)
                 gvTank.Columns("TankID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
                 gvTank.Columns("TankID").SummaryItem.DisplayFormat = "{0:n0}" & " Record(s) found"
