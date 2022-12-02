@@ -32,9 +32,7 @@ Public Class frmSelectTank
     Function filltext() As Boolean
         Call konneksyon()
         If lblSelectTank.Text = "Tank" Then
-            sql = "select A.TankID,a.TankName,A.TankCapacity,b.UomCode,a.Location,isnull((select TOp 1(select sum(Stockin-Stockout) " _
-                & "from tblTankInventory where ID<=a.ID And TankID='" & keyID & "') " _
-                & "from tblTankInventory As a where a.TankID='" & keyID & "' order By ID desc),0) as AvailableStocks " _
+            sql = "select A.TankID,a.TankName,A.TankCapacity,b.UomCode,a.Location,A.TankCapacity-(select SUM(StockIn) from tblTankInventory where TankID='" & keyID & "') as Available " _
                 & "from tbltank As a inner join tbluomCode As b On a.UomID=b.ID where TankID='" & keyID & "'"
             Call fill(sql)
             frmAddEditTankRefuelling.lbltankID.Text = dset.Tables(sql).Rows(0).Item("TankID")
@@ -42,14 +40,13 @@ Public Class frmSelectTank
             frmAddEditTankRefuelling.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
             frmAddEditTankRefuelling.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
             frmAddEditTankRefuelling.txtlocation.Text = dset.Tables(sql).Rows(0).Item("Location")
-            frmAddEditTankRefuelling.txtstocks.Text = FormatNumber(dset.Tables(sql).Rows(0).Item("AvailableStocks"), 2)
+            frmAddEditTankRefuelling.txtstocks.Text = FormatNumber(dset.Tables(sql).Rows(0).Item("Available"), 2)
             Call frmAddEditTankRefuelling.PopulateHistory()
             Me.Close()
         Else
             sql = "select A.TankID,b.TankName,b.TankCapacity,c.UomCode,b.Location, d.ProductID, " _
-                    & "d.ItemDescription as Product,d.Price,d1.SupplierID,d1.SupplierName as Supplier,isnull((select TOp 1(select sum(Stockin-Stockout) " _
-                    & "from tblTankInventory where ID<=a.ID And TankID='" & keyID & "') " _
-                    & "from tblTankInventory As a where a.TankID='" & keyID & "' order By ID desc),0) as AvailableStocks  from tblTankTransaction as a  " _
+                    & "d.ItemDescription as Product,d.Price,d1.SupplierID,d1.SupplierName as Supplier, " _
+                    & "A.TankCapacity-(select SUM(StockIn) from tblTankInventory where TankID='" & keyID & "') as Available  from tblTankTransaction as a  " _
                     & "inner join tblTank as b on a.TankID=b.TankID " _
                     & "inner join tbluomCode As c On b.UomID=c.ID " _
                     & "inner join tblproducts as d on a.ProductID=d.productID " _
@@ -63,7 +60,7 @@ Public Class frmSelectTank
                 frmAddEditAutoRefuelling.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
                 frmAddEditAutoRefuelling.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
                 frmAddEditAutoRefuelling.txtlocation.Text = dset.Tables(sql).Rows(0).Item("Location")
-                frmAddEditAutoRefuelling.txtstocks.Text = FormatNumber(dset.Tables(sql).Rows(0).Item("AvailableStocks"), 2)
+                frmAddEditAutoRefuelling.txtstocks.Text = FormatNumber(dset.Tables(sql).Rows(0).Item("Available"), 2)
                 frmAddEditAutoRefuelling.cbProduct.Text = dset.Tables(sql).Rows(0).Item("Product")
                 frmAddEditAutoRefuelling.cbSupplier.Text = dset.Tables(sql).Rows(0).Item("Supplier")
                 frmAddEditAutoRefuelling.lblSupplierID.Text = dset.Tables(sql).Rows(0).Item("SupplierID")

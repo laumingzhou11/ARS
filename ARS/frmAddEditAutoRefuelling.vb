@@ -351,7 +351,8 @@ Public Class frmAddEditAutoRefuelling
                     & "Added_at, Added_by, PoNo, Refilled_by, Price, StockOut, UomID, SelectStock) values (" _
                     & "'OUTGOING', '" & lblVehicleID.Text & "','" & lblTankID.Text & "'," _
                     & "'" & lblProductID.Text & "',GetDate(), '" & frmMain.lblid.Caption & "'," _
-                    & "'" & txtPoNo.Text & "','" & txtRefilledby.Text & "', '" & txtprice.Text & "','" & txtqty.Text & "')"
+                    & "'" & txtPoNo.Text & "','" & txtRefilledby.Text & "', '" & txtprice.Text & "','" & txtqty.Text & "', " _
+                    & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & RadioGroup1.SelectedIndex & "')"
                 Call save(sql)
                 sql = "insert into tblTankInventory (" _
                  & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _

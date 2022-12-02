@@ -198,24 +198,48 @@ Public Class frmAddEditTankRefuelling
         ElseIf cbDeliveredby.Text = "" Then
             cbDeliveredby.Focus()
         Else
-            If Val(txtCapacity.Text) < Val(txtqty.Text) Then
-                MsgBox("Quantity is higher than limit of Tank Capacity!", MsgBoxStyle.Exclamation, Me.Text)
-            Else
+            sql = "select * from tblTankInventory where TankID='" & lbltankID.Text & "'"
+            Call fill(sql)
+            If dset.Tables(sql).Rows.Count > 0 Then
+                If Val(txtstocks.Text) = 0 Then
+                    MsgBox("Tank is Full!", MsgBoxStyle.Exclamation, Me.Text)
+                Else
+                    If MsgBox("Are you sure you want to add Fuel Stocks?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                        sql = "insert into tblTankTransaction (" _
+        & "TankID, StockIn, ProductID, PurchaseOrder, Added_at, " _
+        & "Added_by,Receivedby,VehicleID, UomID, Price) values (" _
+        & "'" & lbltankID.Text & "','" & txtqty.Text & "', '" & lblProductID.Text & "', " _
+        & "'" & txtPoNo.Text & "',getDate(),'" & frmMain.lblid.Caption & "','" & txtreceived.Text & "',(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'), " _
+        & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & txtprice.Text & "')"
+                        Call save(sql)
 
+                        sql2 = "insert into tblTankInventory (" _
+                & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
+                & "GetDate(), 'INCOMING','" & lbltankID.Text & "','" & lblProductID.Text & "'," _
+                & "(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'),'" & txtqty.Text & "',0)"
+                        Call save(sql2)
+
+                        MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                        Call xclear()
+                        frmMain.TankTransaction.populateTransaction()
+                        Me.Close()
+                    End If
+                End If
+            Else
                 If MsgBox("Are you sure you want to add Fuel Stocks?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                     sql = "insert into tblTankTransaction (" _
-            & "TankID, StockIn, ProductID, PurchaseOrder, Added_at, " _
-            & "Added_by,Receivedby,VehicleID, UomID, Price) values (" _
-            & "'" & lbltankID.Text & "','" & txtqty.Text & "', '" & lblProductID.Text & "', " _
-            & "'" & txtPoNo.Text & "',getDate(),'" & frmMain.lblid.Caption & "','" & txtreceived.Text & "',(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'), " _
-            & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & txtprice.Text & "')"
+    & "TankID, StockIn, ProductID, PurchaseOrder, Added_at, " _
+    & "Added_by,Receivedby,VehicleID, UomID, Price) values (" _
+    & "'" & lbltankID.Text & "','" & txtqty.Text & "', '" & lblProductID.Text & "', " _
+    & "'" & txtPoNo.Text & "',getDate(),'" & frmMain.lblid.Caption & "','" & txtreceived.Text & "',(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'), " _
+    & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & txtprice.Text & "')"
                     Call save(sql)
 
-                    sql = "insert into tblTankInventory (" _
-                    & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
-                    & "GetDate(), 'INCOMING','" & lbltankID.Text & "','" & lblProductID.Text & "'," _
-                    & "(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'),'" & txtqty.Text & "',0)"
-                    Call save(sql)
+                    sql2 = "insert into tblTankInventory (" _
+            & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
+            & "GetDate(), 'INCOMING','" & lbltankID.Text & "','" & lblProductID.Text & "'," _
+            & "(select VehicleID from tblVehicles where Name='" & cbDeliveredby.Text & "'),'" & txtqty.Text & "',0)"
+                    Call save(sql2)
 
                     MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
                     Call xclear()
@@ -223,8 +247,9 @@ Public Class frmAddEditTankRefuelling
                     Me.Close()
                 End If
             End If
+
         End If
-        Return True
+            Return True
     End Function
     Function Updaterec() As Boolean
         Call konneksyon()

@@ -133,13 +133,15 @@ Partial Class frmAddEditTankRefuelling
         '
         'GroupControl2
         '
+        Me.GroupControl2.AppearanceCaption.Options.UseTextOptions = True
+        Me.GroupControl2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GroupControl2.Controls.Add(Me.txtstocks)
         Me.GroupControl2.Dock = System.Windows.Forms.DockStyle.Right
         Me.GroupControl2.Location = New System.Drawing.Point(352, 27)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.Size = New System.Drawing.Size(118, 88)
         Me.GroupControl2.TabIndex = 44
-        Me.GroupControl2.Text = "Available Stocks"
+        Me.GroupControl2.Text = "Available"
         '
         'txtstocks
         '
