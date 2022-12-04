@@ -253,8 +253,8 @@ Public Class frmAddEditVehicles
                         & "code, Model, Make, PlateNo, CrNo, " _
                         & "RegisteredOwner, OwnerAddress, Driver, DriverAddress,Status, " _
                         & "TankCapacity, UomID, Added_at, Added_by,Name) values (" _
-                        & "(select RIGHT('000' + " _
-                        & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 15)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
+                        & "(select RIGHT('0000000000' + " _
+                        & "cast (ABS(CHECKSUM(NEWID())) as varchar) , 10)),'" & txtcarmodel.Text & "','" & txtcarmake.Text & "','" & txtplateNo.Text & "'," _
                         & "'" & txtCrNo.Text & "','" & txtOwner.Text & "','" & txtOwnerAddress.Text & "','" & txtDriver.Text & "','" & txtDriverAddress.Text & "'," _
                         & "'" & cbstatus.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
                         & "Getdate(),'" & frmMain.lblid.Caption & "','" & txtName.Text & "')"

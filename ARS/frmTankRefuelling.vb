@@ -15,6 +15,8 @@ Public Class frmTankRefuelling
     Private Sub btnadd_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnadd.ItemClick
         frmAddEditTankRefuelling.btnSelectTank.Select()
         frmAddEditTankRefuelling.Text = "Tank Refuelling - Stock IN"
+        frmAddEditTankRefuelling.btnSelectTank.Enabled = True
+        frmAddEditTankRefuelling.txtqty.Enabled = True
         frmAddEditTankRefuelling.xclear()
         frmAddEditTankRefuelling.ShowDialog()
     End Sub
@@ -24,8 +26,8 @@ Public Class frmTankRefuelling
     End Sub
     Function populateTransaction() As Boolean
         Call konneksyon()
-        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#') as TankCapacity, " _
-                & "format(a.StockIn,'#,#') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
+        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#.##') as TankCapacity, " _
+                & "format(a.StockIn,'#,#.##')as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
                 & "format((select Sum(StockIn*Price) from tblTankTransaction where TankTransactionID=a.TankTransactionID),'c', 'fil-PH') as TotalAmount," _
                 & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
                 & "d.Name as DeliveredBy, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
@@ -42,9 +44,8 @@ Public Class frmTankRefuelling
     End Function
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankID,c.TankName as Tank, isnull((select TOp 1(select sum(Stockin-Stockout) " _
-                & "from tblTankInventory where ID<=a.ID And TankID=c.TankID) " _
-                & "from tblTankInventory As a where a.TankID=c.TankID order By ID desc),0) as Balance,c.TankCapacity,c.Location,a.StockIn, e.UomCode,a.Price," _
+        sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankID,c.TankName as Tank, " _
+                & "isnull(c.TankCapacity-(Select SUM(StockIn) from tblTankInventory where TankID=c.TankID),0) as Available,c.TankCapacity,c.Location,a.StockIn, e.UomCode,a.Price," _
                 & "b.ProductID,b.ItemDescription As Product,b.SupplierID,b1.SupplierName As Supplier,a.ReceivedBy, " _
                 & "d.Name As DeliveredBy,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
                 & "from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
@@ -69,17 +70,17 @@ Public Class frmTankRefuelling
         frmAddEditTankRefuelling.txtreceived.Text = dset.Tables(sql).Rows(0).Item("Receivedby")
         frmAddEditTankRefuelling.cbDeliveredby.Text = dset.Tables(sql).Rows(0).Item("Deliveredby")
         frmAddEditTankRefuelling.lbltankID.Text = dset.Tables(sql).Rows(0).Item("TankID")
-        frmAddEditTankRefuelling.txtstocks.Text = FormatNumber(dset.Tables(sql).Rows(0).Item("Balance"), 2)
+        frmAddEditTankRefuelling.txtstocks.Text = dset.Tables(sql).Rows(0).Item("Available")
         Call frmAddEditTankRefuelling.Uom()
         Call frmAddEditTankRefuelling.PopulateHistory()
         Return True
     End Function
     Function Search() As Boolean
         Try
-            If txtsearch.Text = "" Then
+            If txtsearch.Text <> "" Then
                 Call konneksyon()
-                sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#') as TankCapacity, " _
-                & "format(a.StockIn,'#,#') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
+                sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#.##') as TankCapacity, " _
+                & "format(a.StockIn,'#,#.##') as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
                 & "format((select Sum(StockIn*Price) from tblTankTransaction where TankTransactionID=a.TankTransactionID),'c', 'fil-PH') as TotalAmount," _
                 & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
                 & "d.Name as DeliveredBy, format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at " _
@@ -87,9 +88,9 @@ Public Class frmTankRefuelling
                 & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
                 & "inner join tbltank as c on a.TankID=c.TankID " _
                 & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
-                & "inner join tblUomcode as e on a.UomID=e.ID where c.TankName like '%" & txtsearch.Text & "%' or " _
-                & "a.PurchaseOrder like '%" & txtsearch.Text & "%' or b.ItemDescription like '%" & txtsearch.Text & "%' or " _
-                & "b1.SupplierName like '%" & txtsearch.Text & "%' or a.Received_by like '%" & txtsearch.Text & "%' or " _
+                & "inner join tblUomcode as e on a.UomID=e.ID where c.TankName like '%" & txtsearch.Text & "%' or and a.Deleted_at is null " _
+                & "a.PurchaseOrder like '%" & txtsearch.Text & "%' and a.Deleted_at is null or b.ItemDescription like '%" & txtsearch.Text & "%' and a.Deleted_at is null or " _
+                & "b1.SupplierName like '%" & txtsearch.Text & "%' or a.Receivedby like '%" & txtsearch.Text & "%' or " _
                 & "d.Name like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by a.TankTransactionID desc"
                 Call populate(sql, dgTankRefuelling)
                 If dset.Tables(sql).Rows.Count > 0 Then
@@ -145,12 +146,19 @@ Public Class frmTankRefuelling
         If txtselectedcode.Text <> "" Then
             Call filltext()
             frmAddEditTankRefuelling.Text = "Tank Refuelling - Edit Stock IN"
+            frmAddEditTankRefuelling.btnSelectTank.Enabled = False
+            frmAddEditTankRefuelling.txtqty.Enabled = False
+            frmAddEditTankRefuelling.txtPoNo.Select()
             frmAddEditTankRefuelling.ShowDialog()
         Else
             MsgBox("Select record to edit!", MsgBoxStyle.Information, Me.Text)
         End If
     End Sub
     Private Sub gvTankRefuelling_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvTankRefuelling.FocusedRowChanged
+
+    End Sub
+
+    Private Sub gvTankRefuelling_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles gvTankRefuelling.RowCellClick
         Try
             keyID = gvTankRefuelling.GetRowCellValue(gvTankRefuelling.FocusedRowHandle, "TransNo")
             Dim da = New SqlDataAdapter("select * from tblTankTransaction where TankTransactionID='" & keyID & "'", kon)
@@ -163,5 +171,24 @@ Public Class frmTankRefuelling
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        Call Search()
+    End Sub
+
+    Private Sub btnDelete_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles btnDelete.ItemClick
+        If txtselectedcode.Text <> "" Then
+            If MsgBox("Are you sure you want delete?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, Me.Text) = MsgBoxResult.Yes Then
+                Call konneksyon()
+                sql = "update tblTankTransaction set Deleted_by='" & frmMain.lblid.Caption & "',Deleted_at=GetDate() where TankTransactionID='" & txtselectedcode.Text & "'"
+                Call save(sql)
+                sql = "delete from tblTankInventory where " _
+                        & "TankID=(select TankID from tblTankTransaction where TankTransactionID='" & txtselectedcode.Text & "') and 
+                        Date=(select Date from tblTankTransaction where TankTransactionID='" & txtselectedcode.Text & "') and [Transaction]='INCOMING'"
+                Call save(sql)
+                Call populateTransaction()
+            End If
+        End If
     End Sub
 End Class

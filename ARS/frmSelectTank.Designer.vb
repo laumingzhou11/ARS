@@ -26,11 +26,11 @@ Partial Class frmSelectTank
         Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
         Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.lblSelectTank = New DevExpress.XtraEditors.LabelControl()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
         Me.gvTank = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.dgTank = New DevExpress.XtraGrid.GridControl()
-        Me.lblSelectTank = New DevExpress.XtraEditors.LabelControl()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -46,7 +46,7 @@ Partial Class frmSelectTank
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Nothing
-        Me.barDockControlTop.Size = New System.Drawing.Size(479, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(477, 0)
         '
         'txtHheadID
         '
@@ -95,8 +95,16 @@ Partial Class frmSelectTank
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(479, 44)
+        Me.PanelControl1.Size = New System.Drawing.Size(477, 43)
         Me.PanelControl1.TabIndex = 13
+        '
+        'lblSelectTank
+        '
+        Me.lblSelectTank.Location = New System.Drawing.Point(520, 50)
+        Me.lblSelectTank.Name = "lblSelectTank"
+        Me.lblSelectTank.Size = New System.Drawing.Size(66, 13)
+        Me.lblSelectTank.TabIndex = 5
+        Me.lblSelectTank.Text = "LabelControl1"
         '
         'PanelControl2
         '
@@ -104,7 +112,7 @@ Partial Class frmSelectTank
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelControl2.Location = New System.Drawing.Point(0, 362)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(479, 47)
+        Me.PanelControl2.Size = New System.Drawing.Size(477, 47)
         Me.PanelControl2.TabIndex = 16
         '
         'btnsave
@@ -126,7 +134,7 @@ Partial Class frmSelectTank
         Me.gvTank.Appearance.FocusedRow.Options.UseBackColor = True
         Me.gvTank.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvTank.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvTank.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTank.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvTank.Appearance.HeaderPanel.Options.UseFont = True
         Me.gvTank.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.gvTank.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -150,26 +158,18 @@ Partial Class frmSelectTank
         'dgTank
         '
         Me.dgTank.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgTank.Location = New System.Drawing.Point(0, 44)
+        Me.dgTank.Location = New System.Drawing.Point(0, 43)
         Me.dgTank.MainView = Me.gvTank
         Me.dgTank.Name = "dgTank"
-        Me.dgTank.Size = New System.Drawing.Size(479, 318)
+        Me.dgTank.Size = New System.Drawing.Size(477, 319)
         Me.dgTank.TabIndex = 14
         Me.dgTank.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTank})
-        '
-        'lblSelectTank
-        '
-        Me.lblSelectTank.Location = New System.Drawing.Point(520, 50)
-        Me.lblSelectTank.Name = "lblSelectTank"
-        Me.lblSelectTank.Size = New System.Drawing.Size(66, 13)
-        Me.lblSelectTank.TabIndex = 5
-        Me.lblSelectTank.Text = "LabelControl1"
         '
         'frmSelectTank
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(479, 409)
+        Me.ClientSize = New System.Drawing.Size(477, 409)
         Me.Controls.Add(Me.dgTank)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.barDockControlTop)

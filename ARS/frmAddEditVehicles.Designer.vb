@@ -120,7 +120,6 @@ Partial Class frmAddEditVehicles
         Me.txtName.Properties.Appearance.Options.UseFont = True
         Me.txtName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtName.Properties.UseMaskAsDisplayFormat = False
         Me.txtName.Size = New System.Drawing.Size(238, 22)
         Me.txtName.TabIndex = 42
         '
@@ -456,6 +455,7 @@ Partial Class frmAddEditVehicles
         Me.cbstatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbstatus.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.cbstatus.Properties.Items.AddRange(New Object() {"", "-", "RENTED", "OWNED"})
+        Me.cbstatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbstatus.Size = New System.Drawing.Size(373, 22)
         Me.cbstatus.TabIndex = 28
         '
@@ -468,6 +468,7 @@ Partial Class frmAddEditVehicles
         Me.cbUomCode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbUomCode.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbUomCode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbUomCode.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbUomCode.Size = New System.Drawing.Size(136, 22)
         Me.cbUomCode.TabIndex = 38
         '

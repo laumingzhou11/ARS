@@ -30,7 +30,6 @@ Partial Class frmAutoRefuelling
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
         Me.btnedit = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.lblcount = New DevExpress.XtraBars.BarStaticItem()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
@@ -38,6 +37,7 @@ Partial Class frmAutoRefuelling
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.BarCheckItem1 = New DevExpress.XtraBars.BarCheckItem()
+        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.btnreload = New DevExpress.XtraBars.BarButtonItem()
         Me.btnPrintID = New DevExpress.XtraBars.BarButtonItem()
@@ -48,6 +48,7 @@ Partial Class frmAutoRefuelling
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.dgAutoRefuelling = New DevExpress.XtraGrid.GridControl()
         Me.gvAutoRefuelling = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,8 +112,8 @@ Partial Class frmAutoRefuelling
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarCheckItem1, Me.btnadd, Me.btnedit, Me.BarButtonItem3, Me.BarButtonItem4, Me.lblcount, Me.btnreload, Me.btnPrintID, Me.btnProfile, Me.BarButtonItem1, Me.btnprBarcode})
-        Me.BarManager1.MaxItemId = 71
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarCheckItem1, Me.btnadd, Me.btnedit, Me.BarButtonItem3, Me.BarButtonItem4, Me.lblcount, Me.btnreload, Me.btnPrintID, Me.btnProfile, Me.BarButtonItem1, Me.btnprBarcode, Me.btnDelete})
+        Me.BarManager1.MaxItemId = 72
         Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPageNumberEdit1})
         Me.BarManager1.StatusBar = Me.Bar3
         '
@@ -123,12 +124,12 @@ Partial Class frmAutoRefuelling
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
         Me.Bar1.FloatLocation = New System.Drawing.Point(416, 148)
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnadd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnedit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnadd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnedit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar1.Text = "Tools"
         '
         'btnadd
         '
-        Me.btnadd.Caption = "ADD"
+        Me.btnadd.Caption = "&ADD"
         Me.btnadd.Id = 1
         Me.btnadd.ImageOptions.Image = CType(resources.GetObject("btnadd.ImageOptions.Image"), System.Drawing.Image)
         Me.btnadd.ImageOptions.LargeImage = CType(resources.GetObject("btnadd.ImageOptions.LargeImage"), System.Drawing.Image)
@@ -138,24 +139,13 @@ Partial Class frmAutoRefuelling
         '
         'btnedit
         '
-        Me.btnedit.Caption = "EDIT"
+        Me.btnedit.Caption = "&EDIT"
         Me.btnedit.Id = 2
         Me.btnedit.ImageOptions.Image = CType(resources.GetObject("btnedit.ImageOptions.Image"), System.Drawing.Image)
         Me.btnedit.ImageOptions.LargeImage = CType(resources.GetObject("btnedit.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.btnedit.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnedit.ItemAppearance.Normal.Options.UseFont = True
         Me.btnedit.Name = "btnedit"
-        '
-        'BarButtonItem3
-        '
-        Me.BarButtonItem3.AllowRightClickInMenu = False
-        Me.BarButtonItem3.Caption = "DELETE"
-        Me.BarButtonItem3.Id = 3
-        Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.BarButtonItem3.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BarButtonItem3.ItemAppearance.Normal.Options.UseFont = True
-        Me.BarButtonItem3.Name = "BarButtonItem3"
         '
         'Bar3
         '
@@ -215,6 +205,17 @@ Partial Class frmAutoRefuelling
         Me.BarCheckItem1.Caption = "BarCheckItem1"
         Me.BarCheckItem1.Id = 0
         Me.BarCheckItem1.Name = "BarCheckItem1"
+        '
+        'BarButtonItem3
+        '
+        Me.BarButtonItem3.AllowRightClickInMenu = False
+        Me.BarButtonItem3.Caption = "DELETE"
+        Me.BarButtonItem3.Id = 3
+        Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem3.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BarButtonItem3.ItemAppearance.Normal.Options.UseFont = True
+        Me.BarButtonItem3.Name = "BarButtonItem3"
         '
         'BarButtonItem4
         '
@@ -331,6 +332,16 @@ Partial Class frmAutoRefuelling
         Me.gvAutoRefuelling.OptionsView.EnableAppearanceOddRow = True
         Me.gvAutoRefuelling.OptionsView.ShowFooter = True
         '
+        'btnDelete
+        '
+        Me.btnDelete.Caption = "&DELETE"
+        Me.btnDelete.Id = 71
+        Me.btnDelete.ImageOptions.Image = CType(resources.GetObject("btnDelete.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageOptions.LargeImage = CType(resources.GetObject("btnDelete.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.btnDelete.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ItemAppearance.Normal.Options.UseFont = True
+        Me.btnDelete.Name = "btnDelete"
+        '
         'frmAutoRefuelling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -386,4 +397,5 @@ Partial Class frmAutoRefuelling
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnprBarcode As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RepositoryItemPageNumberEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit
+    Friend WithEvents btnDelete As DevExpress.XtraBars.BarButtonItem
 End Class

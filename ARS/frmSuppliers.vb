@@ -48,7 +48,7 @@ Public Class frmSuppliers
     End Function
     Function Search() As Boolean
         Try
-            If txtsearch.Text = "" Then
+            If txtsearch.Text <> "" Then
                 Call konneksyon()
                 sql = "select SupplierID, SupplierName, Address, ContactPerson, " _
             & "ContactNo,Added_at,b.Name as Added_by from tblSupplier as a inner join tblEmpUsers as b on a.Added_by=b.EmpID " _
@@ -114,6 +114,10 @@ Public Class frmSuppliers
         End If
     End Sub
     Private Sub gvsupplier_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvsupplier.FocusedRowChanged
+
+    End Sub
+
+    Private Sub gvsupplier_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles gvsupplier.RowCellClick
         Try
             keyID = gvsupplier.GetRowCellValue(gvsupplier.FocusedRowHandle, "SupplierID")
             Dim da = New SqlDataAdapter("select * from tblsupplier where SupplierID='" & keyID & "'", kon)
@@ -126,5 +130,9 @@ Public Class frmSuppliers
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        Call Search()
     End Sub
 End Class

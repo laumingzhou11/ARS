@@ -35,6 +35,7 @@ Partial Class frmMain
         Me.SkinDropDownButtonItem1 = New DevExpress.XtraBars.SkinDropDownButtonItem()
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -61,9 +62,9 @@ Partial Class frmMain
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.btnProducts, Me.btnpositions, Me.btnSuppliers, Me.btnTanks, Me.btnVehicles, Me.btnTankTransactions, Me.btnAutoTransactions, Me.BarButtonItem1, Me.BarButtonItem2, Me.SkinDropDownButtonItem1, Me.BarButtonItem3, Me.BarButtonItem4})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.btnProducts, Me.btnpositions, Me.btnSuppliers, Me.btnTanks, Me.btnVehicles, Me.btnTankTransactions, Me.btnAutoTransactions, Me.BarButtonItem1, Me.BarButtonItem2, Me.SkinDropDownButtonItem1, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 13
+        Me.RibbonControl.MaxItemId = 14
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
         Me.RibbonControl.Size = New System.Drawing.Size(1217, 165)
@@ -128,6 +129,8 @@ Partial Class frmMain
         Me.btnTankTransactions.Caption = "Tank Refuelling"
         Me.btnTankTransactions.Id = 6
         Me.btnTankTransactions.ImageOptions.Image = CType(resources.GetObject("btnTankTransactions.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnTankTransactions.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTankTransactions.ItemAppearance.Normal.Options.UseFont = True
         Me.btnTankTransactions.ItemInMenuAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTankTransactions.ItemInMenuAppearance.Normal.Options.UseFont = True
         Me.btnTankTransactions.Name = "btnTankTransactions"
@@ -139,6 +142,8 @@ Partial Class frmMain
         Me.btnAutoTransactions.Caption = "Vehicles Refuelling"
         Me.btnAutoTransactions.Id = 7
         Me.btnAutoTransactions.ImageOptions.Image = Global.ARS.My.Resources.Resources.icons8_transaction_32
+        Me.btnAutoTransactions.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAutoTransactions.ItemAppearance.Normal.Options.UseFont = True
         Me.btnAutoTransactions.ItemInMenuAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAutoTransactions.ItemInMenuAppearance.Normal.Options.UseFont = True
         Me.btnAutoTransactions.Name = "btnAutoTransactions"
@@ -188,6 +193,17 @@ Partial Class frmMain
         Me.BarButtonItem4.ItemInMenuAppearance.Normal.Options.UseFont = True
         Me.BarButtonItem4.Name = "BarButtonItem4"
         '
+        'BarButtonItem5
+        '
+        Me.BarButtonItem5.Caption = "Tank Inventory"
+        Me.BarButtonItem5.Id = 13
+        Me.BarButtonItem5.ImageOptions.Image = Global.ARS.My.Resources.Resources.icons8_inventory_flow_32
+        Me.BarButtonItem5.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BarButtonItem5.ItemAppearance.Normal.Options.UseFont = True
+        Me.BarButtonItem5.Name = "BarButtonItem5"
+        Me.BarButtonItem5.RibbonStyle = CType(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) _
+            Or DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText), DevExpress.XtraBars.Ribbon.RibbonItemStyles)
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -218,6 +234,7 @@ Partial Class frmMain
         '
         Me.RibbonPageGroup2.ItemLinks.Add(Me.btnTankTransactions)
         Me.RibbonPageGroup2.ItemLinks.Add(Me.btnAutoTransactions)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem5)
         Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
         Me.RibbonPageGroup2.Text = "TRANSACTIONS"
         '
@@ -407,4 +424,5 @@ Partial Class frmMain
     Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
     Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem5 As DevExpress.XtraBars.BarButtonItem
 End Class

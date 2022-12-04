@@ -64,6 +64,19 @@ Public Class frmAddEditTank
             If txtLocation.Text = "" Then
                 txtLocation.Focus()
             Else
+                With txtreorder
+                    .SelectionStart = 0
+                    .SelectionLength = Len(.Text)
+                    .Focus()
+                End With
+            End If
+        End If
+    End Sub
+    Private Sub txtreorder_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtreorder.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            If txtreorder.Text = "" Then
+                txtreorder.Focus()
+            Else
                 With btnsave
                     .Focus()
                 End With
@@ -96,9 +109,9 @@ Public Class frmAddEditTank
             Else
                 If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                     sql = "insert into tblTank (" _
-                        & "TankName, TankCapacity, UomID, Location, Added_at, Added_by) values (" _
+                        & "TankName, TankCapacity, UomID, Location, Added_at, Added_by,ReorderLevel) values (" _
                         & "'" & txtTankName.Text & "','" & txtCapacity.Text & "',(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                        & "'" & txtLocation.Text & "',Getdate(),'" & frmMain.lblid.Caption & "')"
+                        & "'" & txtLocation.Text & "',Getdate(),'" & frmMain.lblid.Caption & "','" & txtreorder.Text & "')"
                     Call save(sql)
 
                     MsgBox("Added Successfully!", MsgBoxStyle.Information, "Add Tank")
@@ -125,7 +138,7 @@ Public Class frmAddEditTank
             If MsgBox("Are you sure you want to edit?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                 sql = "update tblTank  set " _
                     & "TankName='" & txtTankName.Text & "', TankCapacity='" & txtCapacity.Text & "', UomID=(select ID from tblUomCode where UomCode='" & cbUomCode.Text & "'), " _
-                    & "Location='" & txtLocation.Text & "', Updated_at=Getdate(), Updated_by='" & frmMain.lblid.Caption & "' where TankID='" & txtTankID.Text & "'"
+                    & "Location='" & txtLocation.Text & "', Updated_at=Getdate(), Updated_by='" & frmMain.lblid.Caption & "', ReorderLevel='" & txtreorder.Text & "' where TankID='" & txtTankID.Text & "'"
                 Call save(sql)
 
                 MsgBox("Edit Successfully!", MsgBoxStyle.Information, "Edit Tank")

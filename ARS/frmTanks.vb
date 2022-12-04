@@ -62,11 +62,11 @@ Public Class frmTanks
     End Sub
     Function Search() As Boolean
         Try
-            If txtsearch.Text = "" Then
+            If txtsearch.Text <> "" Then
                 Call konneksyon()
                 sql = "select A.TankID,a.TankName,format(A.TankCapacity,'#,#') as TankCapacity,b.UomCode,a.Location,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.name as Added_by " _
                 & "from tbltank as a inner join tbluomCode as b on a.UomID=b.ID " _
-                & "inner join tblEmpUsers as c on a.Added_by=c.EmpID where a.TankName like '%" & txtsearch.Text & "%' and a.Deleted_at<>null order by TankID desc"
+                & "inner join tblEmpUsers as c on a.Added_by=c.EmpID where a.TankName like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by TankID desc"
                 Call populate(sql, dgTank)
                 lblcount.Caption = gvTank.RowCount & " Record(s) Found"
                 gvTank.BestFitColumns()
@@ -110,6 +110,10 @@ Public Class frmTanks
         End If
     End Sub
     Private Sub gvTank_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvTank.FocusedRowChanged
+
+    End Sub
+
+    Private Sub gvTank_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles gvTank.RowCellClick
         Try
             keyID = gvTank.GetRowCellValue(gvTank.FocusedRowHandle, "TankID")
             Dim da = New SqlDataAdapter("select * from tblTank where TankID='" & keyID & "'", kon)
@@ -122,5 +126,15 @@ Public Class frmTanks
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        Call Search()
+    End Sub
+
+    Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
+        If txtsearch.Text = "" Then
+            Call populateTank()
+        End If
     End Sub
 End Class

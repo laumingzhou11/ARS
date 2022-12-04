@@ -21,6 +21,8 @@ Partial Class frmAddEditTank
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddEditTank))
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.txtreorder = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.txtLocation = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
@@ -35,6 +37,7 @@ Partial Class frmAddEditTank
         Me.btncancel = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
+        CType(Me.txtreorder.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtLocation.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbUomCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCapacity.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -44,6 +47,8 @@ Partial Class frmAddEditTank
         '
         'GroupControl1
         '
+        Me.GroupControl1.Controls.Add(Me.txtreorder)
+        Me.GroupControl1.Controls.Add(Me.LabelControl6)
         Me.GroupControl1.Controls.Add(Me.txtLocation)
         Me.GroupControl1.Controls.Add(Me.LabelControl5)
         Me.GroupControl1.Controls.Add(Me.LabelControl3)
@@ -57,9 +62,30 @@ Partial Class frmAddEditTank
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(387, 152)
+        Me.GroupControl1.Size = New System.Drawing.Size(387, 180)
         Me.GroupControl1.TabIndex = 23
         Me.GroupControl1.Text = "TANK"
+        '
+        'txtreorder
+        '
+        Me.txtreorder.Location = New System.Drawing.Point(90, 146)
+        Me.txtreorder.Name = "txtreorder"
+        Me.txtreorder.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtreorder.Properties.Appearance.Options.UseFont = True
+        Me.txtreorder.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtreorder.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtreorder.Size = New System.Drawing.Size(287, 22)
+        Me.txtreorder.TabIndex = 39
+        '
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl6.Appearance.Options.UseFont = True
+        Me.LabelControl6.Location = New System.Drawing.Point(10, 150)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(74, 13)
+        Me.LabelControl6.TabIndex = 38
+        Me.LabelControl6.Text = "Re-Order Lvl:"
         '
         'txtLocation
         '
@@ -100,6 +126,7 @@ Partial Class frmAddEditTank
         Me.cbUomCode.Properties.Appearance.Options.UseFont = True
         Me.cbUomCode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbUomCode.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbUomCode.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbUomCode.Size = New System.Drawing.Size(108, 22)
         Me.cbUomCode.TabIndex = 34
         '
@@ -172,7 +199,7 @@ Partial Class frmAddEditTank
         Me.btnsave.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsave.Appearance.Options.UseFont = True
         Me.btnsave.ImageOptions.Image = CType(resources.GetObject("btnsave.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnsave.Location = New System.Drawing.Point(167, 158)
+        Me.btnsave.Location = New System.Drawing.Point(167, 186)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(103, 35)
         Me.btnsave.TabIndex = 25
@@ -183,7 +210,7 @@ Partial Class frmAddEditTank
         Me.btncancel.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncancel.Appearance.Options.UseFont = True
         Me.btncancel.ImageOptions.Image = CType(resources.GetObject("btncancel.ImageOptions.Image"), System.Drawing.Image)
-        Me.btncancel.Location = New System.Drawing.Point(274, 158)
+        Me.btncancel.Location = New System.Drawing.Point(274, 186)
         Me.btncancel.Name = "btncancel"
         Me.btncancel.Size = New System.Drawing.Size(103, 35)
         Me.btncancel.TabIndex = 26
@@ -193,7 +220,7 @@ Partial Class frmAddEditTank
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(387, 201)
+        Me.ClientSize = New System.Drawing.Size(387, 229)
         Me.Controls.Add(Me.btnsave)
         Me.Controls.Add(Me.btncancel)
         Me.Controls.Add(Me.GroupControl1)
@@ -206,6 +233,7 @@ Partial Class frmAddEditTank
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
+        CType(Me.txtreorder.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtLocation.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbUomCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCapacity.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -228,4 +256,6 @@ Partial Class frmAddEditTank
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents btnsave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btncancel As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents txtreorder As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
 End Class

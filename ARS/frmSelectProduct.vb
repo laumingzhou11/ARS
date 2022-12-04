@@ -28,14 +28,21 @@ Public Class frmSelectProduct
     End Function
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a  " _
-            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.ProductID='" & keyID & "'"
+        sql = "select * from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
+                & "inner join tblsupplier as c on b.SupplierID=c.SupplierID where TankID='" & frmAddEditTankRefuelling.lbltankID.Text & "'"
         Call fill(sql)
-        frmAddEditTankRefuelling.lblProductID.Text = dset.Tables(sql).Rows(0).Item("ProductID")
-        frmAddEditTankRefuelling.txtproduct.Text = dset.Tables(sql).Rows(0).Item("ItemDescription")
-        frmAddEditTankRefuelling.txtsupplier.Text = dset.Tables(sql).Rows(0).Item("SupplierName")
-        frmAddEditTankRefuelling.txtprice.Text = dset.Tables(sql).Rows(0).Item("Price")
-
+        If dset.Tables(sql).Rows.Count > 0 And dset.Tables(sql).Rows(0).Item("ProductID") <> keyID Then
+            MsgBox("Tank already reufelled with" & " " & vbCrLf & dset.Tables(sql).Rows(0).Item("SupplierName") & " " & dset.Tables(sql).Rows(0).Item("ItemDescription"), MsgBoxStyle.Information, Me.Text)
+        Else
+            sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a  " _
+            & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.ProductID='" & keyID & "'"
+            Call fill(sql)
+            frmAddEditTankRefuelling.lblProductID.Text = dset.Tables(sql).Rows(0).Item("ProductID")
+            frmAddEditTankRefuelling.txtproduct.Text = dset.Tables(sql).Rows(0).Item("ItemDescription")
+            frmAddEditTankRefuelling.txtsupplier.Text = dset.Tables(sql).Rows(0).Item("SupplierName")
+            frmAddEditTankRefuelling.txtprice.Text = dset.Tables(sql).Rows(0).Item("Price")
+            Me.Close()
+        End If
         Return True
     End Function
     Private Sub gvProduct_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles gvProduct.CustomDrawCell
@@ -55,7 +62,7 @@ Public Class frmSelectProduct
     End Sub
     Function Search() As Boolean
         Try
-            If txtsearch.Text = "" Then
+            If txtsearch.Text <> "" Then
                 Call konneksyon()
                 sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a  " _
             & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.ItemDescription like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by TankID desc"
@@ -95,6 +102,22 @@ Public Class frmSelectProduct
 
 
     Private Sub gvProduct_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvProduct.FocusedRowChanged
+
+    End Sub
+
+    Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
+        If txtselectedcode.Text <> "" Then
+            Call filltext()
+
+            txtselectedcode.Text = ""
+            txtsearch.Text = ""
+
+        Else
+            MsgBox("Please select record!", MsgBoxStyle.Information, Me.Text)
+        End If
+    End Sub
+
+    Private Sub gvProduct_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles gvProduct.RowCellClick
         Try
             keyID = gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, "ProductID")
             Dim da = New SqlDataAdapter("select * from tblProducts where ProductID='" & keyID & "'", kon)
@@ -109,15 +132,13 @@ Public Class frmSelectProduct
         End Try
     End Sub
 
-    Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
-        If txtselectedcode.Text <> "" Then
-            Call filltext()
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        Call Search()
+    End Sub
 
-            txtselectedcode.Text = ""
-            txtsearch.Text = ""
-            Me.Close()
-        Else
-            MsgBox("Please select record!", MsgBoxStyle.Information, Me.Text)
+    Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
+        If txtsearch.Text = "" Then
+            Call populateProduct()
         End If
     End Sub
 End Class

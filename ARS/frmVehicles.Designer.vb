@@ -30,6 +30,9 @@ Partial Class frmVehicles
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
         Me.btnedit = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
+        Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.btnQrCode = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.lblcount = New DevExpress.XtraBars.BarStaticItem()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
@@ -49,6 +52,7 @@ Partial Class frmVehicles
         Me.gvVehicles = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -103,8 +107,8 @@ Partial Class frmVehicles
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarCheckItem1, Me.btnadd, Me.btnedit, Me.BarButtonItem3, Me.BarButtonItem4, Me.lblcount, Me.btnreload, Me.btnPrintID, Me.btnProfile, Me.BarButtonItem1, Me.btnprBarcode})
-        Me.BarManager1.MaxItemId = 71
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarCheckItem1, Me.btnadd, Me.btnedit, Me.BarButtonItem3, Me.BarButtonItem4, Me.lblcount, Me.btnreload, Me.btnPrintID, Me.btnProfile, Me.BarButtonItem1, Me.btnprBarcode, Me.btnQrCode, Me.BarButtonItem2})
+        Me.BarManager1.MaxItemId = 73
         Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPageNumberEdit1})
         Me.BarManager1.StatusBar = Me.Bar3
         '
@@ -120,7 +124,7 @@ Partial Class frmVehicles
         '
         'btnadd
         '
-        Me.btnadd.Caption = "ADD"
+        Me.btnadd.Caption = "&ADD"
         Me.btnadd.Id = 1
         Me.btnadd.ImageOptions.Image = CType(resources.GetObject("btnadd.ImageOptions.Image"), System.Drawing.Image)
         Me.btnadd.ImageOptions.LargeImage = CType(resources.GetObject("btnadd.ImageOptions.LargeImage"), System.Drawing.Image)
@@ -130,7 +134,7 @@ Partial Class frmVehicles
         '
         'btnedit
         '
-        Me.btnedit.Caption = "EDIT"
+        Me.btnedit.Caption = "&EDIT"
         Me.btnedit.Id = 2
         Me.btnedit.ImageOptions.Image = CType(resources.GetObject("btnedit.ImageOptions.Image"), System.Drawing.Image)
         Me.btnedit.ImageOptions.LargeImage = CType(resources.GetObject("btnedit.ImageOptions.LargeImage"), System.Drawing.Image)
@@ -140,14 +144,43 @@ Partial Class frmVehicles
         '
         'BarButtonItem3
         '
+        Me.BarButtonItem3.ActAsDropDown = True
         Me.BarButtonItem3.AllowRightClickInMenu = False
-        Me.BarButtonItem3.Caption = "DELETE"
+        Me.BarButtonItem3.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
+        Me.BarButtonItem3.Caption = "&PRINT"
+        Me.BarButtonItem3.DropDownControl = Me.PopupMenu1
         Me.BarButtonItem3.Id = 3
         Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
         Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.BarButtonItem3.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarButtonItem3.ItemAppearance.Normal.Options.UseFont = True
         Me.BarButtonItem3.Name = "BarButtonItem3"
+        '
+        'PopupMenu1
+        '
+        Me.PopupMenu1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.btnQrCode), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2)})
+        Me.PopupMenu1.Manager = Me.BarManager1
+        Me.PopupMenu1.Name = "PopupMenu1"
+        '
+        'btnQrCode
+        '
+        Me.btnQrCode.Caption = "PRINT QR CODE"
+        Me.btnQrCode.Id = 71
+        Me.btnQrCode.ImageOptions.Image = CType(resources.GetObject("btnQrCode.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnQrCode.ImageOptions.LargeImage = CType(resources.GetObject("btnQrCode.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.btnQrCode.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnQrCode.ItemAppearance.Normal.Options.UseFont = True
+        Me.btnQrCode.Name = "btnQrCode"
+        '
+        'BarButtonItem2
+        '
+        Me.BarButtonItem2.Caption = "PRINT LIST"
+        Me.BarButtonItem2.Id = 72
+        Me.BarButtonItem2.ImageOptions.Image = CType(resources.GetObject("BarButtonItem2.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonItem2.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem2.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BarButtonItem2.ItemAppearance.Normal.Options.UseFont = True
+        Me.BarButtonItem2.Name = "BarButtonItem2"
         '
         'Bar3
         '
@@ -302,12 +335,12 @@ Partial Class frmVehicles
         Me.gvVehicles.Appearance.FocusedRow.Options.UseBackColor = True
         Me.gvVehicles.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvVehicles.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvVehicles.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicles.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvVehicles.Appearance.HeaderPanel.Options.UseFont = True
         Me.gvVehicles.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.gvVehicles.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.gvVehicles.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvVehicles.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvVehicles.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvVehicles.Appearance.Row.Options.UseFont = True
         Me.gvVehicles.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.gvVehicles.AppearancePrint.HeaderPanel.Options.UseFont = True
@@ -339,6 +372,7 @@ Partial Class frmVehicles
         Me.Text = "Vehicles"
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
@@ -376,4 +410,7 @@ Partial Class frmVehicles
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnprBarcode As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RepositoryItemPageNumberEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit
+    Friend WithEvents PopupMenu1 As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents btnQrCode As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
 End Class

@@ -49,15 +49,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Export, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.2.Extensions, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -139,6 +151,12 @@
     <Compile Include="frmAutoRefuelling.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmInventory.Designer.vb">
+      <DependentUpon>frmInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -149,6 +167,12 @@
       <DependentUpon>frmMain.vb</DependentUpon>
     </Compile>
     <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrint.Designer.vb">
+      <DependentUpon>frmPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrint.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProducts.Designer.vb">
@@ -179,6 +203,12 @@
       <DependentUpon>frmTankRefuelling.vb</DependentUpon>
     </Compile>
     <Compile Include="frmTankRefuelling.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTankReport.Designer.vb">
+      <DependentUpon>frmTankReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTankReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTanks.Designer.vb">
@@ -221,6 +251,36 @@
     <Compile Include="waitform.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="xrAutoTransactions.Designer.vb">
+      <DependentUpon>xrAutoTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xrAutoTransactions.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrID.Designer.vb">
+      <DependentUpon>xrID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xrID.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrInventory.Designer.vb">
+      <DependentUpon>xrInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xrInventory.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrTankTransactions.Designer.vb">
+      <DependentUpon>xrTankTransactions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xrTankTransactions.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xrVehicle.Designer.vb">
+      <DependentUpon>xrVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="xrVehicle.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAddEditAutoRefuelling.resx">
@@ -250,11 +310,17 @@
     <EmbeddedResource Include="frmAutoRefuelling.resx">
       <DependentUpon>frmAutoRefuelling.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInventory.resx">
+      <DependentUpon>frmInventory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrint.resx">
+      <DependentUpon>frmPrint.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProducts.resx">
       <DependentUpon>frmProducts.vb</DependentUpon>
@@ -270,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTankRefuelling.resx">
       <DependentUpon>frmTankRefuelling.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTankReport.resx">
+      <DependentUpon>frmTankReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTanks.resx">
       <DependentUpon>frmTanks.vb</DependentUpon>
@@ -289,6 +358,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="waitform.resx">
       <DependentUpon>waitform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrAutoTransactions.resx">
+      <DependentUpon>xrAutoTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrID.resx">
+      <DependentUpon>xrID.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrInventory.resx">
+      <DependentUpon>xrInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrTankTransactions.resx">
+      <DependentUpon>xrTankTransactions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xrVehicle.resx">
+      <DependentUpon>xrVehicle.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -394,6 +478,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_qr_code_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_inventory_flow_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_inventory_flow_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

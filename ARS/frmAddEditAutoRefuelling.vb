@@ -4,7 +4,7 @@ Public Class frmAddEditAutoRefuelling
         If txtcode.Text <> "" Then
             Call konneksyon()
             sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
-                    & "a.CrNo, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#') as TankCapacity, b.UomCode," _
+                    & "a.CrNo, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#.##') as TankCapacity, b.UomCode," _
                     & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by,a.VehiclePic,a.DriverPic from tblVehicles As a " _
                     & "inner Join tblUomCode as b on a.UomID=b.ID " _
                     & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID " _
@@ -12,7 +12,7 @@ Public Class frmAddEditAutoRefuelling
             Call fill(sql)
             If dset.Tables(sql).Rows.Count > 0 Then
                 lblVehicleID.Text = dset.Tables(sql).Rows(0).Item("VehicleID")
-                txtcode.Text = dset.Tables(sql).Rows(0).Item("Code")
+                lblCOde.Text = dset.Tables(sql).Rows(0).Item("Code")
                 lblModel.Text = dset.Tables(sql).Rows(0).Item("Model")
                 lblMake.Text = dset.Tables(sql).Rows(0).Item("Make")
                 lblPlateNo.Text = dset.Tables(sql).Rows(0).Item("PlateNo")
@@ -45,6 +45,7 @@ Public Class frmAddEditAutoRefuelling
                 PanelVehicle.Visible = True
                 If PanelVehicle.Visible = True Then
                     GCTransaction.Enabled = True
+                    RadioGroup1.Enabled = True
                     gcHistory.Enabled = True
                     btnsave.Enabled = True
                     btncancel.Enabled = True
@@ -63,11 +64,9 @@ Public Class frmAddEditAutoRefuelling
 
 
     Private Sub RadioGroup1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RadioGroup1.SelectedIndexChanged
-        Call rg()
-    End Sub
-    Function rg() As Boolean
         If RadioGroup1.SelectedIndex = 1 Then
             gcSelectTank.Enabled = False
+            lblTankID.Text = 1
             txtTankName.Text = "-"
             txtCapacity.Text = "-"
             cbUomCode.Text = "-"
@@ -79,15 +78,18 @@ Public Class frmAddEditAutoRefuelling
             Call Product()
             Call Supplier()
         ElseIf RadioGroup1.SelectedIndex = 0 Then
-            gcSelectTank.Enabled = True
-            txtTankName.Text = ""
-            txtCapacity.Text = ""
-            cbUomCode.Text = ""
-            txtlocation.Text = ""
-            lblPoNo.Text = "PO No:"
-            cbProduct.Enabled = False
-            btnSelectTank.Enabled = True
+            Call rg()
         End If
+    End Sub
+    Function rg() As Boolean
+        gcSelectTank.Enabled = True
+        txtTankName.Text = ""
+        txtCapacity.Text = ""
+        'cbUomCode.Text = ""
+        txtlocation.Text = ""
+        lblPoNo.Text = "PO No:"
+        cbProduct.Enabled = False
+        btnSelectTank.Enabled = True
         Return True
     End Function
     Function Product() As Boolean
@@ -128,6 +130,7 @@ Public Class frmAddEditAutoRefuelling
         lblSupplierID.Text = ""
         txtTotalAmount.Text = ""
         txtcode.Text = ""
+        txtRefilledby.Text = ""
         Return True
     End Function
     Function Uom() As Boolean
@@ -345,25 +348,29 @@ Public Class frmAddEditAutoRefuelling
         ElseIf cbUom.Text = "" Then
             cbUom.Focus()
         Else
-            If MsgBox("Are you sure you want to continue?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
-                sql = "insert into tblAutoTransaction (" _
+            If txtqty.Text > Val(txtstocks.Text) Then
+                MsgBox("Insufficient Stock!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                If MsgBox("Are you sure you want to continue?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    sql = "insert into tblAutoTransaction (" _
                     & "[Transaction], VehicleID, TankID, ProductID, " _
                     & "Added_at, Added_by, PoNo, Refilled_by, Price, StockOut, UomID, SelectStock) values (" _
                     & "'OUTGOING', '" & lblVehicleID.Text & "','" & lblTankID.Text & "'," _
                     & "'" & lblProductID.Text & "',GetDate(), '" & frmMain.lblid.Caption & "'," _
                     & "'" & txtPoNo.Text & "','" & txtRefilledby.Text & "', '" & txtprice.Text & "','" & txtqty.Text & "', " _
                     & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & RadioGroup1.SelectedIndex & "')"
-                Call save(sql)
-                sql = "insert into tblTankInventory (" _
+                    Call save(sql)
+                    sql = "insert into tblTankInventory (" _
                  & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
-                 & "GetDate(), 'INCOMING','" & lblTankID.Text & "','" & lblProductID.Text & "'," _
+                 & "GetDate(), 'OUTGOING','" & lblTankID.Text & "','" & lblProductID.Text & "'," _
                  & "'" & lblVehicleID.Text & "',0,'" & txtqty.Text & "')"
-                Call save(sql)
+                    Call save(sql)
 
-                MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
-                Call xclear()
-                frmMain.AutoTransaction.populateAuto()
-                Me.Close()
+                    MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                    Call xclear()
+                    frmMain.AutoTransaction.populateAuto()
+                    Me.Close()
+                End If
             End If
         End If
             Return True

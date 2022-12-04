@@ -483,6 +483,7 @@ Partial Class frmAddEditTankRefuelling
         Me.cbUom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbUom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbUom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbUom.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbUom.Size = New System.Drawing.Size(214, 22)
         Me.cbUom.TabIndex = 54
         '
@@ -545,7 +546,7 @@ Partial Class frmAddEditTankRefuelling
         Me.gvTankTransaction.Appearance.FocusedRow.Options.UseBackColor = True
         Me.gvTankTransaction.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvTankTransaction.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvTankTransaction.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvTankTransaction.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gvTankTransaction.Appearance.HeaderPanel.Options.UseFont = True
         Me.gvTankTransaction.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.gvTankTransaction.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -587,6 +588,7 @@ Partial Class frmAddEditTankRefuelling
         Me.cbDeliveredby.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbDeliveredby.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbDeliveredby.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbDeliveredby.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbDeliveredby.Size = New System.Drawing.Size(376, 22)
         Me.cbDeliveredby.TabIndex = 73
         '

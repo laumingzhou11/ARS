@@ -51,11 +51,11 @@ Public Class frmProducts
     End Function
     Function Search() As Boolean
         Try
-            If txtsearch.Text = "" Then
+            If txtsearch.Text <> "" Then
                 Call konneksyon()
                 sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price,format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at, c.Name from tblProducts as a " _
                     & "inner join tblsupplier as b on a.SupplierID=b.SupplierID " _
-                    & "inner join tblEmpusers as c on a.Added_by=c.EmpID where ItemDescription like '%" & txtsearch.Text & "%' and a.Deleted_at<>null order by a.ProductID desc"
+                    & "inner join tblEmpusers as c on a.Added_by=c.EmpID where ItemDescription like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by a.ProductID desc"
                 Call populate(sql, dgProducts)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvproducts.RowCount & " Record(s) Found"
@@ -116,6 +116,10 @@ Public Class frmProducts
         End If
     End Sub
     Private Sub gvproducts_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvproducts.FocusedRowChanged
+
+    End Sub
+
+    Private Sub gvproducts_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles gvproducts.RowCellClick
         Try
             keyID = gvproducts.GetRowCellValue(gvproducts.FocusedRowHandle, "ProductID")
             Dim da = New SqlDataAdapter("select * from tblProducts where ProductID='" & keyID & "'", kon)
@@ -128,5 +132,15 @@ Public Class frmProducts
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
+        If txtsearch.Text = "" Then
+            Call populateProducts()
+        End If
+    End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        Call Search()
     End Sub
 End Class

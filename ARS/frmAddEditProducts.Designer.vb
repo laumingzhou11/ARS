@@ -95,6 +95,7 @@ Partial Class frmAddEditProducts
         Me.cbUom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbUom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbUom.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbUom.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbUom.Size = New System.Drawing.Size(275, 22)
         Me.cbUom.TabIndex = 29
         '
@@ -138,6 +139,7 @@ Partial Class frmAddEditProducts
         Me.cbSupplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.cbSupplier.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbSupplier.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbSupplier.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.cbSupplier.Size = New System.Drawing.Size(275, 22)
         Me.cbSupplier.TabIndex = 24
         '

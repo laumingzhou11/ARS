@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmTanks
+Partial Class frmInventory
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,17 +20,12 @@ Partial Class frmTanks
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTanks))
-        Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
-        Me.txtHheadID = New System.Windows.Forms.TextBox()
-        Me.txtselectedcode = New System.Windows.Forms.TextBox()
-        Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
-        Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInventory))
+        Me.dgInventory = New DevExpress.XtraGrid.GridControl()
+        Me.gvInventory = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
-        Me.btnedit = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.lblcount = New DevExpress.XtraBars.BarStaticItem()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
@@ -38,70 +33,62 @@ Partial Class frmTanks
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.BarCheckItem1 = New DevExpress.XtraBars.BarCheckItem()
+        Me.btnedit = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.btnreload = New DevExpress.XtraBars.BarButtonItem()
         Me.btnPrintID = New DevExpress.XtraBars.BarButtonItem()
         Me.btnProfile = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.btnprBarcode = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         Me.RepositoryItemPageNumberEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit()
-        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
-        Me.dgTank = New DevExpress.XtraGrid.GridControl()
-        Me.gvTank = New DevExpress.XtraGrid.Views.Grid.GridView()
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgInventory, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvInventory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl1.SuspendLayout()
-        CType(Me.dgTank, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gvTank, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'barDockControlTop
+        'dgInventory
         '
-        Me.barDockControlTop.CausesValidation = False
-        Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
-        Me.barDockControlTop.Manager = Nothing
-        Me.barDockControlTop.Size = New System.Drawing.Size(755, 0)
+        Me.dgInventory.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgInventory.Location = New System.Drawing.Point(0, 28)
+        Me.dgInventory.MainView = Me.gvInventory
+        Me.dgInventory.Name = "dgInventory"
+        Me.dgInventory.Size = New System.Drawing.Size(896, 429)
+        Me.dgInventory.TabIndex = 18
+        Me.dgInventory.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvInventory})
         '
-        'txtHheadID
+        'gvInventory
         '
-        Me.txtHheadID.Location = New System.Drawing.Point(695, 51)
-        Me.txtHheadID.Name = "txtHheadID"
-        Me.txtHheadID.Size = New System.Drawing.Size(108, 21)
-        Me.txtHheadID.TabIndex = 4
-        '
-        'txtselectedcode
-        '
-        Me.txtselectedcode.Location = New System.Drawing.Point(581, 51)
-        Me.txtselectedcode.Name = "txtselectedcode"
-        Me.txtselectedcode.Size = New System.Drawing.Size(108, 21)
-        Me.txtselectedcode.TabIndex = 3
-        '
-        'btnsearch
-        '
-        Me.btnsearch.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsearch.Appearance.Options.UseFont = True
-        Me.btnsearch.ImageOptions.Image = CType(resources.GetObject("btnsearch.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnsearch.Location = New System.Drawing.Point(368, 10)
-        Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(87, 23)
-        Me.btnsearch.TabIndex = 1
-        Me.btnsearch.Text = "Search"
-        '
-        'txtsearch
-        '
-        Me.txtsearch.Location = New System.Drawing.Point(6, 10)
-        Me.txtsearch.MenuManager = Me.BarManager1
-        Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsearch.Properties.Appearance.Options.UseFont = True
-        Me.txtsearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtsearch.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Repository.ClearButton(), New DevExpress.XtraEditors.Repository.SearchButton()})
-        Me.txtsearch.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtsearch.Size = New System.Drawing.Size(359, 22)
-        Me.txtsearch.TabIndex = 0
+        Me.gvInventory.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.gvInventory.Appearance.Empty.Options.UseBackColor = True
+        Me.gvInventory.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.gvInventory.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.gvInventory.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvInventory.Appearance.GroupPanel.Options.UseFont = True
+        Me.gvInventory.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvInventory.Appearance.HeaderPanel.Options.UseFont = True
+        Me.gvInventory.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.gvInventory.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.gvInventory.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.gvInventory.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gvInventory.Appearance.Row.Options.UseFont = True
+        Me.gvInventory.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.gvInventory.AppearancePrint.HeaderPanel.Options.UseFont = True
+        Me.gvInventory.DetailHeight = 327
+        Me.gvInventory.GridControl = Me.dgInventory
+        Me.gvInventory.Name = "gvInventory"
+        Me.gvInventory.OptionsBehavior.Editable = False
+        Me.gvInventory.OptionsFind.AlwaysVisible = True
+        Me.gvInventory.OptionsFind.FindPanelLocation = DevExpress.XtraGrid.Views.Grid.GridFindPanelLocation.GroupPanel
+        Me.gvInventory.OptionsSelection.MultiSelect = True
+        Me.gvInventory.OptionsView.ColumnAutoWidth = False
+        Me.gvInventory.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
+        Me.gvInventory.OptionsView.EnableAppearanceEvenRow = True
+        Me.gvInventory.OptionsView.EnableAppearanceOddRow = True
+        Me.gvInventory.OptionsView.ShowFooter = True
+        Me.gvInventory.OptionsView.ShowGroupPanel = False
         '
         'BarManager1
         '
@@ -111,8 +98,8 @@ Partial Class frmTanks
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarCheckItem1, Me.btnadd, Me.btnedit, Me.BarButtonItem3, Me.BarButtonItem4, Me.lblcount, Me.btnreload, Me.btnPrintID, Me.btnProfile, Me.BarButtonItem1, Me.btnprBarcode})
-        Me.BarManager1.MaxItemId = 71
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarCheckItem1, Me.btnadd, Me.btnedit, Me.BarButtonItem3, Me.BarButtonItem4, Me.lblcount, Me.btnreload, Me.btnPrintID, Me.btnProfile, Me.BarButtonItem1, Me.btnprBarcode, Me.btnDelete})
+        Me.BarManager1.MaxItemId = 72
         Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPageNumberEdit1})
         Me.BarManager1.StatusBar = Me.Bar3
         '
@@ -123,39 +110,18 @@ Partial Class frmTanks
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
         Me.Bar1.FloatLocation = New System.Drawing.Point(416, 148)
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnadd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnedit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.BarButtonItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.btnadd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar1.Text = "Tools"
         '
         'btnadd
         '
-        Me.btnadd.Caption = "ADD"
+        Me.btnadd.Caption = "&PRINT"
         Me.btnadd.Id = 1
         Me.btnadd.ImageOptions.Image = CType(resources.GetObject("btnadd.ImageOptions.Image"), System.Drawing.Image)
         Me.btnadd.ImageOptions.LargeImage = CType(resources.GetObject("btnadd.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.btnadd.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnadd.ItemAppearance.Normal.Options.UseFont = True
         Me.btnadd.Name = "btnadd"
-        '
-        'btnedit
-        '
-        Me.btnedit.Caption = "EDIT"
-        Me.btnedit.Id = 2
-        Me.btnedit.ImageOptions.Image = CType(resources.GetObject("btnedit.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnedit.ImageOptions.LargeImage = CType(resources.GetObject("btnedit.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.btnedit.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnedit.ItemAppearance.Normal.Options.UseFont = True
-        Me.btnedit.Name = "btnedit"
-        '
-        'BarButtonItem3
-        '
-        Me.BarButtonItem3.AllowRightClickInMenu = False
-        Me.BarButtonItem3.Caption = "DELETE"
-        Me.BarButtonItem3.Id = 3
-        Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.BarButtonItem3.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BarButtonItem3.ItemAppearance.Normal.Options.UseFont = True
-        Me.BarButtonItem3.Name = "BarButtonItem3"
         '
         'Bar3
         '
@@ -184,37 +150,58 @@ Partial Class frmTanks
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(755, 44)
+        Me.BarDockControl1.Size = New System.Drawing.Size(896, 28)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 422)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 457)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(755, 25)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(896, 25)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 44)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 28)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 378)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 429)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(755, 44)
+        Me.barDockControlRight.Location = New System.Drawing.Point(896, 28)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 378)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 429)
         '
         'BarCheckItem1
         '
         Me.BarCheckItem1.Caption = "BarCheckItem1"
         Me.BarCheckItem1.Id = 0
         Me.BarCheckItem1.Name = "BarCheckItem1"
+        '
+        'btnedit
+        '
+        Me.btnedit.Caption = "&EDIT"
+        Me.btnedit.Id = 2
+        Me.btnedit.ImageOptions.Image = CType(resources.GetObject("btnedit.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnedit.ImageOptions.LargeImage = CType(resources.GetObject("btnedit.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.btnedit.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnedit.ItemAppearance.Normal.Options.UseFont = True
+        Me.btnedit.Name = "btnedit"
+        '
+        'BarButtonItem3
+        '
+        Me.BarButtonItem3.AllowRightClickInMenu = False
+        Me.BarButtonItem3.Caption = "DELETE"
+        Me.BarButtonItem3.Id = 3
+        Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem3.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BarButtonItem3.ItemAppearance.Normal.Options.UseFont = True
+        Me.BarButtonItem3.Name = "BarButtonItem3"
         '
         'BarButtonItem4
         '
@@ -273,6 +260,15 @@ Partial Class frmTanks
         Me.btnprBarcode.ItemAppearance.Normal.Options.UseFont = True
         Me.btnprBarcode.Name = "btnprBarcode"
         '
+        'btnDelete
+        '
+        Me.btnDelete.Caption = "&DELETE"
+        Me.btnDelete.Id = 71
+        Me.btnDelete.ImageOptions.Image = CType(resources.GetObject("btnDelete.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnDelete.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ItemAppearance.Normal.Options.UseFont = True
+        Me.btnDelete.Name = "btnDelete"
+        '
         'RepositoryItemPageNumberEdit1
         '
         Me.RepositoryItemPageNumberEdit1.AutoHeight = False
@@ -280,110 +276,48 @@ Partial Class frmTanks
         Me.RepositoryItemPageNumberEdit1.Name = "RepositoryItemPageNumberEdit1"
         Me.RepositoryItemPageNumberEdit1.Orientation = DevExpress.XtraEditors.PagerOrientation.Horizontal
         '
-        'PanelControl1
-        '
-        Me.PanelControl1.Controls.Add(Me.txtHheadID)
-        Me.PanelControl1.Controls.Add(Me.txtselectedcode)
-        Me.PanelControl1.Controls.Add(Me.btnsearch)
-        Me.PanelControl1.Controls.Add(Me.txtsearch)
-        Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 44)
-        Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(755, 42)
-        Me.PanelControl1.TabIndex = 13
-        '
-        'dgTank
-        '
-        Me.dgTank.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgTank.Location = New System.Drawing.Point(0, 86)
-        Me.dgTank.MainView = Me.gvTank
-        Me.dgTank.MenuManager = Me.BarManager1
-        Me.dgTank.Name = "dgTank"
-        Me.dgTank.Size = New System.Drawing.Size(755, 336)
-        Me.dgTank.TabIndex = 14
-        Me.dgTank.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTank})
-        '
-        'gvTank
-        '
-        Me.gvTank.Appearance.Empty.BackColor = System.Drawing.SystemColors.InactiveCaption
-        Me.gvTank.Appearance.Empty.Options.UseBackColor = True
-        Me.gvTank.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.gvTank.Appearance.FocusedRow.Options.UseBackColor = True
-        Me.gvTank.Appearance.GroupPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTank.Appearance.GroupPanel.Options.UseFont = True
-        Me.gvTank.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTank.Appearance.HeaderPanel.Options.UseFont = True
-        Me.gvTank.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.gvTank.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.gvTank.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.gvTank.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gvTank.Appearance.Row.Options.UseFont = True
-        Me.gvTank.AppearancePrint.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.gvTank.AppearancePrint.HeaderPanel.Options.UseFont = True
-        Me.gvTank.DetailHeight = 327
-        Me.gvTank.GridControl = Me.dgTank
-        Me.gvTank.Name = "gvTank"
-        Me.gvTank.OptionsBehavior.Editable = False
-        Me.gvTank.OptionsSelection.MultiSelect = True
-        Me.gvTank.OptionsView.ColumnAutoWidth = False
-        Me.gvTank.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.[False]
-        Me.gvTank.OptionsView.EnableAppearanceEvenRow = True
-        Me.gvTank.OptionsView.EnableAppearanceOddRow = True
-        Me.gvTank.OptionsView.ShowFooter = True
-        '
-        'frmTanks
+        'frmInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(755, 447)
-        Me.Controls.Add(Me.dgTank)
-        Me.Controls.Add(Me.PanelControl1)
-        Me.Controls.Add(Me.barDockControlTop)
+        Me.ClientSize = New System.Drawing.Size(896, 482)
+        Me.Controls.Add(Me.dgInventory)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.BarDockControl1)
-        Me.IconOptions.Image = CType(resources.GetObject("frmTanks.IconOptions.Image"), System.Drawing.Image)
-        Me.Name = "frmTanks"
-        Me.Text = "Fuel Tanks"
-        CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.IconOptions.Image = Global.ARS.My.Resources.Resources.icons8_inventory_flow_16
+        Me.Name = "frmInventory"
+        Me.Text = "frmInventory"
+        CType(Me.dgInventory, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvInventory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl1.ResumeLayout(False)
-        Me.PanelControl1.PerformLayout()
-        CType(Me.dgTank, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gvTank, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents txtHheadID As TextBox
-    Friend WithEvents txtselectedcode As TextBox
-    Friend WithEvents btnsearch As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents txtsearch As DevExpress.XtraEditors.SearchControl
+    Friend WithEvents dgInventory As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gvInventory As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
     Friend WithEvents btnadd As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents btnedit As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents Bar3 As DevExpress.XtraBars.Bar
     Friend WithEvents lblcount As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents BarDockControl1 As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents dgTank As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gvTank As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents BarCheckItem1 As DevExpress.XtraBars.BarCheckItem
+    Friend WithEvents btnedit As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnreload As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnPrintID As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnProfile As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnprBarcode As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnDelete As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RepositoryItemPageNumberEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPageNumberEdit
 End Class

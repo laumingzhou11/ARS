@@ -20,7 +20,7 @@ Public Class frmVehicles
     Function populateVehicle() As Boolean
         Call konneksyon()
         sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
-                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#') as TankCapacity, b.UomCode," _
+                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, concat(format(a.TankCapacity,'#,#.##'),' ',b.UomCode)  as TankCapacity," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
                 & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID where a.Deleted_at is null order by a.VehicleID desc"
@@ -82,13 +82,13 @@ Public Class frmVehicles
     End Function
     Function Search() As Boolean
         Try
-            If txtsearch.Text = "" Then
+            If txtsearch.Text <> "" Then
                 Call konneksyon()
                 sql = "select a.VehicleID,a.Code,a.Name,a.Model,a.make,a.PlateNo, " _
-                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, format(a.TankCapacity,'#,#') as TankCapacity, b.UomCode," _
+                & "a.CrNo, a.RegisteredOwner,a.OwnerAddress, a.Driver,a.DriverAddress, a.Status, concat(format(a.TankCapacity,'#,#.##'),' ',b.UomCode)  as TankCapacity," _
                 & "format(a.Added_at,'MM/dd/yyyy hh:mm tt') as Added_at,c.Name as Added_by from tblVehicles As a " _
                 & "inner Join tblUomCode as b on a.UomID=b.ID " _
-                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID  where Model like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by a.vehicleID desc"
+                & "inner Join tblEmpUsers as c on a.Added_by=c.EmpID  where a.Name like '%" & txtsearch.Text & "%' and a.Deleted_at is null order by a.vehicleID desc"
                 Call populate(sql, dgVehicles)
                 If dset.Tables(sql).Rows.Count > 0 Then
                     lblcount.Caption = gvVehicles.RowCount & " Record(s) Found"
@@ -151,6 +151,10 @@ Public Class frmVehicles
         End If
     End Sub
     Private Sub gvVehicles_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gvVehicles.FocusedRowChanged
+
+    End Sub
+
+    Private Sub gvVehicles_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles gvVehicles.RowCellClick
         Try
             keyID = gvVehicles.GetRowCellValue(gvVehicles.FocusedRowHandle, "VehicleID")
             Dim da = New SqlDataAdapter("select * from tblVehicles where VehicleID='" & keyID & "'", kon)
@@ -164,5 +168,29 @@ Public Class frmVehicles
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub txtsearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
+        If txtsearch.Text = "" Then
+            Call populateVehicle()
+        End If
+    End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        Call Search()
+    End Sub
+
+    Private Sub BarButtonItem3_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+
+    End Sub
+
+    Private Sub BarButtonItem2_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+        frmPrint.Text = "Print List"
+        frmPrint.ShowDialog()
+    End Sub
+
+    Private Sub btnQrCode_ItemClick(sender As Object, e As XtraBars.ItemClickEventArgs) Handles btnQrCode.ItemClick
+        frmPrint.Text = "Print QR Code"
+        frmPrint.ShowDialog()
     End Sub
 End Class

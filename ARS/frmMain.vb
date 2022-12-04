@@ -8,6 +8,7 @@ Public Class frmMain
     Public vehicle As New frmVehicles
     Public TankTransaction As New frmTankRefuelling
     Public AutoTransaction As New frmAutoRefuelling
+    Public Inventory As New frmInventory
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'If My.Settings.Server = Nothing Or My.Settings.User = Nothing Or My.Settings.Password = Nothing _
         '  Or My.Settings.Dbase1 = Nothing Then
@@ -133,5 +134,29 @@ Public Class frmMain
         Catch eX As Exception
             MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub BarButtonItem5_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+        Inventory = New frmInventory
+        Try
+
+            If Application.OpenForms.OfType(Of frmInventory).Any Then
+                Application.OpenForms.Item("frmInventory").Activate()
+            Else
+                Inventory.MdiParent = Me
+                Inventory.TopMost = True
+                Inventory.WindowState = FormWindowState.Maximized
+                Inventory.Show()
+            End If
+        Catch eX As Exception
+            MessageBox.Show(eX.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+        frmTankReport.cbTank.Text = ""
+        frmTankReport.dtpfrom.Text = ""
+        frmTankReport.dtpto.Text = ""
+        frmTankReport.ShowDialog()
     End Sub
 End Class
