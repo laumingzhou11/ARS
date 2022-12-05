@@ -251,6 +251,12 @@
     <Compile Include="waitform.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAutoReport.Designer.vb">
+      <DependentUpon>frmAutoReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAutoReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="xrAutoTransactions.Designer.vb">
       <DependentUpon>xrAutoTransactions.vb</DependentUpon>
     </Compile>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="waitform.resx">
       <DependentUpon>waitform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAutoReport.resx">
+      <DependentUpon>frmAutoReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xrAutoTransactions.resx">
       <DependentUpon>xrAutoTransactions.vb</DependentUpon>
