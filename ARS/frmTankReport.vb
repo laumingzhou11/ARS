@@ -16,7 +16,7 @@ Public Class frmTankReport
     End Function
 
     Private Sub btnfilter_Click(sender As Object, e As EventArgs) Handles btnfilter.Click
-        If dtpfrom.Text = "" Then
+        If dtpfrom.Text = "" And cbTank.Text = "" Then
             MsgBox("Please select criteria!", MsgBoxStyle.Information, Me.Text)
         Else
             frmPrint.Text = "Print Tank Transaction Report"

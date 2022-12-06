@@ -348,22 +348,46 @@ Public Class frmAddEditAutoRefuelling
         ElseIf cbUom.Text = "" Then
             cbUom.Focus()
         Else
-            If txtqty.Text > Val(txtstocks.Text) Then
-                MsgBox("Insufficient Stock!", MsgBoxStyle.Exclamation, Me.Text)
-            Else
-                If MsgBox("Are you sure you want to continue?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
-                    sql = "insert into tblAutoTransaction (" _
+            If RadioGroup1.SelectedIndex = 0 Then
+
+                If txtqty.Text > Val(txtstocks.Text) Then
+                    MsgBox("Insufficient Stock!", MsgBoxStyle.Exclamation, Me.Text)
+                Else
+                    If MsgBox("Are you sure you want to continue?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                        sql = "insert into tblAutoTransaction (" _
                     & "[Transaction], VehicleID, TankID, ProductID, " _
                     & "Added_at, Added_by, PoNo, Refilled_by, Price, StockOut, UomID, SelectStock) values (" _
                     & "'OUTGOING', '" & lblVehicleID.Text & "','" & lblTankID.Text & "'," _
                     & "'" & lblProductID.Text & "',GetDate(), '" & frmMain.lblid.Caption & "'," _
                     & "'" & txtPoNo.Text & "','" & txtRefilledby.Text & "', '" & txtprice.Text & "','" & txtqty.Text & "', " _
                     & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & RadioGroup1.SelectedIndex & "')"
-                    Call save(sql)
-                    sql = "insert into tblTankInventory (" _
+                        Call save(sql)
+                        sql = "insert into tblTankInventory (" _
                  & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
                  & "GetDate(), 'OUTGOING','" & lblTankID.Text & "','" & lblProductID.Text & "'," _
                  & "'" & lblVehicleID.Text & "',0,'" & txtqty.Text & "')"
+                        Call save(sql)
+
+                        MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
+                        Call xclear()
+                        frmMain.AutoTransaction.populateAuto()
+                        Me.Close()
+                    End If
+                End If
+            Else
+                If MsgBox("Are you sure you want to continue?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    sql = "insert into tblAutoTransaction (" _
+                & "[Transaction], VehicleID, TankID, ProductID, " _
+                & "Added_at, Added_by, PoNo, Refilled_by, Price, StockOut, UomID, SelectStock) values (" _
+                & "'OUTGOING', '" & lblVehicleID.Text & "','" & lblTankID.Text & "'," _
+                & "'" & lblProductID.Text & "',GetDate(), '" & frmMain.lblid.Caption & "'," _
+                & "'" & txtPoNo.Text & "','" & txtRefilledby.Text & "', '" & txtprice.Text & "','" & txtqty.Text & "', " _
+                & "(select ID from tblUomCode where UomCode='" & cbUom.Text & "'),'" & RadioGroup1.SelectedIndex & "')"
+                    Call save(sql)
+                    sql = "insert into tblTankInventory (" _
+             & "Date, [Transaction], TankID, ProductID, VehicleID, StockIn, StockOut) values (" _
+             & "GetDate(), 'OUTGOING','" & lblTankID.Text & "','" & lblProductID.Text & "'," _
+             & "'" & lblVehicleID.Text & "',0,'" & txtqty.Text & "')"
                     Call save(sql)
 
                     MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)

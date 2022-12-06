@@ -27,7 +27,7 @@ Partial Class frmTankRefuelling
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
         Me.btnedit = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.lblcount = New DevExpress.XtraBars.BarStaticItem()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
@@ -35,6 +35,7 @@ Partial Class frmTankRefuelling
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.BarCheckItem1 = New DevExpress.XtraBars.BarCheckItem()
+        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.btnreload = New DevExpress.XtraBars.BarButtonItem()
         Me.btnPrintID = New DevExpress.XtraBars.BarButtonItem()
@@ -47,7 +48,6 @@ Partial Class frmTankRefuelling
         Me.btnsearch = New DevExpress.XtraEditors.SimpleButton()
         Me.txtsearch = New DevExpress.XtraEditors.SearchControl()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
-        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.gvTankRefuelling, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgTankRefuelling, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,16 +139,14 @@ Partial Class frmTankRefuelling
         Me.btnedit.ItemAppearance.Normal.Options.UseFont = True
         Me.btnedit.Name = "btnedit"
         '
-        'BarButtonItem3
+        'btnDelete
         '
-        Me.BarButtonItem3.AllowRightClickInMenu = False
-        Me.BarButtonItem3.Caption = "DELETE"
-        Me.BarButtonItem3.Id = 3
-        Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.BarButtonItem3.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BarButtonItem3.ItemAppearance.Normal.Options.UseFont = True
-        Me.BarButtonItem3.Name = "BarButtonItem3"
+        Me.btnDelete.Caption = "&DELETE"
+        Me.btnDelete.Id = 71
+        Me.btnDelete.ImageOptions.Image = CType(resources.GetObject("btnDelete.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnDelete.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ItemAppearance.Normal.Options.UseFont = True
+        Me.btnDelete.Name = "btnDelete"
         '
         'Bar3
         '
@@ -208,6 +206,17 @@ Partial Class frmTankRefuelling
         Me.BarCheckItem1.Caption = "BarCheckItem1"
         Me.BarCheckItem1.Id = 0
         Me.BarCheckItem1.Name = "BarCheckItem1"
+        '
+        'BarButtonItem3
+        '
+        Me.BarButtonItem3.AllowRightClickInMenu = False
+        Me.BarButtonItem3.Caption = "DELETE"
+        Me.BarButtonItem3.Id = 3
+        Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
+        Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem3.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BarButtonItem3.ItemAppearance.Normal.Options.UseFont = True
+        Me.BarButtonItem3.Name = "BarButtonItem3"
         '
         'BarButtonItem4
         '
@@ -322,15 +331,6 @@ Partial Class frmTankRefuelling
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 44)
         Me.barDockControlTop.Manager = Nothing
         Me.barDockControlTop.Size = New System.Drawing.Size(746, 0)
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Caption = "&DELETE"
-        Me.btnDelete.Id = 71
-        Me.btnDelete.ImageOptions.Image = CType(resources.GetObject("BarButtonItem2.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnDelete.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.ItemAppearance.Normal.Options.UseFont = True
-        Me.btnDelete.Name = "btnDelete"
         '
         'frmTankRefuelling
         '

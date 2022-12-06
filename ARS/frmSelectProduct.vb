@@ -28,11 +28,11 @@ Public Class frmSelectProduct
     End Function
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select * from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
-                & "inner join tblsupplier as c on b.SupplierID=c.SupplierID where TankID='" & frmAddEditTankRefuelling.lbltankID.Text & "'"
+        sql = "select a.TankID,a.ProductID,c.SupplierName as Supplier,b.ItemDescription as Item from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
+                & "inner join tblsupplier as c on b.SupplierID=c.SupplierID where a.TankID='" & frmAddEditTankRefuelling.lbltankID.Text & "' and a.ProductID ='" & keyID & "'"
         Call fill(sql)
-        If dset.Tables(sql).Rows.Count > 0 And dset.Tables(sql).Rows(0).Item("ProductID") <> keyID Then
-            MsgBox("Tank already reufelled with" & " " & vbCrLf & dset.Tables(sql).Rows(0).Item("SupplierName") & " " & dset.Tables(sql).Rows(0).Item("ItemDescription"), MsgBoxStyle.Information, Me.Text)
+        If dset.Tables(sql).Rows.Count = 0 Then
+            MsgBox("Tank already reufelled", MsgBoxStyle.Exclamation, Me.Text)
         Else
             sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a  " _
             & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.ProductID='" & keyID & "'"

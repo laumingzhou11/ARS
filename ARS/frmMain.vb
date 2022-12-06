@@ -159,4 +159,11 @@ Public Class frmMain
         frmTankReport.dtpto.Text = ""
         frmTankReport.ShowDialog()
     End Sub
+
+    Private Sub BarButtonItem4_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
+        frmAutoReport.cbAuto.Text = ""
+        frmAutoReport.dtpfrom.Text = ""
+        frmAutoReport.dtpto.Text = ""
+        frmAutoReport.ShowDialog()
+    End Sub
 End Class

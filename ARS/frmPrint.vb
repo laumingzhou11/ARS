@@ -14,6 +14,8 @@ Public Class frmPrint
             Call Inventory()
         ElseIf Me.Text = "Print Tank Transaction Report" Then
             Call Tank()
+        ElseIf Me.Text = "Print Auto Transaction Report" Then
+            Call vehicle()
         End If
     End Sub
     Function QRCode() As Boolean
@@ -148,8 +150,134 @@ Public Class frmPrint
             report.CreateDocument()
             dvstatus.DocumentSource = report
             dvstatus.Refresh()
+        ElseIf frmTankReport.cbTank.Text <> "" And frmTankReport.dtpfrom.Text <> "" And frmTankReport.dtpto.Text <> "" Then
+            sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#.##') as TankCapacity, " _
+                & "a.StockIn as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
+                & "(select Sum(StockIn*Price) from tblTankTransaction where TankTransactionID=a.TankTransactionID) as TotalAmount," _
+                & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
+                & "d.Name as DeliveredBy, format(a.Added_at,'MM/dd/yyyy') as Added_at,c.Location " _
+                & "from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
+                & "inner join tblsupplier as b1 on b.SupplierID=b1.SupplierID " _
+                & "inner join tbltank as c on a.TankID=c.TankID " _
+                & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
+                & "inner join tblUomcode as e on a.UomID=e.ID where a.Deleted_at is null and c.TankName in (" & tankStr & ") and  A.Added_at>='" & frmTankReport.dtpfrom.Text & "' " _
+                & "and A.Added_at <='" & frmTankReport.dtpto.Text & "' order by a.TankTransactionID desc"
+            Call fill(sql)
+            report.xrTank.DataBindings.Add("Text", dset, "Tank")
+            report.xrLocation.DataBindings.Add("Text", dset, "Location")
+            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+            report.xrProduct.DataBindings.Add("Text", dset, "Product")
+            report.xrQty.DataBindings.Add("Text", dset, "Qty")
+            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+            report.xrReceived.DataBindings.Add("Text", dset, "ReceivedBy")
+            report.xrPrice.DataBindings.Add("Text", dset, "Price")
+            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+            report.DataSource = dset
+            report.CreateDocument()
+            dvstatus.DocumentSource = report
+            dvstatus.Refresh()
         End If
         Return True
     End Function
+    Function vehicle() As Boolean
+        Dim b() As String
 
+        Dim Auto As String = frmAutoReport.cbAuto.Properties.GetCheckedItems.ToString
+        b = Auto.Split(",")
+        Dim AutoStr As String = ""
+        For i = 0 To UBound(b)
+            If i = 0 Then
+                AutoStr = "'" & b(i) & "'"
+            Else
+                AutoStr = AutoStr & ",'" & LTrim(b(i)) & "'"
+            End If
+        Next
+        Dim report As New xrAutoTransactions
+        Call konneksyon()
+        If frmAutoReport.cbAuto.Text <> "" And frmAutoReport.dtpfrom.Text = "" And frmAutoReport.dtpto.Text = "" Then
+            sql = "select a.AutoTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy') as Added_at, " _
+                    & "a.PoNo,b.Name as Vehicle,c.Tankname as Tank,d1.SupplierName as Supplier,d.ItemDescription as Product,format(a.StockOut,'#,#.##') as Qty,format(a.Price,'c', 'fil-PH') as Price, f.UomCode," _
+                    & "format((select SUM(StockOut*Price) from tblAutoTransaction where AutoTransactionID=a.AutoTransactionID),'c', 'fil-PH') as TotalAmount,case SelectStock when 1 then 'Outside Purchase' else 'Tank' end as Source " _
+                    & "from tblAutoTransaction as a " _
+                    & "inner join tblVehicles as b on a.VehicleID=b.VehicleID " _
+                    & "inner join tbltank as c on a.TankID=c.TankID " _
+                    & "inner join tblProducts as d on a.ProductID=d.ProductID " _
+                    & "inner join tblSupplier as d1 on d.SupplierID=d1.SupplierID " _
+                    & "inner join tblEmpUsers as e on a.Added_by=e.EmpID " _
+                    & "inner join tblUomCode as f on a.UomID=f.ID where b.Name in (" & AutoStr & ") And a.Deleted_at Is null order by a.AutoTransactionID desc"
+            Call fill(sql)
+            report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
+            report.xrSource.DataBindings.Add("Text", dset, "Source")
+            report.xrTankName.DataBindings.Add("Text", dset, "Tank")
+            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+            report.xrProduct.DataBindings.Add("Text", dset, "Product")
+            report.xrQty.DataBindings.Add("Text", dset, "Qty")
+            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+            report.xrPrice.DataBindings.Add("Text", dset, "Price")
+            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+            report.xrPoNo.DataBindings.Add("Text", dset, "PoNo")
+            report.DataSource = dset
+            report.CreateDocument()
+            dvstatus.DocumentSource = report
+            dvstatus.Refresh()
+        ElseIf frmAutoReport.cbAuto.Text = "" And frmAutoReport.dtpfrom.Text <> "" And frmAutoReport.dtpto.Text <> "" Then
+            sql = "select a.AutoTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy') as Added_at, " _
+                    & "a.PoNo,b.Name as Vehicle,c.Tankname as Tank,d1.SupplierName as Supplier,d.ItemDescription as Product,format(a.StockOut,'#,#.##') as Qty,format(a.Price,'c', 'fil-PH') as Price, " _
+                    & "format((select SUM(StockOut*Price) from tblAutoTransaction where AutoTransactionID=a.AutoTransactionID),'c', 'fil-PH') as TotalAmount,case SelectStock when 1 then 'Outside Purchase' else 'Tank' end as Source " _
+                    & "from tblAutoTransaction as a " _
+                    & "inner join tblVehicles as b on a.VehicleID=b.VehicleID " _
+                    & "inner join tbltank as c on a.TankID=c.TankID " _
+                    & "inner join tblProducts as d on a.ProductID=d.ProductID " _
+                    & "inner join tblSupplier as d1 on d.SupplierID=d1.SupplierID " _
+                    & "inner join tblEmpUsers as e on a.Added_by=e.EmpID where  A.Added_at>='" & frmAutoReport.dtpfrom.Text & "' " _
+                & "and A.Added_at <='" & frmAutoReport.dtpto.Text & "' order by a.TankTransactionID desc"
+            Call fill(sql)
+            report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
+            report.xrSource.DataBindings.Add("Text", dset, "Source")
+            report.xrTankName.DataBindings.Add("Text", dset, "Tank")
+            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+            report.xrProduct.DataBindings.Add("Text", dset, "Product")
+            report.xrQty.DataBindings.Add("Text", dset, "Qty")
+            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+            report.xrPrice.DataBindings.Add("Text", dset, "Price")
+            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+            report.DataSource = dset
+            report.CreateDocument()
+            dvstatus.DocumentSource = report
+            dvstatus.Refresh()
+        ElseIf frmAutoReport.cbAuto.Text <> "" And frmAutoReport.dtpfrom.Text <> "" And frmAutoReport.dtpto.Text <> "" Then
+            sql = "select a.AutoTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy') as Added_at, " _
+                    & "a.PoNo,b.Name as Vehicle,c.Tankname as Tank,d1.SupplierName as Supplier,d.ItemDescription as Product,format(a.StockOut,'#,#.##') as Qty,format(a.Price,'c', 'fil-PH') as Price, " _
+                    & "format((select SUM(StockOut*Price) from tblAutoTransaction where AutoTransactionID=a.AutoTransactionID),'c', 'fil-PH') as TotalAmount,case SelectStock when 1 then 'Outside Purchase' else 'Tank' end as Source " _
+                    & "from tblAutoTransaction as a " _
+                    & "inner join tblVehicles as b on a.VehicleID=b.VehicleID " _
+                    & "inner join tbltank as c on a.TankID=c.TankID " _
+                    & "inner join tblProducts as d on a.ProductID=d.ProductID " _
+                    & "inner join tblSupplier as d1 on d.SupplierID=d1.SupplierID " _
+                    & "inner join tblEmpUsers as e on a.Added_by=e.EmpID where  b.Name in (" & AutoStr & ") and A.Added_at>='" & frmAutoReport.dtpfrom.Text & "' " _
+                & "and A.Added_at <='" & frmAutoReport.dtpto.Text & "' order by a.TankTransactionID desc"
+            Call fill(sql)
+            report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
+            report.xrSource.DataBindings.Add("Text", dset, "Source")
+            report.xrTankName.DataBindings.Add("Text", dset, "Tank")
+            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+            report.xrProduct.DataBindings.Add("Text", dset, "Product")
+            report.xrQty.DataBindings.Add("Text", dset, "Qty")
+            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+            report.xrPrice.DataBindings.Add("Text", dset, "Price")
+            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+            report.DataSource = dset
+            report.CreateDocument()
+            dvstatus.DocumentSource = report
+            dvstatus.Refresh()
+        End If
+        Return True
+    End Function
 End Class

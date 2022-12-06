@@ -87,8 +87,8 @@ Public Class frmaccount
         ' frmnameorpassword.txtid.Text = dset.Tables(sql).Rows(0).Item("UserID")
         frmAddEditAccount.txtuser.Text = dset.Tables(sql).Rows(0).Item("UserName")
         frmaddeditaccount.txtpass.Text = dset.Tables(sql).Rows(0).Item("xpassword")
-
-        frmaddeditaccount.txtname.Text = dset.Tables(sql).Rows(0).Item("FullName")
+        frmAddEditAccount.cbPosition.Text = dset.Tables(sql).Rows(0).Item("Position")
+        frmAddEditAccount.txtname.Text = dset.Tables(sql).Rows(0).Item("Name")
         frmAddEditAccount.cbacctype.Text = dset.Tables(sql).Rows(0).Item("AccountType")
         frmAddEditAccount.cbstatus.Text = dset.Tables(sql).Rows(0).Item("Status")
         frmAddEditAccount.Position()
