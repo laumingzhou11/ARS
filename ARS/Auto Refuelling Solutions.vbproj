@@ -169,6 +169,12 @@
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPosition.Designer.vb">
+      <DependentUpon>frmPosition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPosition.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPrint.Designer.vb">
       <DependentUpon>frmPrint.vb</DependentUpon>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosition.resx">
+      <DependentUpon>frmPosition.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrint.resx">
       <DependentUpon>frmPrint.vb</DependentUpon>

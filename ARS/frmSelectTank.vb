@@ -19,7 +19,8 @@ Public Class frmSelectTank
     Function populateTank() As Boolean
         Call konneksyon()
         sql = "select A.TankID,a.TankName,format(A.TankCapacity,'#,#') as TankCapacity,b.UomCode,a.Location," _
-                & "format(isnull(A.TankCapacity-(select SUM(StockIn) from tblTankInventory where TankID=a.TankID),0),'#,#.##') as Available " _
+                  & "isnull((select top 1(select sum(stockin-stockout) from tblTankInventory where ID<=a1.ID and TankID=a1.TankID) " _
+                    & "from tblTankInventory As a1 where a1.TankID=a.TankID order by a1.ID desc),0) As Available " _
                 & "from tbltank As a inner join tbluomCode As b On a.UomID=b.ID where A.TankID<>1 and a.Deleted_at is null order by A.TankID desc"
         Call populate(sql, dgTank)
         gvTank.Columns("TankID").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
@@ -33,16 +34,19 @@ Public Class frmSelectTank
         If lblSelectTank.Text = "Tank" Then
 
             sql = "select A.TankID,a.TankName,A.TankCapacity,b.UomCode,a.Location, " _
-                & "isnull(A.TankCapacity-(select SUM(StockIn) from tblTankInventory where TankID='" & keyID & "'),A.TankCapacity) as Available " _
+                & "isnull((select top 1(select sum(stockin-stockout) from tblTankInventory where ID<=a.ID and TankID='" & keyID & "') " _
+                    & "from tblTankInventory As a where a.TankID='" & keyID & "' order by a.ID desc),0) As Available, " _
+                       & "isnull(A.TankCapacity-(select SUM(StockIn) from tblTankInventory where TankID=a.TankID),a.TankCapacity) as Needed " _
                 & "from tbltank As a inner join tbluomCode As b On a.UomID=b.ID where TankID='" & keyID & "'"
-                Call fill(sql)
+            Call fill(sql)
                 frmAddEditTankRefuelling.lbltankID.Text = dset.Tables(sql).Rows(0).Item("TankID")
                 frmAddEditTankRefuelling.txtTankName.Text = dset.Tables(sql).Rows(0).Item("TankName")
                 frmAddEditTankRefuelling.txtCapacity.Text = dset.Tables(sql).Rows(0).Item("TankCapacity")
                 frmAddEditTankRefuelling.cbUomCode.Text = dset.Tables(sql).Rows(0).Item("UomCode")
                 frmAddEditTankRefuelling.txtlocation.Text = dset.Tables(sql).Rows(0).Item("Location")
-                frmAddEditTankRefuelling.txtstocks.Text = dset.Tables(sql).Rows(0).Item("Available")
-                Call frmAddEditTankRefuelling.PopulateHistory()
+            frmAddEditTankRefuelling.txtstocks.Text = dset.Tables(sql).Rows(0).Item("Available")
+            frmAddEditTankRefuelling.txtneeded.Text = dset.Tables(sql).Rows(0).Item("Needed")
+            Call frmAddEditTankRefuelling.PopulateHistory()
                 Me.Close()
 
 

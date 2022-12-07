@@ -28,21 +28,14 @@ Public Class frmSelectProduct
     End Function
     Function filltext() As Boolean
         Call konneksyon()
-        sql = "select a.TankID,a.ProductID,c.SupplierName as Supplier,b.ItemDescription as Item from tblTankTransaction as a inner join tblProducts as b on a.ProductID=b.ProductID " _
-                & "inner join tblsupplier as c on b.SupplierID=c.SupplierID where a.TankID='" & frmAddEditTankRefuelling.lbltankID.Text & "' and a.ProductID ='" & keyID & "'"
-        Call fill(sql)
-        If dset.Tables(sql).Rows.Count = 0 Then
-            MsgBox("Tank already reufelled", MsgBoxStyle.Exclamation, Me.Text)
-        Else
-            sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a  " _
+        sql = "select a.ProductID, a.ItemDescription,b.SupplierName,a.Price from tblProducts as a  " _
             & "inner join tblsupplier as b on a.SupplierID=b.SupplierID where a.ProductID='" & keyID & "'"
             Call fill(sql)
             frmAddEditTankRefuelling.lblProductID.Text = dset.Tables(sql).Rows(0).Item("ProductID")
             frmAddEditTankRefuelling.txtproduct.Text = dset.Tables(sql).Rows(0).Item("ItemDescription")
             frmAddEditTankRefuelling.txtsupplier.Text = dset.Tables(sql).Rows(0).Item("SupplierName")
             frmAddEditTankRefuelling.txtprice.Text = dset.Tables(sql).Rows(0).Item("Price")
-            Me.Close()
-        End If
+        Me.Close()
         Return True
     End Function
     Private Sub gvProduct_CustomDrawCell(sender As Object, e As DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs) Handles gvProduct.CustomDrawCell

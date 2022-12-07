@@ -38,28 +38,28 @@ Public Class frmaccount
         Call populateacct()
     End Sub
 
-   
+
     Private Sub btnsave_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnsave.ItemClick
-        If frmmain.lblacctType.Caption = "ADMIN" Then
+        If frmMain.lblacctType.Caption = "ADMIN" Then
             MsgBox("You do not have permission to perform this task. Please call the System Super Administrator!", MsgBoxStyle.Critical, Me.Text)
-        ElseIf frmmain.lblacctType.Caption = "USER" Then
+        ElseIf frmMain.lblacctType.Caption = "USER" Then
             MsgBox("You do not have permission to perform this task. Please call the System Super Administrator!", MsgBoxStyle.Critical, Me.Text)
 
-        ElseIf frmmain.lblacctType.Caption = "SUPER ADMIN" Then
-            frmaddeditaccount.lblaccount.Text = "account"
+        ElseIf frmMain.lblacctType.Caption = "SUPER ADMIN" Then
+            frmAddEditAccount.lblaccount.Text = "account"
             frmAddEditAccount.Text = "Add Account"
             frmAddEditAccount.txtname.Select()
             frmAddEditAccount.cbacctype.Enabled = True
-            frmaddeditaccount.cbstatus.Enabled = True
-            frmaddeditaccount.xclear()
-            frmaddeditaccount.ShowDialog()
-            frmaddeditaccount.txtname.Focus()
+            frmAddEditAccount.cbstatus.Enabled = True
+            frmAddEditAccount.xclear()
+            frmAddEditAccount.ShowDialog()
+            frmAddEditAccount.txtname.Focus()
         End If
 
-        
+
     End Sub
 
-   
+
 
     Private Sub account_MouseUp(sender As Object, e As MouseEventArgs) Handles account.MouseUp
         If e.Button = System.Windows.Forms.MouseButtons.Right Then
@@ -86,7 +86,7 @@ Public Class frmaccount
         txtselectedcode.Text = dset.Tables(sql).Rows(0).Item("EmpID")
         ' frmnameorpassword.txtid.Text = dset.Tables(sql).Rows(0).Item("UserID")
         frmAddEditAccount.txtuser.Text = dset.Tables(sql).Rows(0).Item("UserName")
-        frmaddeditaccount.txtpass.Text = dset.Tables(sql).Rows(0).Item("xpassword")
+        frmAddEditAccount.txtpass.Text = dset.Tables(sql).Rows(0).Item("xpassword")
         frmAddEditAccount.cbPosition.Text = dset.Tables(sql).Rows(0).Item("Position")
         frmAddEditAccount.txtname.Text = dset.Tables(sql).Rows(0).Item("Name")
         frmAddEditAccount.cbacctype.Text = dset.Tables(sql).Rows(0).Item("AccountType")
@@ -96,14 +96,14 @@ Public Class frmaccount
     End Function
 
     Private Sub btnedit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnedit.ItemClick
-        If frmmain.lblacctType.Caption = "SUPER ADMIN" Then
+        If frmMain.lblacctType.Caption = "SUPER ADMIN" Then
             If txtselectedcode.Text = "" Then
                 MsgBox("Please select account to edit!", MsgBoxStyle.Information, Me.Text)
             Else
                 Call filltext()
-                frmaddeditaccount.txtname.Focus()
-                frmaddeditaccount.Text = "Edit Account"
-                frmaddeditaccount.ShowDialog()
+                frmAddEditAccount.txtname.Focus()
+                frmAddEditAccount.Text = "Edit Account"
+                frmAddEditAccount.ShowDialog()
 
 
                 'txtuser.Enabled = True
@@ -111,15 +111,15 @@ Public Class frmaccount
                 'cbacctype.Enabled = True
                 'btnsave.Enabled = True
             End If
-        ElseIf frmmain.lblacctType.Caption = "ADMIN" Then
-            If frmmain.lblid.Caption = txtselectedcode.Text Then
+        ElseIf frmMain.lblacctType.Caption = "ADMIN" Then
+            If frmMain.lblid.Caption = txtselectedcode.Text Then
                 'frmnameorpassword.txtnewpass.Select()
                 'frmnameorpassword.ShowDialog()
             Else
                 MsgBox("You do not have permission to perform this task. Please call the System Super Administrator!", MsgBoxStyle.Critical, Me.Text)
             End If
-        ElseIf frmmain.lblacctType.Caption = "USER" Then
-            If frmmain.lblid.Caption = txtselectedcode.Text Then
+        ElseIf frmMain.lblacctType.Caption = "USER" Then
+            If frmMain.lblid.Caption = txtselectedcode.Text Then
                 'frmnameorpassword.txtnewpass.Select()
                 'frmnameorpassword.ShowDialog()
             Else
@@ -129,7 +129,7 @@ Public Class frmaccount
     End Sub
     Function delrec()
         If txtselectedcode.Text <> "" Then
-            If MsgBox("Are you sure you want to delete?", MsgBoxStyle.YesNo + MsgBoxStyle.question, "Message!") = MsgBoxResult.Yes Then
+            If MsgBox("Are you sure you want to delete?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Message!") = MsgBoxResult.Yes Then
                 Dim kom = New SqlCommand
                 kom.Connection = kon
                 kom.CommandText = "delete from tblLogin where ID=('" & txtselectedcode.Text & "')"
@@ -142,7 +142,7 @@ Public Class frmaccount
     End Function
 
     Private Sub btndelete_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btndelete.ItemClick
-        If frmmain.lblacctType.Caption = "ADMIN" Or frmmain.lblacctType.Caption = "USER" Then
+        If frmMain.lblacctType.Caption = "ADMIN" Or frmMain.lblacctType.Caption = "USER" Then
             MsgBox("You do not have permission to perform this task. Please call the System Super Administrator!", MsgBoxStyle.Critical, Me.Text)
         Else
             If txtselectedcode.Text = "" Then

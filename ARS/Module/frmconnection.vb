@@ -11,13 +11,13 @@ Public Class frmconnection
 
 
 
-        'My.Settings.Server = txtserver.Text
-        'My.Settings.User = txtUserName.Text
-        'My.Settings.Password = txtPassword.Text
-        'My.Settings.Dbase1 = txtdbase.Text
+        My.Settings.Server = txtserver.Text
+        My.Settings.User = txtUserName.Text
+        My.Settings.Password = txtPassword.Text
+        My.Settings.Dbase = txtdbase.Text
 
-        'My.Settings.Save()
-        'Application.Restart()
+        My.Settings.Save()
+        Application.Restart()
     End Sub
     Private Sub frmconnection_Load(sender As Object, e As EventArgs) Handles Me.Load
         txtserver.Select()
@@ -68,6 +68,17 @@ Public Class frmconnection
                 With txtdbase
                     .SelectionStart = 0
                     .SelectionLength = Len(.Text)
+                    .Focus()
+                End With
+            End If
+        End If
+    End Sub
+    Private Sub txtdbase_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtdbase.KeyPress
+        If Asc(e.KeyChar) = 13 Then
+            If txtdbase.Text = "" Then
+                txtdbase.Focus()
+            Else
+                With btnsave
                     .Focus()
                 End With
             End If

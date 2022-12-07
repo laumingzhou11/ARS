@@ -4,6 +4,7 @@ Public Class frmAddEditAccount
         Call Position()
     End Sub
     Function Position() As Boolean
+        Call konneksyon()
         cbPosition.Properties.Items.Clear()
         Dim comm = New SqlCommand("select * from tblPosition", kon)
         Dim dset = New DataSet
@@ -123,7 +124,11 @@ Public Class frmAddEditAccount
     End Sub
 
     Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
-
+        If Me.Text = "Add Account" Then
+            Call saverec()
+        ElseIf Me.Text = "Edit Account" Then
+            Call updaterec()
+        End If
     End Sub
     Function saverec() As Boolean
         Call konneksyon()
@@ -143,15 +148,45 @@ Public Class frmAddEditAccount
             If MsgBox("Are you sure you want to add?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
                 sql = "insert into tblAccount (" _
                     & "Name, PositionID, AccountType, UserName,Password, Added_at, Status) values (" _
-                    & "'" & txtname.Text & "',(select ID from tblPosition where Position='" & cbPosition.Text & "') " _
-                    & "'" & cbacctype.Text & "','" & txtuser.Text & "',cast('" & txtpass.Text & "',varchar(50)),GetDate(),'" & cbstatus.Text & "')"
+                    & "'" & txtname.Text & "',(select ID from tblPosition where Position='" & cbPosition.Text & "'), " _
+                    & "'" & cbacctype.Text & "','" & txtuser.Text & "',cast('" & txtpass.Text & "',as varchar(50)),GetDate(),'" & cbstatus.Text & "')"
                 Call save(sql)
                 MsgBox("Added successfully!", MsgBoxStyle.Information, Me.Text)
                 Call xclear()
+                Call frmaccount.populateacct()
+
+                If lblaccount.Text = "login" Then
+                    Me.Close()
+                Else
+                    Me.Close()
+                    frmaccount.Show()
+                End If
                 Me.Close()
             End If
         End If
-            Return True
+        Return True
+    End Function
+    Function updaterec() As Boolean
+        If frmMain.lblacctType.Caption = "SUPER ADMIN" Then
+            If Trim(txtuser.Text) <> "" And Trim(txtpass.Text) <> "" And Trim(cbacctype.Text) <> "" _
+             And Trim(txtname.Text) <> "" And Trim(cbstatus.Text) <> "" And Trim(cbPosition.Text) <> "" Then
+                If MsgBox("Are you sure you want to update?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, Me.Text) = MsgBoxResult.Yes Then
+                    Dim kom = New SqlCommand
+                    kom.Connection = kon
+                    kom.CommandText = "update tblAccount set Name='" & txtuser.Text & "',cast(Password as Varchar(50))=" & txtpass.Text & "',FullName='" & txtname.Text _
+                        & "',AccountType='" & cbacctype.Text & "',Status='" & cbstatus.Text & "' where EmpID='" & keyID & "'"
+                    kom.ExecuteNonQuery()
+                    Call xclear()
+                    Me.Close()
+                    Call frmaccount.populateacct()
+                    frmaccount.Show()
+                    'MsgBox("Edit success!", MsgBoxStyle.Information, "message")
+                End If
+            Else
+                MsgBox("Please fill up empty field/s!", MsgBoxStyle.Information, "System Message!")
+            End If
+        End If
+        Return True
     End Function
 End Class
 

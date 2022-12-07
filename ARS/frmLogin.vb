@@ -141,4 +141,24 @@
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
 
     End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        lblcount.Text = 2
+        frmconnection.lblConnection.Text = "login"
+        frmconnection.txtserver.Text = My.Settings.Server
+        frmconnection.txtUserName.Text = My.Settings.User
+        frmconnection.txtPassword.Text = My.Settings.Password
+        frmconnection.txtdbase.Text = My.Settings.Dbase
+        frmconnection.ShowDialog()
+    End Sub
+
+    Private Sub HyperlinkLabelControl3_Click(sender As Object, e As EventArgs) Handles HyperlinkLabelControl3.Click
+        frmAddEditAccount.lblaccount.Text = "login"
+        frmAddEditAccount.txtname.Select()
+        frmAddEditAccount.cbacctype.Text = "USER"
+        frmAddEditAccount.cbacctype.Enabled = False
+        frmAddEditAccount.cbstatus.Enabled = False
+        frmAddEditAccount.cbstatus.Text = "ACTIVE"
+        frmAddEditAccount.ShowDialog()
+    End Sub
 End Class

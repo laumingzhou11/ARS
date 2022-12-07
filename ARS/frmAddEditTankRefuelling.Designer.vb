@@ -66,6 +66,8 @@ Partial Class frmAddEditTankRefuelling
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
         Me.btncancel = New DevExpress.XtraEditors.SimpleButton()
+        Me.GroupControl5 = New DevExpress.XtraEditors.GroupControl()
+        Me.txtneeded = New DevExpress.XtraEditors.TextEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,6 +102,9 @@ Partial Class frmAddEditTankRefuelling
         CType(Me.txtreceived.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
+        CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl5.SuspendLayout()
+        CType(Me.txtneeded.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -115,10 +120,11 @@ Partial Class frmAddEditTankRefuelling
         Me.GroupControl1.Controls.Add(Me.LabelControl1)
         Me.GroupControl1.Controls.Add(Me.txtTankName)
         Me.GroupControl1.Controls.Add(Me.LabelControl2)
+        Me.GroupControl1.Controls.Add(Me.GroupControl5)
         Me.GroupControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl1.Location = New System.Drawing.Point(0, 0)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(472, 117)
+        Me.GroupControl1.Size = New System.Drawing.Size(469, 117)
         Me.GroupControl1.TabIndex = 0
         Me.GroupControl1.Text = "Tank"
         '
@@ -137,7 +143,7 @@ Partial Class frmAddEditTankRefuelling
         Me.GroupControl2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GroupControl2.Controls.Add(Me.txtstocks)
         Me.GroupControl2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupControl2.Location = New System.Drawing.Point(352, 27)
+        Me.GroupControl2.Location = New System.Drawing.Point(349, 27)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.Size = New System.Drawing.Size(118, 88)
         Me.GroupControl2.TabIndex = 44
@@ -278,7 +284,7 @@ Partial Class frmAddEditTankRefuelling
         Me.GroupControl3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl3.Location = New System.Drawing.Point(0, 117)
         Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(472, 212)
+        Me.GroupControl3.Size = New System.Drawing.Size(469, 212)
         Me.GroupControl3.TabIndex = 45
         Me.GroupControl3.Text = "Stock-In"
         '
@@ -421,14 +427,14 @@ Partial Class frmAddEditTankRefuelling
         Me.PanelControl3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelControl3.Location = New System.Drawing.Point(2, 118)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(468, 92)
+        Me.PanelControl3.Size = New System.Drawing.Size(465, 92)
         Me.PanelControl3.TabIndex = 68
         '
         'GroupControl4
         '
         Me.GroupControl4.Controls.Add(Me.txtTotalAmount)
         Me.GroupControl4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupControl4.Location = New System.Drawing.Point(296, 2)
+        Me.GroupControl4.Location = New System.Drawing.Point(293, 2)
         Me.GroupControl4.Name = "GroupControl4"
         Me.GroupControl4.Size = New System.Drawing.Size(170, 88)
         Me.GroupControl4.TabIndex = 60
@@ -524,7 +530,7 @@ Partial Class frmAddEditTankRefuelling
         Me.GroupControl6.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupControl6.Location = New System.Drawing.Point(0, 394)
         Me.GroupControl6.Name = "GroupControl6"
-        Me.GroupControl6.Size = New System.Drawing.Size(472, 215)
+        Me.GroupControl6.Size = New System.Drawing.Size(469, 215)
         Me.GroupControl6.TabIndex = 46
         Me.GroupControl6.Text = "History"
         '
@@ -534,7 +540,7 @@ Partial Class frmAddEditTankRefuelling
         Me.dgTankTransaction.Location = New System.Drawing.Point(2, 27)
         Me.dgTankTransaction.MainView = Me.gvTankTransaction
         Me.dgTankTransaction.Name = "dgTankTransaction"
-        Me.dgTankTransaction.Size = New System.Drawing.Size(468, 186)
+        Me.dgTankTransaction.Size = New System.Drawing.Size(465, 186)
         Me.dgTankTransaction.TabIndex = 15
         Me.dgTankTransaction.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvTankTransaction})
         '
@@ -576,7 +582,7 @@ Partial Class frmAddEditTankRefuelling
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 329)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(472, 65)
+        Me.PanelControl1.Size = New System.Drawing.Size(469, 65)
         Me.PanelControl1.TabIndex = 47
         '
         'cbDeliveredby
@@ -630,7 +636,7 @@ Partial Class frmAddEditTankRefuelling
         Me.PanelControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl2.Location = New System.Drawing.Point(0, 609)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(472, 50)
+        Me.PanelControl2.Size = New System.Drawing.Size(469, 50)
         Me.PanelControl2.TabIndex = 48
         '
         'btnsave
@@ -638,7 +644,7 @@ Partial Class frmAddEditTankRefuelling
         Me.btnsave.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsave.Appearance.Options.UseFont = True
         Me.btnsave.ImageOptions.Image = CType(resources.GetObject("btnsave.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnsave.Location = New System.Drawing.Point(257, 9)
+        Me.btnsave.Location = New System.Drawing.Point(251, 9)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(103, 35)
         Me.btnsave.TabIndex = 27
@@ -649,17 +655,46 @@ Partial Class frmAddEditTankRefuelling
         Me.btncancel.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncancel.Appearance.Options.UseFont = True
         Me.btncancel.ImageOptions.Image = CType(resources.GetObject("btncancel.ImageOptions.Image"), System.Drawing.Image)
-        Me.btncancel.Location = New System.Drawing.Point(364, 9)
+        Me.btncancel.Location = New System.Drawing.Point(358, 9)
         Me.btncancel.Name = "btncancel"
         Me.btncancel.Size = New System.Drawing.Size(103, 35)
         Me.btncancel.TabIndex = 28
         Me.btncancel.Text = "&Cancel"
         '
+        'GroupControl5
+        '
+        Me.GroupControl5.AppearanceCaption.Options.UseTextOptions = True
+        Me.GroupControl5.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GroupControl5.Controls.Add(Me.txtneeded)
+        Me.GroupControl5.Location = New System.Drawing.Point(364, 44)
+        Me.GroupControl5.Name = "GroupControl5"
+        Me.GroupControl5.Size = New System.Drawing.Size(89, 61)
+        Me.GroupControl5.TabIndex = 46
+        Me.GroupControl5.Text = "Available"
+        '
+        'txtneeded
+        '
+        Me.txtneeded.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtneeded.Location = New System.Drawing.Point(2, 27)
+        Me.txtneeded.Name = "txtneeded"
+        Me.txtneeded.Properties.Appearance.BackColor = System.Drawing.Color.White
+        Me.txtneeded.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtneeded.Properties.Appearance.Options.UseBackColor = True
+        Me.txtneeded.Properties.Appearance.Options.UseFont = True
+        Me.txtneeded.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtneeded.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtneeded.Properties.AutoHeight = False
+        Me.txtneeded.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtneeded.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtneeded.Properties.ReadOnly = True
+        Me.txtneeded.Size = New System.Drawing.Size(85, 32)
+        Me.txtneeded.TabIndex = 43
+        '
         'frmAddEditTankRefuelling
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(472, 659)
+        Me.ClientSize = New System.Drawing.Size(469, 659)
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.GroupControl6)
         Me.Controls.Add(Me.PanelControl1)
@@ -709,6 +744,9 @@ Partial Class frmAddEditTankRefuelling
         CType(Me.txtreceived.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
+        CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl5.ResumeLayout(False)
+        CType(Me.txtneeded.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -759,4 +797,6 @@ Partial Class frmAddEditTankRefuelling
     Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents dgTankTransaction As DevExpress.XtraGrid.GridControl
     Friend WithEvents gvTankTransaction As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GroupControl5 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents txtneeded As DevExpress.XtraEditors.TextEdit
 End Class

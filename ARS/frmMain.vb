@@ -10,15 +10,15 @@ Public Class frmMain
     Public AutoTransaction As New frmAutoRefuelling
     Public Inventory As New frmInventory
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'If My.Settings.Server = Nothing Or My.Settings.User = Nothing Or My.Settings.Password = Nothing _
-        '  Or My.Settings.Dbase1 = Nothing Then
-        '    frmconnection.ShowDialog()
-        'ElseIf My.Settings.Server <> Nothing Or My.Settings.User <> Nothing Or My.Settings.Password <> Nothing _
-        '    Or My.Settings.Dbase1 <> Nothing Then
+        If My.Settings.Server = Nothing Or My.Settings.User = Nothing Or My.Settings.Password = Nothing _
+          Or My.Settings.dbase = Nothing Then
+            frmconnection.ShowDialog()
+        ElseIf My.Settings.Server <> Nothing Or My.Settings.User <> Nothing Or My.Settings.Password <> Nothing _
+            Or My.Settings.Dbase <> Nothing Then
+            frmLogin.txtuser.Select()
+            frmLogin.ShowDialog()
+        End If
 
-        'End If
-        ' frmLogin.txtuser.Select()
-        frmLogin.ShowDialog()
     End Sub
 
 
@@ -165,5 +165,22 @@ Public Class frmMain
         frmAutoReport.dtpfrom.Text = ""
         frmAutoReport.dtpto.Text = ""
         frmAutoReport.ShowDialog()
+    End Sub
+
+    Private Sub btnpositions_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnpositions.ItemClick
+        frmPosition.txtposition.Select()
+        frmPosition.ShowDialog()
+    End Sub
+
+
+
+    Private Sub BarButtonItem6_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem6.ItemClick
+        frmconnection.lblConnection.Text = "main"
+        frmconnection.txtserver.Select()
+        frmconnection.txtserver.Text = My.Settings.Server
+        frmconnection.txtUserName.Text = My.Settings.User
+        frmconnection.txtPassword.Text = My.Settings.Password
+        frmconnection.txtdbase.Text = My.Settings.Dbase
+        frmconnection.ShowDialog()
     End Sub
 End Class

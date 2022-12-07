@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmLogin
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,10 +17,11 @@ Partial Class frmLogin
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.GcLogin2 = New DevExpress.XtraEditors.GroupControl()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.gcLogin = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -52,6 +53,7 @@ Partial Class frmLogin
         Me.GcLogin2.AppearanceCaption.Options.UseFont = True
         Me.GcLogin2.AppearanceCaption.Options.UseTextOptions = True
         Me.GcLogin2.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.GcLogin2.Controls.Add(Me.SimpleButton1)
         Me.GcLogin2.Controls.Add(Me.PictureBox1)
         Me.GcLogin2.Controls.Add(Me.gcLogin)
         Me.GcLogin2.Controls.Add(Me.LabelControl2)
@@ -67,6 +69,20 @@ Partial Class frmLogin
         Me.GcLogin2.Size = New System.Drawing.Size(364, 430)
         Me.GcLogin2.TabIndex = 5
         Me.GcLogin2.Text = "Login Form"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.SimpleButton1.Appearance.BorderColor = System.Drawing.Color.Black
+        Me.SimpleButton1.Appearance.Options.UseBackColor = True
+        Me.SimpleButton1.Appearance.Options.UseBorderColor = True
+        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter
+        Me.SimpleButton1.Location = New System.Drawing.Point(1, 29)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light
+        Me.SimpleButton1.Size = New System.Drawing.Size(31, 28)
+        Me.SimpleButton1.TabIndex = 34
         '
         'PictureBox1
         '
@@ -268,4 +284,5 @@ Partial Class frmLogin
     Friend WithEvents SplashScreenManager2 As DevExpress.XtraSplashScreen.SplashScreenManager
     Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
 End Class

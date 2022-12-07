@@ -16,34 +16,13 @@ Public Class frmTankRefuelling
         Call xadd()
     End Sub
     Function xadd() As Boolean
-        Call konneksyon()
-        sql = "select * from tblTankTransaction where Added_by='" & frmMain.lblid.Caption & "' and TankID='0'"
-        Call fill(sql)
-        If dset.Tables(sql).Rows.Count > 0 Then
-            frmAddEditTankRefuelling.lblTransID.Text = dset.Tables(sql).Rows(0).Item("TankTransactionID")
-            frmAddEditTankRefuelling.btnSelectTank.Select()
-            frmAddEditTankRefuelling.Text = "Tank Refuelling - Stock IN"
-            frmAddEditTankRefuelling.btnSelectTank.Enabled = True
-            frmAddEditTankRefuelling.txtqty.Enabled = True
-            frmAddEditTankRefuelling.GroupControl2.Visible = True
-            frmAddEditTankRefuelling.xclear()
-            frmAddEditTankRefuelling.ShowDialog()
-        Else
-            sql = "insert into tblTankTransaction (" _
-                            & "TankID, StockIn, ProductID, PurchaseOrder, Added_at, " _
-                            & "Added_by,Receivedby,VehicleID, UomID, Price) values (0,0,0,0,null,'" & frmMain.lblid.Caption & "','-',0,0,0)"
-            Call save(sql)
-            sql = "Select max(TankTransactionID) As TankTransactionID from tblTankTransaction"
-            Call fill(sql)
-            frmAddEditTankRefuelling.lblTransID.Text = dset.Tables(sql).Rows(0).Item("TankTransactionID")
-            frmAddEditTankRefuelling.btnSelectTank.Select()
-            frmAddEditTankRefuelling.Text = "Tank Refuelling - Stock IN"
-            frmAddEditTankRefuelling.btnSelectTank.Enabled = True
-            frmAddEditTankRefuelling.txtqty.Enabled = True
-            frmAddEditTankRefuelling.GroupControl2.Visible = True
-            frmAddEditTankRefuelling.xclear()
-            frmAddEditTankRefuelling.ShowDialog()
-        End If
+        frmAddEditTankRefuelling.btnSelectTank.Select()
+        frmAddEditTankRefuelling.Text = "Tank Refuelling - Stock IN"
+        frmAddEditTankRefuelling.btnSelectTank.Enabled = True
+        frmAddEditTankRefuelling.txtqty.Enabled = True
+        frmAddEditTankRefuelling.GroupControl2.Visible = True
+        frmAddEditTankRefuelling.xclear()
+        frmAddEditTankRefuelling.ShowDialog()
         Return True
     End Function
     Private Sub frmTankRefuelling_Load(sender As Object, e As EventArgs) Handles MyBase.Load
