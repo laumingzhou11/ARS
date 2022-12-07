@@ -107,23 +107,28 @@ Public Class frmPrint
                 & "inner join tblvehicles as d on a.VehicleID=d.VehicleID " _
                 & "inner join tblUomcode as e on a.UomID=e.ID where a.Deleted_at is null and c.TankName in (" & tankStr & ") order by a.TankTransactionID desc"
             Call fill(sql)
-            report.xrTank.DataBindings.Add("Text", dset, "Tank")
-            report.xrLocation.DataBindings.Add("Text", dset, "Location")
-            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
-            report.xrProduct.DataBindings.Add("Text", dset, "Product")
-            report.xrQty.DataBindings.Add("Text", dset, "Qty")
-            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
-            report.xrReceived.DataBindings.Add("Text", dset, "ReceivedBy")
-            report.xrPrice.DataBindings.Add("Text", dset, "Price")
-            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
-            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
-            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
-            report.DataSource = dset
-            report.CreateDocument()
-            dvstatus.DocumentSource = report
-            dvstatus.Refresh()
+            If dset.Tables(sql).Rows.Count = 0 Then
+                MsgBox("No record to print!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                report.xrTank.DataBindings.Add("Text", dset, "Tank")
+                report.xrLocation.DataBindings.Add("Text", dset, "Location")
+                report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+                report.xrProduct.DataBindings.Add("Text", dset, "Product")
+                report.xrQty.DataBindings.Add("Text", dset, "Qty")
+                report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+                report.xrReceived.DataBindings.Add("Text", dset, "ReceivedBy")
+                report.xrPrice.DataBindings.Add("Text", dset, "Price")
+                report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+                report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+                report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+                report.DataSource = dset
+                report.CreateDocument()
+                dvstatus.DocumentSource = report
+                dvstatus.Refresh()
+            End If
+
         ElseIf frmTankReport.cbTank.Text = "" And frmTankReport.dtpfrom.Text <> "" And frmTankReport.dtpto.Text <> "" Then
-            sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#.##') as TankCapacity, " _
+                sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#.##') as TankCapacity, " _
                 & "a.StockIn as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
                 & "(select Sum(StockIn*Price) from tblTankTransaction where TankTransactionID=a.TankTransactionID) as TotalAmount," _
                 & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
@@ -135,23 +140,27 @@ Public Class frmPrint
                 & "inner join tblUomcode as e on a.UomID=e.ID where a.Deleted_at is null and  A.Added_at>='" & frmTankReport.dtpfrom.Text & "' " _
                 & "and A.Added_at <='" & frmTankReport.dtpto.Text & "' order by a.TankTransactionID desc"
             Call fill(sql)
-            report.xrTank.DataBindings.Add("Text", dset, "Tank")
-            report.xrLocation.DataBindings.Add("Text", dset, "Location")
-            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
-            report.xrProduct.DataBindings.Add("Text", dset, "Product")
-            report.xrQty.DataBindings.Add("Text", dset, "Qty")
-            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
-            report.xrReceived.DataBindings.Add("Text", dset, "ReceivedBy")
-            report.xrPrice.DataBindings.Add("Text", dset, "Price")
-            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
-            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
-            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
-            report.DataSource = dset
-            report.CreateDocument()
-            dvstatus.DocumentSource = report
-            dvstatus.Refresh()
+            If dset.Tables(sql).Rows.Count = 0 Then
+                MsgBox("No record to print!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                report.xrTank.DataBindings.Add("Text", dset, "Tank")
+                report.xrLocation.DataBindings.Add("Text", dset, "Location")
+                report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+                report.xrProduct.DataBindings.Add("Text", dset, "Product")
+                report.xrQty.DataBindings.Add("Text", dset, "Qty")
+                report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+                report.xrReceived.DataBindings.Add("Text", dset, "ReceivedBy")
+                report.xrPrice.DataBindings.Add("Text", dset, "Price")
+                report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+                report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+                report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+                report.DataSource = dset
+                report.CreateDocument()
+                dvstatus.DocumentSource = report
+                dvstatus.Refresh()
+            End If
         ElseIf frmTankReport.cbTank.Text <> "" And frmTankReport.dtpfrom.Text <> "" And frmTankReport.dtpto.Text <> "" Then
-            sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#.##') as TankCapacity, " _
+                sql = "select a.TankTransactionID as TransNo,a.PurchaseOrder as Po#,c.TankName as Tank,format(c.TankCapacity,'#,#.##') as TankCapacity, " _
                 & "a.StockIn as Qty, e.UomCode, format(a.Price,'c', 'fil-PH') as Price," _
                 & "(select Sum(StockIn*Price) from tblTankTransaction where TankTransactionID=a.TankTransactionID) as TotalAmount," _
                 & "b.ItemDescription as Product,b1.SupplierName as Supplier,a.ReceivedBy, " _
@@ -163,21 +172,25 @@ Public Class frmPrint
                 & "inner join tblUomcode as e on a.UomID=e.ID where a.Deleted_at is null and c.TankName in (" & tankStr & ") and  A.Added_at>='" & frmTankReport.dtpfrom.Text & "' " _
                 & "and A.Added_at <='" & frmTankReport.dtpto.Text & "' order by a.TankTransactionID desc"
             Call fill(sql)
-            report.xrTank.DataBindings.Add("Text", dset, "Tank")
-            report.xrLocation.DataBindings.Add("Text", dset, "Location")
-            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
-            report.xrProduct.DataBindings.Add("Text", dset, "Product")
-            report.xrQty.DataBindings.Add("Text", dset, "Qty")
-            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
-            report.xrReceived.DataBindings.Add("Text", dset, "ReceivedBy")
-            report.xrPrice.DataBindings.Add("Text", dset, "Price")
-            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
-            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
-            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
-            report.DataSource = dset
-            report.CreateDocument()
-            dvstatus.DocumentSource = report
-            dvstatus.Refresh()
+            If dset.Tables(sql).Rows.Count = 0 Then
+                MsgBox("No record to print!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                report.xrTank.DataBindings.Add("Text", dset, "Tank")
+                report.xrLocation.DataBindings.Add("Text", dset, "Location")
+                report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+                report.xrProduct.DataBindings.Add("Text", dset, "Product")
+                report.xrQty.DataBindings.Add("Text", dset, "Qty")
+                report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+                report.xrReceived.DataBindings.Add("Text", dset, "ReceivedBy")
+                report.xrPrice.DataBindings.Add("Text", dset, "Price")
+                report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+                report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+                report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+                report.DataSource = dset
+                report.CreateDocument()
+                dvstatus.DocumentSource = report
+                dvstatus.Refresh()
+            End If
         End If
         Return True
     End Function
@@ -208,21 +221,25 @@ Public Class frmPrint
                     & "inner join tblEmpUsers as e on a.Added_by=e.EmpID " _
                     & "inner join tblUomCode as f on a.UomID=f.ID where b.Name in (" & AutoStr & ") And a.Deleted_at Is null order by a.AutoTransactionID desc"
             Call fill(sql)
-            report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
-            report.xrSource.DataBindings.Add("Text", dset, "Source")
-            report.xrTankName.DataBindings.Add("Text", dset, "Tank")
-            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
-            report.xrProduct.DataBindings.Add("Text", dset, "Product")
-            report.xrQty.DataBindings.Add("Text", dset, "Qty")
-            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
-            report.xrPrice.DataBindings.Add("Text", dset, "Price")
-            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
-            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
-            report.xrPoNo.DataBindings.Add("Text", dset, "PoNo")
-            report.DataSource = dset
-            report.CreateDocument()
-            dvstatus.DocumentSource = report
-            dvstatus.Refresh()
+            If dset.Tables(sql).Rows.Count = 0 Then
+                MsgBox("No record to print!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
+                report.xrSource.DataBindings.Add("Text", dset, "Source")
+                report.xrTankName.DataBindings.Add("Text", dset, "Tank")
+                report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+                report.xrProduct.DataBindings.Add("Text", dset, "Product")
+                report.xrQty.DataBindings.Add("Text", dset, "Qty")
+                report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+                report.xrPrice.DataBindings.Add("Text", dset, "Price")
+                report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+                report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+                report.xrPoNo.DataBindings.Add("Text", dset, "PoNo")
+                report.DataSource = dset
+                report.CreateDocument()
+                dvstatus.DocumentSource = report
+                dvstatus.Refresh()
+            End If
         ElseIf frmAutoReport.cbAuto.Text = "" And frmAutoReport.dtpfrom.Text <> "" And frmAutoReport.dtpto.Text <> "" Then
             sql = "select a.AutoTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy') as Added_at, " _
                     & "a.PoNo,b.Name as Vehicle,c.Tankname as Tank,d1.SupplierName as Supplier,d.ItemDescription as Product,format(a.StockOut,'#,#.##') as Qty,format(a.Price,'c', 'fil-PH') as Price, " _
@@ -235,21 +252,25 @@ Public Class frmPrint
                     & "inner join tblEmpUsers as e on a.Added_by=e.EmpID where  A.Added_at>='" & frmAutoReport.dtpfrom.Text & "' " _
                 & "and A.Added_at <='" & frmAutoReport.dtpto.Text & "' order by a.TankTransactionID desc"
             Call fill(sql)
-            report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
-            report.xrSource.DataBindings.Add("Text", dset, "Source")
-            report.xrTankName.DataBindings.Add("Text", dset, "Tank")
-            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
-            report.xrProduct.DataBindings.Add("Text", dset, "Product")
-            report.xrQty.DataBindings.Add("Text", dset, "Qty")
-            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
-            report.xrPrice.DataBindings.Add("Text", dset, "Price")
-            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
-            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
-            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
-            report.DataSource = dset
-            report.CreateDocument()
-            dvstatus.DocumentSource = report
-            dvstatus.Refresh()
+            If dset.Tables(sql).Rows.Count = 0 Then
+                MsgBox("No record to print!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
+                report.xrSource.DataBindings.Add("Text", dset, "Source")
+                report.xrTankName.DataBindings.Add("Text", dset, "Tank")
+                report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+                report.xrProduct.DataBindings.Add("Text", dset, "Product")
+                report.xrQty.DataBindings.Add("Text", dset, "Qty")
+                report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+                report.xrPrice.DataBindings.Add("Text", dset, "Price")
+                report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+                report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+                report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+                report.DataSource = dset
+                report.CreateDocument()
+                dvstatus.DocumentSource = report
+                dvstatus.Refresh()
+            End If
         ElseIf frmAutoReport.cbAuto.Text <> "" And frmAutoReport.dtpfrom.Text <> "" And frmAutoReport.dtpto.Text <> "" Then
             sql = "select a.AutoTransactionID as TransNo,format(a.Added_at,'MM/dd/yyyy') as Added_at, " _
                     & "a.PoNo,b.Name as Vehicle,c.Tankname as Tank,d1.SupplierName as Supplier,d.ItemDescription as Product,format(a.StockOut,'#,#.##') as Qty,format(a.Price,'c', 'fil-PH') as Price, " _
@@ -262,21 +283,25 @@ Public Class frmPrint
                     & "inner join tblEmpUsers as e on a.Added_by=e.EmpID where  b.Name in (" & AutoStr & ") and A.Added_at>='" & frmAutoReport.dtpfrom.Text & "' " _
                 & "and A.Added_at <='" & frmAutoReport.dtpto.Text & "' order by a.TankTransactionID desc"
             Call fill(sql)
-            report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
-            report.xrSource.DataBindings.Add("Text", dset, "Source")
-            report.xrTankName.DataBindings.Add("Text", dset, "Tank")
-            report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
-            report.xrProduct.DataBindings.Add("Text", dset, "Product")
-            report.xrQty.DataBindings.Add("Text", dset, "Qty")
-            report.xrUom.DataBindings.Add("Text", dset, "UomCode")
-            report.xrPrice.DataBindings.Add("Text", dset, "Price")
-            report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
-            report.xrDate.DataBindings.Add("Text", dset, "Added_at")
-            report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
-            report.DataSource = dset
-            report.CreateDocument()
-            dvstatus.DocumentSource = report
-            dvstatus.Refresh()
+            If dset.Tables(sql).Rows.Count = 0 Then
+                MsgBox("No record to print!", MsgBoxStyle.Exclamation, Me.Text)
+            Else
+                report.xrVehicle.DataBindings.Add("Text", dset, "Vehicle")
+                report.xrSource.DataBindings.Add("Text", dset, "Source")
+                report.xrTankName.DataBindings.Add("Text", dset, "Tank")
+                report.xrSupplier.DataBindings.Add("Text", dset, "Supplier")
+                report.xrProduct.DataBindings.Add("Text", dset, "Product")
+                report.xrQty.DataBindings.Add("Text", dset, "Qty")
+                report.xrUom.DataBindings.Add("Text", dset, "UomCode")
+                report.xrPrice.DataBindings.Add("Text", dset, "Price")
+                report.xrAmount.DataBindings.Add("Text", dset, "TotalAmount")
+                report.xrDate.DataBindings.Add("Text", dset, "Added_at")
+                report.xrPoNo.DataBindings.Add("Text", dset, "PO#")
+                report.DataSource = dset
+                report.CreateDocument()
+                dvstatus.DocumentSource = report
+                dvstatus.Refresh()
+            End If
         End If
         Return True
     End Function

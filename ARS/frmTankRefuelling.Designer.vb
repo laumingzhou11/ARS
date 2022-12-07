@@ -142,11 +142,13 @@ Partial Class frmTankRefuelling
         'btnDelete
         '
         Me.btnDelete.Caption = "&DELETE"
+        Me.btnDelete.Enabled = False
         Me.btnDelete.Id = 71
         Me.btnDelete.ImageOptions.Image = CType(resources.GetObject("btnDelete.ImageOptions.Image"), System.Drawing.Image)
         Me.btnDelete.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ItemAppearance.Normal.Options.UseFont = True
         Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'Bar3
         '

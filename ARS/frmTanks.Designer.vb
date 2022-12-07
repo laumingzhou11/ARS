@@ -149,7 +149,7 @@ Partial Class frmTanks
         'BarButtonItem3
         '
         Me.BarButtonItem3.AllowRightClickInMenu = False
-        Me.BarButtonItem3.Caption = "DELETE"
+        Me.BarButtonItem3.Caption = "&PRINT"
         Me.BarButtonItem3.Id = 3
         Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
         Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)

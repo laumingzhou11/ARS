@@ -160,6 +160,7 @@ Partial Class frmAutoReport
         Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.btnfilter)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IconOptions.Image = Global.ARS.My.Resources.Resources.icons8_report_file_32
         Me.MaximizeBox = False
         Me.MinimizeBox = False

@@ -30,6 +30,7 @@ Partial Class frmAutoRefuelling
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.btnadd = New DevExpress.XtraBars.BarButtonItem()
         Me.btnedit = New DevExpress.XtraBars.BarButtonItem()
+        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         Me.Bar3 = New DevExpress.XtraBars.Bar()
         Me.lblcount = New DevExpress.XtraBars.BarStaticItem()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
@@ -48,7 +49,6 @@ Partial Class frmAutoRefuelling
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.dgAutoRefuelling = New DevExpress.XtraGrid.GridControl()
         Me.gvAutoRefuelling = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.btnDelete = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.txtsearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPageNumberEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -146,6 +146,17 @@ Partial Class frmAutoRefuelling
         Me.btnedit.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnedit.ItemAppearance.Normal.Options.UseFont = True
         Me.btnedit.Name = "btnedit"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Caption = "&DELETE"
+        Me.btnDelete.Id = 71
+        Me.btnDelete.ImageOptions.Image = CType(resources.GetObject("btnDelete.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnDelete.ImageOptions.LargeImage = CType(resources.GetObject("btnDelete.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.btnDelete.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ItemAppearance.Normal.Options.UseFont = True
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'Bar3
         '
@@ -331,16 +342,6 @@ Partial Class frmAutoRefuelling
         Me.gvAutoRefuelling.OptionsView.EnableAppearanceEvenRow = True
         Me.gvAutoRefuelling.OptionsView.EnableAppearanceOddRow = True
         Me.gvAutoRefuelling.OptionsView.ShowFooter = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Caption = "&DELETE"
-        Me.btnDelete.Id = 71
-        Me.btnDelete.ImageOptions.Image = CType(resources.GetObject("btnDelete.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnDelete.ImageOptions.LargeImage = CType(resources.GetObject("btnDelete.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.btnDelete.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.ItemAppearance.Normal.Options.UseFont = True
-        Me.btnDelete.Name = "btnDelete"
         '
         'frmAutoRefuelling
         '
