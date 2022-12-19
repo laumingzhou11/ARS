@@ -25,9 +25,9 @@ Partial Public Class xrVehicle
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine()
         Me.XrLine4 = New DevExpress.XtraReports.UI.XRLine()
-        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
         Me.XrTable1 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow1 = New DevExpress.XtraReports.UI.XRTableRow()
@@ -50,6 +50,8 @@ Partial Public Class xrVehicle
         Me.XrTableCell1 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell11 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.ReportFooter = New DevExpress.XtraReports.UI.ReportFooterBand()
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,20 +110,6 @@ Partial Public Class xrVehicle
         Me.XrLine4.StylePriority.UseBorderDashStyle = False
         Me.XrLine4.StylePriority.UseBorders = False
         '
-        'XrPageInfo2
-        '
-        Me.XrPageInfo2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrPageInfo2.ForeColor = System.Drawing.Color.Black
-        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(0.00007947286!, 4.166666!)
-        Me.XrPageInfo2.Name = "XrPageInfo2"
-        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(1240.0!, 27.99998!)
-        Me.XrPageInfo2.StylePriority.UseFont = False
-        Me.XrPageInfo2.StylePriority.UseForeColor = False
-        Me.XrPageInfo2.StylePriority.UseTextAlignment = False
-        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-        Me.XrPageInfo2.TextFormatString = "Page {0} of {1}"
-        '
         'XrPageInfo1
         '
         Me.XrPageInfo1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -159,6 +147,20 @@ Partial Public Class xrVehicle
         Me.XrLabel17.StylePriority.UseTextAlignment = False
         Me.XrLabel17.Text = "Note: This is a system generated report."
         Me.XrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        '
+        'XrPageInfo2
+        '
+        Me.XrPageInfo2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrPageInfo2.ForeColor = System.Drawing.Color.Black
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(0.00007947286!, 4.166666!)
+        Me.XrPageInfo2.Name = "XrPageInfo2"
+        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(1240.0!, 27.99998!)
+        Me.XrPageInfo2.StylePriority.UseFont = False
+        Me.XrPageInfo2.StylePriority.UseForeColor = False
+        Me.XrPageInfo2.StylePriority.UseTextAlignment = False
+        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        Me.XrPageInfo2.TextFormatString = "Page {0} of {1}"
         '
         'Detail
         '
@@ -385,9 +387,39 @@ Partial Public Class xrVehicle
         Me.XrTableCell12.Text = "STATUS"
         Me.XrTableCell12.Weight = 1.1366177939154758R
         '
+        'ReportFooter
+        '
+        Me.ReportFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel1})
+        Me.ReportFooter.HeightF = 31.2042!
+        Me.ReportFooter.Name = "ReportFooter"
+        '
+        'XrLabel1
+        '
+        Me.XrLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.XrLabel1.BorderColor = System.Drawing.Color.Transparent
+        Me.XrLabel1.Borders = DevExpress.XtraPrinting.BorderSide.None
+        Me.XrLabel1.BorderWidth = 2.0!
+        Me.XrLabel1.Font = New System.Drawing.Font("Tahoma", 9.0!)
+        Me.XrLabel1.ForeColor = System.Drawing.Color.Black
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 6.974157!)
+        Me.XrLabel1.Multiline = True
+        Me.XrLabel1.Name = "XrLabel1"
+        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(1240.0!, 18.0!)
+        Me.XrLabel1.StylePriority.UseBackColor = False
+        Me.XrLabel1.StylePriority.UseBorderColor = False
+        Me.XrLabel1.StylePriority.UseBorders = False
+        Me.XrLabel1.StylePriority.UseBorderWidth = False
+        Me.XrLabel1.StylePriority.UseFont = False
+        Me.XrLabel1.StylePriority.UseForeColor = False
+        Me.XrLabel1.StylePriority.UsePadding = False
+        Me.XrLabel1.StylePriority.UseTextAlignment = False
+        Me.XrLabel1.Text = ">>>>>>>>>>>>Nothing Follows<<<<<<<<<<<<"
+        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        '
         'xrVehicle
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.TopMargin, Me.BottomMargin, Me.Detail, Me.PageHeader})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.TopMargin, Me.BottomMargin, Me.Detail, Me.PageHeader, Me.ReportFooter})
         Me.Font = New System.Drawing.Font("Arial", 9.75!)
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(30, 30, 80, 39)
@@ -431,4 +463,6 @@ Partial Public Class xrVehicle
     Friend WithEvents XrTableCell1 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell11 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell12 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents ReportFooter As DevExpress.XtraReports.UI.ReportFooterBand
+    Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
 End Class

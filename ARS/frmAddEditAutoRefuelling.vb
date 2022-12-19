@@ -411,4 +411,9 @@ Public Class frmAddEditAutoRefuelling
     Private Sub lblMake_Click(sender As Object, e As EventArgs) Handles lblMake.Click
 
     End Sub
+
+    Private Sub PictureEdit1_Click(sender As Object, e As EventArgs) Handles PictureEdit1.Click
+        frmSelectVehicle.txtsearch.Select()
+        frmSelectVehicle.ShowDialog()
+    End Sub
 End Class

@@ -288,7 +288,7 @@ Partial Class frmInventory
         Me.Controls.Add(Me.BarDockControl1)
         Me.IconOptions.Image = Global.ARS.My.Resources.Resources.icons8_inventory_flow_16
         Me.Name = "frmInventory"
-        Me.Text = "frmInventory"
+        Me.Text = "Tank Inventory"
         CType(Me.dgInventory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gvInventory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
