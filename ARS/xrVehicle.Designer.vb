@@ -390,7 +390,7 @@ Partial Public Class xrVehicle
         'ReportFooter
         '
         Me.ReportFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel1})
-        Me.ReportFooter.HeightF = 31.2042!
+        Me.ReportFooter.HeightF = 38.17835!
         Me.ReportFooter.Name = "ReportFooter"
         '
         'XrLabel1
@@ -405,7 +405,7 @@ Partial Public Class xrVehicle
         Me.XrLabel1.Multiline = True
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(1240.0!, 18.0!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(1240.0!, 26.33333!)
         Me.XrLabel1.StylePriority.UseBackColor = False
         Me.XrLabel1.StylePriority.UseBorderColor = False
         Me.XrLabel1.StylePriority.UseBorders = False
@@ -414,7 +414,7 @@ Partial Public Class xrVehicle
         Me.XrLabel1.StylePriority.UseForeColor = False
         Me.XrLabel1.StylePriority.UsePadding = False
         Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = ">>>>>>>>>>>>Nothing Follows<<<<<<<<<<<<"
+        Me.XrLabel1.Text = "> > > > > > > > > > > > N O T H I N G  F O L L O W S < < < < < < < < < < < <"
         Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
         'xrVehicle
