@@ -50,6 +50,7 @@ Public Class frmAddEditAutoRefuelling
                     btnsave.Enabled = True
                     btncancel.Enabled = True
                 End If
+
                 Call PopulateHistory()
                 txtcode.Text = ""
             Else
@@ -324,9 +325,6 @@ Public Class frmAddEditAutoRefuelling
         Return True
     End Function
 
-    Private Sub txtcode_EditValueChanged(sender As Object, e As EventArgs) Handles txtcode.EditValueChanged
-
-    End Sub
 
     Private Sub btnSelectTank_Click(sender As Object, e As EventArgs) Handles btnSelectTank.Click
         frmSelectTank.lblSelectTank.Text = "Auto"

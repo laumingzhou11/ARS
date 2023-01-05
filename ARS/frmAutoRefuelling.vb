@@ -24,6 +24,7 @@ Public Class frmAutoRefuelling
         frmAddEditAutoRefuelling.xclear()
         frmAddEditAutoRefuelling.ShowDialog()
         frmAddEditAutoRefuelling.GCQrCode.Enabled = True
+
     End Sub
     Function populateAuto() As Boolean
         Call konneksyon()
